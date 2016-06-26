@@ -34,6 +34,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -72,7 +73,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
 
-        if self.category != nil {
+        if self.language != nil {
             self.client.getSongsByLanguage(nil, language: self.language!.rawValue, page: self.page, complete: { (songs, flag) in
                 if flag {
                     if songs!.count == 0 {
@@ -216,13 +217,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let payload = TCSocketPayload()
         if self.cloud {
             let cloud = self.clouds[indexPath.row]
-            payload.cmdType = "1003"
+            payload.cmdType = 1003
             payload.cmdContent = "\(cloud.songNum)"
         } else if self.download {
         } else if self.ordered {
         } else {
             let song = self.songs[indexPath.row]
-            payload.cmdType = "1003"
+            payload.cmdType = 1003
             payload.cmdContent = "\(song.songNum)"
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
@@ -235,7 +236,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let indexPath = self.collectionView.indexPathForCell(cell)
         if self.ordered {
             let ordered = self.ordereds[indexPath!.row]
-            payload.cmdType = "1002"
+            payload.cmdType = 1002
             payload.cmdContent = "\(ordered.songNum)"
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
@@ -246,16 +247,16 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let indexPath = self.collectionView.indexPathForCell(cell)
         if self.cloud {
             let cloud = self.clouds[indexPath!.row]
-            payload.cmdType = "1004"
+            payload.cmdType = 1004
             payload.cmdContent = "\(cloud.songNum)"
         } else if self.download {
         } else if self.ordered {
             let ordered = self.ordereds[indexPath!.row]
-            payload.cmdType = "1001"
+            payload.cmdType = 1001
             payload.cmdContent = "\(ordered.songNum)"
         } else {
             let song = self.songs[indexPath!.row]
-            payload.cmdType = "1004"
+            payload.cmdType = 1004
             payload.cmdContent = "\(song.songNum)"
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)

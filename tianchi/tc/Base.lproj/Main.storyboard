@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="xiY-Kx-eTK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="xiY-Kx-eTK">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -72,7 +72,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="716" height="155"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fU-t9-mE9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="233" height="155"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="234" height="155"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-Dd-8gi">
                                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="155"/>
@@ -104,14 +104,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kk9-v3-GEQ">
-                                                                <rect key="frame" x="241" y="0.0" width="234" height="155"/>
+                                                                <rect key="frame" x="242" y="0.0" width="233" height="155"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-3h-gru">
+                                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-3h-gru">
                                                                         <rect key="frame" x="0.0" y="0.0" width="234" height="155"/>
                                                                         <state key="normal" image="main_movie" backgroundImage="main_button_normal"/>
                                                                         <state key="highlighted" backgroundImage="main_button_highlighted"/>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电影模式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vb-6b-jXS">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="电影模式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vb-6b-jXS">
                                                                         <rect key="frame" x="158" y="116" width="68" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="SL5-qy-FsY"/>
@@ -133,7 +133,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-eA-2Vz">
-                                                                <rect key="frame" x="483" y="0.0" width="233" height="155"/>
+                                                                <rect key="frame" x="483" y="0.0" width="234" height="155"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_app" translatesAutoresizingMaskIntoConstraints="NO" id="Du7-xY-TlB">
                                                                         <rect key="frame" x="131" y="79" width="33" height="33"/>
@@ -174,7 +174,7 @@
                                                         <rect key="frame" x="0.0" y="163" width="716" height="155"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaD-hj-DrC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="233" height="155"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="234" height="155"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66i-9u-D7m">
                                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="155"/>
@@ -203,14 +203,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-MN-2fg">
-                                                                <rect key="frame" x="241" y="0.0" width="234" height="155"/>
+                                                                <rect key="frame" x="242" y="0.0" width="233" height="155"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YS-W3-j14">
+                                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YS-W3-j14">
                                                                         <rect key="frame" x="0.0" y="0.0" width="234" height="155"/>
                                                                         <state key="normal" image="main_volumn" backgroundImage="main_button_normal"/>
                                                                         <state key="highlighted" backgroundImage="main_button_highlighted"/>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音量控制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-am-hg9">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="音量控制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-am-hg9">
                                                                         <rect key="frame" x="158" y="116" width="68" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="CBg-U5-976"/>
@@ -232,7 +232,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UA3-ef-6tR">
-                                                                <rect key="frame" x="483" y="0.0" width="233" height="155"/>
+                                                                <rect key="frame" x="483" y="0.0" width="234" height="155"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZs-Im-bud">
                                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="155"/>
@@ -423,7 +423,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-wv-tUd" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
-                                                <rect key="frame" x="456" y="0.0" width="112" height="80"/>
+                                                <rect key="frame" x="456" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="暂停" image="ktv_song_bottom_pause"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                 <connections>
@@ -431,13 +431,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-4L-3Zl">
-                                                <rect key="frame" x="568" y="0.0" width="1" height="80"/>
+                                                <rect key="frame" x="569" y="0.0" width="1" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="JD2-w8-zGE"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wua-E4-Yhz" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
-                                                <rect key="frame" x="569" y="0.0" width="113" height="80"/>
+                                                <rect key="frame" x="570" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="原唱" image="ktv_song_bottom_singer"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                 <connections>
@@ -445,13 +445,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="7DI-dG-AAH">
-                                                <rect key="frame" x="682" y="0.0" width="1" height="80"/>
+                                                <rect key="frame" x="683" y="0.0" width="1" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="1" id="5Ix-xc-0Bz"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-kX-fif" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
-                                                <rect key="frame" x="683" y="0.0" width="113" height="80"/>
+                                                <rect key="frame" x="684" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="切歌" image="ktv_song_bottom_switch"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                 <connections>
@@ -683,11 +683,11 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t70-EY-wGu">
-                                        <rect key="frame" x="455" y="0.0" width="14" height="404"/>
+                                        <rect key="frame" x="455" y="0.0" width="15" height="404"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-Rf-wOd">
-                                        <rect key="frame" x="469" y="0.0" width="220" height="404"/>
+                                        <rect key="frame" x="470" y="0.0" width="220" height="404"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnF-pn-I45">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="162"/>
@@ -764,7 +764,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dra-Tm-fIi">
-                                        <rect key="frame" x="689" y="0.0" width="15" height="404"/>
+                                        <rect key="frame" x="690" y="0.0" width="15" height="404"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8E1-Rl-ozR">
@@ -944,13 +944,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="冰雨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pql-iO-AuR">
-                                                            <rect key="frame" x="99" y="8" width="42" height="21"/>
+                                                            <rect key="frame" x="99" y="8" width="149" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="刘德华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT5-rU-r6Z">
-                                                            <rect key="frame" x="100" y="30" width="42" height="21"/>
+                                                            <rect key="frame" x="100" y="30" width="148" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -995,6 +995,10 @@
                                                     <constraint firstItem="9yQ-DM-6bo" firstAttribute="leading" secondItem="dGJ-dL-0lU" secondAttribute="leading" id="pRZ-Du-dnI"/>
                                                     <constraint firstAttribute="trailing" secondItem="I3G-hW-KKS" secondAttribute="trailing" constant="8" id="wqJ-Yh-QcJ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="singerNameLabel" destination="kT5-rU-r6Z" id="ibF-fp-9rN"/>
+                                                    <outlet property="songNameLabel" destination="pql-iO-AuR" id="C4i-wz-rzo"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -1525,6 +1529,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="上一页" backgroundImage="ktv_song_button"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
+                                                        <connections>
+                                                            <action selector="prePage:" destination="fAM-Cw-tgh" eventType="touchUpInside" id="gB6-VP-F38"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dg2-Nh-6EB">
                                                         <rect key="frame" x="174" y="38" width="70" height="30"/>
@@ -1535,6 +1542,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="下一页" backgroundImage="ktv_song_button"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
+                                                        <connections>
+                                                            <action selector="nextPage:" destination="fAM-Cw-tgh" eventType="touchUpInside" id="pQL-LV-UDu"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1784,9 +1794,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="828" height="210"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FU-dJ-5vT">
-                                                <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqJ-mL-kI1">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqJ-mL-kI1">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
                                                         <state key="normal" image="ktv_song_language_chinese" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -1816,9 +1826,9 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpc-EA-ane">
-                                                <rect key="frame" x="293" y="0.0" width="242" height="210"/>
+                                                <rect key="frame" x="294" y="0.0" width="241" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMI-YP-QbG">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMI-YP-QbG">
                                                         <rect key="frame" x="0.0" y="0.0" width="242" height="210"/>
                                                         <state key="normal" image="ktv_song_language_hongkong" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -1826,7 +1836,7 @@
                                                             <segue destination="3cd-8i-EOB" kind="push" animates="NO" id="aYj-5P-MLa"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粤语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9j-ce-Sgw">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="粤语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9j-ce-Sgw">
                                                         <rect key="frame" x="156" y="171" width="68" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="NuK-XY-5XC"/>
@@ -1848,9 +1858,9 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-3A-KjR">
-                                                <rect key="frame" x="587" y="0.0" width="241" height="210"/>
+                                                <rect key="frame" x="587" y="0.0" width="242" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qm8-Wf-EXA">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qm8-Wf-EXA">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
                                                         <state key="normal" image="ktv_song_language_taiwan" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -1889,9 +1899,9 @@
                                         <rect key="frame" x="0.0" y="218" width="828" height="210"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQu-YQ-VMk">
-                                                <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSv-5H-nBD">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSv-5H-nBD">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
                                                         <state key="normal" image="ktv_song_language_english" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -1921,9 +1931,9 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-O6-LIq">
-                                                <rect key="frame" x="293" y="0.0" width="242" height="210"/>
+                                                <rect key="frame" x="294" y="0.0" width="241" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-gV-wlx">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXX-gV-wlx">
                                                         <rect key="frame" x="0.0" y="0.0" width="242" height="210"/>
                                                         <state key="normal" image="ktv_song_language_korea" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -1931,7 +1941,7 @@
                                                             <segue destination="3cd-8i-EOB" kind="push" animates="NO" id="rj3-iA-HC5"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="韩语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-G9-Jym">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="韩语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHA-G9-Jym">
                                                         <rect key="frame" x="156" y="171" width="68" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="KCQ-Qz-ho2"/>
@@ -1953,9 +1963,9 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fe-d7-zlD">
-                                                <rect key="frame" x="587" y="0.0" width="241" height="210"/>
+                                                <rect key="frame" x="587" y="0.0" width="242" height="210"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwM-8m-awZ">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwM-8m-awZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="210"/>
                                                         <state key="normal" image="ktv_song_language_japan" backgroundImage="ktv_song_language_n"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_language_h"/>
@@ -2103,6 +2113,6 @@
         <image name="main_volumn" width="52" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6SW-5s-mpk"/>
+        <segue reference="rj3-iA-HC5"/>
     </inferredMetricsTieBreakers>
 </document>

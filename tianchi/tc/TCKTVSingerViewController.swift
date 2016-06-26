@@ -17,7 +17,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     var page:Int = 1
     var client = TCKTVSingerClient()
     var singers:[TCKTVSinger] = [TCKTVSinger]()
-    
+    var hasMore:Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +61,12 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     func loadData() {
         self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page) { (singers, flag) in
             if flag {
+                if singers!.count == 0 {
+                    self.page = self.page - 1
+                    self.hasMore = false
+                    return
+                }
+
                 self.singers = singers!
                 self.collectionView.reloadData()
             } else {
@@ -91,6 +98,20 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         self.loadData()
     }
 
+    @IBAction func prePage(sender: AnyObject) {
+        if self.page == 1 {
+            return
+        }
+        self.page = self.page - 1
+        self.loadData()
+    }
+    
+    @IBAction func nextPage(sender: AnyObject) {
+        if self.hasMore {
+            self.page = self.page + 1
+            self.loadData()
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

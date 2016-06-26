@@ -72,43 +72,43 @@ class TCKTVMainViewController: UIViewController {
     
     @IBAction func muteAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1203"
+        payload.cmdType = 1203
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnUpAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1201"
+        payload.cmdType = 1201
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnDownAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1202"
+        payload.cmdType = 1202
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func pauseAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1013"
+        payload.cmdType = 1103
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func originAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1014"
+        payload.cmdType = 1104
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func switchAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1012"
+        payload.cmdType = 1102
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func replayAction(sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = "1011"
+        payload.cmdType = 1101
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     

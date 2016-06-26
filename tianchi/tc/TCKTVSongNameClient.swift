@@ -10,16 +10,16 @@ import UIKit
 
 class TCKTVSongClient: NSObject {
 
-    let path = "TianChiServer/GetSongList/"
-    let cloudPath = "TianChiServer/GetCloundList/"
-    let rankingPath = "TianChiServer/GetRankingSongList/"
-    let orderedPath = "TianChiServer/GetPointList/"
-    let downloadPath = "TianChiServer/GetDownloadList/"
+    let path = "TianChiServer/GetSongList"
+    let cloudPath = "TianChiServer/GetCloundList"
+    let rankingPath = "TianChiServer/GetRankingSongList"
+    let orderedPath = "TianChiServer/GetPointList"
+    let downloadPath = "TianChiServer/GetDownloadList"
     
     var client:MCJSONClient? = {
         var c:MCJSONClient?
         if let url = TCContext.sharedContext().serverAddress {
-            c = MCJSONClient(baseURL: NSURL(string: String(format: "http://%s:8080/", url)))
+            c = MCJSONClient(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
         }
         return c
     }()

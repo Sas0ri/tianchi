@@ -91,7 +91,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         let payload = TCSocketPayload()
         let song = self.songs[indexPath.row]
-        payload.cmdType = "1003"
+        payload.cmdType = 1003
         payload.cmdContent = "\(song.songNum)"
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -111,7 +111,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let indexPath = self.collectionView.indexPathForCell(cell)
         let payload = TCSocketPayload()
         let song = self.songs[indexPath!.row]
-        payload.cmdType = "1004"
+        payload.cmdType = 1004
         payload.cmdContent = "\(song.songNum)"
         TCContext.sharedContext().socketManager.sendPayload(payload)
 

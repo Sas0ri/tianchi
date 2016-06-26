@@ -12,7 +12,13 @@ var _sharedContext:TCContext = TCContext()
 
 class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
-    var serverAddress:String?
+    var serverAddress:String? {
+        didSet {
+            if let sa = serverAddress {
+                NSUserDefaults.standardUserDefaults().setObject(sa, forKey: "SA")
+            }
+        }
+    }
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
     
@@ -20,6 +26,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         case Address = 501
         case Verify = 502
         case Both = 503
+        case Reconnect = 504
     }
     
     static func sharedContext() -> TCContext {
@@ -29,37 +36,50 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     override init() {
         super.init()
         self.socketManager.delegate = self
+        self.serverAddress = NSUserDefaults.standardUserDefaults().objectForKey("SA") as? String
+        if self.serverAddress != nil {
+            self.socketManager.address = self.serverAddress
+            self.socketManager.port = 9596
+            self.socketManager.connect()
+        } else {
+            self.showInputAddress()
+        }
     }
     
     func didReceivePayload(payload: TCSocketPayload) {
-        if payload.cmdType == "1900" {
+        if payload.cmdType == 1900 {
             self.showVerify()
             return
         }
-        if payload.cmdType == "1901" {
+        if payload.cmdType == 1901 {
             self.verifyAlertView?.dismissWithClickedButtonIndex(0, animated: false)
             return
         }
-        if payload.cmdType == "1902" {
+        if payload.cmdType == 1902 {
             self.showBoth()
             return
         }
         TCKTVPayloadHandler.sharedHandler().handlePayload(payload)
     }
     
+    func connectFailed() {
+        self.didDisconnect()
+    }
+    
     func didDisconnect() {
-        let alertView = UIAlertView(title: nil, message: "与服务端断开连接", delegate: nil, cancelButtonTitle: "确定")
+        let alertView = UIAlertView(title: "", message: "与服务器断开连接", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
+        alertView.tag = AlertTag.Reconnect.rawValue
         alertView.show()
     }
     
     func showBoth() {
-        let alertView = UIAlertView(title: "", message: "请选择", delegate: self, cancelButtonTitle: "重新输入IP地址", otherButtonTitles: "重新输入验证码")
+        let alertView = UIAlertView(title: "", message: "请选择", delegate: self, cancelButtonTitle: "重新输入服务器地址", otherButtonTitles: "重新输入验证码")
         alertView.tag = AlertTag.Both.rawValue
         alertView.show()
     }
     
     func showInputAddress() {
-        let alertView = UIAlertView(title: nil, message: "输入服务端地址", delegate: self, cancelButtonTitle: "确定")
+        let alertView = UIAlertView(title: nil, message: "输入服务器地址", delegate: self, cancelButtonTitle: "确定")
         alertView.alertViewStyle = .PlainTextInput
         alertView.tag = AlertTag.Address.rawValue
         alertView.show()
@@ -79,7 +99,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         } else if alertView.tag == AlertTag.Verify.rawValue {
             let textField = alertView.textFieldAtIndex(0)
             let payload = TCSocketPayload()
-            payload.cmdType = "1900"
+            payload.cmdType = 1900
             payload.cmdContent = textField!.text
             self.socketManager.sendPayload(payload)
             
@@ -97,6 +117,12 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
                 self.showInputAddress()
             } else if buttonIndex == 1 {
                 self.showVerify()
+            }
+        } else if alertView.tag == AlertTag.Reconnect.rawValue {
+            if buttonIndex == 0 {
+                self.socketManager.connect()
+            } else if buttonIndex == 1 {
+                self.showInputAddress()
             }
         }
     }
