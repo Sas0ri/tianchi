@@ -30,7 +30,9 @@ class TCKTVSongClient: NSObject {
             params["py"] = keyword!
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["words"] = words
+        if words.characters.count > 0 {
+            params["words"] = words
+        }
         params["page"] = NSNumber(integer: page)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
             var songs = [TCKTVSong]()
@@ -45,10 +47,13 @@ class TCKTVSongClient: NSObject {
         })
     }
     
-    func getSongsByCategory(keyword:String?, type:String, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByCategory(keyword:String?, words:String, type:String, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
+        }
+        if words.characters.count > 0 {
+            params["words"] = words
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["type"] = type
@@ -87,10 +92,13 @@ class TCKTVSongClient: NSObject {
         })
     }
     
-    func getSongsByLanguage(keyword:String?, language:Int, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByLanguage(keyword:String?, words:String, language:Int, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
+        }
+        if words.characters.count > 0 {
+            params["words"] = words
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["language"] = NSNumber(integer: language)
@@ -128,10 +136,13 @@ class TCKTVSongClient: NSObject {
         })
     }
 
-    func getCloudSongs(keyword:String?, page:Int, complete: (clouds:[TCKTVCloud]?, flag:Bool)->()) {
+    func getCloudSongs(keyword:String?, words:String, page:Int, complete: (clouds:[TCKTVCloud]?, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
+        }
+        if words.characters.count > 0 {
+            params["words"] = words
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["page"] = NSNumber(integer: page)

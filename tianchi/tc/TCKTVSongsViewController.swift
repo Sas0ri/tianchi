@@ -8,10 +8,12 @@
 
 import UIKit
 
-class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, TCKTVSongCellDelegate {
+class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate,TCKTVSongCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var singer:String?
     var language:TCKTVLanguage?
@@ -22,19 +24,27 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     var ordered:Bool = false
     
     var page:Int = 1
-    var hasMore:Bool = true
-    var words:String = "1"
+    var words:String = ""
     var client = TCKTVSongClient()
     var songs:[TCKTVSong] = [TCKTVSong]()
-    var downloads:[TCKTVDownload] = [TCKTVDownload]()
     var clouds:[TCKTVCloud] = [TCKTVCloud]()
     var ordereds:[TCKTVPoint] = [TCKTVPoint]()
     
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var pageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.segmentedControl.selectedSegmentIndex - 1
         self.loadData()
+        if self.download || self.cloud {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadLoadedNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadUpdatedNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadRemovedNotification, object: nil)
+        }
+        if self.ordered {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVOrderedUpdatedNotification, object: nil)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,95 +62,108 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func segChanged(sender: AnyObject) {
+        self.page = 1
+        self.words = "\(self.segmentedControl.selectedSegmentIndex)"
+        self.loadData()
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.page = 1
+        self.loadData()
     }
     
     func loadData() {
         if self.singer != nil {
             self.client.getSongsBySinger(nil, singer: self.singer!, page: self.page, complete: { (songs, flag) in
                 if flag {
-                    if songs!.count == 0 {
+                    if songs!.count == 0 && self.page > 1 {
                         self.page = self.page - 1
-                        self.hasMore = false
-                        return
+                    } else {
+                        self.songs = songs!
+                        self.collectionView.reloadData()
                     }
-                    self.songs = songs!
-                    self.collectionView.reloadData()
                 } else {
+                    if self.page > 1 {
+                        self.page = self.page - 1
+                    }
                     self.view.showTextAndHide("加载失败")
                 }
+                self.pageLabel.text = "\(self.page)"
             })
         }
 
         if self.language != nil {
-            self.client.getSongsByLanguage(nil, language: self.language!.rawValue, page: self.page, complete: { (songs, flag) in
+            self.client.getSongsByLanguage(self.searchBar.text, words: self.words, language: self.language!.rawValue, page: self.page, complete: { (songs, flag) in
                 if flag {
-                    if songs!.count == 0 {
+                    if songs!.count == 0 && self.page > 1 {
                         self.page = self.page - 1
-                        self.hasMore = false
-                        return
+                    } else {
+                        self.songs = songs!
+                        self.collectionView.reloadData()
                     }
-                    self.songs = songs!
-                    self.collectionView.reloadData()
                 } else {
                     self.view.showTextAndHide("加载失败")
                 }
+                self.pageLabel.text = "\(self.page)"
             })
         }
         
         if self.category != nil {
-            self.client.getSongsByCategory(nil, type: self.category!, page: self.page, complete: { (songs, flag) in
+            self.client.getSongsByCategory(self.searchBar.text, words: self.words, type: self.category!, page: self.page, complete: { (songs, flag) in
                 if flag {
-                    if songs!.count == 0 {
+                    if songs!.count == 0 && self.page > 1 {
                         self.page = self.page - 1
-                        self.hasMore = false
-                        return
+                    } else {
+                        self.songs = songs!
+                        self.collectionView.reloadData()
                     }
-                    self.songs = songs!
-                    self.collectionView.reloadData()
                 } else {
+                    if self.page > 1 {
+                        self.page = self.page - 1
+                    }
                     self.view.showTextAndHide("加载失败")
                 }
+                self.pageLabel.text = "\(self.page)"
             })
         }
         if self.ranking {
             self.client.getRankingSongs(nil, page: self.page, complete: { (songs, flag) in
                 if flag {
-                    if songs!.count == 0 {
+                    if songs!.count == 0 && self.page > 1 {
                         self.page = self.page - 1
-                        self.hasMore = false
-                        return
+                    } else {
+                        self.songs = songs!
+                        self.collectionView.reloadData()
                     }
-                    self.songs = songs!
-                    self.collectionView.reloadData()
                 } else {
+                    if self.page > 1 {
+                        self.page = self.page - 1
+                    }
                     self.view.showTextAndHide("加载失败")
                 }
+                self.pageLabel.text = "\(self.page)"
             })
         }
         if self.download {
-            self.client.getDownloadSongs({ (downloads, flag) in
-                if flag {
-                    self.downloads = downloads!
-                    self.collectionView.reloadData()
-                } else {
-                    self.view.showTextAndHide("加载失败")
-                }
-            })
+       
         }
         if self.cloud {
-            self.client.getCloudSongs(nil, page: self.page, complete: { (clouds, flag) in
+            self.client.getCloudSongs(self.searchBar.text, words: self.words, page: self.page, complete: { (clouds, flag) in
                 if flag {
-                    if clouds!.count == 0 {
+                    if clouds!.count == 0 && self.page > 1 {
                         self.page = self.page - 1
-                        self.hasMore = false
-                        return
+                    } else {
+                        self.clouds = clouds!
+                        self.collectionView.reloadData()
                     }
-                    self.clouds = clouds!
-                    self.collectionView.reloadData()
                 } else {
+                    if self.page > 1 {
+                        self.page = self.page - 1
+                    }
                     self.view.showTextAndHide("加载失败")
+                    self.pageLabel.text = "\(self.page)"
                 }
             })
         }
@@ -165,10 +188,8 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @IBAction func nextPage(sender: AnyObject) {
-        if self.hasMore {
-            self.page = self.page + 1
-            self.loadData()
-        }
+        self.page = self.page + 1
+        self.loadData()
     }
     
     // MARK: - CollectionView
@@ -181,7 +202,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             return self.clouds.count
         }
         if self.download {
-            return self.downloads.count
+            return TCContext.sharedContext().downloads.count
         }
         if self.ordered {
             return self.ordereds.count
@@ -195,8 +216,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let cloud = self.clouds[indexPath.row]
             cell.singerNameLabel.text = cloud.singer
             cell.songNameLabel.text = cloud.songName
+            let statusLabel = cell.viewWithTag(1) as! UILabel
+            let download = TCContext.sharedContext().downloads.first
+            statusLabel.text = download?.songNum == cloud.songNum ? "下载中" : "待下载"
         } else if self.download {
-            let download = self.downloads[indexPath.row]
+            let download = TCContext.sharedContext().downloads[indexPath.row]
             cell.singerNameLabel.text = download.singer
             cell.songNameLabel.text = download.songName
         } else if self.ordered {
@@ -238,6 +262,12 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let ordered = self.ordereds[indexPath!.row]
             payload.cmdType = 1002
             payload.cmdContent = "\(ordered.songNum)"
+            self.ordereds.removeAtIndex(indexPath!.row)
+            self.collectionView.deleteItemsAtIndexPaths([indexPath!])
+        } else {
+            let song = self.songs[indexPath!.row]
+            payload.cmdType = 1003
+            payload.cmdContent = "\(song.songNum)"
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -246,9 +276,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let payload = TCSocketPayload()
         let indexPath = self.collectionView.indexPathForCell(cell)
         if self.cloud {
-            let cloud = self.clouds[indexPath!.row]
-            payload.cmdType = 1004
-            payload.cmdContent = "\(cloud.songNum)"
+           
         } else if self.download {
         } else if self.ordered {
             let ordered = self.ordereds[indexPath!.row]
@@ -260,6 +288,16 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             payload.cmdContent = "\(song.songNum)"
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    func reloadData(sender:NSNotification) {
+        self.collectionView.reloadData()
+    }
+    
+    deinit {
+        if self.download {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }
     }
     /*
     // MARK: - Navigation

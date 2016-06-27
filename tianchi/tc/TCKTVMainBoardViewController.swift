@@ -68,12 +68,13 @@ class TCKTVMainBoardViewController: UIViewController {
     }
     
     @IBAction func cloudAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs_from_cloud") as! TCKTVSongsViewController
         songNameVC.cloud = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
+    
     @IBAction func downloadAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs_from_download") as! TCKTVSongsViewController
         songNameVC.download = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }

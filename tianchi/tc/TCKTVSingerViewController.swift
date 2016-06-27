@@ -13,11 +13,11 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var pageLabel: UILabel!
     
     var page:Int = 1
     var client = TCKTVSingerClient()
     var singers:[TCKTVSinger] = [TCKTVSinger]()
-    var hasMore:Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(14)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
-        self.segmentedControl.selectedSegmentIndex = 0
+        self.segmentedControl.selectedSegmentIndex = -1
         // Do any additional setup after loading the view.
         
         self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
@@ -61,15 +61,18 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     func loadData() {
         self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page) { (singers, flag) in
             if flag {
-                if singers!.count == 0 {
+                if singers!.count == 0 && self.page > 1{
                     self.page = self.page - 1
-                    self.hasMore = false
-                    return
+                } else {
+                    self.singers = singers!
+                    self.collectionView.reloadData()
                 }
-
-                self.singers = singers!
-                self.collectionView.reloadData()
+                self.pageLabel.text = "\(self.page)"
             } else {
+                if self.page > 1 {
+                    self.page = self.page - 1
+                }
+                self.pageLabel.text = "\(self.page)"
                 self.view.showTextAndHide("加载失败")
             }
         }
@@ -107,10 +110,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     }
     
     @IBAction func nextPage(sender: AnyObject) {
-        if self.hasMore {
-            self.page = self.page + 1
-            self.loadData()
-        }
+        self.page = self.page + 1
+        self.loadData()
     }
     // MARK: - Navigation
 
@@ -121,8 +122,6 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let singer = self.singers[indexPath!.row]
         let vc = segue.destinationViewController as! TCKTVSongsViewController
         vc.singer = singer.singerName
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 
 }

@@ -20,7 +20,7 @@ class TCKTVSingerClient: NSObject {
     
     func getSingers(keyword:String?, type:Int, page:Int, complete: (singers:[TCKTVSinger]?, flag:Bool)->()) {
         var params = [String: AnyObject]()
-        if keyword != nil {
+        if keyword?.characters.count > 0 {
             params["py"] = keyword!
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
@@ -28,8 +28,10 @@ class TCKTVSingerClient: NSObject {
             params["six"] = "STP1"
         } else if type == 1 || type == 3 {
             params["six"] = "STP2"
-        } else {
+        } else if type == 4 {
             params["six"] = "STP3"
+        } else {
+            params["six"] = "STP"
         }
         
         if type == 0 || type == 1 {

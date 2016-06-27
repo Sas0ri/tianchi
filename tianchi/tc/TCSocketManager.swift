@@ -13,6 +13,7 @@ protocol TCSocketManagerDelegate {
     func connectFailed()
     func didReceivePayload(payload:TCSocketPayload)
     func didDisconnect()
+    func didHandShake()
 }
 
 class TCSocketManager: NSObject, AsyncSocketDelegate {
@@ -95,6 +96,7 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
         //开始检测心跳
         if payload.cmdType == 1700 {
             self.startRepeatHeartbeat()
+            self.delegate?.didHandShake()
         } else if payload.cmdType == 1400 {
             self.startTimeoutTimer()
         } else {

@@ -22,6 +22,9 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
     
+    var downloads:[TCKTVDownload] = [TCKTVDownload]()
+    var client = TCKTVSongClient()
+
     enum AlertTag: Int {
         case Address = 501
         case Verify = 502
@@ -70,6 +73,19 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         let alertView = UIAlertView(title: "", message: "与服务器断开连接", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
         alertView.tag = AlertTag.Reconnect.rawValue
         alertView.show()
+    }
+    
+    func getDownload() {
+        self.client.getDownloadSongs({ (downloads, flag) in
+            if flag {
+                self.downloads = downloads!
+                NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadLoadedNotification, object: self)
+            }
+        })
+    }
+    
+    func didHandShake() {
+        self.getDownload()
     }
     
     func showBoth() {

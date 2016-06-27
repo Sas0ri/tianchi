@@ -49,7 +49,11 @@ class TCKTVMainViewController: UIViewController {
     }
     
     @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        if self.mainVC.viewControllers.count > 1 {
+            self.mainVC.popViewControllerAnimated(false)
+        } else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
