@@ -11,6 +11,8 @@
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
 		5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
 		5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
+		5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816111D2246BF00A0F513 /* TCMainButton.swift */; };
+		5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */; };
 		5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */; };
 		5CAA02181D17CD9800FE6DBD /* TCContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02171D17CD9800FE6DBD /* TCContext.swift */; };
 		5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */; };
@@ -75,6 +77,8 @@
 		5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCategoryViewController.swift; sourceTree = "<group>"; };
 		5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVLanguageViewController.swift; sourceTree = "<group>"; };
 		5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCVerticalButton.swift; sourceTree = "<group>"; };
+		5C5816111D2246BF00A0F513 /* TCMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCMainButton.swift; sourceTree = "<group>"; };
+		5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVMainButton.swift; sourceTree = "<group>"; };
 		5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5CAA02171D17CD9800FE6DBD /* TCContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCContext.swift; sourceTree = "<group>"; };
 		5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCJSONClient.swift; sourceTree = "<group>"; };
@@ -178,6 +182,39 @@
 				5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */,
 			);
 			name = Custom;
+			sourceTree = "<group>";
+		};
+		5C58160E1D22468B00A0F513 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5C58160F1D22469500A0F513 /* View */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		5C58160F1D22469500A0F513 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C5816131D2251B600A0F513 /* MainBoardButton */,
+				5C5816101D22469E00A0F513 /* MainButton */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5C5816101D22469E00A0F513 /* MainButton */ = {
+			isa = PBXGroup;
+			children = (
+				5C5816111D2246BF00A0F513 /* TCMainButton.swift */,
+			);
+			name = MainButton;
+			sourceTree = "<group>";
+		};
+		5C5816131D2251B600A0F513 /* MainBoardButton */ = {
+			isa = PBXGroup;
+			children = (
+				5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */,
+			);
+			name = MainBoardButton;
 			sourceTree = "<group>";
 		};
 		5CAA02141D17CCE500FE6DBD /* SwiftyJSON */ = {
@@ -410,6 +447,7 @@
 		5CE93E371D0E83EA00A536AC /* tc */ = {
 			isa = PBXGroup;
 			children = (
+				5C58160E1D22468B00A0F513 /* Main */,
 				5CAA021B1D17CDF900FE6DBD /* Global */,
 				5CE93E511D0FF2F500A536AC /* Lib */,
 				5CE93E491D0E9C8B00A536AC /* KTV */,
@@ -715,11 +753,13 @@
 				5CE93E951D0FF2F500A536AC /* UITableViewCell+FlatUI.m in Sources */,
 				5CAA02371D19198600FE6DBD /* MBProgressHUD.m in Sources */,
 				5CE93E8B1D0FF2F500A536AC /* UIBarButtonItem+FlatUI.m in Sources */,
+				5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */,
 				5CE93E4D1D0FDEA900A536AC /* TCKTVMainBoardViewController.swift in Sources */,
 				5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */,
 				5CAA02221D17D03100FE6DBD /* CocoaLumberjackSwift.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,
+				5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */,
 				5CE93E891D0FF2F500A536AC /* FUISegmentedControl.m in Sources */,
 				5CAA024C1D1929A300FE6DBD /* TCKTVSongNameClient.swift in Sources */,
 				5CE93E931D0FF2F500A536AC /* UIStepper+FlatUI.m in Sources */,

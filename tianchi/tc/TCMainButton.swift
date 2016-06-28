@@ -8,14 +8,28 @@
 
 import UIKit
 
+@IBDesignable
 class TCMainButton: UIButton {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Center image
+        if let imageView = self.imageView {
+            
+            var frame = imageView.frame
+            frame.size.height = 72/155*self.bounds.size.height
+            frame.size.width = frame.size.height
+            imageView.frame = frame
+            
+            var center = imageView.center;
+            center.x = self.frame.size.width/2;
+            center.y = self.frame.size.height/2 - (5 + self.titleLabel!.bounds.size.height)/2;
+            self.imageView?.center = center;
+            //Center text
+            
+        }
+        
     }
-    */
 
 }

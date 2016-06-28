@@ -8,9 +8,13 @@
 
 import UIKit
 
-var _sharedContext:TCContext = TCContext()
+let _sharedContext:TCContext = TCContext()
 
 class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
+    
+    class func sharedContext() -> TCContext {
+        return _sharedContext
+    }
     
     var serverAddress:String? {
         didSet {
@@ -19,11 +23,12 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             }
         }
     }
+    
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
     
     var downloads:[TCKTVDownload] = [TCKTVDownload]()
-    var client = TCKTVSongClient()
+    var client:TCKTVSongClient?
 
     enum AlertTag: Int {
         case Address = 501
@@ -32,9 +37,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         case Reconnect = 504
     }
     
-    static func sharedContext() -> TCContext {
-        return _sharedContext
-    }
+
     
     override init() {
         super.init()
@@ -66,7 +69,9 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     }
     
     func connectFailed() {
-        self.didDisconnect()
+        let alertView = UIAlertView(title: "", message: "无法连接服务器", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
+        alertView.tag = AlertTag.Reconnect.rawValue
+        alertView.show()
     }
     
     func didDisconnect() {
@@ -76,7 +81,10 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     }
     
     func getDownload() {
-        self.client.getDownloadSongs({ (downloads, flag) in
+        if self.client == nil {
+            self.client = TCKTVSongClient()
+        }
+        self.client!.getDownloadSongs({ (downloads, flag) in
             if flag {
                 self.downloads = downloads!
                 NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadLoadedNotification, object: self)

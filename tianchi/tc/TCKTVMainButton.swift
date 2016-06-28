@@ -8,14 +8,39 @@
 
 import UIKit
 
+@IBDesignable
 class TCKTVMainButton: UIButton {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Center image
+        if let imageView = self.imageView {
+            if UI_USER_INTERFACE_IDIOM() == .Phone {
+                self.titleLabel!.font = UIFont.systemFontOfSize(10)
+                var frame = imageView.frame
+                frame.size.width = frame.size.width/1.8
+                frame.size.height = frame.size.height/1.8
+                imageView.frame = frame
+            }
+            
+            var center = imageView.center;
+            center.x = self.frame.size.width/2;
+            center.y = self.frame.size.height/2 - (5 + self.titleLabel!.bounds.size.height)/2;
+            self.imageView?.center = center;
+            //Center text
+            
+            if let titleLabel = self.titleLabel {
+                
+                var newFrame = titleLabel.frame;
+                newFrame.origin.x = 0;
+                newFrame.origin.y = CGRectGetMaxY(imageView.frame) + 5;
+                newFrame.size.width = self.frame.size.width;
+                
+                self.titleLabel?.frame = newFrame;
+                self.titleLabel?.textAlignment = .Center;
+            }
+        }
+        
     }
-    */
-
 }
