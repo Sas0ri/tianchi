@@ -401,7 +401,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="1UN-bp-PZ4"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By6-9p-W1e" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By6-9p-W1e" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="静音" image="ktv_song_bottom_mute"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -415,7 +415,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="Dau-w2-qVj"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s3-97-ULb" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s3-97-ULb" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="228" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="音量+" image="ktv_song_bottom_volumn_up"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -429,7 +429,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="VNV-xT-btc"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-dt-rB5" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjr-dt-rB5" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="342" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="音量-" image="ktv_song_bottom_volumn_down"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -443,7 +443,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="OFC-Rq-pnQ"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-wv-tUd" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-wv-tUd" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="456" y="0.0" width="112" height="80"/>
                                                 <state key="normal" title="暂停" image="ktv_song_bottom_pause"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -457,7 +457,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="JD2-w8-zGE"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wua-E4-Yhz" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wua-E4-Yhz" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="569" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="原唱" image="ktv_song_bottom_singer"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -471,7 +471,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="5Ix-xc-0Bz"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-kX-fif" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-kX-fif" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="683" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="切歌" image="ktv_song_bottom_switch"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -485,7 +485,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="I1Z-cO-faa"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dt-qz-dsL" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dt-qz-dsL" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="797" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="重唱" image="ktv_song_bottom_replay"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -499,7 +499,7 @@
                                                     <constraint firstAttribute="width" constant="1" id="UwC-j0-S5P"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi8-jt-UXy" customClass="TCVerticalButton" customModule="tc" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi8-jt-UXy" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                 <rect key="frame" x="911" y="0.0" width="113" height="80"/>
                                                 <state key="normal" title="已点" image="ktv_song_bottom_song_list"/>
                                                 <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
@@ -596,7 +596,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuT-Tq-ZV5">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="404"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HB-ZP-NwN">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HB-ZP-NwN" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="404"/>
                                                         <state key="normal" image="ktv_song_name" backgroundImage="ktv_bg_song_name"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_song_name_h"/>
@@ -604,12 +604,8 @@
                                                             <action selector="songNameAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="bc8-XP-1Fo"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌名点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-dK-dhj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="歌名点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-dK-dhj">
                                                         <rect key="frame" x="144" y="377" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="19" id="Q3i-U2-gFf"/>
-                                                            <constraint firstAttribute="width" constant="68" id="iUf-Cj-l35"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -627,7 +623,9 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="gKZ-dK-dhj" firstAttribute="width" secondItem="2F1-Ow-bCX" secondAttribute="width" multiplier="68:220" id="P6b-5e-mv1"/>
                                             <constraint firstAttribute="width" constant="220" id="ykE-ry-wev"/>
+                                            <constraint firstItem="gKZ-dK-dhj" firstAttribute="height" secondItem="2F1-Ow-bCX" secondAttribute="height" multiplier="20:404" id="zl9-6O-uxd"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-mz-pVr">
@@ -640,7 +638,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBK-8h-Kod">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="241"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNo-c9-CMQ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNo-c9-CMQ" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="241"/>
                                                         <state key="normal" image="ktv_singer" backgroundImage="ktv_bg_singer"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_singer_h"/>
@@ -648,12 +646,8 @@
                                                             <action selector="singerAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="hJb-Hr-e8U"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌星点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7B-PS-hM6">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="歌星点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="P7B-PS-hM6">
                                                         <rect key="frame" x="144" y="214" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="19" id="3u7-GE-7aQ"/>
-                                                            <constraint firstAttribute="width" constant="68" id="kUl-rj-85U"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -667,7 +661,6 @@
                                                     <constraint firstItem="cNo-c9-CMQ" firstAttribute="leading" secondItem="UBK-8h-Kod" secondAttribute="leading" id="Gih-HI-aiY"/>
                                                     <constraint firstItem="cNo-c9-CMQ" firstAttribute="top" secondItem="UBK-8h-Kod" secondAttribute="top" id="Rjh-RY-ea6"/>
                                                     <constraint firstAttribute="bottom" secondItem="cNo-c9-CMQ" secondAttribute="bottom" id="Rmd-DT-Qi2"/>
-                                                    <constraint firstAttribute="height" constant="241" id="u4x-5x-uGo"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy2-9t-ZAp">
@@ -680,7 +673,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fB3-oX-8nC">
                                                 <rect key="frame" x="0.0" y="251" width="220" height="153"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hk-1B-Pct">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hk-1B-Pct" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="153"/>
                                                         <state key="normal" image="ktv_language" backgroundImage="ktv_bg_language"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_language_h"/>
@@ -688,12 +681,8 @@
                                                             <action selector="languageAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="als-5A-Kha"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语种点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I39-tU-9a1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="语种点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I39-tU-9a1">
                                                         <rect key="frame" x="144" y="126" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="68" id="Rje-bu-fmH"/>
-                                                            <constraint firstAttribute="height" constant="19" id="p3X-SA-pXw"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -710,6 +699,13 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="I39-tU-9a1" firstAttribute="width" secondItem="ESO-xa-0QB" secondAttribute="width" multiplier="68:220" id="HxX-Af-Svo"/>
+                                            <constraint firstItem="I39-tU-9a1" firstAttribute="height" secondItem="ESO-xa-0QB" secondAttribute="height" multiplier="20:404" id="RcN-5g-Kiu"/>
+                                            <constraint firstItem="P7B-PS-hM6" firstAttribute="width" secondItem="ESO-xa-0QB" secondAttribute="width" multiplier="68:220" id="dBI-Sf-2Ch"/>
+                                            <constraint firstItem="P7B-PS-hM6" firstAttribute="height" secondItem="ESO-xa-0QB" secondAttribute="height" multiplier="20:404" id="mDG-TV-WMB"/>
+                                            <constraint firstItem="UBK-8h-Kod" firstAttribute="height" secondItem="ESO-xa-0QB" secondAttribute="height" multiplier="241:404" id="pWm-ac-z8k"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t70-EY-wGu">
                                         <rect key="frame" x="455" y="0.0" width="14" height="404"/>
@@ -721,7 +717,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnF-pn-I45">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="162"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-5Z-vq8">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-5Z-vq8" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="162"/>
                                                         <state key="normal" image="ktv_category" backgroundImage="ktv_bg_category"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_category_h"/>
@@ -729,12 +725,8 @@
                                                             <action selector="categoryAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="9Ob-dy-J8o"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类别点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-2Q-HJ1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="类别点歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dJx-2Q-HJ1">
                                                         <rect key="frame" x="144" y="135" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="19" id="BVX-ez-5Wz"/>
-                                                            <constraint firstAttribute="width" constant="68" id="uXT-cJ-5o2"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -744,7 +736,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="dJx-2Q-HJ1" secondAttribute="bottom" constant="8" id="80Z-z5-zSu"/>
                                                     <constraint firstItem="PCM-5Z-vq8" firstAttribute="leading" secondItem="LnF-pn-I45" secondAttribute="leading" id="Adj-Mc-S0e"/>
-                                                    <constraint firstAttribute="height" constant="162" id="BL7-yt-GGb"/>
                                                     <constraint firstItem="PCM-5Z-vq8" firstAttribute="top" secondItem="LnF-pn-I45" secondAttribute="top" id="Lih-A2-2Xm"/>
                                                     <constraint firstAttribute="bottom" secondItem="PCM-5Z-vq8" secondAttribute="bottom" id="cis-xP-wIP"/>
                                                     <constraint firstAttribute="trailing" secondItem="PCM-5Z-vq8" secondAttribute="trailing" id="iQE-h0-brP"/>
@@ -761,7 +752,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yh-2p-yHd">
                                                 <rect key="frame" x="0.0" y="172" width="220" height="232"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkv-Fo-Jw2">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkv-Fo-Jw2" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="232"/>
                                                         <state key="normal" image="ktv_song_list" backgroundImage="ktv_bg_song_list"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_song_list_h"/>
@@ -769,12 +760,8 @@
                                                             <action selector="songlistAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="w3A-UC-hvS"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲排行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hz-RN-BMg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="歌曲排行" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Hz-RN-BMg">
                                                         <rect key="frame" x="144" y="205" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="19" id="5c0-gy-gOG"/>
-                                                            <constraint firstAttribute="width" constant="68" id="H6v-dQ-uip"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -791,6 +778,13 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8Hz-RN-BMg" firstAttribute="width" secondItem="2Gi-Rf-wOd" secondAttribute="width" multiplier="68:220" id="QyH-oV-uNi"/>
+                                            <constraint firstItem="LnF-pn-I45" firstAttribute="height" secondItem="2Gi-Rf-wOd" secondAttribute="height" multiplier="162:404" id="hLx-dI-o8q"/>
+                                            <constraint firstItem="dJx-2Q-HJ1" firstAttribute="width" secondItem="2Gi-Rf-wOd" secondAttribute="width" multiplier="68:220" id="l18-Si-bLf"/>
+                                            <constraint firstItem="dJx-2Q-HJ1" firstAttribute="height" secondItem="2Gi-Rf-wOd" secondAttribute="height" multiplier="20:404" id="oU2-sY-F3Q"/>
+                                            <constraint firstItem="8Hz-RN-BMg" firstAttribute="height" secondItem="2Gi-Rf-wOd" secondAttribute="height" multiplier="20:404" id="uJU-5d-NtH"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dra-Tm-fIi">
                                         <rect key="frame" x="689" y="0.0" width="15" height="404"/>
@@ -802,7 +796,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfU-Qk-4rT">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="143"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqR-gK-4Q4">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqR-gK-4Q4" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="143"/>
                                                         <state key="normal" image="ktv_cloud" backgroundImage="ktv_bg_cloud"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_cloud_h"/>
@@ -810,12 +804,8 @@
                                                             <action selector="cloudAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="ctL-U8-7Yl"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="云端歌曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29i-eR-pF7">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="云端歌曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="29i-eR-pF7">
                                                         <rect key="frame" x="144" y="116" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="19" id="1QE-3e-10f"/>
-                                                            <constraint firstAttribute="width" constant="68" id="fAc-iZ-ZtP"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -823,7 +813,6 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="143" id="55d-ox-URb"/>
                                                     <constraint firstItem="RqR-gK-4Q4" firstAttribute="leading" secondItem="PfU-Qk-4rT" secondAttribute="leading" id="BOx-dZ-f28"/>
                                                     <constraint firstAttribute="trailing" secondItem="29i-eR-pF7" secondAttribute="trailing" constant="8" id="GG5-Qn-klo"/>
                                                     <constraint firstAttribute="bottom" secondItem="RqR-gK-4Q4" secondAttribute="bottom" id="LMO-9U-LPb"/>
@@ -842,7 +831,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-rA-Dr9">
                                                 <rect key="frame" x="0.0" y="153" width="220" height="251"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-4v-lFA">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gf-4v-lFA" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="251"/>
                                                         <state key="normal" image="ktv_download" backgroundImage="ktv_bg_download"/>
                                                         <state key="highlighted" backgroundImage="ktv_bg_download_h"/>
@@ -850,12 +839,8 @@
                                                             <action selector="downloadAction:" destination="voQ-Ox-Xdo" eventType="touchUpInside" id="3H1-hW-io1"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下载信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-fC-FWN">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="下载信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-fC-FWN">
                                                         <rect key="frame" x="144" y="224" width="68" height="19"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="68" id="65s-Ll-DEl"/>
-                                                            <constraint firstAttribute="height" constant="19" id="fNw-cO-Wg4"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -872,6 +857,13 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="PfU-Qk-4rT" firstAttribute="height" secondItem="8E1-Rl-ozR" secondAttribute="height" multiplier="143:404" id="Fpv-Mh-qkM"/>
+                                            <constraint firstItem="cyO-fC-FWN" firstAttribute="width" secondItem="8E1-Rl-ozR" secondAttribute="width" multiplier="68:220" id="MQF-Wa-SLy"/>
+                                            <constraint firstItem="cyO-fC-FWN" firstAttribute="height" secondItem="8E1-Rl-ozR" secondAttribute="height" multiplier="20:404" id="S2Y-DH-gNU"/>
+                                            <constraint firstItem="29i-eR-pF7" firstAttribute="width" secondItem="8E1-Rl-ozR" secondAttribute="width" multiplier="68:220" id="q1s-sr-W9t"/>
+                                            <constraint firstItem="29i-eR-pF7" firstAttribute="height" secondItem="8E1-Rl-ozR" secondAttribute="height" multiplier="20:404" id="xfr-4s-0Nf"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -2163,7 +2155,6 @@
                                     <constraint firstAttribute="bottom" secondItem="4k9-af-YBV" secondAttribute="bottom" id="ZLu-ct-A6A"/>
                                     <constraint firstItem="4k9-af-YBV" firstAttribute="top" secondItem="NZK-2w-RDf" secondAttribute="top" id="Zn0-a0-X6m"/>
                                     <constraint firstItem="4k9-af-YBV" firstAttribute="leading" secondItem="NZK-2w-RDf" secondAttribute="leading" id="c3p-08-Cd5"/>
-                                    <constraint firstAttribute="height" constant="44" id="hX1-zf-MMZ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="teG-2H-kXI">
@@ -2246,13 +2237,13 @@
                                                                 <constraint firstAttribute="width" secondItem="46G-FY-MSj" secondAttribute="height" multiplier="1:1" id="hKi-gH-zdm"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="冰雨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFr-7g-Qxi">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="冰雨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SFr-7g-Qxi">
                                                             <rect key="frame" x="99" y="8" width="149" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="刘德华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOH-Cr-MVn">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="刘德华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tOH-Cr-MVn">
                                                             <rect key="frame" x="100" y="30" width="148" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2286,16 +2277,24 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
+                                                    <constraint firstItem="SFr-7g-Qxi" firstAttribute="height" secondItem="46G-FY-MSj" secondAttribute="height" multiplier="21:86" id="1Ll-K5-q1q"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8ci-2S-ryy" secondAttribute="bottom" id="7JW-cN-oNj"/>
                                                     <constraint firstItem="46G-FY-MSj" firstAttribute="top" secondItem="YaV-cC-ujA" secondAttribute="top" constant="8" id="EED-uN-fUX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8ci-2S-ryy" secondAttribute="trailing" id="GJu-Mr-PKc"/>
                                                     <constraint firstItem="46G-FY-MSj" firstAttribute="centerY" secondItem="YaV-cC-ujA" secondAttribute="centerY" id="GNC-o4-EMU"/>
                                                     <constraint firstItem="OO2-br-WiO" firstAttribute="leading" secondItem="MIR-OJ-XEb" secondAttribute="trailing" constant="8" id="HfG-nU-6jo"/>
                                                     <constraint firstAttribute="bottom" secondItem="OO2-br-WiO" secondAttribute="bottom" constant="14" id="WsU-Zf-X5Z"/>
                                                     <constraint firstItem="OO2-br-WiO" firstAttribute="top" secondItem="MIR-OJ-XEb" secondAttribute="top" id="YWB-La-M5N"/>
                                                     <constraint firstAttribute="bottom" secondItem="8ci-2S-ryy" secondAttribute="bottom" id="cSN-74-oPc"/>
+                                                    <constraint firstItem="SFr-7g-Qxi" firstAttribute="top" secondItem="YaV-cC-ujA" secondAttribute="top" constant="8" id="ewj-LR-jHg"/>
+                                                    <constraint firstItem="SFr-7g-Qxi" firstAttribute="leading" secondItem="46G-FY-MSj" secondAttribute="trailing" constant="5" id="fGR-Cb-OW0"/>
+                                                    <constraint firstItem="8ci-2S-ryy" firstAttribute="top" secondItem="YaV-cC-ujA" secondAttribute="top" id="ijh-mq-D1N"/>
                                                     <constraint firstAttribute="trailing" secondItem="OO2-br-WiO" secondAttribute="trailing" constant="8" id="inq-8Y-J5a"/>
+                                                    <constraint firstItem="8ci-2S-ryy" firstAttribute="leading" secondItem="YaV-cC-ujA" secondAttribute="leading" id="lZF-DW-nor"/>
                                                     <constraint firstItem="8ci-2S-ryy" firstAttribute="leading" secondItem="YaV-cC-ujA" secondAttribute="leading" id="tbV-fH-du2"/>
                                                     <constraint firstItem="46G-FY-MSj" firstAttribute="leading" secondItem="YaV-cC-ujA" secondAttribute="leading" constant="8" id="ugx-IV-Wms"/>
                                                     <constraint firstItem="8ci-2S-ryy" firstAttribute="top" secondItem="YaV-cC-ujA" secondAttribute="top" id="v2F-L8-ikO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SFr-7g-Qxi" secondAttribute="trailing" id="xMF-2l-HFQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="8ci-2S-ryy" secondAttribute="trailing" id="yNo-6D-K56"/>
                                                 </constraints>
                                                 <connections>
@@ -2384,6 +2383,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="teG-2H-kXI" secondAttribute="bottom" id="5YQ-rX-iDO"/>
                             <constraint firstAttribute="trailing" secondItem="NZK-2w-RDf" secondAttribute="trailing" id="6Hh-We-lCL"/>
+                            <constraint firstItem="NZK-2w-RDf" firstAttribute="height" secondItem="fF0-mL-yCB" secondAttribute="height" multiplier="44:624" id="7MV-V0-KM2"/>
                             <constraint firstItem="teG-2H-kXI" firstAttribute="centerX" secondItem="fF0-mL-yCB" secondAttribute="centerX" id="U2F-RY-8BN"/>
                             <constraint firstItem="NZK-2w-RDf" firstAttribute="top" secondItem="fF0-mL-yCB" secondAttribute="top" id="Z6b-Xr-Jyx"/>
                             <constraint firstItem="NZK-2w-RDf" firstAttribute="leading" secondItem="fF0-mL-yCB" secondAttribute="leading" id="Zdk-yv-vQg"/>
