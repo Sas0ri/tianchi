@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, TCKTVSongCellDelegate {
+class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, TCKTVSongCellDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -25,8 +25,12 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(14)], forState: .Selected)
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(14)], forState: .Normal)
+        var fontSize:CGFloat = 14.0
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            fontSize = 10.0
+        }
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
         self.segmentedControl.selectedSegmentIndex = -1
@@ -69,7 +73,11 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func loadData() {
-        self.client.getSongsByName(self.searchBar.text, words: self.words, page: self.page) { (songs, flag) in
+        var limit = 9
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            limit = 6
+        }
+        self.client.getSongsByName(self.searchBar.text, words: self.words, page: self.page, limit:limit) { (songs, flag) in
             if flag {
                 if songs?.count == 0 && self.page > 1 {
                     self.page = self.page - 1
@@ -115,6 +123,10 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+    }
+    
     // MARK: - UISearchBarDelegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
@@ -127,6 +139,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let indexPath = self.collectionView.indexPathForCell(cell)
         let song = self.songs[indexPath!.row]
         songsVC.singer = song.singer
+        self.navigationController?.pushViewController(songsVC, animated: true)
     }
     
     func onSecondAction(cell: UICollectionViewCell) {
@@ -136,7 +149,6 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         payload.cmdType = 1004
         payload.cmdContent = "\(song.songNum)"
         TCContext.sharedContext().socketManager.sendPayload(payload)
-
     }
     /*
      // MARK: - Navigation

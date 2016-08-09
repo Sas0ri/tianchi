@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -22,11 +22,15 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var fontSize:CGFloat = 14.0
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            fontSize = 10.0
+        }
         
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(14)], forState: .Selected)
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(14)], forState: .Normal)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
         self.segmentedControl.selectedSegmentIndex = -1
@@ -93,6 +97,13 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let singer = self.singers[indexPath.row]
         cell.singerNameLabel.text = singer.singerName
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            return CGSizeMake(collectionView.bounds.size.width/4 - 30, collectionView.bounds.size.height/2 - 10)
+        }
+        return CGSizeMake(180, 180)
     }
 
     // MARK: - UISearchBarDelegate

@@ -17,7 +17,7 @@ enum TCKTVLanguage:Int {
     case Cantonese = 7
 }
 
-class TCKTVLanguageViewController: UIViewController {
+class TCKTVLanguageViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,13 @@ class TCKTVLanguageViewController: UIViewController {
     
     @IBAction func backAction(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            return CGSizeMake(216, 208)
+        }
+        return CGSizeMake((collectionView.bounds.size.height - 10)/2, (collectionView.bounds.size.height - 10)/2)
     }
     
     // MARK: - Navigation

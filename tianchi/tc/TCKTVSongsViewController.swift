@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate,TCKTVSongCellDelegate {
+class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate,TCKTVSongCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
@@ -35,7 +35,6 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.segmentedControl.selectedSegmentIndex - 1
         self.loadData()
         if self.download || self.cloud {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadLoadedNotification, object: nil)
@@ -49,9 +48,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if self.ordered {
-            self.bottomView.hidden = true
-        }
+//        if self.ordered {
+//            self.bottomView.hidden = true
+//        }
         if self.download {
             self.pageView.hidden = true
         }
@@ -68,6 +67,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         self.loadData()
     }
     
+    @IBAction func backAction(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     // MARK: - UISearchBarDelegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
@@ -147,9 +149,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.download {
-       
         }
         if self.cloud {
+
             self.client.getCloudSongs(self.searchBar.text, words: self.words, page: self.page, complete: { (clouds, flag) in
                 if flag {
                     if clouds!.count == 0 && self.page > 1 {
@@ -234,6 +236,10 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         cell.delegate = self
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

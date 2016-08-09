@@ -24,7 +24,7 @@ class TCKTVSongClient: NSObject {
         return c
     }()
     
-    func getSongsByName(keyword:String?, words:String, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByName(keyword:String?, words:String, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
@@ -34,6 +34,7 @@ class TCKTVSongClient: NSObject {
             params["words"] = words
         }
         params["page"] = NSNumber(integer: page)
+        params["size"] = NSNumber(integer: limit)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
             var songs = [TCKTVSong]()
             for jsonSong in json.arrayValue {

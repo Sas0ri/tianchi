@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -62,6 +62,13 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
         }
         label.text = category
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            return CGSizeMake(216, 208)
+        }
+        return CGSizeMake((collectionView.bounds.size.width - 30)/4, (collectionView.bounds.size.height - 20)/2)
     }
 
     // MARK: - Navigation
