@@ -13,6 +13,7 @@
 		5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
 		5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816111D2246BF00A0F513 /* TCMainButton.swift */; };
 		5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */; };
+		5C6476D41D5AF68C00C7EAFC /* Singer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */; };
 		5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */; };
 		5CAA02181D17CD9800FE6DBD /* TCContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02171D17CD9800FE6DBD /* TCContext.swift */; };
 		5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */; };
@@ -79,6 +80,7 @@
 		5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCVerticalButton.swift; sourceTree = "<group>"; };
 		5C5816111D2246BF00A0F513 /* TCMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCMainButton.swift; sourceTree = "<group>"; };
 		5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVMainButton.swift; sourceTree = "<group>"; };
+		5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Singer.xcassets; sourceTree = "<group>"; };
 		5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5CAA02171D17CD9800FE6DBD /* TCContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCContext.swift; sourceTree = "<group>"; };
 		5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCJSONClient.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				5CAA023C1D191D1100FE6DBD /* Singer */,
 				5CAA02451D19262000FE6DBD /* Language */,
 				5CAA02231D17D09800FE6DBD /* TCKTVSongsViewController.swift */,
+				5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */,
 			);
 			name = KTV;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				5CE93E981D0FF2F500A536AC /* Lato-BlackItalic.ttf in Resources */,
 				5CE93E9B1D0FF2F500A536AC /* Lato-Hairline.ttf in Resources */,
 				5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */,
+				5C6476D41D5AF68C00C7EAFC /* Singer.xcassets in Resources */,
 				5CE93E971D0FF2F500A536AC /* Lato-Black.ttf in Resources */,
 				5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */,
 				5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */,

@@ -1812,7 +1812,6 @@
         <!--Category Songs View Controller-->
         <scene sceneID="xFX-7O-OeU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DYw-sf-cJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bj2-XT-wru" userLabel="Category Songs View Controller" customClass="TCKTVSongsViewController" customModule="tc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kDd-aG-BDE"/>
@@ -1828,7 +1827,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="9UV-2G-w9m">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F65AC3F4-028D-4CFF-A2FA-5A81F576EFA9" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D6BDD119-03D4-47A4-9FAB-901E671BB7C1" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
                                         <rect key="frame" x="12" y="12" width="19" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="ACh-U9-dDp"/>
@@ -1887,7 +1886,7 @@
                                                     <action selector="segChanged:" destination="bj2-XT-wru" eventType="valueChanged" id="6Lz-ab-1Kn"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <searchBar contentMode="redraw" placeholder="搜索" backgroundImage="722D1467-9CAD-4C81-9CFD-1EE35E1F771B" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-8l-95f">
+                                            <searchBar contentMode="redraw" placeholder="搜索" backgroundImage="E7163B76-3CA2-4DF5-948F-5C7033C73691" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-8l-95f">
                                                 <rect key="frame" x="602" y="0.0" width="230" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="75b-fD-RJq"/>
@@ -2023,7 +2022,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="上一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="98C78561-7BB8-48B2-8F58-138C3E92AE4C"/>
+                                                        <state key="highlighted" backgroundImage="E7225E44-D042-4107-98C3-64B0F546E010"/>
                                                         <connections>
                                                             <action selector="prePage:" destination="bj2-XT-wru" eventType="touchUpInside" id="ZLl-85-Esh"/>
                                                         </connections>
@@ -2045,7 +2044,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="下一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="98C78561-7BB8-48B2-8F58-138C3E92AE4C"/>
+                                                        <state key="highlighted" backgroundImage="E7225E44-D042-4107-98C3-64B0F546E010"/>
                                                         <connections>
                                                             <action selector="nextPage:" destination="bj2-XT-wru" eventType="touchUpInside" id="fvR-Ar-3U4"/>
                                                         </connections>
@@ -2105,6 +2104,7 @@
                         <outlet property="segmentedControl" destination="hyW-LR-g91" id="CH9-l9-A9K"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYw-sf-cJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4828" y="1403"/>
         </scene>
@@ -2524,7 +2524,7 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Dj-aB-ByB">
                                                             <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52n-YN-DhJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="52n-YN-DhJ">
                                                             <rect key="frame" x="0.0" y="150" width="180" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2537,14 +2537,15 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="52n-YN-DhJ" secondAttribute="bottom" id="3t4-Ir-5R5"/>
                                                     <constraint firstItem="0Dj-aB-ByB" firstAttribute="leading" secondItem="Fvq-t0-Ujz" secondAttribute="leading" id="ABZ-kd-rgx"/>
+                                                    <constraint firstItem="52n-YN-DhJ" firstAttribute="height" secondItem="Fvq-t0-Ujz" secondAttribute="height" multiplier="30:180" id="E3t-rd-6e8"/>
                                                     <constraint firstItem="52n-YN-DhJ" firstAttribute="leading" secondItem="Fvq-t0-Ujz" secondAttribute="leading" id="IC5-Yd-Gzn"/>
                                                     <constraint firstItem="0Dj-aB-ByB" firstAttribute="top" secondItem="Fvq-t0-Ujz" secondAttribute="top" id="Xub-9m-hSw"/>
                                                     <constraint firstItem="52n-YN-DhJ" firstAttribute="top" secondItem="0Dj-aB-ByB" secondAttribute="bottom" id="alz-gE-xTl"/>
                                                     <constraint firstAttribute="trailing" secondItem="0Dj-aB-ByB" secondAttribute="trailing" id="iD8-kI-EeZ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="0Dj-aB-ByB" secondAttribute="bottom" constant="30" id="kQn-ie-6pE"/>
                                                     <constraint firstAttribute="trailing" secondItem="52n-YN-DhJ" secondAttribute="trailing" id="ydH-ys-Xup"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="singerImageView" destination="0Dj-aB-ByB" id="Up5-cZ-oFg"/>
                                                     <outlet property="singerNameLabel" destination="52n-YN-DhJ" id="hOz-hU-bhK"/>
                                                     <segue destination="Lyq-wW-c8q" kind="push" animates="NO" id="Z21-eQ-WZu"/>
                                                 </connections>
@@ -4008,7 +4009,83 @@
         </scene>
     </scenes>
     <resources>
-        <image name="722D1467-9CAD-4C81-9CFD-1EE35E1F771B" width="251" height="48">
+        <image name="D6BDD119-03D4-47A4-9FAB-901E671BB7C1" width="19" height="20">
+            <mutableData key="keyedArchiveRepresentation">
+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
+AAAmAAAFdgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBpAGwARwBlAG4AZQByAGUA
+bAAgAFIARwBCAC0AYgBlAHMAawByAGkAdgBlAGwAcwBlAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUA
+bgDoAHIAaQBjAEMepQB1ACAAaADsAG4AaAAgAFIARwBCACAAQwBoAHUAbgBnAFAAZQByAGYAaQBsACAA
+UgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQwBDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAA
+UgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIAaQBxAHUAZQAgAFIAVgBCAMEAbAB0AGEAbADhAG4A
+bwBzACAAUgBHAEIAIABwAHIAbwBmAGkAbJAadSgAIABSAEcAQgAggnJfaWPPj/AARwBlAG4AZQByAGkA
+cwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbABPAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBpAGwF
+5AXoBdUF5AXZBdwAIABSAEcAQgAgBdsF3AXcBdkAUAByAG8AZgBpAGwAbwAgAFIARwBCACAAZwBlAG4A
+ZQByAGkAYwBvAFAAcgBvAGYAaQBsACAAUgBHAEIAIABnAGUAbgBlAHIAaQBjAEEAbABsAGcAZQBtAGUA
+aQBuAGUAcwAgAFIARwBCAC0AUAByAG8AZgBpAGzHfLwYACAAUgBHAEIAINUEuFzTDMd8Zm6QGgAgAFIA
+RwBCACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPMACADwAPBA78D
+xgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAgAFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUA
+bQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEO
+SA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAgAFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIA
+RwBCAC0AcAByAG8AZgBpAGkAbABpAEcAZQBuAGUAcgBpAQ0AawBpACAAUgBHAEIAIABwAHIAbwBmAGkA
+bABVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAFIARwBCBB4EMQRJBDgEOQAgBD8E
+QAQ+BEQEOAQ7BEwAIABSAEcAQgZFBkQGQQAgBioGOQYxBkoGQQAgAFIARwBCACAGJwZEBjkGJwZFAEcA
+ZQBuAGUAcgBpAGMAIABSAEcAQgAgAFAAcgBvAGYAaQBsAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFw
+cGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAA
+AHRNAAA97gAAA9BYWVogAAAAAAAAWnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAA
+AAABAc0AAHNmMzIAAAAAAAEMQgAABd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs0iUmJyhaJGNs
+YXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VSZXBYTlNPYmplY3TS
+JSYsLVdOU0FycmF5oiwq0iUmLzBeTlNNdXRhYmxlQXJyYXmjLywq0zIzCjQ1NldOU1doaXRlXE5TQ29s
+b3JTcGFjZUQwIDAAEAOADNIlJjg5V05TQ29sb3KiOCrSJSY7PFdOU0ltYWdlojsqXxAPTlNLZXllZEFy
+Y2hpdmVy0T9AVHJvb3SAAQAIABEAGgAjAC0AMgA3AEYATABXAF4AZQByAHkAgQCDAIUAigCMAI4AlwCc
+AKcAqQCrAK0AsgC1ALcAuQC7AL0AwgDZANsA3Q9vD3QPfw+ID5sPnw+qD7MPuA/AD8MPyA/XD9sP4g/q
+D/cP/A/+EAAQBRANEBAQFRAdECAQMhA1EDoAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAQPA
+</mutableData>
+        </image>
+        <image name="E7163B76-3CA2-4DF5-948F-5C7033C73691" width="251" height="48">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4862,7 +4939,7 @@ rgCzALYAuAC6ALwAvgDDANoA3ADexcDFxcXQxdnF7MXwxfvGBMYJxhHGFMYZxijGLMYzxjvGSMZNxk/G
 UcZWxl7GYcZmxm7GccaDxobGiwAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAMaNA
 </mutableData>
         </image>
-        <image name="98C78561-7BB8-48B2-8F58-138C3E92AE4C" width="93" height="28">
+        <image name="E7225E44-D042-4107-98C3-64B0F546E010" width="93" height="28">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5085,82 +5162,6 @@ ZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/QFRyb290gAEACAARABoAIwAtADIANwBGAEwAVwBeAGUAcgB5
 AIEAgwCFAIoAjACOAJcAnACnAKkAqwCtALIAtQC3ALkAuwC9AMIA2QDbAN0yLzI0Mj8ySDJbMl8yajJz
 MngygDKDMogylzKbMqIyqjK3MrwyvjLAMsUyzTLQMtUy3TLgMvIy9TL6AAAAAAAAAgEAAAAAAAAAQQAA
 AAAAAAAAAAAAAAAAMvw
-</mutableData>
-        </image>
-        <image name="F65AC3F4-028D-4CFF-A2FA-5A81F576EFA9" width="19" height="20">
-            <mutableData key="keyedArchiveRepresentation">
-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
-AAAmAAAFdgBWAWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBpAGwARwBlAG4AZQByAGUA
-bAAgAFIARwBCAC0AYgBlAHMAawByAGkAdgBlAGwAcwBlAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUA
-bgDoAHIAaQBjAEMepQB1ACAAaADsAG4AaAAgAFIARwBCACAAQwBoAHUAbgBnAFAAZQByAGYAaQBsACAA
-UgBHAEIAIABHAGUAbgDpAHIAaQBjAG8EFwQwBDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAA
-UgBHAEIAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIAaQBxAHUAZQAgAFIAVgBCAMEAbAB0AGEAbADhAG4A
-bwBzACAAUgBHAEIAIABwAHIAbwBmAGkAbJAadSgAIABSAEcAQgAggnJfaWPPj/AARwBlAG4AZQByAGkA
-cwBrACAAUgBHAEIALQBwAHIAbwBmAGkAbABPAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8AZgBpAGwF
-5AXoBdUF5AXZBdwAIABSAEcAQgAgBdsF3AXcBdkAUAByAG8AZgBpAGwAbwAgAFIARwBCACAAZwBlAG4A
-ZQByAGkAYwBvAFAAcgBvAGYAaQBsACAAUgBHAEIAIABnAGUAbgBlAHIAaQBjAEEAbABsAGcAZQBtAGUA
-aQBuAGUAcwAgAFIARwBCAC0AUAByAG8AZgBpAGzHfLwYACAAUgBHAEIAINUEuFzTDMd8Zm6QGgAgAFIA
-RwBCACBjz4/wZYdO9k4AgiwAIABSAEcAQgAgMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPMACADwAPBA78D
-xgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAgAFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUA
-bQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGUAbA5CDhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEO
-SA4nDkQOGwBHAGUAbgBlAGwAIABSAEcAQgAgAFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAFIA
-RwBCAC0AcAByAG8AZgBpAGkAbABpAEcAZQBuAGUAcgBpAQ0AawBpACAAUgBHAEIAIABwAHIAbwBmAGkA
-bABVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAFIARwBCBB4EMQRJBDgEOQAgBD8E
-QAQ+BEQEOAQ7BEwAIABSAEcAQgZFBkQGQQAgBioGOQYxBkoGQQAgAFIARwBCACAGJwZEBjkGJwZFAEcA
-ZQBuAGUAcgBpAGMAIABSAEcAQgAgAFAAcgBvAGYAaQBsAGV0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFw
-cGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQuAFhZWiAAAAAAAADzUgABAAAAARbPWFlaIAAAAAAA
-AHRNAAA97gAAA9BYWVogAAAAAAAAWnUAAKxzAAAXNFhZWiAAAAAAAAAoGgAAFZ8AALg2Y3VydgAAAAAA
-AAABAc0AAHNmMzIAAAAAAAEMQgAABd7///MmAAAHkgAA/ZH///ui///9owAAA9wAAMBs0iUmJyhaJGNs
-YXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VSZXBYTlNPYmplY3TS
-JSYsLVdOU0FycmF5oiwq0iUmLzBeTlNNdXRhYmxlQXJyYXmjLywq0zIzCjQ1NldOU1doaXRlXE5TQ29s
-b3JTcGFjZUQwIDAAEAOADNIlJjg5V05TQ29sb3KiOCrSJSY7PFdOU0ltYWdlojsqXxAPTlNLZXllZEFy
-Y2hpdmVy0T9AVHJvb3SAAQAIABEAGgAjAC0AMgA3AEYATABXAF4AZQByAHkAgQCDAIUAigCMAI4AlwCc
-AKcAqQCrAK0AsgC1ALcAuQC7AL0AwgDZANsA3Q9vD3QPfw+ID5sPnw+qD7MPuA/AD8MPyA/XD9sP4g/q
-D/cP/A/+EAAQBRANEBAQFRAdECAQMhA1EDoAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAQPA
 </mutableData>
         </image>
         <image name="ktv_bg_category" width="226" height="169"/>

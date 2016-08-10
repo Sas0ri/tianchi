@@ -10,4 +10,5 @@ import UIKit
 
 class TCKTVSingerCell: UICollectionViewCell {
     @IBOutlet var singerNameLabel: UILabel!
+    @IBOutlet weak var singerImageView: UIImageView!
 }
