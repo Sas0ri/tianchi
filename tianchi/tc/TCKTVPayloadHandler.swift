@@ -22,7 +22,7 @@ class TCKTVPayloadHandler: NSObject {
     }
     
     func handlePayload(payload:TCSocketPayload) {
-        if payload.cmdType > 1000 && payload.cmdType < 1005 || payload.cmdType == 1012 {
+        if payload.cmdType > 1000 && payload.cmdType < 1005 || payload.cmdType == 1102 {
             NSNotificationCenter.defaultCenter().postNotificationName(TCKTVOrderedUpdatedNotification, object: self)
         }
         if payload.cmdType > 1005 && payload.cmdType < 1009 && payload.cmdContent != nil {

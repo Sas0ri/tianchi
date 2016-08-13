@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B0EC23C2E24E9532AC0EBDB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7636E7970B7EEC64FB51B3C /* Pods.framework */; };
+		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
 		5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
 		5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
 		5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCategoryViewController.swift; sourceTree = "<group>"; };
 		5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVLanguageViewController.swift; sourceTree = "<group>"; };
 		5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCVerticalButton.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C0A5FA81D5EE720000E6F3A /* CloudSearch */ = {
+			isa = PBXGroup;
+			children = (
+				5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */,
+			);
+			name = CloudSearch;
+			sourceTree = "<group>";
+		};
 		5C50E0AB1D1391650002AEF1 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +478,7 @@
 		5CE93E491D0E9C8B00A536AC /* KTV */ = {
 			isa = PBXGroup;
 			children = (
+				5C0A5FA81D5EE720000E6F3A /* CloudSearch */,
 				5CAA025F1D1A6FCB00FE6DBD /* PayloadHandler */,
 				5CAA02551D19346800FE6DBD /* Point */,
 				5CAA02511D19341200FE6DBD /* Download */,
@@ -629,6 +640,7 @@
 				TargetAttributes = {
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = BP47KFJPZ6;
 					};
 				};
 			};
@@ -741,6 +753,7 @@
 				5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */,
 				5CE93E881D0FF2F500A536AC /* FUIPopoverBackgroundView.m in Sources */,
 				5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */,
+				5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */,
 				5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */,
 				5CE93E961D0FF2F500A536AC /* UIToolbar+FlatUI.m in Sources */,
 				5CAA02241D17D09800FE6DBD /* TCKTVSongsViewController.swift in Sources */,
@@ -889,12 +902,15 @@
 			baseConfigurationReference = AB48B70EC30EFF8CFA1DE3EC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -905,12 +921,15 @@
 			baseConfigurationReference = 1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

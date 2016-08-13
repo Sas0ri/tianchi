@@ -27,6 +27,8 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
     
+    var orderedSongsViewController:TCKTVSongsViewController?
+    
     var downloads:[TCKTVDownload] = [TCKTVDownload]()
     var client:TCKTVSongClient?
 
@@ -124,7 +126,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             let textField = alertView.textFieldAtIndex(0)
             let payload = TCSocketPayload()
             payload.cmdType = 1900
-            payload.cmdContent = textField!.text
+            payload.cmdContent = Int(textField!.text!)
             self.socketManager.sendPayload(payload)
             
             let alertView = UIAlertView(title: "", message: "正在验证...", delegate: nil, cancelButtonTitle: nil)

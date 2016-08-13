@@ -16,147 +16,200 @@ class TCKTVSongClient: NSObject {
     let orderedPath = "TianChiServer/GetPointList"
     let downloadPath = "TianChiServer/GetDownloadList"
     
+    let pagePath = "TianChiServer/GetSongTotalPage"
+    let cloudPagePath = "TianChiServer/GetCloundTotalPage"
+    let rankingPagePath = "TianChiServer/GetRankingTotalPage"
+    let orderedPagePath = "TianChiServer/GetPointTotalPage"
+    let downloadPagePath = "TianChiServer/GetDownloadTotalPage"
+    
     var client:MCJSONClient? = {
-        var c:MCJSONClient?
+        var mc:MCJSONClient?
         if let url = TCContext.sharedContext().serverAddress {
-            c = MCJSONClient(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            mc = MCJSONClient(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+        }
+        return mc
+    }()
+    
+    var pageClient:AFHTTPSessionManager? = {
+        var c:AFHTTPSessionManager?
+        if let url = TCContext.sharedContext().serverAddress {
+            c = AFHTTPSessionManager(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            c?.responseSerializer = AFHTTPResponseSerializer()
         }
         return c
     }()
     
-    func getSongsByName(keyword:String?, words:String, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByName(keyword:String?, words:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        if words.characters.count > 0 {
-            params["words"] = words
+        if words > 0 {
+            params["words"] = NSNumber(integer: words)
         }
         params["page"] = NSNumber(integer: page)
-        params["size"] = NSNumber(integer: limit)
+        params["pageSize"] = NSNumber(integer: limit)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
-            var songs = [TCKTVSong]()
-            for jsonSong in json.arrayValue {
-                let song = TCKTVSong()
-                song.config(jsonSong)
-                songs.append(song)
-            }
-            complete(songs: songs, flag: true)
+            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var songs = [TCKTVSong]()
+                for jsonSong in json.arrayValue {
+                    let song = TCKTVSong()
+                    song.config(jsonSong)
+                    songs.append(song)
+                }
+                complete(songs: songs,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    
+            })
+
             }, failure: { (error) in
-                complete(songs: nil, flag: false)
+                complete(songs: nil, totalPage: "", flag: false)
         })
     }
     
-    func getSongsByCategory(keyword:String?, words:String, type:String, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByCategory(keyword:String?, words:Int, type:String, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
         }
-        if words.characters.count > 0 {
-            params["words"] = words
+        if words > 0 {
+            params["words"] = NSNumber(integer: words)
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["type"] = type
         params["page"] = NSNumber(integer: page)
+        params["pageSize"] = NSNumber(integer: limit)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
-            var songs = [TCKTVSong]()
-            for jsonSong in json.arrayValue {
-                let song = TCKTVSong()
-                song.config(jsonSong)
-                songs.append(song)
-            }
-            complete(songs: songs, flag: true)
+            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var songs = [TCKTVSong]()
+                for jsonSong in json.arrayValue {
+                    let song = TCKTVSong()
+                    song.config(jsonSong)
+                    songs.append(song)
+                }
+                complete(songs: songs,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(songs: nil, totalPage: "", flag: false)
+                    
+            })
             }, failure: { (error) in
-                complete(songs: nil, flag: false)
+                complete(songs: nil, totalPage: "", flag: false)
         })
     }
     
-    func getSongsBySinger(keyword:String?, singer:String, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsBySinger(keyword:String?, singer:String, words:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
+        }
+        if words > 0 {
+            params["words"] = NSNumber(integer: words)
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["singer"] = singer
         params["page"] = NSNumber(integer: page)
+        params["pageSize"] = NSNumber(integer: limit)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
-            var songs = [TCKTVSong]()
-            for jsonSong in json.arrayValue {
-                let song = TCKTVSong()
-                song.config(jsonSong)
-                songs.append(song)
-            }
-            complete(songs: songs, flag: true)
+            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var songs = [TCKTVSong]()
+                for jsonSong in json.arrayValue {
+                    let song = TCKTVSong()
+                    song.config(jsonSong)
+                    songs.append(song)
+                }
+                complete(songs: songs,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(songs: nil, totalPage: "", flag: false)
+
+            })
             }, failure: { (error) in
-                complete(songs: nil, flag: false)
+                complete(songs: nil, totalPage: "", flag: false)
         })
     }
     
-    func getSongsByLanguage(keyword:String?, words:String, language:Int, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getSongsByLanguage(keyword:String?, words:Int, language:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
         }
-        if words.characters.count > 0 {
-            params["words"] = words
+        if words > 0 {
+            params["words"] = NSNumber(integer:words)
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["language"] = NSNumber(integer: language)
         params["page"] = NSNumber(integer: page)
+        params["pageSize"] = NSNumber(integer: limit)
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
-            var songs = [TCKTVSong]()
-            for jsonSong in json.arrayValue {
-                let song = TCKTVSong()
-                song.config(jsonSong)
-                songs.append(song)
-            }
-            complete(songs: songs, flag: true)
+            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var songs = [TCKTVSong]()
+                for jsonSong in json.arrayValue {
+                    let song = TCKTVSong()
+                    song.config(jsonSong)
+                    songs.append(song)
+                }
+                complete(songs: songs,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(songs: nil, totalPage: "", flag: false)
+                    
+            })
             }, failure: { (error) in
-                complete(songs: nil, flag: false)
+                complete(songs: nil, totalPage: "", flag: false)
         })
     }
     
-    func getRankingSongs(keyword:String?, page:Int, complete: (songs:[TCKTVSong]?, flag:Bool)->()) {
+    func getRankingSongs(keyword:String?, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["page"] = NSNumber(integer: page)
-        self.client?.MCGet(self.rankingPath, parameters: params, success: { (json) in
-            var songs = [TCKTVSong]()
-            for jsonSong in json.arrayValue {
-                let song = TCKTVSong()
-                song.config(jsonSong)
-                songs.append(song)
-            }
-            complete(songs: songs, flag: true)
+        params["pageSize"] = NSNumber(integer: limit)
+        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+            self.pageClient?.GET(self.rankingPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var songs = [TCKTVSong]()
+                for jsonSong in json.arrayValue {
+                    let song = TCKTVSong()
+                    song.config(jsonSong)
+                    songs.append(song)
+                }
+                complete(songs: songs,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(songs: nil, totalPage: "", flag: false)
+                    
+            })
             }, failure: { (error) in
-                complete(songs: nil, flag: false)
+                complete(songs: nil, totalPage: "", flag: false)
         })
     }
 
-    func getCloudSongs(keyword:String?, words:String, page:Int, complete: (clouds:[TCKTVCloud]?, flag:Bool)->()) {
+    func getCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
             params["py"] = keyword!
         }
-        if words.characters.count > 0 {
-            params["words"] = words
+        if words > 0 {
+            params["words"] = NSNumber(integer: words)
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["page"] = NSNumber(integer: page)
+        params["pageSize"] = NSNumber(integer: limit)
         self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
-            var clouds = [TCKTVCloud]()
-            for jsonCloud in json.arrayValue {
-                let cloud = TCKTVCloud()
-                cloud.config(jsonCloud)
-                clouds.append(cloud)
-            }
-            complete(clouds: clouds, flag: true)
+            self.pageClient?.GET(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var clouds = [TCKTVCloud]()
+                for jsonCloud in json.arrayValue {
+                    let cloud = TCKTVCloud()
+                    cloud.config(jsonCloud)
+                    clouds.append(cloud)
+                }
+                complete(clouds: clouds,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(clouds: nil, totalPage:"", flag: false)
+            })
+
             }, failure: { (error) in
-                complete(clouds: nil, flag: false)
+                complete(clouds: nil, totalPage:"", flag: false)
         })
     }
     
@@ -191,4 +244,44 @@ class TCKTVSongClient: NSObject {
                 complete(ordereds: nil, flag: false)
         })
     }
+    
+//    http://192.168.31.219:8080/TianChiServer/GetCloundList?path=mnt/sata/SOFMIT_DBBSM.db&words=？&language=？&py=？&singerName=？&sortType=？&pageSize=9
+    func searchCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, language:Int?, singer:String?, type:String?, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
+        var params = [String: AnyObject]()
+        if keyword != nil {
+            params["py"] = keyword!
+        }
+        if words > 0 {
+            params["words"] = NSNumber(integer: words)
+        }
+        if language > 0 {
+            params["language"] = NSNumber(integer: language!)
+        }
+        if singer?.characters.count > 0 {
+            params["singerName"] = singer
+        }
+        if type?.characters.count > 0 {
+            params["sortType"] = type
+        }
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
+        params["page"] = NSNumber(integer: page)
+        params["pageSize"] = NSNumber(integer: limit)
+        self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
+            self.pageClient?.GET(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                var clouds = [TCKTVCloud]()
+                for jsonCloud in json.arrayValue {
+                    let cloud = TCKTVCloud()
+                    cloud.config(jsonCloud)
+                    clouds.append(cloud)
+                }
+                complete(clouds: clouds,totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
+                }, failure: { (dataTask, error) in
+                    complete(clouds: nil, totalPage:"", flag: false)
+            })
+            
+            }, failure: { (error) in
+                complete(clouds: nil, totalPage:"", flag: false)
+        })
+    }
+
 }

@@ -39,28 +39,39 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath)
         let label = cell.viewWithTag(2) as! UILabel
+        let imageView = cell.viewWithTag(1) as! UIImageView
         var category = ""
+        var image = ""
         switch indexPath.row {
         case 0:
             category = "流行"
+            image = "popular"
         case 1:
             category = "小品"
+            image = "sketch"
         case 2:
             category = "迪高"
+            image = "deco"
         case 3:
             category = "合唱"
+            image = "chorus"
         case 4:
             category = "戏剧"
+            image = "opera"
         case 5:
             category = "舞曲"
+            image = "dance"
         case 6:
             category = "革命"
+            image = "revolution"
         case 7:
             category = "儿歌"
+            image = "children"
         default:
             category = ""
         }
         label.text = category
+        imageView.image = UIImage(named: image)
         return cell
     }
     

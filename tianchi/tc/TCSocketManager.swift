@@ -49,6 +49,10 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
     func sendPayload(payload: TCSocketPayload) {
         let data = payload.dataValue()
         self.socket.writeData(data, withTimeout: -1, tag: 0)
+        DDLogInfo("send payload cmd: " + "\(payload.cmdType)")
+        if payload.cmdContent != nil {
+            DDLogInfo("content: " + "\(payload.cmdContent!)")
+        }
     }
     
     func heartbeatTimeout() {

@@ -18,7 +18,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     var page:Int = 1
     var client = TCKTVSingerClient()
     var singers:[TCKTVSinger] = [TCKTVSinger]()
-
+    var totalPage:String = "0"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,14 +27,13 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             fontSize = 10.0
         }
-        
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
-        self.segmentedControl.selectedSegmentIndex = -1
+        self.segmentedControl.selectedSegmentIndex = 0
         // Do any additional setup after loading the view.
         
         self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
@@ -63,22 +63,26 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     }
     
     func loadData() {
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page) { (singers, flag) in
+        var limit = 8
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            limit = 12
+        }
+        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit) { (singers, totalPage, flag) in
             if flag {
                 if singers!.count == 0 && self.page > 1{
                     self.page = self.page - 1
                 } else {
+                    self.totalPage = totalPage
                     self.singers = singers!
                     self.collectionView.reloadData()
                 }
-                self.pageLabel.text = "\(self.page)"
             } else {
                 if self.page > 1 {
                     self.page = self.page - 1
                 }
-                self.pageLabel.text = "\(self.page)"
                 self.view.showTextAndHide("加载失败")
             }
+            self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
         }
     }
 
@@ -102,7 +106,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if UI_USER_INTERFACE_IDIOM() == .Phone {
-            return CGSizeMake(collectionView.bounds.size.width/4 - 30, collectionView.bounds.size.height/2 - 10)
+            return CGSizeMake((collectionView.bounds.size.width - 10)/6, collectionView.bounds.size.height/2 - 10)
         }
         return CGSizeMake(180, 180)
     }
@@ -122,6 +126,9 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     }
     
     @IBAction func nextPage(sender: AnyObject) {
+        if Int(self.totalPage) < self.page + 1 {
+            return
+        }
         self.page = self.page + 1
         self.loadData()
     }

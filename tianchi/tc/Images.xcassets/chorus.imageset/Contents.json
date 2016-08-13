@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "chorus.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "song_det_on@2x.png",
       "scale" : "2x"
     },
     {

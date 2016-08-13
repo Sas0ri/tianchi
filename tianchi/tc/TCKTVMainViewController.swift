@@ -42,6 +42,7 @@ class TCKTVMainViewController: UIViewController {
         orderedVC.view.frame = self.containerView.bounds
         orderedVC.view.translatesAutoresizingMaskIntoConstraints = false
         self.orderedVC = orderedVC
+        TCContext.sharedContext().orderedSongsViewController = orderedVC
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +65,7 @@ class TCKTVMainViewController: UIViewController {
     // MARK: - Bottom Controller
 
     @IBAction func mainAction(sender: AnyObject) {
+        self.mainVC.popViewControllerAnimated(false)
         self.containerView.addSubview(self.mainVC.view)
         self.orderedVC.view.removeFromSuperview()
         self.navBackground.hidden = self.mainVC.viewControllers.count > 1

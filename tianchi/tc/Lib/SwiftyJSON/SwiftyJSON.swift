@@ -69,7 +69,9 @@ public struct JSON {
             let object: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: opt)
             self.init(object)
         } catch let error1 as NSError {
-            error.memory = error1
+            if error != nil {
+                error.memory = error1
+            }
             self.init(NSNull())
         }
     }
