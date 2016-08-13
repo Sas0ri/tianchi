@@ -58,9 +58,9 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
     func heartbeatTimeout() {
         self.repeatTimer?.invalidate()
         self.heartbeatTimeoutTimer?.invalidate()
+        self.delegate?.didDisconnect()
         self.socket.setDelegate(nil)
         self.socket.disconnect()
-        self.delegate?.didDisconnect()
     }
     
     func writeStartHeartbeat() {

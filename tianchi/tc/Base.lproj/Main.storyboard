@@ -1849,7 +1849,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="9UV-2G-w9m">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0B0B2B17-DEA7-4158-9FC0-8B02E1F62F3C" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="182BD773-26A5-44B8-A36C-6040C8E59C29" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
                                         <rect key="frame" x="12" y="12" width="19" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="ACh-U9-dDp"/>
@@ -1908,7 +1908,7 @@
                                                     <action selector="segChanged:" destination="bj2-XT-wru" eventType="valueChanged" id="6Lz-ab-1Kn"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <searchBar contentMode="redraw" placeholder="搜索" backgroundImage="535276AD-3D7D-42E6-B226-7BE5FDF2103C" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-8l-95f">
+                                            <searchBar contentMode="redraw" placeholder="搜索" backgroundImage="D04F51B1-FCEB-48F1-9129-43370AFA34D4" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-8l-95f">
                                                 <rect key="frame" x="602" y="0.0" width="230" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="75b-fD-RJq"/>
@@ -2045,7 +2045,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="上一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="6C74E933-EB1F-462C-9B57-BD0D37B5ED3E"/>
+                                                        <state key="highlighted" backgroundImage="FA33C2F7-D9A6-4393-9B62-3F333BDA8D9F"/>
                                                         <connections>
                                                             <action selector="prePage:" destination="bj2-XT-wru" eventType="touchUpInside" id="ZLl-85-Esh"/>
                                                         </connections>
@@ -2066,7 +2066,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="下一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="6C74E933-EB1F-462C-9B57-BD0D37B5ED3E"/>
+                                                        <state key="highlighted" backgroundImage="FA33C2F7-D9A6-4393-9B62-3F333BDA8D9F"/>
                                                         <connections>
                                                             <action selector="nextPage:" destination="bj2-XT-wru" eventType="touchUpInside" id="fvR-Ar-3U4"/>
                                                         </connections>
@@ -4704,7 +4704,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0B0B2B17-DEA7-4158-9FC0-8B02E1F62F3C" width="19" height="20">
+        <image name="182BD773-26A5-44B8-A36C-6040C8E59C29" width="19" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4780,7 +4780,7 @@ AKcAqQCrAK0AsgC1ALcAuQC7AL0AwgDZANsA3Q9vD3QPfw+ID5sPnw+qD7MPuA/AD8MPyA/XD9sP4g/q
 D/cP/A/+EAAQBRANEBAQFRAdECAQMhA1EDoAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAQPA
 </mutableData>
         </image>
-        <image name="535276AD-3D7D-42E6-B226-7BE5FDF2103C" width="251" height="48">
+        <image name="D04F51B1-FCEB-48F1-9129-43370AFA34D4" width="251" height="48">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5634,7 +5634,7 @@ rgCzALYAuAC6ALwAvgDDANoA3ADexcDFxcXQxdnF7MXwxfvGBMYJxhHGFMYZxijGLMYzxjvGSMZNxk/G
 UcZWxl7GYcZmxm7GccaDxobGiwAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAMaNA
 </mutableData>
         </image>
-        <image name="6C74E933-EB1F-462C-9B57-BD0D37B5ED3E" width="93" height="28">
+        <image name="FA33C2F7-D9A6-4393-9B62-3F333BDA8D9F" width="93" height="28">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
