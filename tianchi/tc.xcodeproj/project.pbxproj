@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B0EC23C2E24E9532AC0EBDB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7636E7970B7EEC64FB51B3C /* Pods.framework */; };
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
+		5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
 		5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
 		5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
@@ -77,6 +78,8 @@
 /* Begin PBXFileReference section */
 		1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
+		5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarAppearance.h; sourceTree = "<group>"; };
+		5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarAppearance.m; sourceTree = "<group>"; };
 		5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCategoryViewController.swift; sourceTree = "<group>"; };
 		5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVLanguageViewController.swift; sourceTree = "<group>"; };
 		5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCVerticalButton.swift; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 			children = (
 				5CAA02171D17CD9800FE6DBD /* TCContext.swift */,
 				5CAA025B1D1A672600FE6DBD /* Socket */,
+				5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */,
+				5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -773,6 +778,7 @@
 				5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */,
 				5CE93E4D1D0FDEA900A536AC /* TCKTVMainBoardViewController.swift in Sources */,
 				5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */,
+				5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */,
 				5CAA02221D17D03100FE6DBD /* CocoaLumberjackSwift.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,

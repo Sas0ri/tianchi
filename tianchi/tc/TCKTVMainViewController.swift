@@ -19,7 +19,7 @@ class TCKTVMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_main") as!TCKTVMainBoardViewController
 
         let navVC = UINavigationController(rootViewController: mainVC)

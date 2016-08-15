@@ -43,6 +43,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     override init() {
         super.init()
+        UISearchBarAppearance.setupSearchBar()
         self.socketManager.delegate = self
         self.serverAddress = NSUserDefaults.standardUserDefaults().objectForKey("SA") as? String
         if self.serverAddress != nil {

@@ -182,7 +182,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             self.collectionView.reloadData()
         }
         if self.cloud {
-
+           
             self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (clouds, totalPage, flag) in
                 if flag {
                     if clouds!.count == 0 && self.page > 1 {
@@ -202,6 +202,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.ordered {
+            
             self.client.getOrderedSongs({ (ordereds, flag) in
                 if flag {
                     self.ordereds = ordereds!
@@ -329,6 +330,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            return 30
+        }
+        return 10
+    }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
@@ -416,6 +424,8 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             vc.singer = self.singer
             vc.language = self.language
             vc.category = self.category
+            vc.searchText = self.searchBar.text
+            vc.words = self.segmentedControl.selectedSegmentIndex
         }
     }
     

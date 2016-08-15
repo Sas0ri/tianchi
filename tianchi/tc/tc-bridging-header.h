@@ -13,5 +13,5 @@
 #import "AFNetworking.h"
 #import "CocoaLumberjack.h"
 #import "UIView+MBProgressView.h"
-
+#import "UISearchBarAppearance.h"
 #endif /* tc_bridging_header_h */

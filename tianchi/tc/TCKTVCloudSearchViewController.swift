@@ -18,6 +18,8 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     var singer:String?
     var language:TCKTVLanguage?
     var category:String?
+    var searchText:String?
+    var words:Int = 0
     
     var page:Int = 1
     var client = TCKTVSongClient()
@@ -40,8 +42,9 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
-        self.segmentedControl.selectedSegmentIndex = 0
+        self.segmentedControl.selectedSegmentIndex = words
         self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
+        self.searchBar.text = self.searchText
         if let subViews = self.searchBar.subviews.last?.subviews {
             for v in  subViews {
                 if v.isKindOfClass(UITextField) {
@@ -152,6 +155,13 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             return CGSizeMake(256, 102)
         }
         return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            return 30
+        }
+        return 10
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

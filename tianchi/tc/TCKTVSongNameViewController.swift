@@ -138,6 +138,13 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            return 30
+        }
+        return 10
+    }
+    
     // MARK: - UISearchBarDelegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
@@ -161,14 +168,17 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         payload.cmdContent = song.songNum
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+        if segue.destinationViewController.isKindOfClass(TCKTVCloudSearchViewController) {
+            let vc = segue.destinationViewController as! TCKTVCloudSearchViewController
+            vc.words = self.segmentedControl.selectedSegmentIndex
+            vc.searchText = self.searchBar.text
+        }
+    }
+     
     
 }
