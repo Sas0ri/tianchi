@@ -96,10 +96,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func loadData() {
-        var limit = 9
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
-            limit = 6
-        }
+        let limit = self.getLimit()
         if self.singer != nil {
             self.client.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
                 if flag {
@@ -258,14 +255,12 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let limit = self.getLimit()
+
         if self.cloud {
             return self.clouds.count
         }
         if self.download {
-            var limit = 9
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                limit = 6
-            }
             let count = self.page * limit
             if TCContext.sharedContext().downloads.count >= count {
                 return limit
@@ -273,10 +268,6 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             return TCContext.sharedContext().downloads.count%limit
         }
         if self.ordered {
-            var limit = 9
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                limit = 6
-            }
             let count = self.page * limit
             if self.ordereds.count >= count {
                 return limit
@@ -296,19 +287,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let download = TCContext.sharedContext().downloads.first
             statusLabel.text = download?.songNum == cloud.songNum ? "下载中" : "待下载"
         } else if self.download {
-            var limit = 9
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                limit = 6
-            }
+            let limit = self.getLimit()
             let index = (self.page - 1) * limit + indexPath.row
             let download = TCContext.sharedContext().downloads[index]
             cell.singerNameLabel.text = download.singer
             cell.songNameLabel.text = download.songName
         } else if self.ordered {
-            var limit = 9
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                limit = 6
-            }
+            let limit = self.getLimit()
             let index = (self.page - 1) * limit + indexPath.row
             let ordered = self.ordereds[index]
             cell.singerNameLabel.text = ordered.singer
@@ -351,10 +336,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.download {
             
         } else if self.ordered {
-            var limit = 9
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                limit = 6
-            }
+            let limit = self.getLimit()
             let index = (self.page - 1) * limit + indexPath.row
             let order = self.ordereds[index]
             payload.cmdType = 1001
@@ -363,6 +345,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let song = self.songs[indexPath.row]
             payload.cmdType = 1003
             payload.cmdContent = song.songNum
+        }
+        if payload.cmdType == 0 {
+            return
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -373,7 +358,10 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let payload = TCSocketPayload()
         let indexPath = self.collectionView.indexPathForCell(cell)
         if self.ordered {
-            let ordered = self.ordereds[indexPath!.row]
+            let limit = self.getLimit()
+            let index = (self.page - 1) * limit + indexPath!.row
+
+            let ordered = self.ordereds[index]
             payload.cmdType = 1002
             payload.cmdContent = ordered.songNum
             self.ordereds.removeAtIndex(indexPath!.row)
@@ -382,6 +370,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let song = self.songs[indexPath!.row]
             payload.cmdType = 1003
             payload.cmdContent = song.songNum
+        }
+        if payload.cmdType == 0 {
+            return
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -393,7 +384,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
            
         } else if self.download {
         } else if self.ordered {
-            let ordered = self.ordereds[indexPath!.row]
+            let limit = self.getLimit()
+            let index = (self.page - 1) * limit + indexPath!.row
+            let ordered = self.ordereds.removeAtIndex(index)
+            self.ordereds.insert(ordered, atIndex: 0)
+            self.collectionView.reloadData()
             payload.cmdType = 1001
             payload.cmdContent = ordered.songNum
         } else {
@@ -407,6 +402,14 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     func reloadData(sender:NSNotification) {
         self.loadData()
         self.collectionView.reloadData()
+    }
+    
+    func getLimit() -> Int {
+        var limit = 9
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            limit = 6
+        }
+        return limit
     }
     
     deinit {
