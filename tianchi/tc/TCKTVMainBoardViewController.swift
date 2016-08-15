@@ -36,7 +36,7 @@ class TCKTVMainBoardViewController: UIViewController {
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        if self.didNavToNext != nil {
+        if self.didNavToNext != nil && self.navigationController?.viewControllers.count > 1 {
             self.didNavToNext!()
         }
     }

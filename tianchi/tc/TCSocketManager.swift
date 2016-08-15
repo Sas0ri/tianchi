@@ -38,7 +38,7 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
             self.socket = AsyncSocket(delegate: self)
         }
         do {
-            try self.socket.connectToHost(self.address!, onPort: self.port!)
+            try self.socket.connectToHost(self.address, onPort: self.port!, withTimeout: 5)
         } catch let error as NSError {
             DDLogError(error.description)
             self.delegate?.connectFailed()
@@ -115,6 +115,7 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
     }
     
     func onSocket(sock: AsyncSocket!, willDisconnectWithError err: NSError!) {
+        DDLogInfo("socket willDisconnect error: " + err.description)
         self.delegate?.didDisconnect()
     }
     

@@ -15,6 +15,7 @@ class TCKTVMainViewController: UIViewController {
     
     var mainVC:UINavigationController!
     var orderedVC:UIViewController!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,10 @@ class TCKTVMainViewController: UIViewController {
         navVC.view.frame = self.containerView.bounds
         mainVC.didNavToNext = {
             self.navBackground.hidden = true
+            self.backButton.hidden = false
         }
         mainVC.didNavBack = {
+            self.backButton.hidden = true
             self.navBackground.hidden = false
         }
 
@@ -45,6 +48,11 @@ class TCKTVMainViewController: UIViewController {
         TCContext.sharedContext().orderedSongsViewController = orderedVC
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,7 +73,7 @@ class TCKTVMainViewController: UIViewController {
     // MARK: - Bottom Controller
 
     @IBAction func mainAction(sender: AnyObject) {
-        self.mainVC.popViewControllerAnimated(false)
+        self.mainVC.popToRootViewControllerAnimated(false)
         self.containerView.addSubview(self.mainVC.view)
         self.orderedVC.view.removeFromSuperview()
         self.navBackground.hidden = self.mainVC.viewControllers.count > 1
@@ -80,6 +88,7 @@ class TCKTVMainViewController: UIViewController {
         self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1, constant: 0))
         self.containerView.layoutIfNeeded()
         self.navBackground.hidden = true
+        self.backButton.hidden = true
     }
     
     @IBAction func muteAction(sender: AnyObject) {

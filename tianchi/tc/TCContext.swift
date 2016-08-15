@@ -12,6 +12,8 @@ let _sharedContext:TCContext = TCContext()
 
 class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
+    static let port:UInt16 = 9596
+    
     class func sharedContext() -> TCContext {
         return _sharedContext
     }
@@ -39,15 +41,13 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         case Reconnect = 504
     }
     
-
-    
     override init() {
         super.init()
         self.socketManager.delegate = self
         self.serverAddress = NSUserDefaults.standardUserDefaults().objectForKey("SA") as? String
         if self.serverAddress != nil {
             self.socketManager.address = self.serverAddress
-            self.socketManager.port = 9596
+            self.socketManager.port = TCContext.port
             self.socketManager.connect()
         } else {
             self.showInputAddress()
@@ -71,13 +71,13 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     }
     
     func connectFailed() {
-        let alertView = UIAlertView(title: "", message: "无法连接服务器", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
+        let alertView = UIAlertView(title: "", message: "无法连接服务器", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
         alertView.tag = AlertTag.Reconnect.rawValue
         alertView.show()
     }
     
     func didDisconnect() {
-        let alertView = UIAlertView(title: "", message: "与服务器断开连接", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
+        let alertView = UIAlertView(title: "", message: "与服务器断开连接", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
         alertView.tag = AlertTag.Reconnect.rawValue
         alertView.show()
     }
@@ -109,7 +109,6 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         alertView.alertViewStyle = .PlainTextInput
         alertView.tag = AlertTag.Address.rawValue
         alertView.show()
-        
     }
     
     func showVerify() {
@@ -122,6 +121,9 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == AlertTag.Address.rawValue {
             self.serverAddress = alertView.textFieldAtIndex(0)?.text
+            self.socketManager.address = self.serverAddress
+            self.socketManager.port = TCContext.port
+            self.socketManager.connect()
         } else if alertView.tag == AlertTag.Verify.rawValue {
             let textField = alertView.textFieldAtIndex(0)
             let payload = TCSocketPayload()
@@ -139,15 +141,15 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             alertView.show()
             self.verifyAlertView = alertView
         } else if alertView.tag == AlertTag.Both.rawValue {
-            if buttonIndex == 0 {
+            if buttonIndex == 1 {
                 self.showInputAddress()
-            } else if buttonIndex == 1 {
+            } else if buttonIndex == 2 {
                 self.showVerify()
             }
         } else if alertView.tag == AlertTag.Reconnect.rawValue {
-            if buttonIndex == 0 {
+            if buttonIndex == 1 {
                 self.socketManager.connect()
-            } else if buttonIndex == 1 {
+            } else if buttonIndex == 2 {
                 self.showInputAddress()
             }
         }
