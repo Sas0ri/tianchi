@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CocoaAsyncSocket
 
 protocol TCSocketManagerDelegate {
     func connectFailed()
@@ -16,11 +15,11 @@ protocol TCSocketManagerDelegate {
     func didHandShake()
 }
 
-class TCSocketManager: NSObject, AsyncSocketDelegate {
+class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
 
     var delegate:TCSocketManagerDelegate?
     
-    var socket = AsyncSocket()
+    var socket = GCDAsyncSocket()
     var repeatTimer: NSTimer?
     var heartbeatTimeoutTimer: NSTimer?
     var address:String?
@@ -28,14 +27,14 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
     
     override init() {
         super.init()
-        self.socket.setDelegate(self)
+        self.socket.delegate = self
     }
     
     func connect() {
-        if self.socket.isConnected() {
-            self.socket.setDelegate(nil)
+        if self.socket.isConnected {
+            self.socket.delegate = nil
             self.socket.disconnect()
-            self.socket = AsyncSocket(delegate: self)
+            self.socket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
         }
         do {
             try self.socket.connectToHost(self.address, onPort: self.port!, withTimeout: 5)
@@ -59,7 +58,7 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
         self.repeatTimer?.invalidate()
         self.heartbeatTimeoutTimer?.invalidate()
         self.delegate?.didDisconnect()
-        self.socket.setDelegate(nil)
+        self.socket.delegate = nil
         self.socket.disconnect()
     }
     
@@ -89,13 +88,13 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
     
     // MARK: - Delegate
     
-    func onSocket(sock: AsyncSocket!, didConnectToHost host: String!, port: UInt16) {
+    func onSocket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         DDLogInfo("didConnect")
         self.writeStartHeartbeat()
         self.socket.readDataWithTimeout(-1, tag: 0)
     }
     
-    func onSocket(sock: AsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
+    func onSocket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         let payload = TCSocketPayload(data: data)
         //开始检测心跳
         if payload.cmdType == 1700 {
@@ -110,16 +109,16 @@ class TCSocketManager: NSObject, AsyncSocketDelegate {
         DDLogInfo("didReadData: " + "\(payload.cmdType)")
     }
     
-    func onSocket(sock: AsyncSocket!, didWriteDataWithTag tag: Int) {
+    func onSocket(sock: GCDAsyncSocket!, didWriteDataWithTag tag: Int) {
         DDLogInfo("didWriteData: ")
     }
     
-    func onSocket(sock: AsyncSocket!, willDisconnectWithError err: NSError!) {
+    func onSocket(sock: GCDAsyncSocket!, willDisconnectWithError err: NSError!) {
         DDLogInfo("socket willDisconnect error: " + err.description)
         self.delegate?.didDisconnect()
     }
     
-    func onSocketDidDisconnect(sock: AsyncSocket!) {
+    func onSocketDidDisconnect(sock: GCDAsyncSocket!) {
         DDLogInfo("socket disconnect")
     }
 }

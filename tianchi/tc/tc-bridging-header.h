@@ -14,4 +14,7 @@
 #import "CocoaLumberjack.h"
 #import "UIView+MBProgressView.h"
 #import "UISearchBarAppearance.h"
+#import "GCDAsyncSocket.h"
+#import "UIImageView+WebCache.h"
+
 #endif /* tc_bridging_header_h */

@@ -129,6 +129,11 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         payload.cmdType = 1003
         payload.cmdContent = song.songNum
         TCContext.sharedContext().socketManager.sendPayload(payload)
+        if self.searchBar.text?.characters.count > 0 {
+            self.searchBar.resignFirstResponder()
+            self.searchBar.text = nil
+            self.loadData()
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

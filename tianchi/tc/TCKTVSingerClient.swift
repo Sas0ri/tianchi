@@ -11,7 +11,6 @@ import UIKit
 class TCKTVSingerClient: NSObject {
     let path = "TianChiServer/GetSingerList"
     let pagePath = "TianChiServer/GetSingerTotalPage"
-
     
     var client:MCJSONClient? = {
         var c:MCJSONClient?
@@ -29,6 +28,10 @@ class TCKTVSingerClient: NSObject {
         }
         return c
     }()
+        
+    func singerIconURL(singerId:Int64) -> NSURL {
+        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lldd.jpg", singerId))!
+    }
     
     func getSingers(keyword:String?, type:Int, page:Int, limit:Int, complete: (singers:[TCKTVSinger]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()

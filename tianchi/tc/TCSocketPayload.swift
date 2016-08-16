@@ -9,8 +9,8 @@
 import UIKit
 
 class TCSocketPayload: NSObject {
-    var cmdType:Int!
-    var cmdContent:Int?
+    var cmdType:Int! = 0
+    var cmdContent:Int? = 0
     
     convenience init(data:NSData) {
         self.init()

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0EC23C2E24E9532AC0EBDB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7636E7970B7EEC64FB51B3C /* Pods.framework */; };
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
 		5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
@@ -15,7 +14,6 @@
 		5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
 		5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816111D2246BF00A0F513 /* TCMainButton.swift */; };
 		5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */; };
-		5C6476D41D5AF68C00C7EAFC /* Singer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */; };
 		5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */; };
 		5CAA02181D17CD9800FE6DBD /* TCContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02171D17CD9800FE6DBD /* TCContext.swift */; };
 		5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */; };
@@ -73,10 +71,12 @@
 		5CE93E9F1D0FF2F500A536AC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */; };
 		5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */; };
 		5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */; };
+		6E86B00C3B76B71EEE3C42DD /* libPods-tc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7B028307B1690D757E12D5 /* libPods-tc.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2D7B028307B1690D757E12D5 /* libPods-tc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.release.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.release.xcconfig"; sourceTree = "<group>"; };
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
 		5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarAppearance.h; sourceTree = "<group>"; };
 		5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarAppearance.m; sourceTree = "<group>"; };
@@ -85,7 +85,6 @@
 		5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCVerticalButton.swift; sourceTree = "<group>"; };
 		5C5816111D2246BF00A0F513 /* TCMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCMainButton.swift; sourceTree = "<group>"; };
 		5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVMainButton.swift; sourceTree = "<group>"; };
-		5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Singer.xcassets; sourceTree = "<group>"; };
 		5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5CAA02171D17CD9800FE6DBD /* TCContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCContext.swift; sourceTree = "<group>"; };
 		5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCJSONClient.swift; sourceTree = "<group>"; };
@@ -167,7 +166,7 @@
 		5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVSingerViewController.swift; sourceTree = "<group>"; };
-		AB48B70EC30EFF8CFA1DE3EC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.debug.xcconfig"; sourceTree = "<group>"; };
 		F7636E7970B7EEC64FB51B3C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,7 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0EC23C2E24E9532AC0EBDB /* Pods.framework in Frameworks */,
+				6E86B00C3B76B71EEE3C42DD /* libPods-tc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,8 +447,8 @@
 			children = (
 				5CE93E371D0E83EA00A536AC /* tc */,
 				5CE93E221D0E838400A536AC /* Products */,
-				6BD76087DCEF6A3481686732 /* Pods */,
 				BA0266BBDD9824C5C6079C6A /* Frameworks */,
+				F9AA9AD25D12FB9D1C0D05BD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -498,7 +497,6 @@
 				5CAA023C1D191D1100FE6DBD /* Singer */,
 				5CAA02451D19262000FE6DBD /* Language */,
 				5CAA02231D17D09800FE6DBD /* TCKTVSongsViewController.swift */,
-				5C6476D31D5AF68C00C7EAFC /* Singer.xcassets */,
 			);
 			name = KTV;
 			sourceTree = "<group>";
@@ -593,21 +591,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		6BD76087DCEF6A3481686732 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AB48B70EC30EFF8CFA1DE3EC /* Pods.debug.xcconfig */,
-				1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		BA0266BBDD9824C5C6079C6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F7636E7970B7EEC64FB51B3C /* Pods.framework */,
+				2D7B028307B1690D757E12D5 /* libPods-tc.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9AA9AD25D12FB9D1C0D05BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */,
+				54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,12 +616,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CE93E331D0E838400A536AC /* Build configuration list for PBXNativeTarget "tc" */;
 			buildPhases = (
-				C814C9B593145865631687B1 /* Check Pods Manifest.lock */,
+				041E6A5DCFA1A9C0C4C13C75 /* [CP] Check Pods Manifest.lock */,
 				5CE93E1D1D0E838400A536AC /* Sources */,
 				5CE93E1E1D0E838400A536AC /* Frameworks */,
 				5CE93E1F1D0E838400A536AC /* Resources */,
-				CD1262A9EB690452E8CD690A /* Embed Pods Frameworks */,
-				0A16F675B62946E677C6F45B /* Copy Pods Resources */,
+				12A0283807325F0DED151EBC /* [CP] Embed Pods Frameworks */,
+				40E56ACD3EA0E54DC2880744 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -645,7 +644,7 @@
 				TargetAttributes = {
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BP47KFJPZ6;
+						DevelopmentTeam = 6M3WA93J27;
 					};
 				};
 			};
@@ -682,7 +681,6 @@
 				5CE93E981D0FF2F500A536AC /* Lato-BlackItalic.ttf in Resources */,
 				5CE93E9B1D0FF2F500A536AC /* Lato-Hairline.ttf in Resources */,
 				5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */,
-				5C6476D41D5AF68C00C7EAFC /* Singer.xcassets in Resources */,
 				5CE93E971D0FF2F500A536AC /* Lato-Black.ttf in Resources */,
 				5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */,
 				5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */,
@@ -693,29 +691,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A16F675B62946E677C6F45B /* Copy Pods Resources */ = {
+		041E6A5DCFA1A9C0C4C13C75 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C814C9B593145865631687B1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,19 +706,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CD1262A9EB690452E8CD690A /* Embed Pods Frameworks */ = {
+		12A0283807325F0DED151EBC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tc/Pods-tc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40E56ACD3EA0E54DC2880744 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tc/Pods-tc-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -905,18 +903,18 @@
 		};
 		5CE93E341D0E838400A536AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB48B70EC30EFF8CFA1DE3EC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "effb30af-ccf2-4dd3-af37-8ea2246ff051";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -924,18 +922,18 @@
 		};
 		5CE93E351D0E838400A536AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1930AB0906A853415C3ED6FF /* Pods.release.xcconfig */;
+			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "effb30af-ccf2-4dd3-af37-8ea2246ff051";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

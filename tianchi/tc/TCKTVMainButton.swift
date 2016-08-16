@@ -18,10 +18,12 @@ class TCKTVMainButton: UIButton {
         if let imageView = self.imageView {
             if UI_USER_INTERFACE_IDIOM() == .Phone {
                 self.titleLabel!.font = UIFont.systemFontOfSize(10)
+                if let image = imageView.image {
                 var frame = imageView.frame
-                frame.size.width = frame.size.width/1.8
-                frame.size.height = frame.size.height/1.8
+                frame.size.width = image.size.width/1.8
+                frame.size.height = image.size.height/1.8
                 imageView.frame = frame
+                }
             }
             
             var center = imageView.center;

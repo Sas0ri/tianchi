@@ -100,7 +100,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSingerCell
         let singer = self.singers[indexPath.row]
         cell.singerNameLabel.text = singer.singerName
-        cell.singerImageView.image = UIImage(named: String(format:"%lld.jpg", singer.singerId))
+        cell.singerImageView.sd_setImageWithURL(self.client.singerIconURL(singer.singerId))
         return cell
     }
     

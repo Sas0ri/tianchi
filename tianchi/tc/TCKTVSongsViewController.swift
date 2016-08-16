@@ -199,7 +199,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.ordered {
-            
+            let song = TCKTVPoint()
+            song.songName = "aga"
+            song.singer = "gggg"
+            self.ordereds = [song,song,song,song,song,song,song,song,song]
+            self.collectionView.reloadData()
             self.client.getOrderedSongs({ (ordereds, flag) in
                 if flag {
                     self.ordereds = ordereds!
@@ -298,6 +302,12 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let ordered = self.ordereds[index]
             cell.singerNameLabel.text = ordered.singer
             cell.songNameLabel.text = ordered.songName
+            let btn1 = cell.contentView.viewWithTag(1)
+            let btn2 = cell.contentView.viewWithTag(2)
+            let label = cell.contentView.viewWithTag(3)
+            btn1?.hidden = index == 0
+            btn2?.hidden = btn1!.hidden
+            label?.hidden = !btn1!.hidden
         } else {
             let song = self.songs[indexPath.row]
             cell.singerNameLabel.text = song.singer
@@ -326,8 +336,6 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
-        cell.songNameLabel.textColor = UIColor.redColor()
-        cell.singerNameLabel.textColor = UIColor.redColor()
         let payload = TCSocketPayload()
         if self.cloud {
             let cloud = self.clouds[indexPath.row]
@@ -336,20 +344,22 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.download {
             
         } else if self.ordered {
-            let limit = self.getLimit()
-            let index = (self.page - 1) * limit + indexPath.row
-            let order = self.ordereds[index]
-            payload.cmdType = 1001
-            payload.cmdContent = order.songNum
+    
         } else {
             let song = self.songs[indexPath.row]
             payload.cmdType = 1003
             payload.cmdContent = song.songNum
+            cell.songNameLabel.textColor = UIColor.redColor()
+            cell.singerNameLabel.textColor = UIColor.redColor()
         }
-        if payload.cmdType == 0 {
-            return
+        if payload.cmdType != 0 {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
         }
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        if self.searchBar.text?.characters.count > 0 {
+            self.searchBar.resignFirstResponder()
+            self.searchBar.text = nil
+            self.loadData()
+        }
     }
     
 
