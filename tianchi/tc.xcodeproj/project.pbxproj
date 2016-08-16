@@ -33,6 +33,7 @@
 		5CAA025A1D1A5E0600FE6DBD /* TCSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02591D1A5E0600FE6DBD /* TCSocketManager.swift */; };
 		5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA025D1D1A673F00FE6DBD /* TCSocketPayload.swift */; };
 		5CAA02611D1A700200FE6DBD /* TCKTVPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */; };
+		5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */; };
 		5CE93E411D0E83EA00A536AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E381D0E83EA00A536AC /* AppDelegate.swift */; };
 		5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E391D0E83EA00A536AC /* Assets.xcassets */; };
 		5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3A1D0E83EA00A536AC /* LaunchScreen.storyboard */; };
@@ -106,6 +107,7 @@
 		5CAA02591D1A5E0600FE6DBD /* TCSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSocketManager.swift; sourceTree = "<group>"; };
 		5CAA025D1D1A673F00FE6DBD /* TCSocketPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSocketPayload.swift; sourceTree = "<group>"; };
 		5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVPayloadHandler.swift; sourceTree = "<group>"; };
+		5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVContainerCell.swift; sourceTree = "<group>"; };
 		5CE93E211D0E838400A536AC /* tc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE93E381D0E83EA00A536AC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CE93E391D0E83EA00A536AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAA02261D17D16F00FE6DBD /* TCKTVSongCell.swift */,
+				5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */,
 				5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */,
 				5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */,
+				5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */,
 				5CE93E961D0FF2F500A536AC /* UIToolbar+FlatUI.m in Sources */,
 				5CAA02241D17D09800FE6DBD /* TCKTVSongsViewController.swift in Sources */,
 				5CAA023F1D191D2F00FE6DBD /* TCKTVSinger.swift in Sources */,

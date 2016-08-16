@@ -17,7 +17,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     
     var page:Int = 1
     var client = TCKTVSingerClient()
-    var singers:[TCKTVSinger] = [TCKTVSinger]()
+    var singers:[Int:[TCKTVSinger]] = [Int:[TCKTVSinger]]()
     var totalPage:String = "0"
     
     override func viewDidLoad() {
@@ -67,22 +67,20 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             limit = 12
         }
+        
+        let page = self.page
         self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit) { (singers, totalPage, flag) in
             if flag {
-                if singers!.count == 0 && self.page > 1{
-                    self.page = self.page - 1
-                } else {
-                    self.totalPage = totalPage
-                    self.singers = singers!
-                    self.collectionView.reloadData()
+                self.totalPage = totalPage
+                self.singers[page] = singers!
+                self.collectionView.reloadData()
+                if self.page == 1 {
+                    self.updatePage(shouldSelect: false)
                 }
+                
             } else {
-                if self.page > 1 {
-                    self.page = self.page - 1
-                }
                 self.view.showTextAndHide("加载失败")
             }
-            self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
         }
     }
 
@@ -93,18 +91,49 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.singers.count
+        if collectionView == self.collectionView {
+            return Int(self.totalPage)!
+        }
+        if let singers = self.singers[self.page] {
+            return singers.count
+        }
+        return 0
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if collectionView == self.collectionView {
+            self.page = indexPath.row + 1
+            if self.singers[self.page] == nil {
+                self.loadData()
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+        self.updatePage(shouldSelect: false)
+    }
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = indexPath.row
+            cell.collectionView.reloadData()
+            return cell
+        }
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSingerCell
-        let singer = self.singers[indexPath.row]
+        let page = collectionView.tag + 1
+        let singers = self.singers[page]
+        let singer = singers![indexPath.row]
         cell.singerNameLabel.text = singer.singerName
         cell.singerImageView.sd_setImageWithURL(self.client.singerIconURL(singer.singerId))
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if collectionView == self.collectionView {
+            return collectionView.bounds.size
+        }
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             return CGSizeMake((collectionView.bounds.size.width - 10)/6, collectionView.bounds.size.height/2 - 10)
         }
@@ -114,6 +143,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     // MARK: - UISearchBarDelegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
+        self.totalPage = "0"
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
 
@@ -122,6 +153,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
             return
         }
         self.page = self.page - 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
     
@@ -130,15 +162,25 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
             return
         }
         self.page = self.page + 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
+    }
+    
+    func updatePage(shouldSelect shouldSelect:Bool)  {
+        self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
+        if shouldSelect {
+            self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow:self.page-1,inSection: 0), atScrollPosition: .None, animated: false)
+        }
     }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = sender as! TCKTVSingerCell
-        let indexPath = self.collectionView.indexPathForCell(cell)
-        let singer = self.singers[indexPath!.row]
+        let collectionView = cell.superview as! UICollectionView
+        let indexPath = collectionView.indexPathForCell(cell)
+        let singers = self.singers[self.page]
+        let singer = singers![indexPath!.row]
         let vc = segue.destinationViewController as! TCKTVSongsViewController
         vc.singer = singer.singerName
     }

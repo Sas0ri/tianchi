@@ -23,7 +23,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     
     var page:Int = 1
     var client = TCKTVSongClient()
-    var clouds:[TCKTVCloud] = [TCKTVCloud]()
+    var clouds:[Int:[TCKTVCloud]] = [Int:[TCKTVCloud]]()
     var totalPage:String = "0"
     
     @IBOutlet weak var bottomView: UIView!
@@ -89,24 +89,18 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             limit = 6
         }
         
+        let page = self.page
         self.client.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category) {
             (clouds, totalPage, flag) in
             
             if flag {
-                if clouds!.count == 0 && self.page > 1 {
-                    self.page = self.page - 1
-                } else {
-                    self.totalPage = totalPage
-                    self.clouds = clouds!
-                    self.collectionView.reloadData()
-                }
+                self.totalPage = totalPage
+                self.clouds[page] = clouds!
+                self.collectionView.reloadData()
+                
             } else {
-                if self.page > 1 {
-                    self.page = self.page - 1
-                }
                 self.view.showTextAndHide("加载失败")
             }
-            self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
         }
         
     }
@@ -116,6 +110,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             return
         }
         self.page = self.page - 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
     
@@ -124,6 +119,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             return
         }
         self.page = self.page + 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
     
@@ -133,13 +129,38 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.clouds.count
+        if let clouds = self.clouds[self.page] {
+            return clouds.count
+        }
+        return 0
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if collectionView == self.collectionView {
+            self.page = indexPath.row + 1
+            if self.clouds[self.page] == nil {
+                self.loadData()
+            }
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+        self.updatePage(shouldSelect: false)
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = indexPath.row
+            cell.collectionView.reloadData()
+            return cell
+        }
+        let page = collectionView.tag + 1
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSongCell
-        
-        let cloud = self.clouds[indexPath.row]
+        let clouds = self.clouds[page]
+        let cloud = clouds![indexPath.row]
         cell.singerNameLabel.text = cloud.singer
         cell.songNameLabel.text = cloud.songName
         let statusLabel = cell.viewWithTag(1) as! UILabel
@@ -151,6 +172,9 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if collectionView == self.collectionView {
+            return collectionView.bounds.size
+        }
         if UI_USER_INTERFACE_IDIOM() == .Pad {
             return CGSizeMake(256, 102)
         }
@@ -158,6 +182,9 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        if collectionView == self.collectionView {
+            return 0
+        }
         if UI_USER_INTERFACE_IDIOM() == .Pad {
             return 30
         }
@@ -168,14 +195,21 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         let payload = TCSocketPayload()
         
-        let cloud = self.clouds[indexPath.row]
-        payload.cmdType = 1003
+        let clouds = self.clouds[page]
+        let cloud = clouds![indexPath.row]
+        payload.cmdType = 1005
         payload.cmdContent = cloud.songNum
         
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    
+    func updatePage(shouldSelect shouldSelect:Bool)  {
+        self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
+        if shouldSelect {
+            self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow:self.page-1,inSection: 0), atScrollPosition: .None, animated: false)
+        }
+    }
+
     // MARK: - Cell delegate
     func onFirstAction(cell: UICollectionViewCell) {
         
