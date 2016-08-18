@@ -167,6 +167,10 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         if self.download {
             self.totalPage = "\(TCContext.sharedContext().downloads.count%limit == 0 ? TCContext.sharedContext().downloads.count/limit : TCContext.sharedContext().downloads.count/limit + 1)"
+            if self.page > Int(self.totalPage) {
+                self.page = Int(self.totalPage)!
+            }
+            self.updatePage(shouldSelect: true)
             self.collectionView.reloadData()
         }
         if self.cloud {
