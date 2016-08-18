@@ -59,6 +59,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     
     @IBAction func segChanged(sender: AnyObject) {
         self.page = 1
+        self.totalPage = "0"
+        self.updatePage(shouldSelect: false)
         self.loadData()
     }
     
@@ -69,6 +71,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         }
         
         let page = self.page
+        let nextPage = self.page + 1
         self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit) { (singers, totalPage, flag) in
             if flag {
                 self.totalPage = totalPage
@@ -80,6 +83,12 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
                 
             } else {
                 self.view.showTextAndHide("加载失败")
+            }
+        }
+        //预加载
+        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit) { (singers, totalPage, flag) in
+            if flag {
+                self.singers[nextPage] = singers!
             }
         }
     }
@@ -126,7 +135,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let singers = self.singers[page]
         let singer = singers![indexPath.row]
         cell.singerNameLabel.text = singer.singerName
-        cell.singerImageView.sd_setImageWithURL(self.client.singerIconURL(singer.singerId))
+        let url = self.client.singerIconURL(singer.singerId)
+        cell.singerImageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "public_singer"))
         return cell
     }
     
@@ -135,7 +145,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
             return collectionView.bounds.size
         }
         if UI_USER_INTERFACE_IDIOM() == .Phone {
-            return CGSizeMake((collectionView.bounds.size.width - 10)/6, collectionView.bounds.size.height/2 - 10)
+            return CGSizeMake(floor((collectionView.bounds.size.width - 50)/6), floor((collectionView.bounds.size.height - 10)/2))
         }
         return CGSizeMake(180, 180)
     }
@@ -144,7 +154,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
         self.totalPage = "0"
-        self.updatePage(shouldSelect: true)
+        self.updatePage(shouldSelect: false)
         self.loadData()
     }
 

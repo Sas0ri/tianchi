@@ -55,6 +55,9 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     @IBAction func segChanged(sender: AnyObject) {
         self.page = 1
+        self.totalPage = "0"
+        self.updatePage(shouldSelect: false)
+        self.clearData()
         self.loadData()
     }
     
@@ -63,6 +66,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
             return
         }
         self.page = self.page - 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
     
@@ -71,6 +75,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
             return
         }
         self.page = self.page + 1
+        self.updatePage(shouldSelect: true)
         self.loadData()
     }
     
@@ -80,6 +85,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
             limit = 6
         }
         let page = self.page
+        let nextPage = self.page + 1
         self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit) { (songs, totalPage, flag) in
             if flag {
                 self.totalPage = totalPage
@@ -91,6 +97,12 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
                 
             } else {
                 self.view.showTextAndHide("加载失败")
+            }
+        }
+        //预加载
+        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit) { (songs, totalPage, flag) in
+            if flag {
+                self.songs[nextPage] = songs!
             }
         }
     }
@@ -112,7 +124,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.collectionView {
-            self.page = indexPath.row + 1
+            self.page = indexPath.item + 1
             if self.songs[self.page] == nil {
                 self.loadData()
             }
@@ -190,7 +202,8 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
         self.totalPage = "0"
-        self.updatePage(shouldSelect: true)
+        self.updatePage(shouldSelect: false)
+        self.clearData()
         self.loadData()
     }
     
@@ -220,9 +233,15 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     func updatePage(shouldSelect shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        if shouldSelect {
-            self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow:self.page-1,inSection: 0), atScrollPosition: .None, animated: false)
+        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
+        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
+            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
         }
+    }
+    
+    func clearData() {
+        self.songs.removeAll()
+        self.collectionView.reloadData()
     }
      // MARK: - Navigation
      

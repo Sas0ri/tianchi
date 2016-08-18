@@ -42,7 +42,7 @@ class TCKTVSongClient: NSObject {
     func getSongsByName(keyword:String?, words:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         if words > 0 {
@@ -71,7 +71,7 @@ class TCKTVSongClient: NSObject {
     func getSongsByCategory(keyword:String?, words:Int, type:String, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         if words > 0 {
             params["words"] = NSNumber(integer: words)
@@ -101,7 +101,7 @@ class TCKTVSongClient: NSObject {
     func getSongsBySinger(keyword:String?, singer:String, words:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         if words > 0 {
             params["words"] = NSNumber(integer: words)
@@ -131,7 +131,7 @@ class TCKTVSongClient: NSObject {
     func getSongsByLanguage(keyword:String?, words:Int, language:Int, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         if words > 0 {
             params["words"] = NSNumber(integer:words)
@@ -161,7 +161,7 @@ class TCKTVSongClient: NSObject {
     func getRankingSongs(keyword:String?, page:Int, limit:Int, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         params["page"] = NSNumber(integer: page)
@@ -187,7 +187,7 @@ class TCKTVSongClient: NSObject {
     func getCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         if words > 0 {
             params["words"] = NSNumber(integer: words)
@@ -249,7 +249,7 @@ class TCKTVSongClient: NSObject {
     func searchCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, language:Int?, singer:String?, type:String?, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         if words > 0 {
             params["words"] = NSNumber(integer: words)

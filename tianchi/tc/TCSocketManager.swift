@@ -37,7 +37,9 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
             self.socket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
         }
         do {
-            try self.socket.connectToHost(self.address, onPort: self.port!, withTimeout: 5)
+            self.socket.delegate = self
+            self.socket.delegateQueue = dispatch_get_main_queue()
+            try self.socket.connectToHost(self.address, onPort: self.port!, withTimeout: 2)
         } catch let error as NSError {
             DDLogError(error.description)
             self.delegate?.connectFailed()
@@ -88,13 +90,13 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     
     // MARK: - Delegate
     
-    func onSocket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
+    func socket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         DDLogInfo("didConnect")
         self.writeStartHeartbeat()
         self.socket.readDataWithTimeout(-1, tag: 0)
     }
     
-    func onSocket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
+    func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         let payload = TCSocketPayload(data: data)
         //开始检测心跳
         if payload.cmdType == 1700 {
@@ -109,16 +111,12 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
         DDLogInfo("didReadData: " + "\(payload.cmdType)")
     }
     
-    func onSocket(sock: GCDAsyncSocket!, didWriteDataWithTag tag: Int) {
+    func socket(sock: GCDAsyncSocket!, didWriteDataWithTag tag: Int) {
         DDLogInfo("didWriteData: ")
     }
     
-    func onSocket(sock: GCDAsyncSocket!, willDisconnectWithError err: NSError!) {
-        DDLogInfo("socket willDisconnect error: " + err.description)
+    func socketDidDisconnect(sock: GCDAsyncSocket!, withError err: NSError!) {
+        DDLogInfo("socket didDisconnect error: " + err.description)
         self.delegate?.didDisconnect()
-    }
-    
-    func onSocketDidDisconnect(sock: GCDAsyncSocket!) {
-        DDLogInfo("socket disconnect")
     }
 }

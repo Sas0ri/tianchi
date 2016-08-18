@@ -30,13 +30,13 @@ class TCKTVSingerClient: NSObject {
     }()
         
     func singerIconURL(singerId:Int64) -> NSURL {
-        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lldd.jpg",TCContext.sharedContext().serverAddress!, singerId))!
+        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lld.jpg",TCContext.sharedContext().serverAddress!, singerId))!
     }
     
     func getSingers(keyword:String?, type:Int, page:Int, limit:Int, complete: (singers:[TCKTVSinger]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword?.characters.count > 0 {
-            params["py"] = keyword!
+            params["py"] = keyword!.uppercaseString
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
         if type == 1 || type == 3 {
