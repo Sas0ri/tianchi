@@ -476,7 +476,6 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
-    f
 
     // MARK: - Cell delegate
     func onFirstAction(cell: UICollectionViewCell) {
