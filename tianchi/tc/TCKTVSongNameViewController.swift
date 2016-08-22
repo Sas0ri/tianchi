@@ -170,6 +170,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let song = songs![indexPath.row]
         payload.cmdType = 1003
         payload.cmdContent = song.songNum
+        
         TCContext.sharedContext().socketManager.sendPayload(payload)
         if self.searchBar.text?.characters.count > 0 {
             self.searchBar.resignFirstResponder()
@@ -228,6 +229,10 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let payload = TCSocketPayload()
         payload.cmdType = 1004
         payload.cmdContent = song.songNum
+        
+        let c = cell as! TCKTVSongCell
+        c.songNameLabel.textColor = UIColor.redColor()
+        c.singerNameLabel.textColor = UIColor.redColor()
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     

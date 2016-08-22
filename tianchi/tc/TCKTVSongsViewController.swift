@@ -107,7 +107,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let page = self.page
         let nextPage = self.page + 1
         if self.singer != nil {
-            self.client.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
+            self.client.getSongsBySinger(self.searchBar.text, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.totalPage = totalPage
                     self.songs[page] = songs!
@@ -152,7 +152,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.ranking {
-            self.client.getRankingSongs(nil, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
+            self.client.getRankingSongs(self.searchBar.text, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.totalPage = totalPage
                     self.songs[page] = songs!
@@ -443,6 +443,14 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let cloud = clouds![indexPath.row]
             payload.cmdType = 1005
             payload.cmdContent = cloud.songNum
+            
+            let download = TCKTVDownload()
+            download.songNum = cloud.songNum
+            download.songName = cloud.songName
+            download.singer = cloud.singer
+            TCContext.sharedContext().downloads.append(download)
+            let statusLabel = cell.viewWithTag(1) as! UILabel
+            statusLabel.text = TCContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
         } else if self.download {
             
         } else if self.ordered {
@@ -452,22 +460,23 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let song = songs![indexPath.row]
             payload.cmdType = 1003
             payload.cmdContent = song.songNum
+            
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
             cell.songNameLabel.textColor = UIColor.redColor()
             cell.singerNameLabel.textColor = UIColor.redColor()
         }
-        if payload.cmdType != 0 {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            if payload.cmdType == 1005 {
-                TCContext.sharedContext().performSelector(#selector(TCContext.getDownload), withObject: nil, afterDelay: 0.5)
-            }
-        }
+  
         if self.searchBar.text?.characters.count > 0 {
             self.searchBar.resignFirstResponder()
             self.searchBar.text = nil
             self.loadData()
         }
+        if payload.cmdType == 0 {
+            return
+        }
+        TCContext.sharedContext().socketManager.sendPayload(payload)
     }
-    
+    f
 
     // MARK: - Cell delegate
     func onFirstAction(cell: UICollectionViewCell) {
@@ -478,8 +487,16 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let limit = self.getLimit()
         let index = (self.page - 1) * limit + indexPath!.row
 
-        if self.ordered {
-
+        if self.language != nil {
+            let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+            let collectionView = cell.superview as! UICollectionView
+            let indexPath = collectionView.indexPathForCell(cell)
+            let page = collectionView.tag + 1
+            let songs = self.songs[page]
+            let song = songs![indexPath!.row]
+            songsVC.singer = song.singer
+            self.navigationController?.pushViewController(songsVC, animated: false)
+        } else if self.ordered {
             let ordered = self.ordereds[index]
             payload.cmdType = 1002
             payload.cmdContent = ordered.songNum
@@ -491,11 +508,29 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             self.totalPage = "\(totalPage)"
             self.updatePage(shouldSelect: false)
+        } else if self.download {
+          let download = TCContext.sharedContext().downloads[index]
+            payload.cmdType = 1008
+            payload.cmdContent = download.songNum
+            
+            TCContext.sharedContext().downloads.removeAtIndex(index)
+            self.collectionView.reloadData()
+            
+            let totalPage = TCContext.sharedContext().downloads.count%limit == 0 ? TCContext.sharedContext().downloads.count/limit : TCContext.sharedContext().downloads.count/limit + 1
+            if self.page > totalPage {
+                self.page = totalPage
+            }
+            self.totalPage = "\(totalPage)"
+            self.updatePage(shouldSelect: false)
         } else {
             let songs = self.songs[page]
             let song = songs![index]
-            payload.cmdType = 1003
+            payload.cmdType = 1004
             payload.cmdContent = song.songNum
+            
+            let c = cell as! TCKTVSongCell
+            c.songNameLabel.textColor = UIColor.redColor()
+            c.singerNameLabel.textColor = UIColor.redColor()
         }
         if payload.cmdType == 0 {
             return
@@ -523,9 +558,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             payload.cmdContent = ordered.songNum
         } else {
             let songs = self.songs[page]
-            let song = songs![index]
+            let song = songs![indexPath!.row]
             payload.cmdType = 1004
             payload.cmdContent = song.songNum
+            
+            let c = cell as! TCKTVSongCell
+            c.songNameLabel.textColor = UIColor.redColor()
+            c.singerNameLabel.textColor = UIColor.redColor()
         }
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }

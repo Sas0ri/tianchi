@@ -62,7 +62,7 @@ class TCKTVMainBoardViewController: UIViewController {
     }
     
     @IBAction func songlistAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_ranking_songs") as! TCKTVSongsViewController
         songNameVC.ranking = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }

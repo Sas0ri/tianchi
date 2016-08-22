@@ -144,6 +144,9 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.collectionView {
+            return Int(self.totalPage)!
+        }
         if let clouds = self.clouds[self.page] {
             return clouds.count
         }
@@ -181,8 +184,22 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         cell.singerNameLabel.text = cloud.singer
         cell.songNameLabel.text = cloud.songName
         let statusLabel = cell.viewWithTag(1) as! UILabel
-        let download = TCContext.sharedContext().downloads.first
-        statusLabel.text = download?.songNum == cloud.songNum ? "下载中" : "待下载"
+        
+        var waiting = false
+        for song in TCContext.sharedContext().downloads {
+            if song.songNum == cloud.songNum {
+                waiting = true
+                break
+            }
+        }
+        let downloading = TCContext.sharedContext().downloads.first?.songNum == cloud.songNum
+        if downloading {
+            statusLabel.text = "下载中"
+        } else if waiting {
+            statusLabel.text = "等待下载"
+        } else {
+            statusLabel.text = "未下载"
+        }
         
         cell.delegate = self
         return cell
@@ -217,7 +234,15 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         payload.cmdType = 1005
         payload.cmdContent = cloud.songNum
         TCContext.sharedContext().socketManager.sendPayload(payload)
-        TCContext.sharedContext().performSelector(#selector(TCContext.getDownload), withObject: nil, afterDelay: 0.5)
+
+        let download = TCKTVDownload()
+        download.songNum = cloud.songNum
+        download.songName = cloud.songName
+        download.singer = cloud.singer
+        TCContext.sharedContext().downloads.append(download)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
+        let statusLabel = cell.viewWithTag(1) as! UILabel
+        statusLabel.text = TCContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
     }
     
     func updatePage(shouldSelect shouldSelect:Bool)  {
