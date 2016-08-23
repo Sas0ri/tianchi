@@ -17,6 +17,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     
     var page:Int = 1
     var client = TCKTVSingerClient()
+    var nextPageClient = TCKTVSingerClient()
+
     var singers:[Int:[TCKTVSinger]] = [Int:[TCKTVSinger]]()
     var totalPage:String = "0"
     
@@ -72,21 +74,21 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         
         let page = self.page
         let nextPage = self.page + 1
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit) { (singers, totalPage, flag) in
+        let getTotalPage = Int(self.totalPage) == 0
+        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage) { (singers, totalPage, flag) in
             if flag {
-                self.totalPage = totalPage
                 self.singers[page] = singers!
                 self.collectionView.reloadData()
-                if self.page == 1 {
+                if getTotalPage {
+                    self.totalPage = totalPage
                     self.updatePage(shouldSelect: false)
                 }
-                
             } else {
                 self.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit) { (singers, totalPage, flag) in
+        self.nextPageClient.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false) { (singers, totalPage, flag) in
             if flag {
                 self.singers[nextPage] = singers!
             }
@@ -112,7 +114,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.collectionView {
             self.page = indexPath.row + 1
-            if self.singers[self.page] == nil {
+            if self.singers[self.page] == nil || self.singers[self.page]?.count == 0 {
                 self.loadData()
             }
         }

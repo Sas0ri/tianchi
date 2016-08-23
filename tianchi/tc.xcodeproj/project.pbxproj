@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
+		5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */; };
 		5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
 		5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
@@ -79,6 +80,7 @@
 		2D7B028307B1690D757E12D5 /* libPods-tc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.release.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.release.xcconfig"; sourceTree = "<group>"; };
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
+		5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFNetworking+Cancel.swift"; sourceTree = "<group>"; };
 		5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarAppearance.h; sourceTree = "<group>"; };
 		5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarAppearance.m; sourceTree = "<group>"; };
 		5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCategoryViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,22 @@
 				5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */,
 			);
 			name = CloudSearch;
+			sourceTree = "<group>";
+		};
+		5C3BC8711D6BDA6600801FA6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5C3BC8721D6BDA6C00801FA6 /* AFNetworking+Cancel */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		5C3BC8721D6BDA6C00801FA6 /* AFNetworking+Cancel */ = {
+			isa = PBXGroup;
+			children = (
+				5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */,
+			);
+			name = "AFNetworking+Cancel";
 			sourceTree = "<group>";
 		};
 		5C50E0AB1D1391650002AEF1 /* Custom */ = {
@@ -466,6 +484,7 @@
 		5CE93E371D0E83EA00A536AC /* tc */ = {
 			isa = PBXGroup;
 			children = (
+				5C3BC8711D6BDA6600801FA6 /* Utils */,
 				5C58160E1D22468B00A0F513 /* Main */,
 				5CAA021B1D17CDF900FE6DBD /* Global */,
 				5CE93E511D0FF2F500A536AC /* Lib */,
@@ -782,6 +801,7 @@
 				5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */,
 				5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */,
 				5CAA02221D17D03100FE6DBD /* CocoaLumberjackSwift.swift in Sources */,
+				5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,
 				5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */,
