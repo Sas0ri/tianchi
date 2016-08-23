@@ -931,14 +931,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ac9fce1e-7d7e-4d84-9b3c-01a0c4cdbe5c";
+				PROVISIONING_PROFILE = "1e1fc288-81a8-40a1-95cc-181a090627de";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -950,14 +950,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 砺砺 张 (F43L3LP6P2)";
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ac9fce1e-7d7e-4d84-9b3c-01a0c4cdbe5c";
+				PROVISIONING_PROFILE = "1e1fc288-81a8-40a1-95cc-181a090627de";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
