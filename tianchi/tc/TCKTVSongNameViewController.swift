@@ -24,13 +24,15 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
         var fontSize:CGFloat = 14.0
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             fontSize = 10.0
+            let button = self.view.viewWithTag(5) as! UIButton
+            button.titleLabel?.font = UIFont.systemFontOfSize(6)
         }
+
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)

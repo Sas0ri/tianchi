@@ -40,6 +40,8 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         var fontSize:CGFloat = 14.0
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             fontSize = 10.0
+            let button = self.view.viewWithTag(5) as? UIButton
+            button?.titleLabel?.font = UIFont.systemFontOfSize(6)
         }
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
