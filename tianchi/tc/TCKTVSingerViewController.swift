@@ -105,7 +105,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
-        if let singers = self.singers[self.page] {
+        let page = collectionView.tag + 1
+        if let singers = self.singers[page] {
             return singers.count
         }
         return 0

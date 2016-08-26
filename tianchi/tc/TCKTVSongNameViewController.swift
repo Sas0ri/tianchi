@@ -121,7 +121,8 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
-        if let songs = self.songs[self.page] {
+        let page = collectionView.tag + 1
+        if let songs = self.songs[page] {
             return songs.count
         }
         return 0

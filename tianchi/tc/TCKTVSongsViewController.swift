@@ -297,28 +297,28 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             return Int(self.totalPage)!
         }
         let limit = self.getLimit()
-
+        let page = collectionView.tag + 1
         if self.cloud {
-            if let clouds = self.clouds[self.page] {
+            if let clouds = self.clouds[page] {
                 return clouds.count
             }
             return 0
         }
         if self.download {
-            let count = self.page * limit
+            let count = page * limit
             if TCContext.sharedContext().downloads.count >= count {
                 return limit
             }
             return TCContext.sharedContext().downloads.count%limit
         }
         if self.ordered {
-            let count = self.page * limit
+            let count = page * limit
             if self.ordereds.count >= count {
                 return limit
             }
             return self.ordereds.count%limit
         }
-        if let songs = self.songs[self.page] {
+        if let songs = self.songs[page] {
             return songs.count
         }
         return 0

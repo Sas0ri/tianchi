@@ -150,7 +150,8 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
-        if let clouds = self.clouds[self.page] {
+        let page = collectionView.tag + 1
+        if let clouds = self.clouds[page] {
             return clouds.count
         }
         return 0
