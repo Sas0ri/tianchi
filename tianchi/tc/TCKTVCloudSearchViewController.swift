@@ -23,8 +23,6 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     
     var page:Int = 1
     var client = TCKTVSongClient()
-    var nextPageClient = TCKTVSongClient()
-
     var clouds:[Int:[TCKTVCloud]] = [Int:[TCKTVCloud]]()
     var totalPage:String = "0"
     
@@ -97,15 +95,14 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         
         let page = self.page
         let nextPage = self.page + 1
-        let getTotalPage = Int(self.totalPage) == 0
-
-        self.client.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category, getTotalPage: getTotalPage) {
+        self.client.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category) {
             (clouds, totalPage, flag) in
+            
             if flag {
+                self.totalPage = totalPage
                 self.clouds[page] = clouds!
                 self.collectionView.reloadData()
-                if getTotalPage {
-                    self.totalPage = totalPage
+                if self.page == 1 {
                     self.updatePage(shouldSelect: false)
                 }
             } else {
@@ -113,7 +110,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             }
         }
         //预加载
-        self.nextPageClient.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category, getTotalPage: false) {
+        self.client.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category) {
             (clouds, totalPage, flag) in
             
             if flag {
@@ -150,8 +147,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
-        let page = collectionView.tag + 1
-        if let clouds = self.clouds[page] {
+        if let clouds = self.clouds[self.page] {
             return clouds.count
         }
         return 0
@@ -162,7 +158,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
             if self.collectionView.dragging {
                 self.page = indexPath.row + 1
             }
-            if self.clouds[self.page] == nil || self.clouds[self.page]?.count == 0 {
+            if self.clouds[self.page] == nil {
                 self.loadData()
             }
         }

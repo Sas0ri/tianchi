@@ -17,22 +17,18 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     var page:Int = 1
     var client = TCKTVSongClient()
-    var nextPageClient = TCKTVSongClient()
-
     var songs:[Int: [TCKTVSong]] = [Int: [TCKTVSong]]()
     var totalPage:String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
         var fontSize:CGFloat = 14.0
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             fontSize = 10.0
-            let button = self.view.viewWithTag(5) as! UIButton
-            button.titleLabel?.font = UIFont.systemFontOfSize(6)
         }
-
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
         self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
         self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
@@ -90,22 +86,21 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         }
         let page = self.page
         let nextPage = self.page + 1
-        let getTotalPage = Int(self.totalPage) == 0
-
-        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit, getTotalPage: getTotalPage) { (songs, totalPage, flag) in
+        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit) { (songs, totalPage, flag) in
             if flag {
+                self.totalPage = totalPage
                 self.songs[page] = songs!
                 self.collectionView.reloadData()
-                if getTotalPage {
-                    self.totalPage = totalPage
+                if self.page == 1 {
                     self.updatePage(shouldSelect: false)
                 }
+                
             } else {
                 self.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.nextPageClient.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit, getTotalPage: false) { (songs, totalPage, flag) in
+        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit) { (songs, totalPage, flag) in
             if flag {
                 self.songs[nextPage] = songs!
             }
@@ -121,8 +116,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
-        let page = collectionView.tag + 1
-        if let songs = self.songs[page] {
+        if let songs = self.songs[self.page] {
             return songs.count
         }
         return 0
@@ -131,7 +125,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.collectionView {
             self.page = indexPath.item + 1
-            if self.songs[self.page] == nil || self.songs[self.page]?.count == 0 {
+            if self.songs[self.page] == nil {
                 self.loadData()
             }
         }
