@@ -293,28 +293,28 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             return Int(self.totalPage)!
         }
         let limit = self.getLimit()
-
+        let page = collectionView.tag + 1
         if self.cloud {
-            if let clouds = self.clouds[self.page] {
+            if let clouds = self.clouds[page] {
                 return clouds.count
             }
             return 0
         }
         if self.download {
-            let count = self.page * limit
+            let count = page * limit
             if TCContext.sharedContext().downloads.count >= count {
                 return limit
             }
             return TCContext.sharedContext().downloads.count%limit
         }
         if self.ordered {
-            let count = self.page * limit
+            let count = page * limit
             if self.ordereds.count >= count {
                 return limit
             }
             return self.ordereds.count%limit
         }
-        if let songs = self.songs[self.page] {
+        if let songs = self.songs[page] {
             return songs.count
         }
         return 0
@@ -485,7 +485,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let payload = TCSocketPayload()
         let indexPath = collectionView.indexPathForCell(cell)
         let limit = self.getLimit()
-        let index = (self.page - 1) * limit + indexPath!.row
+        let index = (page - 1) * limit + indexPath!.row
 
         if self.language != nil {
             let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
@@ -522,9 +522,15 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             self.totalPage = "\(totalPage)"
             self.updatePage(shouldSelect: false)
+        } else if self.ranking {
+            let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+            let songs = self.songs[page]
+            let song = songs![indexPath!.row]
+            songsVC.singer = song.singer
+            self.navigationController?.pushViewController(songsVC, animated: false)
         } else {
             let songs = self.songs[page]
-            let song = songs![index]
+            let song = songs![indexPath!.row]
             payload.cmdType = 1004
             payload.cmdContent = song.songNum
             
