@@ -28,12 +28,12 @@ class TCKTVSingerClient: NSObject {
         }
         return c
     }()
-        
+    
     func singerIconURL(singerId:Int64) -> NSURL {
         return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lld.jpg",TCContext.sharedContext().serverAddress!, singerId))!
     }
     
-    func getSingers(keyword:String?, type:Int, page:Int, limit:Int, complete: (singers:[TCKTVSinger]?, totalPage:String, flag:Bool)->()) {
+    func getSingers(keyword:String?, type:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (singers:[TCKTVSinger]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword?.characters.count > 0 {
             params["py"] = keyword!.uppercaseString
@@ -59,21 +59,44 @@ class TCKTVSingerClient: NSObject {
         
         params["page"] = NSNumber(integer: page)
         params["pageSize"] = NSNumber(integer: limit)
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        
+        self.client?.cancelAllHTTPOperations(withPath: self.path)
+        var count = 1
+        var singers = [TCKTVSinger]()
+        var totalPage = ""
+        if getTotalPage {
+            count = count + 1
             self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
-                var singers = [TCKTVSinger]()
-                for jsonSinger in json.arrayValue {
-                    let singer = TCKTVSinger()
-                    singer.config(jsonSinger)
-                    singers.append(singer)
+                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                count = count - 1
+                if count == 0 {
+                    complete(singers: singers,totalPage: totalPage, flag: true)
                 }
-                complete(singers: singers, totalPage: String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!, flag: true)
                 }, failure: { (dataTask, error) in
-                    complete(singers: nil, totalPage: "", flag: false)
+                    count = count - 1
+                    if count == 0 {
+                        complete(singers: singers,totalPage: totalPage, flag: false)
+                    }
             })
+        }
+        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+            for jsonSinger in json.arrayValue {
+                let singer = TCKTVSinger()
+                singer.config(jsonSinger)
+                singers.append(singer)
+            }
 
+            count = count - 1
+            if count == 0 {
+                complete(singers: singers,totalPage: totalPage, flag: true)
+            }
+            
             }, failure: { (error) in
-                complete(singers: nil, totalPage: "", flag: false)
+                count = count - 1
+                if count == 0 {
+                    complete(singers: singers,totalPage: totalPage, flag: false)
+                }
         })
+        
     }
 }
