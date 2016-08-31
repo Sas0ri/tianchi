@@ -20,14 +20,18 @@ class TCMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func acAction(sender: AnyObject) {
+        let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewControllerWithIdentifier("AC")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
+    @IBAction func soundAction(sender: AnyObject) {
+        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewControllerWithIdentifier("sound_control")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
 }
 

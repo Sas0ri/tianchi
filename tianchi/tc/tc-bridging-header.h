@@ -16,5 +16,6 @@
 #import "UISearchBarAppearance.h"
 #import "GCDAsyncSocket.h"
 #import "UIImageView+WebCache.h"
+#import "UIHelper.h"
 
 #endif /* tc_bridging_header_h */
