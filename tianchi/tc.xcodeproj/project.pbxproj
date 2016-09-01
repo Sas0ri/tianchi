@@ -81,6 +81,9 @@
 		5CE93E9F1D0FF2F500A536AC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */; };
 		5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */; };
 		5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */; };
+		5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE61D78083400520B3B /* Apps.storyboard */; };
+		5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE81D780D3000520B3B /* Apps.xcassets */; };
+		5CFEFCEB1D7816BB00520B3B /* TCAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */; };
 		6E86B00C3B76B71EEE3C42DD /* libPods-tc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7B028307B1690D757E12D5 /* libPods-tc.a */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +190,9 @@
 		5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVSingerViewController.swift; sourceTree = "<group>"; };
+		5CFEFCE61D78083400520B3B /* Apps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Apps.storyboard; sourceTree = "<group>"; };
+		5CFEFCE81D780D3000520B3B /* Apps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Apps.xcassets; sourceTree = "<group>"; };
+		5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCAppsViewController.swift; sourceTree = "<group>"; };
 		EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.debug.xcconfig"; sourceTree = "<group>"; };
 		F7636E7970B7EEC64FB51B3C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -531,6 +537,7 @@
 		5CE93E371D0E83EA00A536AC /* tc */ = {
 			isa = PBXGroup;
 			children = (
+				5CFEFCE51D78082800520B3B /* Apps */,
 				5C88DC351D76C53C00E4803A /* SoundControl */,
 				5C88DC281D76A5EC00E4803A /* AC */,
 				5C3BC8711D6BDA6600801FA6 /* Utils */,
@@ -663,6 +670,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5CFEFCE51D78082800520B3B /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				5CFEFCE61D78083400520B3B /* Apps.storyboard */,
+				5CFEFCE81D780D3000520B3B /* Apps.xcassets */,
+				5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */,
+			);
+			name = Apps;
+			sourceTree = "<group>";
+		};
 		BA0266BBDD9824C5C6079C6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -752,10 +769,12 @@
 				5CE93E9D1D0FF2F500A536AC /* Lato-Italic.ttf in Resources */,
 				5CE93E9A1D0FF2F500A536AC /* Lato-BoldItalic.ttf in Resources */,
 				5CE93E981D0FF2F500A536AC /* Lato-BlackItalic.ttf in Resources */,
+				5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */,
 				5CE93E9B1D0FF2F500A536AC /* Lato-Hairline.ttf in Resources */,
 				5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */,
 				5C88DC391D76C87100E4803A /* SoundControl.xcassets in Resources */,
 				5C88DC341D76B68800E4803A /* AC.xcassets in Resources */,
+				5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */,
 				5CE93E971D0FF2F500A536AC /* Lato-Black.ttf in Resources */,
 				5C88DC371D76C54C00E4803A /* SoundControl.storyboard in Resources */,
 				5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */,
@@ -828,6 +847,7 @@
 				5CAA02271D17D16F00FE6DBD /* TCKTVSongCell.swift in Sources */,
 				5CE93E871D0FF2F500A536AC /* FUICellBackgroundView.m in Sources */,
 				5CE93E461D0E83EA00A536AC /* TCMainViewController.swift in Sources */,
+				5CFEFCEB1D7816BB00520B3B /* TCAppsViewController.swift in Sources */,
 				5CE93E8C1D0FF2F500A536AC /* UIColor+FlatUI.m in Sources */,
 				5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */,
 				5CE93E881D0FF2F500A536AC /* FUIPopoverBackgroundView.m in Sources */,

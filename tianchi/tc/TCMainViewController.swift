@@ -29,6 +29,12 @@ class TCMainViewController: UIViewController {
         let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewControllerWithIdentifier("sound_control")
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func appsAction(sender: AnyObject) {
+        let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewControllerWithIdentifier("Apps")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
