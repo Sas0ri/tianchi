@@ -35,6 +35,11 @@ class TCMainViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func cinemaAction(sender: AnyObject) {
+        let vc = UIStoryboard(name: "Cinema", bundle: nil).instantiateViewControllerWithIdentifier("cinema_main")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)

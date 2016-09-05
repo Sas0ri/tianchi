@@ -23,6 +23,10 @@
 		5C88DC391D76C87100E4803A /* SoundControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC381D76C87100E4803A /* SoundControl.xcassets */; };
 		5C88DC3B1D76D3EB00E4803A /* TCSoundControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */; };
 		5C88DC3D1D76EB5C00E4803A /* TIFFitToHeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */; };
+		5CA77E2F1D7D3AA60013F0C3 /* Cinema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */; };
+		5CA77E341D7D41490013F0C3 /* TCCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */; };
+		5CA77E391D7D54850013F0C3 /* Cinema.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E381D7D54850013F0C3 /* Cinema.xcassets */; };
+		5CA77E3B1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */; };
 		5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */; };
 		5CAA02181D17CD9800FE6DBD /* TCContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02171D17CD9800FE6DBD /* TCContext.swift */; };
 		5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */; };
@@ -108,6 +112,10 @@
 		5C88DC381D76C87100E4803A /* SoundControl.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoundControl.xcassets; sourceTree = "<group>"; };
 		5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSoundControlViewController.swift; sourceTree = "<group>"; };
 		5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TIFFitToHeightLabel.swift; sourceTree = "<group>"; };
+		5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cinema.storyboard; sourceTree = "<group>"; };
+		5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaViewController.swift; sourceTree = "<group>"; };
+		5CA77E381D7D54850013F0C3 /* Cinema.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cinema.xcassets; sourceTree = "<group>"; };
+		5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaSearchViewController.swift; sourceTree = "<group>"; };
 		5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5CAA02171D17CD9800FE6DBD /* TCContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCContext.swift; sourceTree = "<group>"; };
 		5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCJSONClient.swift; sourceTree = "<group>"; };
@@ -302,6 +310,17 @@
 				5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */,
 			);
 			name = SoundControl;
+			sourceTree = "<group>";
+		};
+		5CA77E2D1D7D3A670013F0C3 /* Cinema */ = {
+			isa = PBXGroup;
+			children = (
+				5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */,
+				5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */,
+				5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */,
+				5CA77E381D7D54850013F0C3 /* Cinema.xcassets */,
+			);
+			name = Cinema;
 			sourceTree = "<group>";
 		};
 		5CAA02141D17CCE500FE6DBD /* SwiftyJSON */ = {
@@ -537,6 +556,7 @@
 		5CE93E371D0E83EA00A536AC /* tc */ = {
 			isa = PBXGroup;
 			children = (
+				5CA77E2D1D7D3A670013F0C3 /* Cinema */,
 				5CFEFCE51D78082800520B3B /* Apps */,
 				5C88DC351D76C53C00E4803A /* SoundControl */,
 				5C88DC281D76A5EC00E4803A /* AC */,
@@ -776,9 +796,11 @@
 				5C88DC341D76B68800E4803A /* AC.xcassets in Resources */,
 				5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */,
 				5CE93E971D0FF2F500A536AC /* Lato-Black.ttf in Resources */,
+				5CA77E391D7D54850013F0C3 /* Cinema.xcassets in Resources */,
 				5C88DC371D76C54C00E4803A /* SoundControl.storyboard in Resources */,
 				5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */,
 				5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */,
+				5CA77E2F1D7D3AA60013F0C3 /* Cinema.storyboard in Resources */,
 				5CE93E9F1D0FF2F500A536AC /* Lato-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -870,6 +892,7 @@
 				5CE93E921D0FF2F500A536AC /* UISlider+FlatUI.m in Sources */,
 				5CE93E951D0FF2F500A536AC /* UITableViewCell+FlatUI.m in Sources */,
 				5CAA02371D19198600FE6DBD /* MBProgressHUD.m in Sources */,
+				5CA77E341D7D41490013F0C3 /* TCCinemaViewController.swift in Sources */,
 				5CE93E8B1D0FF2F500A536AC /* UIBarButtonItem+FlatUI.m in Sources */,
 				5C88DC3B1D76D3EB00E4803A /* TCSoundControlViewController.swift in Sources */,
 				5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */,
@@ -881,6 +904,7 @@
 				5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,
+				5CA77E3B1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift in Sources */,
 				5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */,
 				5CE93E891D0FF2F500A536AC /* FUISegmentedControl.m in Sources */,
 				5CAA024C1D1929A300FE6DBD /* TCKTVSongNameClient.swift in Sources */,
