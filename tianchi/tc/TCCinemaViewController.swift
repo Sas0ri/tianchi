@@ -15,6 +15,8 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageLabel: UILabel!
     @IBOutlet weak var movieDetailView: UIView!
+    @IBOutlet weak var filtView: UIView!
+    @IBOutlet var filtViewManager: TCCinemaFiltViewManager!
 
     
     var page:Int = 1
@@ -232,7 +234,8 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.filtView.hidden = false
+        self.filtViewManager.typeView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
     }
     
     // MARK: - UISearchBarDelegate
@@ -262,6 +265,9 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.collectionView.reloadData()
     }
 
+    @IBAction func hideFiltViewAction(sender: AnyObject) {
+        self.filtView.hidden = true
+    }
     
     @IBAction func closeAction(sender: AnyObject) {
         self.movieDetailView.hidden = true

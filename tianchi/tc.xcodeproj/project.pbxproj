@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
 		5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */; };
+		5C47421C1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */; };
 		5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
 		5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
@@ -96,6 +97,7 @@
 		54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.release.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.release.xcconfig"; sourceTree = "<group>"; };
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
 		5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFNetworking+Cancel.swift"; sourceTree = "<group>"; };
+		5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaFiltViewManager.swift; sourceTree = "<group>"; };
 		5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarAppearance.h; sourceTree = "<group>"; };
 		5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarAppearance.m; sourceTree = "<group>"; };
 		5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCategoryViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */,
 				5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */,
 				5CA77E381D7D54850013F0C3 /* Cinema.xcassets */,
+				5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */,
 			);
 			name = Cinema;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				5C88DC321D76B4D000E4803A /* UIHelper.m in Sources */,
 				5CAA02241D17D09800FE6DBD /* TCKTVSongsViewController.swift in Sources */,
 				5CAA023F1D191D2F00FE6DBD /* TCKTVSinger.swift in Sources */,
+				5C47421C1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift in Sources */,
 				5CAA023B1D19199A00FE6DBD /* UIView+MBProgressView.m in Sources */,
 				5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */,
 				5CE93E8F1D0FF2F500A536AC /* UINavigationBar+FlatUI.m in Sources */,
@@ -1032,16 +1036,17 @@
 			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: wu qiang (Z93NVFSLJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: wu qiang (Z93NVFSLJ5)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wq20160805.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.a.x1140;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02088004-7c27-4e36-9bf8-30448af30e9f";
+				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1052,16 +1057,17 @@
 			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: wu qiang (Z93NVFSLJ5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: wu qiang (Z93NVFSLJ5)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wq20160805.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.a.x1140;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02088004-7c27-4e36-9bf8-30448af30e9f";
+				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

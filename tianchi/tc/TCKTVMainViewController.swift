@@ -32,7 +32,7 @@ class TCKTVMainViewController: UIViewController {
             self.backButton.hidden = false
         }
         mainVC.didNavBack = {
-            self.backButton.hidden = self.navigationController?.viewControllers.count == 1
+            self.backButton.hidden = self.navigationController == nil
             self.navBackground.hidden = false
         }
 
