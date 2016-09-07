@@ -21,19 +21,21 @@ class TCKTVMainViewController: UIViewController {
         super.viewDidLoad()
         
         let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_main") as!TCKTVMainBoardViewController
-
+        
         let navVC = UINavigationController(rootViewController: mainVC)
         self.addChildViewController(navVC)
         navVC.didMoveToParentViewController(self)
         self.containerView.addSubview(navVC.view)
         navVC.view.frame = self.containerView.bounds
         mainVC.didNavToNext = {
-            self.navBackground.hidden = true
-            self.backButton.hidden = false
+            [weak self] in
+            self?.navBackground.hidden = true
+            self?.backButton.hidden = false
         }
         mainVC.didNavBack = {
-            self.backButton.hidden = self.navigationController == nil
-            self.navBackground.hidden = false
+            [weak self] in
+            self?.backButton.hidden = self?.navigationController == nil
+            self?.navBackground.hidden = false
         }
 
         self.mainVC = navVC
@@ -45,7 +47,8 @@ class TCKTVMainViewController: UIViewController {
         orderedVC.view.frame = self.containerView.bounds
         orderedVC.view.translatesAutoresizingMaskIntoConstraints = false
         self.orderedVC = orderedVC
-        TCContext.sharedContext().orderedSongsViewController = orderedVC
+        TCKTVContext.sharedContext().orderedSongsViewController = orderedVC
+        TCKTVContext.sharedContext().connect()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -94,45 +97,48 @@ class TCKTVMainViewController: UIViewController {
     @IBAction func muteAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1203
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnUpAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1201
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnDownAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1202
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func pauseAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1103
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func originAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1104
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func switchAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1102
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func replayAction(sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1101
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
+    deinit {
+        TCKTVContext.sharedContext().disconnect()
+    }
     /*
     // MARK: - Navigation
 

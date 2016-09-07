@@ -166,7 +166,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.download {
-            self.totalPage = "\(TCContext.sharedContext().downloads.count%limit == 0 ? TCContext.sharedContext().downloads.count/limit : TCContext.sharedContext().downloads.count/limit + 1)"
+            self.totalPage = "\(TCKTVContext.sharedContext().downloads.count%limit == 0 ? TCKTVContext.sharedContext().downloads.count/limit : TCKTVContext.sharedContext().downloads.count/limit + 1)"
             if self.page > Int(self.totalPage) {
                 self.page = Int(self.totalPage)!
             }
@@ -302,10 +302,10 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         if self.download {
             let count = page * limit
-            if TCContext.sharedContext().downloads.count >= count {
+            if TCKTVContext.sharedContext().downloads.count >= count {
                 return limit
             }
-            return TCContext.sharedContext().downloads.count%limit
+            return TCKTVContext.sharedContext().downloads.count%limit
         }
         if self.ordered {
             let count = page * limit
@@ -362,13 +362,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             cell.songNameLabel.text = cloud.songName
             let statusLabel = cell.viewWithTag(1) as! UILabel
             var waiting = false
-            for song in TCContext.sharedContext().downloads {
+            for song in TCKTVContext.sharedContext().downloads {
                 if song.songNum == cloud.songNum {
                     waiting = true
                     break
                 }
             }
-            let downloading = TCContext.sharedContext().downloads.first?.songNum == cloud.songNum
+            let downloading = TCKTVContext.sharedContext().downloads.first?.songNum == cloud.songNum
             if downloading {
                 statusLabel.text = "下载中"
             } else if waiting {
@@ -379,11 +379,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.download {
             let limit = self.getLimit()
             let index = (self.page - 1) * limit + indexPath.row
-            let download = TCContext.sharedContext().downloads[index]
+            let download = TCKTVContext.sharedContext().downloads[index]
             cell.singerNameLabel.text = download.singer
             cell.songNameLabel.text = download.songName
             let statusLabel = cell.viewWithTag(1) as! UILabel
-            let downloading = TCContext.sharedContext().downloads.first
+            let downloading = TCKTVContext.sharedContext().downloads.first
             statusLabel.text = downloading?.songNum == download.songNum ? "下载中" : "等待下载"
         } else if self.ordered {
             let limit = self.getLimit()
@@ -402,8 +402,8 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let song = songs![indexPath.row]
             cell.singerNameLabel.text = song.singer
             cell.songNameLabel.text = song.songName
-            cell.songNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-            cell.singerNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+            cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+            cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
         }
         cell.delegate = self
         return cell
@@ -448,9 +448,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             download.songNum = cloud.songNum
             download.songName = cloud.songName
             download.singer = cloud.singer
-            TCContext.sharedContext().downloads.append(download)
+            TCKTVContext.sharedContext().downloads.append(download)
             let statusLabel = cell.viewWithTag(1) as! UILabel
-            statusLabel.text = TCContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
+            statusLabel.text = TCKTVContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
         } else if self.download {
             
         } else if self.ordered {
@@ -474,7 +474,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         if payload.cmdType == 0 {
             return
         }
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
 
@@ -509,14 +509,14 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             self.totalPage = "\(totalPage)"
             self.updatePage(shouldSelect: false)
         } else if self.download {
-          let download = TCContext.sharedContext().downloads[index]
+          let download = TCKTVContext.sharedContext().downloads[index]
             payload.cmdType = 1008
             payload.cmdContent = download.songNum
             
-            TCContext.sharedContext().downloads.removeAtIndex(index)
+            TCKTVContext.sharedContext().downloads.removeAtIndex(index)
             self.collectionView.reloadData()
             
-            let totalPage = TCContext.sharedContext().downloads.count%limit == 0 ? TCContext.sharedContext().downloads.count/limit : TCContext.sharedContext().downloads.count/limit + 1
+            let totalPage = TCKTVContext.sharedContext().downloads.count%limit == 0 ? TCKTVContext.sharedContext().downloads.count/limit : TCKTVContext.sharedContext().downloads.count/limit + 1
             if self.page > totalPage {
                 self.page = totalPage
             }
@@ -541,7 +541,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         if payload.cmdType == 0 {
             return
         }
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func onSecondAction(cell: UICollectionViewCell) {
@@ -572,7 +572,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             c.songNameLabel.textColor = UIColor.redColor()
             c.singerNameLabel.textColor = UIColor.redColor()
         }
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func reloadData(sender:NSNotification) {

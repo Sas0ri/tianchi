@@ -1,34 +1,36 @@
 //
-//  TCContext.swift
+//  TCKTVContext.swift
 //  tc
 //
-//  Created by Sasori on 16/6/20.
+//  Created by Sasori on 16/9/7.
 //  Copyright © 2016年 Sasori. All rights reserved.
 //
 
 import UIKit
 
-let _sharedContext:TCContext = TCContext()
+let _ktvContext = TCKTVContext()
 
-class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
+class TCKTVContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
-    static let port:UInt16 = 9594
     
-    class func sharedContext() -> TCContext {
-        return _sharedContext
+    class func sharedContext() -> TCKTVContext {
+        return _ktvContext
     }
     
     var serverAddress:String? {
-        didSet {
-            if let sa = serverAddress {
-                NSUserDefaults.standardUserDefaults().setObject(sa, forKey: "SA")
-            }
+        get {
+            return TCContext.sharedContext().serverAddress
         }
     }
     
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
-
+    
+    var orderedSongsViewController:TCKTVSongsViewController?
+    
+    var downloads:[TCKTVDownload] = [TCKTVDownload]()
+    var client:TCKTVSongClient?
+    
     enum AlertTag: Int {
         case Address = 501
         case Verify = 502
@@ -36,41 +38,77 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         case Reconnect = 504
     }
     
+    let port:UInt16 = 9596
+
     override init() {
         super.init()
-        UISearchBarAppearance.setupSearchBar()
+        self.socketManager.startHeartbeatCmd = 1700
+        self.socketManager.heartbeatCmd = 1400
         self.socketManager.delegate = self
-        self.serverAddress = NSUserDefaults.standardUserDefaults().objectForKey("SA") as? String
-        if self.serverAddress != nil {
-            self.socketManager.address = self.serverAddress
-            self.socketManager.port = TCContext.port
-            self.socketManager.connect()
-        } else {
-            self.showInputAddress()
-        }
+
+        self.socketManager.port = self.port
+        self.connect()
     }
     
     func didConnect() {
-        
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.view.hideHud()
     }
     
     func didReceivePayload(payload: TCSocketPayload) {
-
+        if payload.cmdType == 1900 {
+            self.showVerify()
+            return
+        }
+        if payload.cmdType == 1901 {
+            self.verifyAlertView?.dismissWithClickedButtonIndex(0, animated: false)
+            return
+        }
+        if payload.cmdType == 1902 {
+            self.showBoth()
+            return
+        }
+        TCKTVPayloadHandler.sharedHandler().handlePayload(payload)
+    }
+    
+    func connect() {
+        if self.socketManager.socket.isConnected {
+            return
+        }
+        self.socketManager.address = self.serverAddress
+        self.socketManager.connect()
+    }
+    
+    func disconnect() {
+        NSObject.cancelPreviousPerformRequestsWithTarget(self.socketManager)
+        self.socketManager.disConnect()
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.view.hideHud()
     }
     
     func connectFailed() {
-        let alertView = UIAlertView(title: "", message: "无法连接服务器", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
-        alertView.tag = AlertTag.Reconnect.rawValue
-        alertView.show()
+        self.socketManager.performSelector(#selector(TCSocketManager.connect), withObject: nil, afterDelay: 2)
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.view.showHudWithText("连接中...", indicator: false, userInteraction:false)
     }
     
     func didDisconnect() {
-        let alertView = UIAlertView(title: "", message: "与服务器断开连接", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "重新连接", "输入服务器地址")
-        alertView.tag = AlertTag.Reconnect.rawValue
-        alertView.show()
+        self.socketManager.performSelector(#selector(TCSocketManager.connect), withObject: nil, afterDelay: 2)
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.view.showHudWithText("连接中...", indicator: false, userInteraction:false)
+
+    }
+    
+    func getDownload() {
+        if self.client == nil {
+            self.client = TCKTVSongClient()
+        }
+        self.client!.getDownloadSongs({ (downloads, flag) in
+            if flag {
+                self.downloads = downloads!
+                NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadLoadedNotification, object: self)
+            }
+        })
     }
     
     func didHandShake() {
+        self.getDownload()
     }
     
     func showBoth() {
@@ -95,7 +133,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if alertView.tag == AlertTag.Address.rawValue {
-            self.serverAddress = alertView.textFieldAtIndex(0)?.text
+//            self.serverAddress = alertView.textFieldAtIndex(0)?.text
             self.socketManager.address = self.serverAddress
             self.socketManager.port = TCContext.port
             self.socketManager.connect()

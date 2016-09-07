@@ -15,17 +15,22 @@
 
 - (void)showHudWithText:(NSString *)text indicator:(BOOL)show
 {
-	MBProgressHUD* hud = (MBProgressHUD*)[self viewWithTag:kHudTag];
-	if (!hud) {
-		hud = [[MBProgressHUD alloc] initWithView:self];
-		hud.tag = kHudTag;
+    [self showHudWithText:text indicator:show userInteraction:YES];
+}
+
+- (void)showHudWithText:(NSString *)text indicator:(BOOL)show userInteraction:(BOOL)flag {
+    MBProgressHUD* hud = (MBProgressHUD*)[self viewWithTag:kHudTag];
+    if (!hud) {
+        hud = [[MBProgressHUD alloc] initWithView:self];
+        hud.tag = kHudTag;
         hud.color = [UIColor grayColor];
         [self addSubview:hud];
-	}
-	hud.detailsLabelText = text;
-	hud.mode = show ? MBProgressHUDModeIndeterminate : MBProgressHUDModeText;
-	hud.removeFromSuperViewOnHide = YES;
-	[hud show:NO];
+    }
+    hud.detailsLabelText = text;
+    hud.mode = show ? MBProgressHUDModeIndeterminate : MBProgressHUDModeText;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.userInteractionEnabled = flag;
+    [hud show:NO];
 }
 
 - (void)hideHud

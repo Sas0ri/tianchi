@@ -150,9 +150,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         let song = songs![indexPath.row]
         cell.singerNameLabel.text = song.singer
         cell.songNameLabel.text = song.songName
-        cell.singerNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        cell.songNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        
+               
         return cell
     }
     
@@ -176,7 +174,6 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         payload.cmdType = 1003
         payload.cmdContent = song.songNum
         
-        TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

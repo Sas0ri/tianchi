@@ -137,9 +137,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         let song = songs![indexPath.row]
         cell.singerNameLabel.text = song.singer
         cell.songNameLabel.text = song.songName
-        cell.singerNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        cell.songNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        
+               
         return cell
     }
     
@@ -158,7 +156,6 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         payload.cmdType = 1003
         payload.cmdContent = song.songNum
         
-        TCContext.sharedContext().socketManager.sendPayload(payload)
         if self.searchBar.text?.characters.count > 0 {
             self.searchBar.resignFirstResponder()
             self.searchBar.text = nil

@@ -27,37 +27,37 @@ class TCKTVPayloadHandler: NSObject {
         }
         if payload.cmdType > 1005 && payload.cmdType < 1009 && payload.cmdContent != nil {
             var index:Int?
-            for i in 0..<TCContext.sharedContext().downloads.count {
-                let download = TCContext.sharedContext().downloads[i]
+            for i in 0..<TCKTVContext.sharedContext().downloads.count {
+                let download = TCKTVContext.sharedContext().downloads[i]
                 if download.songNum == Int(payload.cmdContent!) {
                     index = i
                     break
                 }
             }
             if index != nil {
-                TCContext.sharedContext().downloads.removeAtIndex(index!)
+                TCKTVContext.sharedContext().downloads.removeAtIndex(index!)
                 NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadRemovedNotification, object: self)
             }
         }
         if payload.cmdType == 1005 {
-            TCContext.sharedContext().getDownload()
+            TCKTVContext.sharedContext().getDownload()
         }
         if payload.cmdType == 1009 && payload.cmdContent != nil {
             var index:Int?
-            for i in 0..<TCContext.sharedContext().downloads.count {
-                let download = TCContext.sharedContext().downloads[i]
+            for i in 0..<TCKTVContext.sharedContext().downloads.count {
+                let download = TCKTVContext.sharedContext().downloads[i]
                 if download.songNum == Int(payload.cmdContent!) {
                     index = i
                     break
                 }
             }
             if index != nil {
-                let download = TCContext.sharedContext().downloads[index!]
-                TCContext.sharedContext().downloads.removeAtIndex(index!)
-                TCContext.sharedContext().downloads.insert(download, atIndex: 0)
+                let download = TCKTVContext.sharedContext().downloads[index!]
+                TCKTVContext.sharedContext().downloads.removeAtIndex(index!)
+                TCKTVContext.sharedContext().downloads.insert(download, atIndex: 0)
                 NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadUpdatedNotification, object: self)
             } else {
-                TCContext.sharedContext().getDownload()
+                TCKTVContext.sharedContext().getDownload()
             }
         }
     }

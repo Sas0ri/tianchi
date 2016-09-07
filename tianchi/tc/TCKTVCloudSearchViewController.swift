@@ -187,13 +187,13 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         let statusLabel = cell.viewWithTag(1) as! UILabel
         
         var waiting = false
-        for song in TCContext.sharedContext().downloads {
+        for song in TCKTVContext.sharedContext().downloads {
             if song.songNum == cloud.songNum {
                 waiting = true
                 break
             }
         }
-        let downloading = TCContext.sharedContext().downloads.first?.songNum == cloud.songNum
+        let downloading = TCKTVContext.sharedContext().downloads.first?.songNum == cloud.songNum
         if downloading {
             statusLabel.text = "下载中"
         } else if waiting {
@@ -234,16 +234,16 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         let cloud = clouds![indexPath.row]
         payload.cmdType = 1005
         payload.cmdContent = cloud.songNum
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
 
         let download = TCKTVDownload()
         download.songNum = cloud.songNum
         download.songName = cloud.songName
         download.singer = cloud.singer
-        TCContext.sharedContext().downloads.append(download)
+        TCKTVContext.sharedContext().downloads.append(download)
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
         let statusLabel = cell.viewWithTag(1) as! UILabel
-        statusLabel.text = TCContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
+        statusLabel.text = TCKTVContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
     }
     
     func updatePage(shouldSelect shouldSelect:Bool)  {

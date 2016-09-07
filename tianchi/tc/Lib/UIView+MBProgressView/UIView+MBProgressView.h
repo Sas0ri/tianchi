@@ -11,6 +11,7 @@
 
 @interface UIView (MBProgressView)
 - (void)showHudWithText:(NSString*)text indicator:(BOOL)show;
+- (void)showHudWithText:(NSString *)text indicator:(BOOL)show userInteraction:(BOOL)flag;
 - (void)hideHud;
 - (void)hideHudAfterDelay:(NSTimeInterval)delay;
 - (void)showTextAndHide:(NSString *)text;

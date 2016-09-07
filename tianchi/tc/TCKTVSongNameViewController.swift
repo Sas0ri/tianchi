@@ -151,8 +151,8 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let song = songs![indexPath.row]
         cell.singerNameLabel.text = song.singer
         cell.songNameLabel.text = song.songName
-        cell.singerNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        cell.songNameLabel.textColor = TCContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+        cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+        cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
 
         return cell
     }
@@ -172,7 +172,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         payload.cmdType = 1003
         payload.cmdContent = song.songNum
         
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
         if self.searchBar.text?.characters.count > 0 {
             self.searchBar.resignFirstResponder()
             self.searchBar.text = nil
@@ -234,7 +234,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let c = cell as! TCKTVSongCell
         c.songNameLabel.textColor = UIColor.redColor()
         c.singerNameLabel.textColor = UIColor.redColor()
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+        TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func updatePage(shouldSelect shouldSelect:Bool)  {

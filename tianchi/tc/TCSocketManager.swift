@@ -13,6 +13,7 @@ protocol TCSocketManagerDelegate {
     func didReceivePayload(payload:TCSocketPayload)
     func didDisconnect()
     func didHandShake()
+    func didConnect()
 }
 
 class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
@@ -24,6 +25,8 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     var heartbeatTimeoutTimer: NSTimer?
     var address:String?
     var port:UInt16?
+    var startHeartbeatCmd:Int = 0
+    var heartbeatCmd:Int = 0
     
     override init() {
         super.init()
@@ -32,8 +35,7 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     
     func connect() {
         if self.socket.isConnected {
-            self.socket.delegate = nil
-            self.socket.disconnect()
+            self.disConnect()
             self.socket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
         }
         do {
@@ -45,6 +47,11 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
             self.delegate?.connectFailed()
         }
         return
+    }
+    
+    func disConnect() {
+        self.socket.delegate = nil
+        self.socket.disconnect()
     }
     
     func sendPayload(payload: TCSocketPayload) {
@@ -92,17 +99,21 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     
     func socket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         DDLogInfo("didConnect")
+        self.delegate?.didConnect()
         self.writeStartHeartbeat()
         self.socket.readDataWithTimeout(-1, tag: 0)
+        if self.startHeartbeatCmd == 0 {
+            self.startRepeatHeartbeat()
+        }
     }
     
     func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         let payload = TCSocketPayload(data: data)
         //开始检测心跳
-        if payload.cmdType == 1700 {
+        if payload.cmdType == self.startHeartbeatCmd {
             self.startRepeatHeartbeat()
             self.delegate?.didHandShake()
-        } else if payload.cmdType == 1400 {
+        } else if payload.cmdType == self.heartbeatCmd {
             self.startTimeoutTimer()
         } else {
             self.delegate?.didReceivePayload(payload)
