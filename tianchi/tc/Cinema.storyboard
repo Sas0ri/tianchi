@@ -170,68 +170,108 @@
                                                     <constraint firstItem="vse-Ox-S82" firstAttribute="height" secondItem="FTc-vp-Kja" secondAttribute="height" multiplier="72:58" priority="999" id="edl-lU-Wd5"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-TH-Gcp">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-TH-Gcp">
                                                 <rect key="frame" x="256" y="0.0" width="768" height="603"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Hj-Fo-WzG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="522"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-pv-mwF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="98"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VK8-17-6Og">
-                                                            <size key="itemSize" width="180" height="180"/>
+                                                    </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gfu-TG-ReC">
+                                                        <rect key="frame" x="20" y="98" width="728" height="408"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="onu-M0-PRz">
+                                                            <size key="itemSize" width="832" height="408"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="song" id="umb-aj-wMd" customClass="TCKTVSingerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tru-ph-XHe" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYj-MS-JwP">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HoK-gy-zbv">
-                                                                            <rect key="frame" x="0.0" y="150" width="180" height="30"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="04T-6D-uJg">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p05-0C-DuR">
+                                                                                <size key="itemSize" width="180" height="180"/>
+                                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                            </collectionViewFlowLayout>
+                                                                            <cells>
+                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movie" id="miN-y7-Fcc" customClass="TCKTVSingerCell" customModule="tc" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eah-0H-44m">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                                                                                            </imageView>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-rK-xlB">
+                                                                                                <rect key="frame" x="0.0" y="150" width="180" height="30"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                    </view>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="trailing" secondItem="g9c-rK-xlB" secondAttribute="trailing" id="5lU-Ez-vjw"/>
+                                                                                        <constraint firstItem="eah-0H-44m" firstAttribute="top" secondItem="miN-y7-Fcc" secondAttribute="top" id="7cg-jp-6Wh"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="g9c-rK-xlB" secondAttribute="bottom" id="7vQ-fp-sjv"/>
+                                                                                        <constraint firstItem="g9c-rK-xlB" firstAttribute="top" secondItem="eah-0H-44m" secondAttribute="bottom" id="F8C-Oh-aY1"/>
+                                                                                        <constraint firstItem="g9c-rK-xlB" firstAttribute="leading" secondItem="miN-y7-Fcc" secondAttribute="leading" id="NBw-9Q-kab"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="eah-0H-44m" secondAttribute="trailing" id="RyC-QG-NyU"/>
+                                                                                        <constraint firstItem="eah-0H-44m" firstAttribute="leading" secondItem="miN-y7-Fcc" secondAttribute="leading" id="WxT-8h-l0Y"/>
+                                                                                        <constraint firstItem="g9c-rK-xlB" firstAttribute="height" secondItem="miN-y7-Fcc" secondAttribute="height" multiplier="30:180" id="n7e-MA-fHs"/>
+                                                                                    </constraints>
+                                                                                    <connections>
+                                                                                        <outlet property="singerImageView" destination="eah-0H-44m" id="b0M-Zm-9ze"/>
+                                                                                        <outlet property="singerNameLabel" destination="g9c-rK-xlB" id="fhR-9c-ApL"/>
+                                                                                    </connections>
+                                                                                </collectionViewCell>
+                                                                            </cells>
+                                                                            <connections>
+                                                                                <outlet property="dataSource" destination="Pcx-ex-1jL" id="MKJ-Oo-qW0"/>
+                                                                                <outlet property="delegate" destination="Pcx-ex-1jL" id="KDA-wG-urQ"/>
+                                                                            </connections>
+                                                                        </collectionView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="HoK-gy-zbv" firstAttribute="height" secondItem="umb-aj-wMd" secondAttribute="height" multiplier="30:180" id="6cw-5w-2Jh"/>
-                                                                    <constraint firstItem="fYj-MS-JwP" firstAttribute="top" secondItem="umb-aj-wMd" secondAttribute="top" id="IKn-AH-cBP"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="fYj-MS-JwP" secondAttribute="trailing" id="Nz8-TR-Wvi"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="HoK-gy-zbv" secondAttribute="bottom" id="ch6-EV-ETt"/>
-                                                                    <constraint firstItem="HoK-gy-zbv" firstAttribute="top" secondItem="fYj-MS-JwP" secondAttribute="bottom" id="fav-cQ-57U"/>
-                                                                    <constraint firstItem="HoK-gy-zbv" firstAttribute="leading" secondItem="umb-aj-wMd" secondAttribute="leading" id="k0e-f9-Kam"/>
-                                                                    <constraint firstItem="fYj-MS-JwP" firstAttribute="leading" secondItem="umb-aj-wMd" secondAttribute="leading" id="v2L-4u-HUt"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="HoK-gy-zbv" secondAttribute="trailing" id="wLF-Pv-sNa"/>
+                                                                    <constraint firstItem="04T-6D-uJg" firstAttribute="top" secondItem="tru-ph-XHe" secondAttribute="top" id="9L6-Fn-cWH"/>
+                                                                    <constraint firstItem="04T-6D-uJg" firstAttribute="leading" secondItem="tru-ph-XHe" secondAttribute="leading" id="Vyo-1b-g12"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="04T-6D-uJg" secondAttribute="bottom" id="gRh-cN-yz4"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="04T-6D-uJg" secondAttribute="trailing" id="ogv-nK-6Rz"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <outlet property="singerImageView" destination="fYj-MS-JwP" id="Afd-mI-A4g"/>
-                                                                    <outlet property="singerNameLabel" destination="HoK-gy-zbv" id="7NG-Le-fEA"/>
+                                                                    <outlet property="collectionView" destination="04T-6D-uJg" id="4vS-Ac-2BG"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="Pcx-ex-1jL" id="E1M-Kj-poh"/>
-                                                            <outlet property="delegate" destination="Pcx-ex-1jL" id="ayI-sR-fTg"/>
+                                                            <outlet property="dataSource" destination="Pcx-ex-1jL" id="kyo-Ye-e6I"/>
+                                                            <outlet property="delegate" destination="Pcx-ex-1jL" id="oow-0M-5Eh"/>
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgL-zX-7fm">
-                                                        <rect key="frame" x="0.0" y="522" width="768" height="81"/>
+                                                        <rect key="frame" x="0.0" y="506" width="768" height="97"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-f0-mco">
-                                                                <rect key="frame" x="262" y="0.0" width="244" height="81"/>
+                                                                <rect key="frame" x="262" y="0.0" width="244" height="97"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SJ-AO-eSB">
-                                                                        <rect key="frame" x="0.0" y="27" width="70" height="27"/>
+                                                                        <rect key="frame" x="0.0" y="32" width="70" height="33"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="UcW-WH-8bn"/>
                                                                         </constraints>
@@ -243,7 +283,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLi-0O-Guv">
-                                                                        <rect key="frame" x="70" y="30" width="104" height="21"/>
+                                                                        <rect key="frame" x="70" y="38" width="104" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="S9c-BD-frt"/>
                                                                         </constraints>
@@ -252,7 +292,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFC-I7-EsU">
-                                                                        <rect key="frame" x="174" y="27" width="70" height="27"/>
+                                                                        <rect key="frame" x="174" y="32" width="70" height="33"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="Ned-Vi-ntZ"/>
                                                                         </constraints>
@@ -289,7 +329,14 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="3Hj-Fo-WzG" firstAttribute="height" secondItem="OgL-zX-7fm" secondAttribute="height" multiplier="535:84" id="xFW-S8-uea"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Dy9-pv-mwF" secondAttribute="trailing" id="LvO-Aj-j5u"/>
+                                                    <constraint firstItem="Dy9-pv-mwF" firstAttribute="height" secondItem="OgL-zX-7fm" secondAttribute="height" id="U48-uO-uIT"/>
+                                                    <constraint firstItem="Gfu-TG-ReC" firstAttribute="height" secondItem="vCg-TH-Gcp" secondAttribute="height" multiplier="408:603" id="alI-4W-DmC"/>
+                                                    <constraint firstItem="OgL-zX-7fm" firstAttribute="leading" secondItem="vCg-TH-Gcp" secondAttribute="leading" id="bP9-2T-GhR"/>
+                                                    <constraint firstItem="Dy9-pv-mwF" firstAttribute="leading" secondItem="vCg-TH-Gcp" secondAttribute="leading" id="dgv-H5-b4z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OgL-zX-7fm" secondAttribute="trailing" id="r8U-iK-aEC"/>
+                                                    <constraint firstItem="Gfu-TG-ReC" firstAttribute="leading" secondItem="vCg-TH-Gcp" secondAttribute="leading" constant="20" id="ud6-rH-nKN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Gfu-TG-ReC" secondAttribute="trailing" constant="20" id="yr2-ly-HAw"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -311,6 +358,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="音量+" image="ktv_song_bottom_volumn_up"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="volumnUpAction:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="YRB-Hn-5l6"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-Yc-M19">
                                                         <rect key="frame" x="113" y="0.0" width="1" height="101"/>
@@ -322,6 +372,9 @@
                                                         <rect key="frame" x="114" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="音量-" image="ktv_song_bottom_volumn_down"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="volumnDownAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="KAo-0y-tAR"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="leh-6K-IXf">
                                                         <rect key="frame" x="227" y="0.0" width="1" height="101"/>
@@ -333,6 +386,9 @@
                                                         <rect key="frame" x="228" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="暂停/播放" image="ktv_song_bottom_pause"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="pauseAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="sid-6n-Atf"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-mY-Nsy">
                                                         <rect key="frame" x="341" y="0.0" width="1" height="101"/>
@@ -344,6 +400,9 @@
                                                         <rect key="frame" x="342" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="字幕" image="ktv_song_bottom_replay"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="subtitleAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="TYG-cG-cDM"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Ibi-P9-Fb8">
                                                         <rect key="frame" x="455" y="0.0" width="1" height="101"/>
@@ -355,6 +414,9 @@
                                                         <rect key="frame" x="456" y="0.0" width="112" height="101"/>
                                                         <state key="normal" title="音轨" image="ktv_song_bottom_pause"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="trackAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="fmt-40-oc5"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="fTM-91-eiO">
                                                         <rect key="frame" x="568" y="0.0" width="1" height="101"/>
@@ -366,6 +428,9 @@
                                                         <rect key="frame" x="569" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快退" image="ktv_song_bottom_singer"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="backwardAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="V87-8R-hhe"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-hk-bJj">
                                                         <rect key="frame" x="682" y="0.0" width="1" height="101"/>
@@ -377,6 +442,9 @@
                                                         <rect key="frame" x="683" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快进" image="ktv_song_bottom_switch"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="forwardAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="kha-bF-X1q"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="pER-PU-a8b">
                                                         <rect key="frame" x="796" y="0.0" width="1" height="101"/>
@@ -388,6 +456,9 @@
                                                         <rect key="frame" x="797" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="2D/3D" image="ktv_song_bottom_replay"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="switch2d3dAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="9fG-yW-wka"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="diG-QX-Gfy">
                                                         <rect key="frame" x="910" y="0.0" width="1" height="101"/>
@@ -441,7 +512,7 @@
                                     <constraint firstItem="pKb-QV-jMb" firstAttribute="height" secondItem="tSh-oD-jvY" secondAttribute="height" multiplier="64:520" priority="999" id="xwY-Fg-kRg"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-Kp-fj9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-Kp-fj9" customClass="TCMovieDetailView" customModule="tc" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrK-jX-HoO">
@@ -459,6 +530,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycf-vj-wih">
                                                         <rect key="frame" x="25" y="248" width="150" height="55"/>
                                                         <state key="normal" image="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="playAction:" destination="bO2-Kp-fj9" eventType="touchUpInside" id="SvF-6f-j0s"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOt-M0-aB8">
                                                         <rect key="frame" x="25" y="248" width="150" height="55"/>
@@ -517,7 +591,7 @@
                                                         </constraints>
                                                         <state key="normal" image="cinema_close"/>
                                                         <connections>
-                                                            <action selector="closeAction:" destination="Pcx-ex-1jL" eventType="touchUpInside" id="7dG-Pk-TDM"/>
+                                                            <action selector="closeAction:" destination="bO2-Kp-fj9" eventType="touchUpInside" id="s0l-pt-Zc2"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8i-sX-8i0" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
@@ -582,6 +656,11 @@
                                     <constraint firstItem="FrK-jX-HoO" firstAttribute="centerY" secondItem="bO2-Kp-fj9" secondAttribute="centerY" id="Pim-xq-9RB"/>
                                     <constraint firstItem="FrK-jX-HoO" firstAttribute="width" secondItem="bO2-Kp-fj9" secondAttribute="width" multiplier="2:3" id="cn6-8T-QBL"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="skz-16-ZZR" id="mVi-6I-eRv"/>
+                                    <outlet property="infoLabel" destination="x8i-sX-8i0" id="IzM-4h-VQ7"/>
+                                    <outlet property="titleLabel" destination="QCc-4P-rd5" id="7X8-85-NrO"/>
+                                </connections>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjJ-58-gjt">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -1032,7 +1111,7 @@
                     <navigationItem key="navigationItem" id="17t-J8-jS4"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="collectionView" destination="3Hj-Fo-WzG" id="Ayo-v4-dsC"/>
+                        <outlet property="collectionView" destination="Gfu-TG-ReC" id="Oyv-V2-Dq3"/>
                         <outlet property="filtView" destination="rjJ-58-gjt" id="N4W-mM-SSQ"/>
                         <outlet property="filtViewManager" destination="YTX-9d-H2F" id="z50-n5-aEj"/>
                         <outlet property="movieDetailView" destination="bO2-Kp-fj9" id="6S8-C4-3XL"/>
@@ -1055,6 +1134,7 @@
                         <action selector="hideFiltViewAction:" destination="Pcx-ex-1jL" id="ugw-xo-qDj"/>
                     </connections>
                 </tapGestureRecognizer>
+                <customObject id="I6Q-hB-tQ2" customClass="TCCinemaPanel" customModule="tc" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="359" y="399"/>
         </scene>
@@ -1301,68 +1381,108 @@
                                                     <constraint firstItem="wYM-ej-Fxx" firstAttribute="height" secondItem="np7-yc-3lv" secondAttribute="height" constant="-10" id="oA6-Y9-Qx6"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yDm-A4-yRY">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yDm-A4-yRY">
                                                 <rect key="frame" x="256" y="0.0" width="768" height="603"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yKV-Bq-Vaj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="522"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au6-oS-WfK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="98"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kg2-Lu-xnz">
-                                                            <size key="itemSize" width="180" height="180"/>
+                                                    </view>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="79L-hL-e5q">
+                                                        <rect key="frame" x="20" y="98" width="728" height="408"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HRx-94-6Pb">
+                                                            <size key="itemSize" width="832" height="408"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="song" id="BBc-eK-ICV" customClass="TCKTVSingerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tkV-69-KlD" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-Qm-tgG">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rXg-Ui-pl9">
-                                                                            <rect key="frame" x="0.0" y="150" width="180" height="30"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1B2-Ff-lw0">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nd9-m2-bnd">
+                                                                                <size key="itemSize" width="180" height="180"/>
+                                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                            </collectionViewFlowLayout>
+                                                                            <cells>
+                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movie" id="bfC-C4-oqW" customClass="TCKTVSingerCell" customModule="tc" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7FD-hk-xmq">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="150"/>
+                                                                                            </imageView>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yHa-qc-QJb">
+                                                                                                <rect key="frame" x="0.0" y="150" width="180" height="30"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                    </view>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="yHa-qc-QJb" firstAttribute="top" secondItem="7FD-hk-xmq" secondAttribute="bottom" id="3Dr-qc-Dqk"/>
+                                                                                        <constraint firstItem="yHa-qc-QJb" firstAttribute="height" secondItem="bfC-C4-oqW" secondAttribute="height" multiplier="30:180" id="3St-fY-Icw"/>
+                                                                                        <constraint firstItem="7FD-hk-xmq" firstAttribute="leading" secondItem="bfC-C4-oqW" secondAttribute="leading" id="8cv-WL-yle"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="yHa-qc-QJb" secondAttribute="bottom" id="DqE-OQ-qIq"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="7FD-hk-xmq" secondAttribute="trailing" id="Mb4-mr-lSD"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="yHa-qc-QJb" secondAttribute="trailing" id="oaX-7L-XqO"/>
+                                                                                        <constraint firstItem="yHa-qc-QJb" firstAttribute="leading" secondItem="bfC-C4-oqW" secondAttribute="leading" id="qBo-zO-FdX"/>
+                                                                                        <constraint firstItem="7FD-hk-xmq" firstAttribute="top" secondItem="bfC-C4-oqW" secondAttribute="top" id="zED-nW-e5M"/>
+                                                                                    </constraints>
+                                                                                    <connections>
+                                                                                        <outlet property="singerImageView" destination="7FD-hk-xmq" id="6X9-LM-bex"/>
+                                                                                        <outlet property="singerNameLabel" destination="yHa-qc-QJb" id="nAn-WF-Pjy"/>
+                                                                                    </connections>
+                                                                                </collectionViewCell>
+                                                                            </cells>
+                                                                            <connections>
+                                                                                <outlet property="dataSource" destination="KhB-Af-ahG" id="Xs2-IJ-xt1"/>
+                                                                                <outlet property="delegate" destination="KhB-Af-ahG" id="frv-j3-vLe"/>
+                                                                            </connections>
+                                                                        </collectionView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="rXg-Ui-pl9" firstAttribute="leading" secondItem="BBc-eK-ICV" secondAttribute="leading" id="3RJ-8J-Tka"/>
-                                                                    <constraint firstItem="Ovf-Qm-tgG" firstAttribute="leading" secondItem="BBc-eK-ICV" secondAttribute="leading" id="QYy-bh-jTm"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Ovf-Qm-tgG" secondAttribute="trailing" id="RmV-9u-NzP"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="rXg-Ui-pl9" secondAttribute="bottom" id="bjA-Ld-JtN"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="rXg-Ui-pl9" secondAttribute="trailing" id="eLK-7V-QeS"/>
-                                                                    <constraint firstItem="rXg-Ui-pl9" firstAttribute="height" secondItem="BBc-eK-ICV" secondAttribute="height" multiplier="30:180" id="o03-jS-7aF"/>
-                                                                    <constraint firstItem="Ovf-Qm-tgG" firstAttribute="top" secondItem="BBc-eK-ICV" secondAttribute="top" id="pfD-M2-tfx"/>
-                                                                    <constraint firstItem="rXg-Ui-pl9" firstAttribute="top" secondItem="Ovf-Qm-tgG" secondAttribute="bottom" id="rUZ-kW-NFs"/>
+                                                                    <constraint firstItem="1B2-Ff-lw0" firstAttribute="top" secondItem="tkV-69-KlD" secondAttribute="top" id="1Zw-nT-bw6"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="1B2-Ff-lw0" secondAttribute="bottom" id="Aih-1X-q3g"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="1B2-Ff-lw0" secondAttribute="trailing" id="kZY-tf-qHF"/>
+                                                                    <constraint firstItem="1B2-Ff-lw0" firstAttribute="leading" secondItem="tkV-69-KlD" secondAttribute="leading" id="rFo-J3-FVs"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <outlet property="singerImageView" destination="Ovf-Qm-tgG" id="uBI-XM-xCq"/>
-                                                                    <outlet property="singerNameLabel" destination="rXg-Ui-pl9" id="qrX-Nz-FKJ"/>
+                                                                    <outlet property="collectionView" destination="1B2-Ff-lw0" id="KAQ-Db-ReB"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="KhB-Af-ahG" id="SOo-hy-GMv"/>
-                                                            <outlet property="delegate" destination="KhB-Af-ahG" id="1MR-oO-3tC"/>
+                                                            <outlet property="dataSource" destination="KhB-Af-ahG" id="zu7-9C-VSg"/>
+                                                            <outlet property="delegate" destination="KhB-Af-ahG" id="IPp-IM-RGu"/>
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-ul-0t9">
-                                                        <rect key="frame" x="0.0" y="522" width="768" height="81"/>
+                                                        <rect key="frame" x="0.0" y="506" width="768" height="97"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciS-Wt-t8S">
-                                                                <rect key="frame" x="262" y="0.0" width="244" height="81"/>
+                                                                <rect key="frame" x="262" y="0.0" width="244" height="97"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejc-Ki-dKh">
-                                                                        <rect key="frame" x="0.0" y="27" width="70" height="27"/>
+                                                                        <rect key="frame" x="0.0" y="32" width="70" height="33"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="pgt-yT-b8h"/>
                                                                         </constraints>
@@ -1374,7 +1494,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csV-Ke-3lJ">
-                                                                        <rect key="frame" x="70" y="30" width="104" height="21"/>
+                                                                        <rect key="frame" x="70" y="38" width="104" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="gmB-6n-s8Y"/>
                                                                         </constraints>
@@ -1383,7 +1503,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlA-Fy-4by">
-                                                                        <rect key="frame" x="174" y="27" width="70" height="27"/>
+                                                                        <rect key="frame" x="174" y="32" width="70" height="33"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="JCn-gt-cp4"/>
                                                                         </constraints>
@@ -1420,7 +1540,14 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="yKV-Bq-Vaj" firstAttribute="height" secondItem="lyQ-ul-0t9" secondAttribute="height" multiplier="535:84" id="Emm-xF-xfy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lyQ-ul-0t9" secondAttribute="trailing" id="QzK-Xn-k0y"/>
+                                                    <constraint firstItem="au6-oS-WfK" firstAttribute="height" secondItem="lyQ-ul-0t9" secondAttribute="height" id="U3c-E5-6B5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="79L-hL-e5q" secondAttribute="trailing" constant="20" id="Zoa-w4-vQu"/>
+                                                    <constraint firstItem="au6-oS-WfK" firstAttribute="leading" secondItem="yDm-A4-yRY" secondAttribute="leading" id="atH-El-Y9J"/>
+                                                    <constraint firstItem="lyQ-ul-0t9" firstAttribute="leading" secondItem="yDm-A4-yRY" secondAttribute="leading" id="h26-l2-VPd"/>
+                                                    <constraint firstItem="79L-hL-e5q" firstAttribute="leading" secondItem="yDm-A4-yRY" secondAttribute="leading" constant="20" id="hBO-Ks-Pm3"/>
+                                                    <constraint firstItem="79L-hL-e5q" firstAttribute="height" secondItem="yDm-A4-yRY" secondAttribute="height" multiplier="408:603" id="wai-Ch-GJy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="au6-oS-WfK" secondAttribute="trailing" id="xL7-JO-6wf"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -1442,6 +1569,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="音量+" image="ktv_song_bottom_volumn_up"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="volumnUpAction:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="L0q-XC-qlw"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="jwg-Kc-Dpp">
                                                         <rect key="frame" x="113" y="0.0" width="1" height="101"/>
@@ -1453,6 +1583,9 @@
                                                         <rect key="frame" x="114" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="音量-" image="ktv_song_bottom_volumn_down"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="volumnUpAction:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="m4W-AR-OHe"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="QKp-Pf-sDa">
                                                         <rect key="frame" x="227" y="0.0" width="1" height="101"/>
@@ -1464,6 +1597,9 @@
                                                         <rect key="frame" x="228" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="暂停/播放" image="ktv_song_bottom_pause"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="pauseAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="RaU-rO-dNP"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="uYU-xW-Dbg">
                                                         <rect key="frame" x="341" y="0.0" width="1" height="101"/>
@@ -1475,6 +1611,9 @@
                                                         <rect key="frame" x="342" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="字幕" image="ktv_song_bottom_replay"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="subtitleAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="lLc-Xr-VBB"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="8uN-bs-jWn">
                                                         <rect key="frame" x="455" y="0.0" width="1" height="101"/>
@@ -1486,6 +1625,9 @@
                                                         <rect key="frame" x="456" y="0.0" width="112" height="101"/>
                                                         <state key="normal" title="音轨" image="ktv_song_bottom_pause"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="trackAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="KCB-pT-72R"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-YA-yuQ">
                                                         <rect key="frame" x="568" y="0.0" width="1" height="101"/>
@@ -1497,6 +1639,9 @@
                                                         <rect key="frame" x="569" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快退" image="ktv_song_bottom_singer"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="backwardAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="GbB-A3-NHf"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Gvy-b6-6Ku">
                                                         <rect key="frame" x="682" y="0.0" width="1" height="101"/>
@@ -1508,6 +1653,9 @@
                                                         <rect key="frame" x="683" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快进" image="ktv_song_bottom_switch"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="forwardAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="aT2-5i-Rvo"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="e0L-Md-Yrq">
                                                         <rect key="frame" x="796" y="0.0" width="1" height="101"/>
@@ -1519,6 +1667,9 @@
                                                         <rect key="frame" x="797" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="2D/3D" image="ktv_song_bottom_replay"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <connections>
+                                                            <action selector="switch2d3dAciton:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="sbC-Uv-itg"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="mYO-nJ-8Hb">
                                                         <rect key="frame" x="910" y="0.0" width="1" height="101"/>
@@ -1572,7 +1723,7 @@
                                     <constraint firstItem="5k3-pP-yDo" firstAttribute="height" secondItem="TeX-Is-94n" secondAttribute="height" multiplier="64:520" priority="999" id="yjE-bj-XsQ"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-3F-vOe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-3F-vOe" customClass="TCMovieDetailView" customModule="tc" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R11-tF-LCF">
@@ -1590,6 +1741,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXR-ux-TsY">
                                                         <rect key="frame" x="25" y="248" width="150" height="55"/>
                                                         <state key="normal" image="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="playAction:" destination="EU6-3F-vOe" eventType="touchUpInside" id="FFm-li-B1x"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jo-Bm-B2q">
                                                         <rect key="frame" x="25" y="248" width="150" height="55"/>
@@ -1648,7 +1802,7 @@
                                                         </constraints>
                                                         <state key="normal" image="cinema_close"/>
                                                         <connections>
-                                                            <action selector="closeAction:" destination="KhB-Af-ahG" eventType="touchUpInside" id="LER-DF-1Kl"/>
+                                                            <action selector="closeAction:" destination="EU6-3F-vOe" eventType="touchUpInside" id="ZMJ-5q-luP"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxQ-GK-dJj" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
@@ -1713,6 +1867,12 @@
                                     <constraint firstItem="R11-tF-LCF" firstAttribute="height" secondItem="EU6-3F-vOe" secondAttribute="height" multiplier="0.5" id="GkT-rZ-j5d"/>
                                     <constraint firstItem="R11-tF-LCF" firstAttribute="centerX" secondItem="EU6-3F-vOe" secondAttribute="centerX" id="RAK-Do-9Hh"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="ib5-pm-RAZ" id="DeK-xZ-uoR"/>
+                                    <outlet property="infoLabel" destination="VxQ-GK-dJj" id="rAs-U2-gAy"/>
+                                    <outlet property="titleLabel" destination="7GO-Sj-qWb" id="jos-Jq-D4M"/>
+                                    <outletCollection property="gestureRecognizers" destination="HvW-xP-fe9" appends="YES" id="M1R-c0-AYT"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
@@ -1738,7 +1898,7 @@
                     <navigationItem key="navigationItem" id="nMN-J1-akW"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="collectionView" destination="yKV-Bq-Vaj" id="Wba-qq-4WZ"/>
+                        <outlet property="collectionView" destination="79L-hL-e5q" id="XoF-1e-ssJ"/>
                         <outlet property="deleteButton" destination="HwE-cz-SAs" id="pZa-V4-rjz"/>
                         <outlet property="doneButton" destination="K61-DY-dYp" id="788-FI-OkX"/>
                         <outlet property="keyboardView" destination="wN5-t1-05J" id="X6h-uA-OHK"/>
@@ -1747,6 +1907,12 @@
                         <outlet property="searchField" destination="NCr-11-mWK" id="y3n-r7-zkw"/>
                     </connections>
                 </viewController>
+                <customObject id="nz1-Hp-HLz" customClass="TCCinemaPanel" customModule="tc" customModuleProvider="target"/>
+                <tapGestureRecognizer id="HvW-xP-fe9">
+                    <connections>
+                        <action selector="closeAction:" destination="KhB-Af-ahG" id="hhh-X4-apC"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHb-Dd-nxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="359" y="1253"/>

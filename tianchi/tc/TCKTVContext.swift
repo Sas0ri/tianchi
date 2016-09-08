@@ -141,7 +141,7 @@ class TCKTVContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             let textField = alertView.textFieldAtIndex(0)
             let payload = TCSocketPayload()
             payload.cmdType = 1900
-            payload.cmdContent = Int(textField!.text!)
+            payload.cmdContent = JSON(NSNumber(integer:Int(textField!.text!)!))
             self.socketManager.sendPayload(payload)
             
             let alertView = UIAlertView(title: "", message: "正在验证...", delegate: nil, cancelButtonTitle: nil)

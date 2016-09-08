@@ -9,7 +9,7 @@
 import UIKit
 
 class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate,TCKTVSongCellDelegate {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -25,6 +25,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var page:Int = 1
     var client = TCKTVSongClient()
+    var nextPageClient = TCKTVSongClient()
     var songs:[Int: [TCKTVSong]] = [Int: [TCKTVSong]]()
     var clouds:[Int: [TCKTVCloud]] = [Int: [TCKTVCloud]]()
     var ordereds:[TCKTVPoint] = [TCKTVPoint]()
@@ -106,13 +107,15 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let limit = self.getLimit()
         let page = self.page
         let nextPage = self.page + 1
+        let getTotalPage = Int(self.totalPage) == 0
+        
         if self.singer != nil {
-            self.client.getSongsBySinger(self.searchBar.text, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
+            self.client.getSongsBySinger(self.searchBar.text, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
                 if flag {
-                    self.totalPage = totalPage
                     self.songs[page] = songs!
                     self.collectionView.reloadData()
-                    if self.page == 1 {
+                    if getTotalPage {
+                        self.totalPage = totalPage
                         self.updatePage(shouldSelect: false)
                     }
                 } else {
@@ -120,30 +123,29 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
                 }
             })
         }
-
+        
         if self.language != nil {
-            self.client.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: self.page, limit:limit, complete: { (songs, totalPage, flag) in
+            self.client.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
                 if flag {
-                    self.totalPage = totalPage
                     self.songs[page] = songs!
                     self.collectionView.reloadData()
-                    if self.page == 1 {
+                    if getTotalPage {
+                        self.totalPage = totalPage
                         self.updatePage(shouldSelect: false)
                     }
                 } else {
                     self.view.showTextAndHide("加载失败")
                 }
-                self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
             })
         }
         
         if self.category != nil {
-            self.client.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: self.page, limit:limit, complete: { (songs, totalPage, flag) in
+            self.client.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
                 if flag {
-                    self.totalPage = totalPage
                     self.songs[page] = songs!
                     self.collectionView.reloadData()
-                    if self.page == 1 {
+                    if getTotalPage {
+                        self.totalPage = totalPage
                         self.updatePage(shouldSelect: false)
                     }
                 } else {
@@ -152,12 +154,12 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             })
         }
         if self.ranking {
-            self.client.getRankingSongs(self.searchBar.text, page: self.page, limit: limit, complete: { (songs, totalPage, flag) in
+            self.client.getRankingSongs(self.searchBar.text, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
                 if flag {
-                    self.totalPage = totalPage
                     self.songs[page] = songs!
                     self.collectionView.reloadData()
-                    if self.page == 1 {
+                    if getTotalPage {
+                        self.totalPage = totalPage
                         self.updatePage(shouldSelect: false)
                     }
                 } else {
@@ -174,12 +176,12 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             self.collectionView.reloadData()
         }
         if self.cloud {
-            self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, complete: { (clouds, totalPage, flag) in
+            self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (clouds, totalPage, flag) in
                 if flag {
-                    self.totalPage = totalPage
                     self.clouds[page] = clouds!
                     self.collectionView.reloadData()
-                    if self.page == 1 {
+                    if getTotalPage {
+                        self.totalPage = totalPage
                         self.updatePage(shouldSelect: false)
                     }
                 } else {
@@ -207,7 +209,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         //预加载
         if self.singer != nil {
-            self.client.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.songs[nextPage] = songs!
                 }
@@ -215,7 +217,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         if self.language != nil {
-            self.client.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: nextPage, limit:limit, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: nextPage, limit:limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.songs[nextPage] = songs!
                 }
@@ -223,22 +225,22 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         if self.category != nil {
-            self.client.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: nextPage, limit:limit, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: nextPage, limit:limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.songs[nextPage] = songs!
                 }
             })
         }
         if self.ranking {
-            self.client.getRankingSongs(nil, page: nextPage, limit: limit, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getRankingSongs(nil, page: nextPage, limit: limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
                 if flag {
                     self.songs[nextPage] = songs!
                 }
             })
         }
-       
+        
         if self.cloud {
-            self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, complete: { (clouds, totalPage, flag) in
+            self.nextPageClient.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: { (clouds, totalPage, flag) in
                 if flag {
                     self.clouds[nextPage] = clouds!
                 }
@@ -324,7 +326,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         if collectionView == self.collectionView {
             self.page = indexPath.row + 1
             if self.cloud {
-                if self.clouds[self.page] == nil {
+                if self.clouds[self.page] == nil || self.clouds[self.page]?.count == 0 {
                     self.loadData()
                 }
                 return
@@ -335,7 +337,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             if self.ordered {
                 return
             }
-            if self.songs[self.page] == nil {
+            if self.songs[self.page] == nil || self.songs[self.page]?.count == 0 {
                 self.loadData()
             }
         }
@@ -428,7 +430,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         return 10
     }
-
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         if collectionView == self.collectionView {
@@ -442,7 +444,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let clouds = self.clouds[page]
             let cloud = clouds![indexPath.row]
             payload.cmdType = 1005
-            payload.cmdContent = cloud.songNum
+            payload.cmdContent = JSON(NSNumber(integer:cloud.songNum))
             
             let download = TCKTVDownload()
             download.songNum = cloud.songNum
@@ -454,18 +456,18 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.download {
             
         } else if self.ordered {
-    
+            
         } else {
             let songs = self.songs[page]
             let song = songs![indexPath.row]
             payload.cmdType = 1003
-            payload.cmdContent = song.songNum
+            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
             
             let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
             cell.songNameLabel.textColor = UIColor.redColor()
             cell.singerNameLabel.textColor = UIColor.redColor()
         }
-  
+        
         if self.searchBar.text?.characters.count > 0 {
             self.searchBar.resignFirstResponder()
             self.searchBar.text = nil
@@ -477,7 +479,6 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-
     // MARK: - Cell delegate
     func onFirstAction(cell: UICollectionViewCell) {
         let collectionView = cell.superview as! UICollectionView
@@ -485,8 +486,8 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let payload = TCSocketPayload()
         let indexPath = collectionView.indexPathForCell(cell)
         let limit = self.getLimit()
-        let index = (page - 1) * limit + indexPath!.row
-
+        let index = (self.page - 1) * limit + indexPath!.row
+        
         if self.language != nil {
             let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
             let collectionView = cell.superview as! UICollectionView
@@ -499,7 +500,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.ordered {
             let ordered = self.ordereds[index]
             payload.cmdType = 1002
-            payload.cmdContent = ordered.songNum
+            payload.cmdContent = JSON(NSNumber(integer:ordered.songNum))
             self.ordereds.removeAtIndex(index)
             self.collectionView.reloadData()
             let totalPage = self.ordereds.count%limit == 0 ? self.ordereds.count/limit : self.ordereds.count/limit + 1
@@ -509,9 +510,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             self.totalPage = "\(totalPage)"
             self.updatePage(shouldSelect: false)
         } else if self.download {
-          let download = TCKTVContext.sharedContext().downloads[index]
+            let download = TCKTVContext.sharedContext().downloads[index]
             payload.cmdType = 1008
-            payload.cmdContent = download.songNum
+            payload.cmdContent = JSON(NSNumber(integer:download.songNum))
             
             TCKTVContext.sharedContext().downloads.removeAtIndex(index)
             self.collectionView.reloadData()
@@ -522,17 +523,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             self.totalPage = "\(totalPage)"
             self.updatePage(shouldSelect: false)
-        } else if self.ranking {
-            let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
-            let songs = self.songs[page]
-            let song = songs![indexPath!.row]
-            songsVC.singer = song.singer
-            self.navigationController?.pushViewController(songsVC, animated: false)
         } else {
             let songs = self.songs[page]
-            let song = songs![indexPath!.row]
+            let song = songs![index]
             payload.cmdType = 1004
-            payload.cmdContent = song.songNum
+            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
             
             let c = cell as! TCKTVSongCell
             c.songNameLabel.textColor = UIColor.redColor()
@@ -547,26 +542,26 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     func onSecondAction(cell: UICollectionViewCell) {
         let collectionView = cell.superview as! UICollectionView
         let page = collectionView.tag + 1
-
+        
         let payload = TCSocketPayload()
         let indexPath = collectionView.indexPathForCell(cell)
         let limit = self.getLimit()
         let index = (self.page - 1) * limit + indexPath!.row
-
+        
         if self.cloud {
-           
+            
         } else if self.download {
         } else if self.ordered {
             let ordered = self.ordereds.removeAtIndex(index)
             self.ordereds.insert(ordered, atIndex: 1)
             self.collectionView.reloadData()
             payload.cmdType = 1001
-            payload.cmdContent = ordered.songNum
+            payload.cmdContent = JSON(NSNumber(integer:ordered.songNum))
         } else {
             let songs = self.songs[page]
             let song = songs![indexPath!.row]
             payload.cmdType = 1004
-            payload.cmdContent = song.songNum
+            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
             
             let c = cell as! TCKTVSongCell
             c.songNameLabel.textColor = UIColor.redColor()
@@ -609,7 +604,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.destinationViewController.isKindOfClass(TCKTVCloudSearchViewController) {
@@ -622,5 +617,5 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-
+    
 }

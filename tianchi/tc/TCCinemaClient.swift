@@ -1,16 +1,16 @@
 //
-//  TCKTVSingerClient.swift
+//  TCCinemaClient.swift
 //  tc
 //
-//  Created by Sasori on 16/6/21.
+//  Created by Sasori on 16/9/8.
 //  Copyright © 2016年 Sasori. All rights reserved.
 //
 
 import UIKit
 
-class TCKTVSingerClient: NSObject {
-    let path = "TianChiServer/GetSingerList"
-    let pagePath = "TianChiServer/GetSingerTotalPage"
+class TCCinemaClient: NSObject {
+    let path = "TianChiServer/GetMovie"
+    let pagePath = "TianChiServer/GetMovieTotalPage"
     
     var client:MCJSONClient? = {
         var c:MCJSONClient?
@@ -29,40 +29,26 @@ class TCKTVSingerClient: NSObject {
         return c
     }()
     
-    func singerIconURL(singerId:Int64) -> NSURL {
-        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lld.jpg",TCContext.sharedContext().serverAddress!, singerId))!
+    func movieIconURL(movieId:Int64) -> NSURL {
+        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata1/CACHELIBRARY/%lld.jpg",TCContext.sharedContext().serverAddress!, movieId))!
     }
     
-    func getSingers(keyword:String?, type:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (singers:[TCKTVSinger]?, totalPage:String, flag:Bool)->()) {
+    func getMovies(keyword:String?, type:String, area:String, year:String , page:Int, limit:Int, getTotalPage:Bool, complete: (movies:[TCMovie]?, totalPage:String, flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword?.characters.count > 0 {
             params["py"] = keyword!.uppercaseString
         }
         params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        if type == 1 || type == 3 {
-            params["six"] = "STP1"
-        } else if type == 2 || type == 4 {
-            params["six"] = "STP2"
-        } else if type == 5 {
-            params["six"] = "STP3"
-        } else {
-            params["six"] = "STP"
-        }
-        
-        if type == 1 || type == 2 {
-            params["area"] = "ATP1"
-        } else if type == 3 || type == 4 {
-            params["area"] = "ATP2"
-        } else {
-            params["area"] = "ATP"
-        }
+        params["type"] = type
+        params["area"] = area
+        params["year"] = year
         
         params["page"] = NSNumber(integer: page)
         params["pageSize"] = NSNumber(integer: limit)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
-        var singers = [TCKTVSinger]()
+        var movies = [TCMovie]()
         var totalPage = ""
         if getTotalPage {
             count = count + 1
@@ -70,32 +56,34 @@ class TCKTVSingerClient: NSObject {
                 totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
                 count = count - 1
                 if count == 0 {
-                    complete(singers: singers,totalPage: totalPage, flag: true)
+                    complete(movies: movies,totalPage: totalPage, flag: true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(singers: singers,totalPage: totalPage, flag: false)
+                        complete(movies: movies,totalPage: totalPage, flag: false)
                     }
             })
         }
         self.client?.MCGet(self.path, parameters: params, success: { (json) in
-            for jsonSinger in json.arrayValue {
-                let singer = TCKTVSinger()
-                singer.config(jsonSinger)
-                singers.append(singer)
+            for jsonMovie in json.arrayValue {
+                let movie = TCMovie()
+                movie.config(jsonMovie)
+                movies.append(movie)
             }
             
             count = count - 1
             if count == 0 {
-                complete(singers: singers,totalPage: totalPage, flag: true)
+                complete(movies: movies,totalPage: totalPage, flag: true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(singers: singers,totalPage: totalPage, flag: false)
+                    complete(movies: movies,totalPage: totalPage, flag: false)
                 }
         })
+        
     }
 }
+

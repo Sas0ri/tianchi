@@ -368,7 +368,7 @@
                                                                         <state key="normal" image="fk_song_mode"/>
                                                                         <state key="highlighted" image="fk_song_mode_on"/>
                                                                         <connections>
-                                                                            <segue destination="CVe-M2-yrZ" kind="push" id="kLQ-Dy-kpk"/>
+                                                                            <action selector="ktvAction:" destination="oEE-yD-Hkq" eventType="touchUpInside" id="WPw-ss-ocw"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -496,6 +496,9 @@
                                         <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="20"/>
                                         <state key="normal" image="fk_system_close"/>
                                         <state key="highlighted" image="fk_system_close_on"/>
+                                        <connections>
+                                            <action selector="turnOffAction:" destination="oEE-yD-Hkq" eventType="touchUpInside" id="yju-eN-rV6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统关闭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWP-8Y-uS7">
                                         <rect key="frame" x="927" y="43" width="58" height="21"/>
@@ -550,7 +553,7 @@
         <!--Main View Controller-->
         <scene sceneID="LGK-S0-jpN">
             <objects>
-                <viewController id="CVe-M2-yrZ" customClass="TCKTVMainViewController" customModule="tc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ktv" id="CVe-M2-yrZ" customClass="TCKTVMainViewController" customModule="tc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sbW-Zh-5Jc"/>
                         <viewControllerLayoutGuide type="bottom" id="igZ-Li-wFZ"/>
@@ -2165,7 +2168,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="9UV-2G-w9m">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="34149ACE-F7C9-4EA8-8B2A-999BA9E897D5" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B8A146A4-CF40-4357-BC30-614A189296BF" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
                                         <rect key="frame" x="12" y="12" width="19" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="ACh-U9-dDp"/>
@@ -2391,7 +2394,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="上一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="2091721A-49D1-4619-BF6A-A929CBF24D6B"/>
+                                                        <state key="highlighted" backgroundImage="8D6AB498-65DA-4878-A379-1FD5A339FE88"/>
                                                         <connections>
                                                             <action selector="prePage:" destination="bj2-XT-wru" eventType="touchUpInside" id="ZLl-85-Esh"/>
                                                         </connections>
@@ -2412,7 +2415,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="下一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="2091721A-49D1-4619-BF6A-A929CBF24D6B"/>
+                                                        <state key="highlighted" backgroundImage="8D6AB498-65DA-4878-A379-1FD5A339FE88"/>
                                                         <connections>
                                                             <action selector="nextPage:" destination="bj2-XT-wru" eventType="touchUpInside" id="fvR-Ar-3U4"/>
                                                         </connections>
@@ -5624,7 +5627,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2091721A-49D1-4619-BF6A-A929CBF24D6B" width="93" height="28">
+        <image name="8D6AB498-65DA-4878-A379-1FD5A339FE88" width="93" height="28">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5849,7 +5852,7 @@ MngygDKDMogylzKbMqIyqjK3MrwyvjLAMsUyzTLQMtUy3TLgMvIy9TL6AAAAAAAAAgEAAAAAAAAAQQAA
 AAAAAAAAAAAAAAAAMvw
 </mutableData>
         </image>
-        <image name="34149ACE-F7C9-4EA8-8B2A-999BA9E897D5" width="19" height="20">
+        <image name="B8A146A4-CF40-4357-BC30-614A189296BF" width="19" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6007,8 +6010,7 @@ D/cP/A/+EAAQBRANEBAQFRAdECAQMhA1EDoAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAQPA
         <image name="song_item_bg" width="508" height="205"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kLQ-Dy-kpk"/>
+        <segue reference="lgJ-9d-aiB"/>
         <segue reference="F92-4y-IWw"/>
-        <segue reference="wSD-cu-A7n"/>
     </inferredMetricsTieBreakers>
 </document>

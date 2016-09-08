@@ -10,6 +10,12 @@
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
 		5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */; };
 		5C43B4D81D8009BD00BDB6D4 /* TCKTVContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D71D8009BD00BDB6D4 /* TCKTVContext.swift */; };
+		5C43B4DA1D80FF3D00BDB6D4 /* TCAppsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */; };
+		5C43B4DC1D80FFF500BDB6D4 /* TCCinemaContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4DB1D80FFF500BDB6D4 /* TCCinemaContext.swift */; };
+		5C43B4DF1D81036E00BDB6D4 /* TCCinemaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4DE1D81036E00BDB6D4 /* TCCinemaClient.swift */; };
+		5C43B4E11D81047A00BDB6D4 /* TCMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E01D81047A00BDB6D4 /* TCMovie.swift */; };
+		5C43B4E41D810A7B00BDB6D4 /* TCMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E31D810A7B00BDB6D4 /* TCMovieDetailView.swift */; };
+		5C43B4E61D81293800BDB6D4 /* TCCinemaPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E51D81293800BDB6D4 /* TCCinemaPanel.swift */; };
 		5C47421C1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */; };
 		5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
 		5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
@@ -99,6 +105,12 @@
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
 		5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFNetworking+Cancel.swift"; sourceTree = "<group>"; };
 		5C43B4D71D8009BD00BDB6D4 /* TCKTVContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVContext.swift; sourceTree = "<group>"; };
+		5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCAppsContext.swift; sourceTree = "<group>"; };
+		5C43B4DB1D80FFF500BDB6D4 /* TCCinemaContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaContext.swift; sourceTree = "<group>"; };
+		5C43B4DE1D81036E00BDB6D4 /* TCCinemaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaClient.swift; sourceTree = "<group>"; };
+		5C43B4E01D81047A00BDB6D4 /* TCMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCMovie.swift; sourceTree = "<group>"; };
+		5C43B4E31D810A7B00BDB6D4 /* TCMovieDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCMovieDetailView.swift; sourceTree = "<group>"; };
+		5C43B4E51D81293800BDB6D4 /* TCCinemaPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaPanel.swift; sourceTree = "<group>"; };
 		5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaFiltViewManager.swift; sourceTree = "<group>"; };
 		5C4F21221D61C7C3009CD476 /* UISearchBarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarAppearance.h; sourceTree = "<group>"; };
 		5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarAppearance.m; sourceTree = "<group>"; };
@@ -246,6 +258,23 @@
 			name = "AFNetworking+Cancel";
 			sourceTree = "<group>";
 		};
+		5C43B4DD1D81035E00BDB6D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C43B4DE1D81036E00BDB6D4 /* TCCinemaClient.swift */,
+				5C43B4E01D81047A00BDB6D4 /* TCMovie.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5C43B4E21D810A6900BDB6D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C43B4E31D810A7B00BDB6D4 /* TCMovieDetailView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		5C50E0AB1D1391650002AEF1 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,11 +348,15 @@
 		5CA77E2D1D7D3A670013F0C3 /* Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				5C43B4E21D810A6900BDB6D4 /* View */,
+				5C43B4DD1D81035E00BDB6D4 /* Model */,
 				5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */,
 				5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */,
 				5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */,
 				5CA77E381D7D54850013F0C3 /* Cinema.xcassets */,
 				5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */,
+				5C43B4DB1D80FFF500BDB6D4 /* TCCinemaContext.swift */,
+				5C43B4E51D81293800BDB6D4 /* TCCinemaPanel.swift */,
 			);
 			name = Cinema;
 			sourceTree = "<group>";
@@ -702,6 +735,7 @@
 				5CFEFCE61D78083400520B3B /* Apps.storyboard */,
 				5CFEFCE81D780D3000520B3B /* Apps.xcassets */,
 				5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */,
+				5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */,
 			);
 			name = Apps;
 			sourceTree = "<group>";
@@ -868,8 +902,10 @@
 			files = (
 				5CE93E861D0FF2F500A536AC /* FUIButton.m in Sources */,
 				5CAA02181D17CD9800FE6DBD /* TCContext.swift in Sources */,
+				5C43B4E11D81047A00BDB6D4 /* TCMovie.swift in Sources */,
 				5CE93E901D0FF2F500A536AC /* UIPopoverController+FlatUI.m in Sources */,
 				5CE93E941D0FF2F500A536AC /* UITabBar+FlatUI.m in Sources */,
+				5C43B4E41D810A7B00BDB6D4 /* TCMovieDetailView.swift in Sources */,
 				5CE93E911D0FF2F500A536AC /* UIProgressView+FlatUI.m in Sources */,
 				5CE93E8D1D0FF2F500A536AC /* UIFont+FlatUI.m in Sources */,
 				5CAA02271D17D16F00FE6DBD /* TCKTVSongCell.swift in Sources */,
@@ -882,6 +918,8 @@
 				5C43B4D81D8009BD00BDB6D4 /* TCKTVContext.swift in Sources */,
 				5C50E0AA1D1148BC0002AEF1 /* TCKTVLanguageViewController.swift in Sources */,
 				5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */,
+				5C43B4DA1D80FF3D00BDB6D4 /* TCAppsContext.swift in Sources */,
+				5C43B4DC1D80FFF500BDB6D4 /* TCCinemaContext.swift in Sources */,
 				5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */,
 				5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */,
 				5CE93E961D0FF2F500A536AC /* UIToolbar+FlatUI.m in Sources */,
@@ -912,8 +950,10 @@
 				5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,
+				5C43B4E61D81293800BDB6D4 /* TCCinemaPanel.swift in Sources */,
 				5CA77E3B1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift in Sources */,
 				5C5816121D2246BF00A0F513 /* TCMainButton.swift in Sources */,
+				5C43B4DF1D81036E00BDB6D4 /* TCCinemaClient.swift in Sources */,
 				5CE93E891D0FF2F500A536AC /* FUISegmentedControl.m in Sources */,
 				5CAA024C1D1929A300FE6DBD /* TCKTVSongNameClient.swift in Sources */,
 				5CE93E931D0FF2F500A536AC /* UIStepper+FlatUI.m in Sources */,

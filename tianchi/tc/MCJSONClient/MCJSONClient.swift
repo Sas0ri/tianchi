@@ -55,6 +55,9 @@ class MCJSONClient: AFHTTPSessionManager {
             }
             }) { (dataTask, error) -> Void in
                 DDLogError(error.description)
+                if error.code == NSURLErrorCancelled {
+                    return
+                }
                 var err:NSError!
                 if !AFNetworkReachabilityManager.sharedManager().reachable {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "网络错误"])
@@ -77,6 +80,9 @@ class MCJSONClient: AFHTTPSessionManager {
             }
             }) { (dataTask, error) -> Void in
                 DDLogError(error.description)
+                if error.code == NSURLErrorCancelled {
+                    return
+                }
                 var err:NSError!
                 if !AFNetworkReachabilityManager.sharedManager().reachable {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "网络错误"])

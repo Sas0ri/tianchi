@@ -9,7 +9,7 @@
 import UIKit
 
 class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,6 +17,8 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     
     var page:Int = 1
     var client = TCKTVSingerClient()
+    var nextPageClient = TCKTVSingerClient()
+    
     var singers:[Int:[TCKTVSinger]] = [Int:[TCKTVSinger]]()
     var totalPage:String = "0"
     
@@ -72,27 +74,27 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         
         let page = self.page
         let nextPage = self.page + 1
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit) { (singers, totalPage, flag) in
+        let getTotalPage = Int(self.totalPage) == 0
+        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage) { (singers, totalPage, flag) in
             if flag {
-                self.totalPage = totalPage
                 self.singers[page] = singers!
                 self.collectionView.reloadData()
-                if self.page == 1 {
+                if getTotalPage {
+                    self.totalPage = totalPage
                     self.updatePage(shouldSelect: false)
                 }
-                
             } else {
                 self.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit) { (singers, totalPage, flag) in
+        self.nextPageClient.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false) { (singers, totalPage, flag) in
             if flag {
                 self.singers[nextPage] = singers!
             }
         }
     }
-
+    
     
     // MARK: - CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -113,7 +115,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.collectionView {
             self.page = indexPath.row + 1
-            if self.singers[self.page] == nil {
+            if self.singers[self.page] == nil || self.singers[self.page]?.count == 0 {
                 self.loadData()
             }
         }
@@ -123,7 +125,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
         self.updatePage(shouldSelect: false)
     }
-
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
@@ -150,7 +152,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         }
         return CGSizeMake(180, 180)
     }
-
+    
     // MARK: - UISearchBarDelegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
@@ -158,7 +160,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         self.updatePage(shouldSelect: false)
         self.loadData()
     }
-
+    
     @IBAction func prePage(sender: AnyObject) {
         if self.page == 1 {
             return
@@ -184,7 +186,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         }
     }
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = sender as! TCKTVSingerCell
@@ -195,5 +197,5 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let vc = segue.destinationViewController as! TCKTVSongsViewController
         vc.singer = singer.singerName
     }
-
+    
 }

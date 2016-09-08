@@ -40,6 +40,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         super.init()
         UISearchBarAppearance.setupSearchBar()
         self.socketManager.delegate = self
+        self.socketManager.heartbeatCmd = 2202
         self.serverAddress = NSUserDefaults.standardUserDefaults().objectForKey("SA") as? String
         if self.serverAddress != nil {
             self.socketManager.address = self.serverAddress
@@ -103,7 +104,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             let textField = alertView.textFieldAtIndex(0)
             let payload = TCSocketPayload()
             payload.cmdType = 1900
-            payload.cmdContent = Int(textField!.text!)
+            payload.cmdContent = JSON(NSNumber(integer:Int(textField!.text!)!))
             self.socketManager.sendPayload(payload)
             
             let alertView = UIAlertView(title: "", message: "正在验证...", delegate: nil, cancelButtonTitle: nil)

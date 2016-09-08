@@ -17,6 +17,8 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     var page:Int = 1
     var client = TCKTVSongClient()
+    var nextPageClient = TCKTVSongClient()
+    
     var songs:[Int: [TCKTVSong]] = [Int: [TCKTVSong]]()
     var totalPage:String = "0"
     
@@ -86,21 +88,22 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         }
         let page = self.page
         let nextPage = self.page + 1
-        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit) { (songs, totalPage, flag) in
+        let getTotalPage = Int(self.totalPage) == 0
+        
+        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit, getTotalPage: getTotalPage) { (songs, totalPage, flag) in
             if flag {
-                self.totalPage = totalPage
                 self.songs[page] = songs!
                 self.collectionView.reloadData()
-                if self.page == 1 {
+                if getTotalPage {
+                    self.totalPage = totalPage
                     self.updatePage(shouldSelect: false)
                 }
-                
             } else {
                 self.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit) { (songs, totalPage, flag) in
+        self.nextPageClient.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit, getTotalPage: false) { (songs, totalPage, flag) in
             if flag {
                 self.songs[nextPage] = songs!
             }
@@ -126,7 +129,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if collectionView == self.collectionView {
             self.page = indexPath.item + 1
-            if self.songs[self.page] == nil {
+            if self.songs[self.page] == nil || self.songs[self.page]?.count == 0 {
                 self.loadData()
             }
         }
@@ -153,7 +156,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         cell.songNameLabel.text = song.songName
         cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
         cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-
+        
         return cell
     }
     
@@ -170,7 +173,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let songs = self.songs[page]
         let song = songs![indexPath.row]
         payload.cmdType = 1003
-        payload.cmdContent = song.songNum
+        payload.cmdContent = JSON(NSNumber(integer: song.songNum))
         
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
         if self.searchBar.text?.characters.count > 0 {
@@ -229,7 +232,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let song = songs![indexPath!.row]
         let payload = TCSocketPayload()
         payload.cmdType = 1004
-        payload.cmdContent = song.songNum
+        payload.cmdContent = JSON(NSNumber(integer: song.songNum))
         
         let c = cell as! TCKTVSongCell
         c.songNameLabel.textColor = UIColor.redColor()
@@ -249,16 +252,16 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         self.songs.removeAll()
         self.collectionView.reloadData()
     }
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.destinationViewController.isKindOfClass(TCKTVCloudSearchViewController) {
             let vc = segue.destinationViewController as! TCKTVCloudSearchViewController
             vc.words = self.segmentedControl.selectedSegmentIndex
             vc.searchText = self.searchBar.text
         }
     }
-     
+    
     
 }

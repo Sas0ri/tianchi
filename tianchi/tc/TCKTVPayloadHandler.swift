@@ -29,7 +29,7 @@ class TCKTVPayloadHandler: NSObject {
             var index:Int?
             for i in 0..<TCKTVContext.sharedContext().downloads.count {
                 let download = TCKTVContext.sharedContext().downloads[i]
-                if download.songNum == Int(payload.cmdContent!) {
+                if download.songNum == payload.cmdContent!.intValue {
                     index = i
                     break
                 }
@@ -46,7 +46,7 @@ class TCKTVPayloadHandler: NSObject {
             var index:Int?
             for i in 0..<TCKTVContext.sharedContext().downloads.count {
                 let download = TCKTVContext.sharedContext().downloads[i]
-                if download.songNum == Int(payload.cmdContent!) {
+                if download.songNum == payload.cmdContent!.intValue {
                     index = i
                     break
                 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -133,6 +133,10 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="AGn-bE-Ilz" id="Aju-81-q9F"/>
+                                            <outlet property="delegate" destination="AGn-bE-Ilz" id="jHl-j6-bbE"/>
+                                        </connections>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-OX-3kH">
                                         <rect key="frame" x="718" y="0.0" width="286" height="684"/>
@@ -149,6 +153,9 @@
                                                             <constraint firstAttribute="width" secondItem="5Dg-5m-8Pk" secondAttribute="height" multiplier="1:2" id="FNd-72-bfP"/>
                                                         </constraints>
                                                         <state key="normal" image="apps_button_right"/>
+                                                        <connections>
+                                                            <action selector="rightAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="sMa-ad-NGn"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1G-KK-4Hy">
                                                         <rect key="frame" x="0.0" y="32" width="39" height="80"/>
@@ -156,6 +163,9 @@
                                                             <constraint firstAttribute="width" secondItem="v1G-KK-4Hy" secondAttribute="height" multiplier="1:2" id="pky-uK-thx"/>
                                                         </constraints>
                                                         <state key="normal" image="apps_button_left"/>
+                                                        <connections>
+                                                            <action selector="leftAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="8F0-32-lnw"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4m-5l-Nji">
                                                         <rect key="frame" x="44" y="45" width="55" height="55"/>
@@ -163,6 +173,9 @@
                                                             <constraint firstAttribute="width" secondItem="n4m-5l-Nji" secondAttribute="height" multiplier="1:1" id="fSJ-LS-zC4"/>
                                                         </constraints>
                                                         <state key="normal" image="apps_button_ok"/>
+                                                        <connections>
+                                                            <action selector="okAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="ouF-Op-Lwo"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pec-Ut-M3E">
                                                         <rect key="frame" x="31" y="0.0" width="80" height="41"/>
@@ -170,6 +183,9 @@
                                                             <constraint firstAttribute="width" secondItem="pec-Ut-M3E" secondAttribute="height" multiplier="2:1" id="XOl-HI-3Qh"/>
                                                         </constraints>
                                                         <state key="normal" image="apps_button_up"/>
+                                                        <connections>
+                                                            <action selector="upAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="uX7-Di-52P"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-JL-abM">
                                                         <rect key="frame" x="31" y="104" width="80" height="40"/>
@@ -177,6 +193,9 @@
                                                             <constraint firstAttribute="width" secondItem="C8S-JL-abM" secondAttribute="height" multiplier="2:1" id="Xxn-tB-Bu8"/>
                                                         </constraints>
                                                         <state key="normal" image="apps_button_down"/>
+                                                        <connections>
+                                                            <action selector="downAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="wYr-RA-RmU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -210,6 +229,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="静音" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="mutaAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="iI4-dC-8L1"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YbL-bl-jqC" userLabel="Margin left">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="1"/>
@@ -229,6 +251,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="菜单" backgroundImage="apps_button_menu_bg"/>
+                                                        <connections>
+                                                            <action selector="menuAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="f8l-2G-4D3"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMd-3q-s7D">
                                                         <rect key="frame" x="135" y="0.0" width="71" height="43"/>
@@ -238,6 +263,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
                                                         <state key="normal" title="返回" backgroundImage="apps_button_back_bg"/>
+                                                        <connections>
+                                                            <action selector="returnAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="mYg-DV-MDb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -260,11 +288,17 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="音量+" backgroundImage="apps_button_bg"/>
+                                                        <connections>
+                                                            <action selector="volumnUpAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="twO-Oe-qFh"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4u-zz-cVB">
                                                         <rect key="frame" x="53" y="0.0" width="44" height="44"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="音量-" backgroundImage="apps_button_bg"/>
+                                                        <connections>
+                                                            <action selector="volumnDownAction:" destination="AGn-bE-Ilz" eventType="touchUpInside" id="esJ-Li-QSl"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z50-Vz-Dma">
                                                         <rect key="frame" x="107" y="0.0" width="99" height="44"/>
@@ -340,6 +374,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="backButton" destination="FMd-3q-s7D" id="PE8-lp-Jbw"/>
+                        <outlet property="collectionView" destination="EQB-Ez-wTV" id="pRd-KK-w6Z"/>
                         <outlet property="menuButton" destination="Frx-gS-mmI" id="gbv-Mk-Nqh"/>
                         <outlet property="muteButton" destination="dMl-Mn-rie" id="tAD-Dx-Ce6"/>
                         <outlet property="voiceDownButton" destination="e4u-zz-cVB" id="Wgr-LP-7fx"/>

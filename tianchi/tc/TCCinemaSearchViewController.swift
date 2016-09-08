@@ -8,25 +8,29 @@
 
 import UIKit
 
-class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
+class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, TCMovieDetailViewDelegate {
 
     @IBOutlet weak var keyboardView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageLabel: UILabel!
-    @IBOutlet weak var movieDetailView: UIView!
+    @IBOutlet weak var movieDetailView: TCMovieDetailView!
 
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     
     var page:Int = 1
-    var client = TCKTVSongClient()
-    var songs:[Int: [TCKTVSong]] = [Int: [TCKTVSong]]()
+    var client = TCCinemaClient()
+    var movies:[Int: [TCMovie]] = [Int: [TCMovie]]()
+    var nextPageClient = TCCinemaClient()
+
     var totalPage:String = "0"
     let keys = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.movieDetailView.delegate = self
+
         self.searchField.inputView = UIView()
         self.deleteButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), forState: .Normal)
         self.doneButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), forState: .Normal)
@@ -68,29 +72,36 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func loadData() {
-        var limit = 9
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
-            limit = 6
-        }
+        let limit = 8
         let page = self.page
         let nextPage = self.page + 1
-        self.client.getSongsByName("", words: 0, page: self.page, limit:limit) { (songs, totalPage, flag) in
+        let getTotalPage = Int(self.totalPage) == 0
+        
+        self.client.getMovies(self.searchField.text, type: "all_movie_content", area: "all_movie_content", year: "all_movie_content", page: page, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
             if flag {
-                self.totalPage = totalPage
-                self.songs[page] = songs!
+                self.movies[page] = movies!
                 self.collectionView.reloadData()
-                if self.page == 1 {
+                if getTotalPage {
+                    self.totalPage = totalPage
                     self.updatePage(shouldSelect: false)
                 }
-                
             } else {
+                let movie = TCMovie()
+                movie.movieId = 1
+                movie.title = "测试title"
+                movie.info = "【IMDB：7.3  豆瓣：6.9】 故事发生在遥远的2057年，太阳的逐渐衰竭让人类即将面临有史以来最大的危机，如果失去了日照，大地将会陷入黑暗和冰封之中，永无再见天日之时。为了拯救地球，一支八人行动小组组成了，他们分别是稳重老城的机长凯恩达、植物学翘楚卡伦佐、航海高手特雷、物理学家卡帕、驾驶员卡西和她的助手马斯，指挥官哈维以及博士希瑞尔。背负着全人类的使命，八人驾驶着宇宙飞船“伊卡鲁斯二号”飞向了太阳。随着目的地的临近，问题不断涌现，他们能够顺利完成任务吗？又是否能够平安返回地球呢？"
+                let movies = [movie, movie, movie, movie, movie, movie, movie, movie]
+                self.movies[page] = movies
+                self.totalPage = "10"
+                self.updatePage(shouldSelect: false)
+                self.collectionView.reloadData()
                 self.view.showTextAndHide("加载失败")
             }
         }
-        //预加载
-        self.client.getSongsByName("", words: 0, page: nextPage, limit:limit) { (songs, totalPage, flag) in
+        
+        self.nextPageClient.getMovies(self.searchField.text, type: "all_movie_content", area: "all_movie_content", year: "all_movie_content", page: nextPage, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
             if flag {
-                self.songs[nextPage] = songs!
+                self.movies[nextPage] = movies!
             }
         }
     }
@@ -108,8 +119,8 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
             return Int(self.totalPage)!
         }
         let page = collectionView.tag + 1
-        if let songs = self.songs[page] {
-            return songs.count
+        if let movies = self.movies[page] {
+            return movies.count
         }
         return 0
     }
@@ -120,7 +131,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         }
         if collectionView == self.collectionView {
             self.page = indexPath.item + 1
-            if self.songs[self.page] == nil {
+            if self.movies[self.page] == nil {
                 self.loadData()
             }
         }
@@ -144,13 +155,13 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
             cell.collectionView.reloadData()
             return cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSongCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("movie", forIndexPath: indexPath) as! TCKTVSingerCell
         let page = collectionView.tag + 1
-        let songs = self.songs[page]
-        let song = songs![indexPath.row]
-        cell.singerNameLabel.text = song.singer
-        cell.songNameLabel.text = song.songName
-               
+        let movies = self.movies[page]
+        let movie = movies![indexPath.row]
+        cell.singerNameLabel.text = movie.title
+        cell.singerImageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))
+               cell.backgroundColor = UIColor.yellowColor()
         return cell
     }
     
@@ -165,15 +176,13 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
             return
         }
         let page = collectionView.tag + 1
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
-        cell.songNameLabel.textColor = UIColor.redColor()
-        cell.singerNameLabel.textColor = UIColor.redColor()
-        let payload = TCSocketPayload()
-        let songs = self.songs[page]
-        let song = songs![indexPath.row]
-        payload.cmdType = 1003
-        payload.cmdContent = song.songNum
-        
+        let movies = self.movies[page]
+        let movie = movies![indexPath.row]
+        self.movieDetailView.hidden = false
+        self.movieDetailView.movie = movie
+        self.movieDetailView.titleLabel.text = movie.title
+        self.movieDetailView.infoLabel.text = movie.info
+        self.movieDetailView.imageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -188,10 +197,11 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(256, 102)
+        
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.height - 10)/2))
         }
-        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+        return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.width - 30)/4))
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -223,7 +233,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func clearData() {
-        self.songs.removeAll()
+        self.movies.removeAll()
         self.collectionView.reloadData()
     }
 
@@ -240,6 +250,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     @IBAction func doneAction(sender: AnyObject) {
+        self.loadData()
     }
     
     @IBAction func closeAction(sender: AnyObject) {
@@ -255,6 +266,20 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         let size = text.sizeWithAttributes([NSFontAttributeName: self.searchField.font!])
         self.searchField.textAlignment = size.width > self.searchField.bounds.size.width ? .Right : .Left
     }
+    
+    // MARK: DetailViewDelegate
+    func onPlay() {
+        self.movieDetailView.hidden = true
+        let payload = TCSocketPayload()
+        payload.cmdType = 2012
+        payload.cmdContent = JSON(NSNumber(longLong:self.movieDetailView.movie!.movieId))
+        TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    func onClose() {
+        self.movieDetailView.hidden = true
+    }
+        
     /*
     // MARK: - Navigation
 
