@@ -18,6 +18,9 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     @IBOutlet weak var filtView: UIView!
     @IBOutlet var filtViewManager: TCCinemaFiltViewManager!
 
+    let types = ["全部", "爱情", "喜剧", "动作", "战争", "科幻", "恐怖", "剧情", "古装", "灾难"]
+    let areas = ["全部", "香港", "台湾", "美国", "英国", "大陆", "法国", "印度", "日本", "韩国"]
+    let years = ["全部", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "更早"]
     
     var page:Int = 1
     var client = TCCinemaClient()
@@ -25,10 +28,6 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     
     var movies:[Int: [TCMovie]] = [Int: [TCMovie]]()
     var totalPage:String = "0"
-    
-    let types = ["all_movie_content", "love_movie_content", "play_movie_content", "action_movie_content", "war_movie_content", "science_fiction_movie_content", "horror_movie_content", "plot_movie_content", "ancient_movie_content", "disaster_movie_content"]
-    let areas = ["all_movie_content", "movie_hongkong", "movie_taiwan", "america", "england", "french", "india", "movie_mainland", "movie_japan", "movie_korea"]
-    let years = ["all_movie_content","movie_year_one", "movie_year_two", "movie_year_three", "movie_year_four", "movie_year_five", "movie_year_six", "movie_year_seven" , "movie_year_eight"]
     
     var type:String!
     var area:String!
@@ -231,6 +230,9 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.filtView.hidden = false
         self.filtViewManager.typeView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+        self.filtViewManager.areaView.selectItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: false, scrollPosition: .None)
+        self.filtViewManager.yearView.selectItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: false, scrollPosition: .None)
+
         self.type = self.types[indexPath.row];
         self.loadData()
     }
@@ -250,6 +252,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     func clearData() {
+        self.totalPage = "0"
         self.movies.removeAll()
         self.collectionView.reloadData()
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 class TCCinemaClient: NSObject {
-    let path = "TianChiServer/GetMovie"
+    let path = "TianChiServer/GetMovieList"
     let pagePath = "TianChiServer/GetMovieTotalPage"
     
     var client:MCJSONClient? = {
@@ -38,10 +38,16 @@ class TCCinemaClient: NSObject {
         if keyword?.characters.count > 0 {
             params["py"] = keyword!.uppercaseString
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["type"] = type
-        params["area"] = area
-        params["year"] = year
+        params["path"] = "mnt/sata1/media.db"
+        if type  != "全部" {
+            params["type"] = type
+        }
+        if area  != "全部" {
+            params["area"] = area
+        }
+        if year  != "全部" {
+            params["year"] = year
+        }
         
         params["page"] = NSNumber(integer: page)
         params["pageSize"] = NSNumber(integer: limit)

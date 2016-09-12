@@ -44,6 +44,9 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     func handleData(data:String) {
         self.apps = data.componentsSeparatedByString(",")
+        self.apps = self.apps.filter({ (app) -> Bool in
+            return app.characters.count > 0
+        })
         self.collectionView.reloadData()
     }
     
@@ -60,6 +63,12 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("app", forIndexPath: indexPath) as! TCKTVSingerCell
         let app = self.apps[indexPath.item]
         cell.singerNameLabel.text = app
+        if let image = UIImage(named: app) {
+            cell.singerImageView.image = image
+        } else {
+            cell.singerImageView.image = UIImage(named: "apps_default")
+        }
+        
         return cell
     }
     

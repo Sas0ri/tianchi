@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="KD7-D8-BeA">
-                                <rect key="frame" x="0.0" y="64" width="256" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="256" height="623"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-b4-bbx">
-                                <rect key="frame" x="256" y="64" width="768" height="603"/>
+                                <rect key="frame" x="256" y="64" width="768" height="623"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JCo-Z8-tUq">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -63,10 +63,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSh-oD-jvY">
-                                        <rect key="frame" x="0.0" y="64" width="1024" height="603"/>
+                                        <rect key="frame" x="0.0" y="64" width="1024" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MCY-pc-EbT">
-                                                <rect key="frame" x="0.0" y="0.0" width="256" height="603"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="623"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vse-Ox-S82">
                                                         <rect key="frame" x="0.0" y="0.0" width="256" height="56"/>
@@ -121,7 +121,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-c9-HY1">
-                                                        <rect key="frame" x="0.0" y="103" width="256" height="500"/>
+                                                        <rect key="frame" x="0.0" y="103" width="256" height="520"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="separatorColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <prototypes>
@@ -129,7 +129,7 @@
                                                                 <rect key="frame" x="0.0" y="28" width="256" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hjb-KT-pee" id="SR5-Mf-2vW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="43"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-iB-ABG" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
@@ -171,14 +171,14 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-TH-Gcp">
-                                                <rect key="frame" x="256" y="0.0" width="768" height="603"/>
+                                                <rect key="frame" x="256" y="0.0" width="768" height="623"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-pv-mwF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="98"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="768" height="100.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gfu-TG-ReC">
-                                                        <rect key="frame" x="20" y="98" width="728" height="408"/>
+                                                        <rect key="frame" x="20" y="100.5" width="728" height="422"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="onu-M0-PRz">
                                                             <size key="itemSize" width="832" height="408"/>
@@ -188,7 +188,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tru-ph-XHe" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
+                                                                <rect key="frame" x="0.0" y="7" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
@@ -265,13 +265,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgL-zX-7fm">
-                                                        <rect key="frame" x="0.0" y="506" width="768" height="97"/>
+                                                        <rect key="frame" x="0.0" y="522.5" width="768" height="100.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-f0-mco">
-                                                                <rect key="frame" x="262" y="0.0" width="244" height="97"/>
+                                                                <rect key="frame" x="262" y="0.0" width="244" height="100.5"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SJ-AO-eSB">
-                                                                        <rect key="frame" x="0.0" y="32" width="70" height="33"/>
+                                                                        <rect key="frame" x="0.0" y="33.5" width="70" height="34"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="UcW-WH-8bn"/>
                                                                         </constraints>
@@ -283,7 +283,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLi-0O-Guv">
-                                                                        <rect key="frame" x="70" y="38" width="104" height="21"/>
+                                                                        <rect key="frame" x="70" y="40" width="104" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="S9c-BD-frt"/>
                                                                         </constraints>
@@ -292,7 +292,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFC-I7-EsU">
-                                                                        <rect key="frame" x="174" y="32" width="70" height="33"/>
+                                                                        <rect key="frame" x="174" y="33.5" width="70" height="34"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="Ned-Vi-ntZ"/>
                                                                         </constraints>
@@ -346,130 +346,130 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fem-Kn-CqB">
-                                        <rect key="frame" x="0.0" y="667" width="1024" height="101"/>
+                                        <rect key="frame" x="0.0" y="687" width="1024" height="81"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_bg" translatesAutoresizingMaskIntoConstraints="NO" id="twE-Ro-7Jj">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="101"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="81"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJI-kX-uVy">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="101"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="81"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edo-cD-PC7" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="音量+" image="ktv_song_bottom_volumn_up"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="音量+" backgroundImage="song_volumn_add"/>
+                                                        <state key="highlighted" backgroundImage="song_volumn_add_on"/>
                                                         <connections>
                                                             <action selector="volumnUpAction:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="YRB-Hn-5l6"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-Yc-M19">
-                                                        <rect key="frame" x="113" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="113" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="8Zl-Di-Qbt"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlo-EW-L4O" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="114" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="音量-" image="ktv_song_bottom_volumn_down"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="114" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="音量-" backgroundImage="song_volumn_red"/>
+                                                        <state key="highlighted" backgroundImage="song_volumn_red_on"/>
                                                         <connections>
                                                             <action selector="volumnDownAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="KAo-0y-tAR"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="leh-6K-IXf">
-                                                        <rect key="frame" x="227" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="227" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="jBu-ZW-F5J"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORT-4m-koA" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="228" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="暂停/播放" image="ktv_song_bottom_pause"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="228" y="0.0" width="112.5" height="81"/>
+                                                        <state key="normal" title="暂停/播放" backgroundImage="pause_play"/>
+                                                        <state key="highlighted" backgroundImage="pause_play_on"/>
                                                         <connections>
                                                             <action selector="pauseAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="sid-6n-Atf"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-mY-Nsy">
-                                                        <rect key="frame" x="341" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="340.5" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="mLL-eI-CXY"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuV-nZ-ISN" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="342" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="字幕" image="ktv_song_bottom_replay"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="341.5" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="字幕" backgroundImage="movie_subttile"/>
+                                                        <state key="highlighted" backgroundImage="movie_subttile_on"/>
                                                         <connections>
                                                             <action selector="subtitleAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="TYG-cG-cDM"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Ibi-P9-Fb8">
-                                                        <rect key="frame" x="455" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="454.5" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="5VO-u2-sXL"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F7-AV-Pna" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="456" y="0.0" width="112" height="101"/>
-                                                        <state key="normal" title="音轨" image="ktv_song_bottom_pause"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="455.5" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="音轨" backgroundImage="movie_trick"/>
+                                                        <state key="highlighted" backgroundImage="movie_trick_on"/>
                                                         <connections>
                                                             <action selector="trackAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="fmt-40-oc5"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="fTM-91-eiO">
-                                                        <rect key="frame" x="568" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="568.5" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="jIo-pN-ATT"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-Z1-HOI" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="569" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="快退" image="ktv_song_bottom_singer"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="569.5" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="快退" backgroundImage="movie_fast_backward"/>
+                                                        <state key="highlighted" backgroundImage="movie_fast_backward_on"/>
                                                         <connections>
                                                             <action selector="backwardAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="V87-8R-hhe"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-hk-bJj">
-                                                        <rect key="frame" x="682" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="682.5" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="l3N-WM-DSF"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aG-iE-CmT" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="683" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="快进" image="ktv_song_bottom_switch"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="683.5" y="0.0" width="112.5" height="81"/>
+                                                        <state key="normal" title="快进" backgroundImage="movie_fast_forward"/>
+                                                        <state key="highlighted" backgroundImage="movie_fast_forward_on"/>
                                                         <connections>
                                                             <action selector="forwardAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="kha-bF-X1q"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="pER-PU-a8b">
-                                                        <rect key="frame" x="796" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="796" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="qFB-Fv-vAX"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="044-ik-QbL" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="797" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="2D/3D" image="ktv_song_bottom_replay"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="797" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="2D/3D" backgroundImage="movie_show"/>
+                                                        <state key="highlighted" backgroundImage="movie_show_on"/>
                                                         <connections>
                                                             <action selector="switch2d3dAciton:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="9fG-yW-wka"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="diG-QX-Gfy">
-                                                        <rect key="frame" x="910" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="910" y="0.0" width="1" height="81"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="uZm-SX-pCx"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-p6-G2c" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="911" y="0.0" width="113" height="101"/>
-                                                        <state key="normal" title="返回" image="ktv_song_bottom_song_list"/>
-                                                        <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
+                                                        <rect key="frame" x="911" y="0.0" width="113" height="81"/>
+                                                        <state key="normal" title="返回" backgroundImage="movie_back"/>
+                                                        <state key="highlighted" backgroundImage="movie_back_on"/>
                                                         <connections>
                                                             <action selector="backAction:" destination="Pcx-ex-1jL" eventType="touchUpInside" id="WrY-Vm-VOb"/>
                                                         </connections>
@@ -508,7 +508,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tSh-oD-jvY" firstAttribute="height" secondItem="Fem-Kn-CqB" secondAttribute="height" multiplier="540:90" id="PL1-w0-w8u"/>
+                                    <constraint firstItem="tSh-oD-jvY" firstAttribute="height" secondItem="Fem-Kn-CqB" secondAttribute="height" multiplier="540:70" id="PL1-w0-w8u"/>
                                     <constraint firstItem="pKb-QV-jMb" firstAttribute="height" secondItem="tSh-oD-jvY" secondAttribute="height" multiplier="64:520" priority="999" id="xwY-Fg-kRg"/>
                                 </constraints>
                             </stackView>
@@ -740,10 +740,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="253" height="384"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXO-ly-nLd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvh-C2-Vha" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="16" width="253" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="16" width="253" height="31.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -766,14 +766,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjI-dE-Jel" userLabel="Sep">
-                                                                <rect key="frame" x="0.0" y="63" width="253" height="4"/>
+                                                                <rect key="frame" x="0.0" y="63.5" width="253" height="4"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="4" id="V0l-pq-sjs"/>
                                                                 </constraints>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l19-1i-f3T">
-                                                                <rect key="frame" x="0.0" y="67" width="253" height="317"/>
+                                                                <rect key="frame" x="0.0" y="67.5" width="253" height="316.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5ep-a8-6nn">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -847,10 +847,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="253" height="384"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfZ-Ie-ocd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cc-JCp" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="16" width="253" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="16" width="253" height="31.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -873,14 +873,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRI-mD-OT3" userLabel="Sep">
-                                                                <rect key="frame" x="0.0" y="63" width="253" height="4"/>
+                                                                <rect key="frame" x="0.0" y="63.5" width="253" height="4"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="4" id="4CA-Au-dnG"/>
                                                                 </constraints>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2pk-Hc-dRU">
-                                                                <rect key="frame" x="0.0" y="67" width="253" height="317"/>
+                                                                <rect key="frame" x="0.0" y="67.5" width="253" height="316.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XKW-gK-nZM">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -954,10 +954,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="253" height="384"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAb-Tn-PNq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="253" height="63.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OK-rk-tnT" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="16" width="253" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="16" width="253" height="31.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -980,14 +980,14 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs9-N9-OF2" userLabel="Sep">
-                                                                <rect key="frame" x="0.0" y="63" width="253" height="4"/>
+                                                                <rect key="frame" x="0.0" y="63.5" width="253" height="4"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="4" id="xOZ-Z8-18n"/>
                                                                 </constraints>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-K6-TQa">
-                                                                <rect key="frame" x="0.0" y="67" width="253" height="317"/>
+                                                                <rect key="frame" x="0.0" y="67.5" width="253" height="316.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="V9n-oK-4xo">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1194,10 +1194,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeX-Is-94n">
-                                        <rect key="frame" x="0.0" y="64" width="1024" height="603"/>
+                                        <rect key="frame" x="0.0" y="64" width="1024" height="604"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6EU-Ld-tPN">
-                                                <rect key="frame" x="0.0" y="0.0" width="256" height="603"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="604"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="np7-yc-3lv">
                                                         <rect key="frame" x="0.0" y="0.0" width="256" height="56"/>
@@ -1230,7 +1230,7 @@
                                                         </constraints>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wN5-t1-05J">
-                                                        <rect key="frame" x="0.0" y="56" width="256" height="491"/>
+                                                        <rect key="frame" x="0.0" y="56" width="256" height="492"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="eY9-6S-Mdn">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -1288,14 +1288,14 @@
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wps-lA-7BG">
-                                                        <rect key="frame" x="0.0" y="547" width="256" height="10"/>
+                                                        <rect key="frame" x="0.0" y="548" width="256" height="10"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="10" id="qRL-Ny-SLr"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYM-ej-Fxx">
-                                                        <rect key="frame" x="0.0" y="557" width="256" height="46"/>
+                                                        <rect key="frame" x="0.0" y="558" width="256" height="46"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sS-hn-5fm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="10" height="46"/>
@@ -1382,14 +1382,14 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yDm-A4-yRY">
-                                                <rect key="frame" x="256" y="0.0" width="768" height="603"/>
+                                                <rect key="frame" x="256" y="0.0" width="768" height="604"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au6-oS-WfK">
                                                         <rect key="frame" x="0.0" y="0.0" width="768" height="98"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="79L-hL-e5q">
-                                                        <rect key="frame" x="20" y="98" width="728" height="408"/>
+                                                        <rect key="frame" x="20" y="98" width="728" height="409"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HRx-94-6Pb">
                                                             <size key="itemSize" width="832" height="408"/>
@@ -1399,7 +1399,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tkV-69-KlD" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
+                                                                <rect key="frame" x="0.0" y="0.5" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
@@ -1476,7 +1476,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-ul-0t9">
-                                                        <rect key="frame" x="0.0" y="506" width="768" height="97"/>
+                                                        <rect key="frame" x="0.0" y="506" width="768" height="98"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciS-Wt-t8S">
                                                                 <rect key="frame" x="262" y="0.0" width="244" height="97"/>
@@ -1557,7 +1557,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-dR-vqQ">
-                                        <rect key="frame" x="0.0" y="667" width="1024" height="101"/>
+                                        <rect key="frame" x="0.0" y="668" width="1024" height="101"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_bg" translatesAutoresizingMaskIntoConstraints="NO" id="CGY-BQ-gFw">
                                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="101"/>
@@ -1622,7 +1622,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-t1-CzN" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="456" y="0.0" width="112" height="101"/>
+                                                        <rect key="frame" x="456" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="音轨" image="ktv_song_bottom_pause"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                         <connections>
@@ -1630,13 +1630,13 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-YA-yuQ">
-                                                        <rect key="frame" x="568" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="569" y="0.0" width="1" height="101"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="Trv-BE-7n0"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-nb-9e4" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="569" y="0.0" width="113" height="101"/>
+                                                        <rect key="frame" x="570" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快退" image="ktv_song_bottom_singer"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                         <connections>
@@ -1644,13 +1644,13 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_bottom_sep" translatesAutoresizingMaskIntoConstraints="NO" id="Gvy-b6-6Ku">
-                                                        <rect key="frame" x="682" y="0.0" width="1" height="101"/>
+                                                        <rect key="frame" x="683" y="0.0" width="1" height="101"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="kCO-P4-4Ij"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqJ-3q-h94" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="683" y="0.0" width="113" height="101"/>
+                                                        <rect key="frame" x="684" y="0.0" width="113" height="101"/>
                                                         <state key="normal" title="快进" image="ktv_song_bottom_switch"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                         <connections>
@@ -1938,5 +1938,23 @@
         <image name="ktv_song_button_h" width="93" height="28"/>
         <image name="main_bg_right_top" width="1024" height="704"/>
         <image name="main_button_highlighted" width="242" height="153"/>
+        <image name="movie_back" width="226" height="169"/>
+        <image name="movie_back_on" width="226" height="169"/>
+        <image name="movie_fast_backward" width="226" height="169"/>
+        <image name="movie_fast_backward_on" width="226" height="169"/>
+        <image name="movie_fast_forward" width="226" height="169"/>
+        <image name="movie_fast_forward_on" width="226" height="169"/>
+        <image name="movie_show" width="226" height="169"/>
+        <image name="movie_show_on" width="226" height="169"/>
+        <image name="movie_subttile" width="226" height="169"/>
+        <image name="movie_subttile_on" width="226" height="169"/>
+        <image name="movie_trick" width="226" height="169"/>
+        <image name="movie_trick_on" width="226" height="169"/>
+        <image name="pause_play" width="226" height="169"/>
+        <image name="pause_play_on" width="226" height="169"/>
+        <image name="song_volumn_add" width="226" height="169"/>
+        <image name="song_volumn_add_on" width="226" height="169"/>
+        <image name="song_volumn_red" width="226" height="169"/>
+        <image name="song_volumn_red_on" width="226" height="169"/>
     </resources>
 </document>

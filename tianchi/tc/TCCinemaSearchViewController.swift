@@ -77,7 +77,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         let nextPage = self.page + 1
         let getTotalPage = Int(self.totalPage) == 0
         
-        self.client.getMovies(self.searchField.text, type: "all_movie_content", area: "all_movie_content", year: "all_movie_content", page: page, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
+        self.client.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: page, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
             if flag {
                 self.movies[page] = movies!
                 self.collectionView.reloadData()
@@ -86,20 +86,11 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
                     self.updatePage(shouldSelect: false)
                 }
             } else {
-                let movie = TCMovie()
-                movie.movieId = 1
-                movie.title = "测试title"
-                movie.info = "【IMDB：7.3  豆瓣：6.9】 故事发生在遥远的2057年，太阳的逐渐衰竭让人类即将面临有史以来最大的危机，如果失去了日照，大地将会陷入黑暗和冰封之中，永无再见天日之时。为了拯救地球，一支八人行动小组组成了，他们分别是稳重老城的机长凯恩达、植物学翘楚卡伦佐、航海高手特雷、物理学家卡帕、驾驶员卡西和她的助手马斯，指挥官哈维以及博士希瑞尔。背负着全人类的使命，八人驾驶着宇宙飞船“伊卡鲁斯二号”飞向了太阳。随着目的地的临近，问题不断涌现，他们能够顺利完成任务吗？又是否能够平安返回地球呢？"
-                let movies = [movie, movie, movie, movie, movie, movie, movie, movie]
-                self.movies[page] = movies
-                self.totalPage = "10"
-                self.updatePage(shouldSelect: false)
-                self.collectionView.reloadData()
                 self.view.showTextAndHide("加载失败")
             }
         }
         
-        self.nextPageClient.getMovies(self.searchField.text, type: "all_movie_content", area: "all_movie_content", year: "all_movie_content", page: nextPage, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
+        self.nextPageClient.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: nextPage, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
             if flag {
                 self.movies[nextPage] = movies!
             }
@@ -161,7 +152,6 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         let movie = movies![indexPath.row]
         cell.singerNameLabel.text = movie.title
         cell.singerImageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))
-               cell.backgroundColor = UIColor.yellowColor()
         return cell
     }
     
@@ -233,6 +223,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func clearData() {
+        self.totalPage = "0"
         self.movies.removeAll()
         self.collectionView.reloadData()
     }

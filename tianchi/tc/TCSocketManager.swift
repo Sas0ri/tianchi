@@ -50,6 +50,11 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     }
     
     func disConnect() {
+        DDLogInfo("force disconnect")
+        self.repeatTimer?.invalidate()
+        self.repeatTimer = nil
+        self.heartbeatTimeoutTimer?.invalidate()
+        self.heartbeatTimeoutTimer = nil
         self.socket.delegate = nil
         self.socket.disconnect()
     }
@@ -64,6 +69,7 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     }
     
     func heartbeatTimeout() {
+        DDLogInfo("heartbeatTimeout")
         self.repeatTimer?.invalidate()
         self.heartbeatTimeoutTimer?.invalidate()
         self.delegate?.didDisconnect()
@@ -73,13 +79,14 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     
     func writeStartHeartbeat() {
         let startHeartbeatPayload = TCSocketPayload()
-        startHeartbeatPayload.cmdType = 1700
+        startHeartbeatPayload.cmdType = self.startHeartbeatCmd
         self.socket.writeData(startHeartbeatPayload.dataValue(), withTimeout: -1, tag: 0)
         self.startTimeoutTimer()
     }
     
     func startRepeatHeartbeat() {
         self.repeatTimer = NSTimer(timeInterval: 3, target: self, selector: #selector(TCSocketManager.repeatHeartbeat), userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(self.repeatTimer!, forMode: NSRunLoopCommonModes)
         self.startTimeoutTimer()
         self.repeatHeartbeat()
     }
@@ -87,11 +94,12 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     func startTimeoutTimer() {
         self.heartbeatTimeoutTimer?.invalidate()
         self.heartbeatTimeoutTimer = NSTimer(timeInterval: 10, target: self, selector: #selector(TCSocketManager.heartbeatTimeout), userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(self.heartbeatTimeoutTimer!, forMode: NSRunLoopCommonModes)
     }
     
     func repeatHeartbeat() {
         let payload = TCSocketPayload()
-        payload.cmdType = 1400
+        payload.cmdType = self.heartbeatCmd
         self.socket.writeData(payload.dataValue(), withTimeout: -1, tag: 0)
     }
     
@@ -100,11 +108,12 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     func socket(sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         DDLogInfo("didConnect")
         self.delegate?.didConnect()
-        self.writeStartHeartbeat()
-        self.socket.readDataWithTimeout(-1, tag: 0)
-        if self.startHeartbeatCmd == 0 {
+        if self.startHeartbeatCmd > 0 {
+            self.writeStartHeartbeat()
+        } else {
             self.startRepeatHeartbeat()
         }
+        self.socket.readDataWithTimeout(-1, tag: 0)
     }
     
     func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
