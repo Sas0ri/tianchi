@@ -14,12 +14,12 @@ class TCACViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var fontSize:CGFloat = 130
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 50
         }
         self.temperatureLabel.font = UIFont(name: "DBLCDTempBlack", size: fontSize)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,14 +27,14 @@ class TCACViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         UIHelper.setNavigationBar(self.navigationController?.navigationBar, translucent: true)
     }
 
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     /*
     // MARK: - Navigation

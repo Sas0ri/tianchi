@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, TCKTVSongCellDelegate {
     
@@ -28,22 +48,22 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
         var fontSize:CGFloat = 14.0
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 10.0
         }
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: .selected)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: UIControlState())
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), for: UIControlState(), barMetrics: .default)
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), for: .selected, barMetrics: .default)
         self.segmentedControl.selectedSegmentIndex = 0
         // Do any additional setup after loading the view.
         
-        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
+        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), for: .search, state: UIControlState())
         if let subViews = self.searchBar.subviews.last?.subviews {
             for v in  subViews {
-                if v.isKindOfClass(UITextField) {
+                if v.isKind(of: UITextField.self) {
                     let tf = v as! UITextField
-                    tf.backgroundColor = UIColor.clearColor()
+                    tf.backgroundColor = UIColor.clear
                 }
             }
         }
@@ -55,7 +75,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func segChanged(sender: AnyObject) {
+    @IBAction func segChanged(_ sender: AnyObject) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
@@ -63,7 +83,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         self.loadData()
     }
     
-    @IBAction func prePage(sender: AnyObject) {
+    @IBAction func prePage(_ sender: AnyObject) {
         if self.page == 1 {
             return
         }
@@ -72,7 +92,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         self.loadData()
     }
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextPage(_ sender: AnyObject) {
         if Int(self.totalPage) < self.page + 1 {
             return
         }
@@ -83,7 +103,7 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     
     func loadData() {
         var limit = 9
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             limit = 6
         }
         let page = self.page
@@ -111,11 +131,11 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
@@ -126,54 +146,54 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            self.page = indexPath.item + 1
+            self.page = (indexPath as NSIndexPath).item + 1
             if self.songs[self.page] == nil || self.songs[self.page]?.count == 0 {
                 self.loadData()
             }
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
         self.updatePage(shouldSelect: false)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
-            cell.collectionView.tag = indexPath.row
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = (indexPath as NSIndexPath).row
             cell.collectionView.reloadData()
             return cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSongCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "song", for: indexPath) as! TCKTVSongCell
         cell.delegate = self
         let page = collectionView.tag + 1
         let songs = self.songs[page]
-        let song = songs![indexPath.row]
+        let song = songs![(indexPath as NSIndexPath).row]
         cell.singerNameLabel.text = song.singer
         cell.songNameLabel.text = song.songName
-        cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-        cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+        cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.red : UIColor.white
+        cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.red : UIColor.white
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionView {
             return
         }
         let page = collectionView.tag + 1
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
-        cell.songNameLabel.textColor = UIColor.redColor()
-        cell.singerNameLabel.textColor = UIColor.redColor()
+        let cell = collectionView.cellForItem(at: indexPath) as! TCKTVSongCell
+        cell.songNameLabel.textColor = UIColor.red
+        cell.singerNameLabel.textColor = UIColor.red
         let payload = TCSocketPayload()
         let songs = self.songs[page]
-        let song = songs![indexPath.row]
+        let song = songs![(indexPath as NSIndexPath).row]
         payload.cmdType = 1003
-        payload.cmdContent = JSON(NSNumber(integer: song.songNum))
+        payload.cmdContent = JSON(NSNumber(value: song.songNum as Int))
         
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
         if self.searchBar.text?.characters.count > 0 {
@@ -183,28 +203,28 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(256, 102)
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return CGSize(width: 256, height: 102)
         }
-        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+        return CGSize(width: 256/1024*self.view.bounds.width, height: collectionView.bounds.size.height/2 - 10)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionView {
             return 0
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
             return 30
         }
         return 10
     }
     
     // MARK: - UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
@@ -213,38 +233,38 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     // MARK: - Cell delegate
-    func onFirstAction(cell: UICollectionViewCell) {
-        let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+    func onFirstAction(_ cell: UICollectionViewCell) {
+        let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_songs") as! TCKTVSongsViewController
         let collectionView = cell.superview as! UICollectionView
-        let indexPath = collectionView.indexPathForCell(cell)
+        let indexPath = collectionView.indexPath(for: cell)
         let page = collectionView.tag + 1
         let songs = self.songs[page]
-        let song = songs![indexPath!.row]
+        let song = songs![(indexPath! as NSIndexPath).row]
         songsVC.singer = song.singer
         self.navigationController?.pushViewController(songsVC, animated: false)
     }
     
-    func onSecondAction(cell: UICollectionViewCell) {
+    func onSecondAction(_ cell: UICollectionViewCell) {
         let collectionView = cell.superview as! UICollectionView
-        let indexPath = collectionView.indexPathForCell(cell)
+        let indexPath = collectionView.indexPath(for: cell)
         let page = collectionView.tag + 1
         let songs = self.songs[page]
-        let song = songs![indexPath!.row]
+        let song = songs![(indexPath! as NSIndexPath).row]
         let payload = TCSocketPayload()
         payload.cmdType = 1004
-        payload.cmdContent = JSON(NSNumber(integer: song.songNum))
+        payload.cmdContent = JSON(NSNumber(value: song.songNum as Int))
         
         let c = cell as! TCKTVSongCell
-        c.songNameLabel.textColor = UIColor.redColor()
-        c.singerNameLabel.textColor = UIColor.redColor()
+        c.songNameLabel.textColor = UIColor.red
+        c.singerNameLabel.textColor = UIColor.red
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    func updatePage(shouldSelect shouldSelect:Bool)  {
+    func updatePage(shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
-        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
-            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
+        let indexPath = IndexPath(item: self.page - 1, section: 0)
+        if shouldSelect && self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
@@ -255,9 +275,9 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController.isKindOfClass(TCKTVCloudSearchViewController) {
-            let vc = segue.destinationViewController as! TCKTVCloudSearchViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination.isKind(of: TCKTVCloudSearchViewController.self) {
+            let vc = segue.destination as! TCKTVCloudSearchViewController
             vc.words = self.segmentedControl.selectedSegmentIndex
             vc.searchText = self.searchBar.text
         }

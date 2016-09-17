@@ -23,26 +23,26 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: false)
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "song", for: indexPath)
         let label = cell.viewWithTag(2) as! UILabel
         let imageView = cell.viewWithTag(1) as! UIImageView
         var category = ""
         var image = ""
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0:
             category = "流行"
             image = "popular"
@@ -75,21 +75,21 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(216, 208)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return CGSize(width: 216, height: 208)
         }
-        return CGSizeMake((collectionView.bounds.size.width - 30)/4, (collectionView.bounds.size.height - 20)/2)
+        return CGSize(width: (collectionView.bounds.size.width - 30)/4, height: (collectionView.bounds.size.height - 20)/2)
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UICollectionViewCell
-        let indexPath = self.collectionView.indexPathForCell(cell)
+        let indexPath = self.collectionView.indexPath(for: cell)
         var category = ""
-        switch indexPath!.row {
+        switch (indexPath! as NSIndexPath).row {
         case 0:
             category = "RTP1"
         case 1:
@@ -110,7 +110,7 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
             category = ""
         }
 
-        let vc = segue.destinationViewController as! TCKTVSongsViewController
+        let vc = segue.destination as! TCKTVSongsViewController
         vc.category = category
 
     }

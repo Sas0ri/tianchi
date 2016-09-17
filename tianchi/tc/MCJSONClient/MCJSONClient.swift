@@ -14,15 +14,15 @@ class MCJSONResponseSerializer : AFHTTPResponseSerializer {
         super.init()
         acceptableContentTypes = ["application/json", "text/json", "plain/text", "text/html"]
     }
-
-    override func responseObjectForResponse(response: NSURLResponse?, data: NSData?, error: NSErrorPointer) -> AnyObject? {
-        DDLogInfo("json: " + String(data:data!, encoding:4)!)
+    
+    override func responseObject(for response: URLResponse?, data: Data?, error: NSErrorPointer) -> Any? {
+        DDLogInfo("json: " + String(data:data!, encoding: String.Encoding.utf8)!)
         do {
-            try self.validateResponse(response as? NSHTTPURLResponse, data: data)
+            try self.validate(response as? HTTPURLResponse, data: data)
             let json = JSON(data: data!).object
-            return json
+            return json as Any?
         } catch {
-            DDLogInfo("AFHTTPResponseSerializer Error: " + String(data: data!, encoding: 4)!)
+            DDLogInfo("AFHTTPResponseSerializer Error: " + String(data: data!, encoding: String.Encoding.utf8)!)
         }
         return nil
     }
@@ -35,7 +35,7 @@ class MCJSONResponseSerializer : AFHTTPResponseSerializer {
 
 class MCJSONClient: AFHTTPSessionManager {
     
-    override init(baseURL url: NSURL?, sessionConfiguration configuration: NSURLSessionConfiguration?) {
+    override init(baseURL url: URL?, sessionConfiguration configuration: URLSessionConfiguration?) {
         super.init(baseURL: url, sessionConfiguration: configuration)
         responseSerializer = MCJSONResponseSerializer()
     }
@@ -44,8 +44,8 @@ class MCJSONClient: AFHTTPSessionManager {
         super.init(coder: aDecoder)
     }
     
-    func MCPost(path: String!, parameters: [NSObject : AnyObject]!, success: ((JSON) -> Void)!, failure: ((NSError!) -> Void)!) {
-        self.POST(path, parameters: parameters, success: { (dataTask, response) -> Void in
+    func MCPost(_ path: String!, parameters: [AnyHashable: Any]!, success: ((JSON) -> Void)!, failure: ((NSError?) -> Void)!) {
+        self.post(path, parameters: parameters, success: { (dataTask, response) -> Void in
             if let json = response {
                 success(JSON(json))
             } else {
@@ -54,12 +54,13 @@ class MCJSONClient: AFHTTPSessionManager {
 
             }
             }) { (dataTask, error) -> Void in
-                DDLogError(error.description)
-                if error.code == NSURLErrorCancelled {
+                DDLogError(error.localizedDescription)
+                
+                if (error as NSError).code == NSURLErrorCancelled {
                     return
                 }
                 var err:NSError!
-                if !AFNetworkReachabilityManager.sharedManager().reachable {
+                if !AFNetworkReachabilityManager.shared().isReachable {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "网络错误"])
                 } else {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "服务器错误"])
@@ -69,8 +70,8 @@ class MCJSONClient: AFHTTPSessionManager {
         }
     }
     
-    func MCGet(path: String!, parameters: [NSObject : AnyObject]!, success: ((JSON) -> Void)!, failure: ((NSError!) -> Void)!) {
-        self.GET(path, parameters: parameters, success: { (dataTask, response) -> Void in
+    func MCGet(_ path: String!, parameters: [AnyHashable: Any]!, success: ((JSON) -> Void)!, failure: ((NSError?) -> Void)!) {
+        self.get(path, parameters: parameters, success: { (dataTask, response) -> Void in
             if let json = response {
                 success(JSON(json))
             } else {
@@ -78,13 +79,13 @@ class MCJSONClient: AFHTTPSessionManager {
                 failure(err)
                 
             }
-            }) { (dataTask, error) -> Void in
-                DDLogError(error.description)
-                if error.code == NSURLErrorCancelled {
+        }) { (dataTask, error) -> Void in
+                DDLogError(error.localizedDescription)
+                if (error as NSError).code == NSURLErrorCancelled {
                     return
                 }
                 var err:NSError!
-                if !AFNetworkReachabilityManager.sharedManager().reachable {
+                if !AFNetworkReachabilityManager.shared().isReachable {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "网络错误"])
                 } else {
                     err = NSError(domain: "com.tianchi.tc", code: 400, userInfo: [NSLocalizedDescriptionKey: "服务器错误"])

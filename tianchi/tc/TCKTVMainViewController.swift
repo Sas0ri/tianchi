@@ -20,30 +20,30 @@ class TCKTVMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_main") as!TCKTVMainBoardViewController
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_main") as!TCKTVMainBoardViewController
         
         let navVC = UINavigationController(rootViewController: mainVC)
         self.addChildViewController(navVC)
-        navVC.didMoveToParentViewController(self)
+        navVC.didMove(toParentViewController: self)
         self.containerView.addSubview(navVC.view)
         navVC.view.frame = self.containerView.bounds
         mainVC.didNavToNext = {
             [weak self] in
-            self?.navBackground.hidden = true
-            self?.backButton.hidden = false
+            self?.navBackground.isHidden = true
+            self?.backButton.isHidden = false
         }
         mainVC.didNavBack = {
             [weak self] in
-            self?.backButton.hidden = self?.navigationController == nil
-            self?.navBackground.hidden = false
+            self?.backButton.isHidden = self?.navigationController == nil
+            self?.navBackground.isHidden = false
         }
 
         self.mainVC = navVC
         
-        let orderedVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs_from_ordered") as! TCKTVSongsViewController
+        let orderedVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_songs_from_ordered") as! TCKTVSongsViewController
         orderedVC.ordered = true
         self.addChildViewController(orderedVC)
-        orderedVC.didMoveToParentViewController(self)
+        orderedVC.didMove(toParentViewController: self)
         orderedVC.view.frame = self.containerView.bounds
         orderedVC.view.translatesAutoresizingMaskIntoConstraints = false
         self.orderedVC = orderedVC
@@ -51,7 +51,7 @@ class TCKTVMainViewController: UIViewController {
         TCKTVContext.sharedContext().connect()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
@@ -61,76 +61,76 @@ class TCKTVMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backAction(sender: AnyObject) {
+    @IBAction func backAction(_ sender: AnyObject) {
         if self.mainVC.viewControllers.count > 1 {
-            self.mainVC.popViewControllerAnimated(false)
+            self.mainVC.popViewController(animated: false)
         } else {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: - Bottom Controller
 
-    @IBAction func mainAction(sender: AnyObject) {
-        self.mainVC.popToRootViewControllerAnimated(false)
+    @IBAction func mainAction(_ sender: AnyObject) {
+        self.mainVC.popToRootViewController(animated: false)
         self.containerView.addSubview(self.mainVC.view)
         self.orderedVC.view.removeFromSuperview()
-        self.navBackground.hidden = self.mainVC.viewControllers.count > 1
+        self.navBackground.isHidden = self.mainVC.viewControllers.count > 1
     }
     
-    @IBAction func orderedAction(sender: AnyObject) {
+    @IBAction func orderedAction(_ sender: AnyObject) {
         self.mainVC.view.removeFromSuperview()
         self.containerView.addSubview(self.orderedVC.view)
-        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .Leading, relatedBy: .Equal, toItem: containerView, attribute: .Leading, multiplier: 1, constant: 0))
-        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .Trailing, relatedBy: .Equal, toItem: containerView, attribute: .Trailing, multiplier: 1, constant: 0))
-        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .Top, relatedBy: .Equal, toItem: containerView, attribute: .Top, multiplier: 1, constant: 0))
-        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .Bottom, relatedBy: .Equal, toItem: containerView, attribute: .Bottom, multiplier: 1, constant: 0))
+        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute: .leading, multiplier: 1, constant: 0))
+        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0))
+        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: 0))
+        self.containerView.addConstraint(NSLayoutConstraint(item: self.orderedVC.view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0))
         self.containerView.layoutIfNeeded()
-        self.navBackground.hidden = true
-        self.backButton.hidden = true
+        self.navBackground.isHidden = true
+        self.backButton.isHidden = true
     }
     
-    @IBAction func muteAction(sender: AnyObject) {
+    @IBAction func muteAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1203
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func volumnUpAction(sender: AnyObject) {
+    @IBAction func volumnUpAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1201
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func volumnDownAction(sender: AnyObject) {
+    @IBAction func volumnDownAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1202
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func pauseAction(sender: AnyObject) {
+    @IBAction func pauseAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1103
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func originAction(sender: AnyObject) {
+    @IBAction func originAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1104
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func switchAction(sender: AnyObject) {
+    @IBAction func switchAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1102
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func replayAction(sender: AnyObject) {
+    @IBAction func replayAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 1101
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)

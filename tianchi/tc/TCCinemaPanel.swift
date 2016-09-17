@@ -10,49 +10,49 @@ import UIKit
 
 class TCCinemaPanel: UIView {
 
-    @IBAction func volumnUpAction(sender: AnyObject) {
+    @IBAction func volumnUpAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2004
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func volumnDownAciton(sender: AnyObject) {
+    @IBAction func volumnDownAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2005
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func pauseAciton(sender: AnyObject) {
+    @IBAction func pauseAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2006
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func subtitleAciton(sender: AnyObject) {
+    @IBAction func subtitleAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2009
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func trackAciton(sender: AnyObject) {
+    @IBAction func trackAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2010
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func backwardAciton(sender: AnyObject) {
+    @IBAction func backwardAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2008
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func forwardAciton(sender: AnyObject) {
+    @IBAction func forwardAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2007
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    @IBAction func switch2d3dAciton(sender: AnyObject) {
+    @IBAction func switch2d3dAciton(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2011
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)

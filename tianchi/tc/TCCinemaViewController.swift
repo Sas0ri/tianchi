@@ -7,6 +7,17 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TCCinemaFiltViewManagerDelegate, TCMovieDetailViewDelegate {
 
@@ -39,16 +50,16 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.area = self.areas.first!
         self.year = self.years.first!
         
-        self.movieDetailView.hidden = true
+        self.movieDetailView.isHidden = true
         self.movieDetailView.delegate = self
         self.filtViewManager.delegate = self
-        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: .None)
-        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
+        self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), for: .search, state: UIControlState())
         if let subViews = self.searchBar.subviews.last?.subviews {
             for v in  subViews {
-                if v.isKindOfClass(UITextField) {
+                if v.isKind(of: UITextField.self) {
                     let tf = v as! UITextField
-                    tf.backgroundColor = UIColor.clearColor()
+                    tf.backgroundColor = UIColor.clear
                 }
             }
         }
@@ -61,7 +72,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func prePage(sender: AnyObject) {
+    @IBAction func prePage(_ sender: AnyObject) {
         if self.page == 1 {
             return
         }
@@ -70,7 +81,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.loadData()
     }
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextPage(_ sender: AnyObject) {
         if Int(self.totalPage) < self.page + 1 {
             return
         }
@@ -106,11 +117,11 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
@@ -121,82 +132,82 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            self.page = indexPath.item + 1
+            self.page = (indexPath as NSIndexPath).item + 1
             if self.movies[self.page] == nil {
                 self.loadData()
             }
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == self.tableView {
             return
         }
-        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
         self.updatePage(shouldSelect: false)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
-            cell.collectionView.tag = indexPath.row
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = (indexPath as NSIndexPath).row
             cell.collectionView.reloadData()
             return cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("movie", forIndexPath: indexPath) as! TCKTVSingerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movie", for: indexPath) as! TCKTVSingerCell
         let page = collectionView.tag + 1
         let movies = self.movies[page]
-        let movie = movies![indexPath.row]
+        let movie = movies![(indexPath as NSIndexPath).row]
         cell.singerNameLabel.text = movie.title
-        cell.singerImageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))
+        cell.singerImageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))
                
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionView {
             return
         }
         let page = collectionView.tag + 1
         let movies = self.movies[page]
-        let movie = movies![indexPath.row]
-        self.movieDetailView.hidden = false
+        let movie = movies![(indexPath as NSIndexPath).row]
+        self.movieDetailView.isHidden = false
         self.movieDetailView.movie = movie
         self.movieDetailView.titleLabel.text = movie.title
         self.movieDetailView.infoLabel.text = movie.info
-        self.movieDetailView.imageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))
+        self.movieDetailView.imageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
-            return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.height - 10)/2))
+        if UI_USER_INTERFACE_IDIOM() == .phone {
+            return CGSize(width: floor((collectionView.bounds.size.width - 30)/4), height: floor((collectionView.bounds.size.height - 10)/2))
         }
-        return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.width - 30)/4))
+        return CGSize(width: floor((collectionView.bounds.size.width - 30)/4), height: floor((collectionView.bounds.size.width - 30)/4))
     }
     
     // MARK: - TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("movie", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movie", for: indexPath)
         let imageView = UIImageView(image: UIImage(named: "ktv_navbar"))
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         cell.selectedBackgroundView = imageView
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         let label = cell.contentView.viewWithTag(1) as? UILabel
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0:
             label?.text = "全部电影"
         case 1:
@@ -223,31 +234,31 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.size.height/10
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.filtView.hidden = false
-        self.filtViewManager.typeView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
-        self.filtViewManager.areaView.selectItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: false, scrollPosition: .None)
-        self.filtViewManager.yearView.selectItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: false, scrollPosition: .None)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.filtView.isHidden = false
+        self.filtViewManager.typeView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.filtViewManager.areaView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.filtViewManager.yearView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
 
-        self.type = self.types[indexPath.row];
+        self.type = self.types[(indexPath as NSIndexPath).row];
         self.loadData()
     }
     
     // MARK: - UISearchBarDelegate
-    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-        self.performSegueWithIdentifier("main2search", sender: self)
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        self.performSegue(withIdentifier: "main2search", sender: self)
         return false
     }
     
-    func updatePage(shouldSelect shouldSelect:Bool)  {
+    func updatePage(shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
-        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
-            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
+        let indexPath = IndexPath(item: self.page - 1, section: 0)
+        if shouldSelect && self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
@@ -257,25 +268,25 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.collectionView.reloadData()
     }
 
-    @IBAction func hideFiltViewAction(sender: AnyObject) {
-        self.filtView.hidden = true
+    @IBAction func hideFiltViewAction(_ sender: AnyObject) {
+        self.filtView.isHidden = true
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: DetailViewDelegate
     func onPlay() {
-        self.movieDetailView.hidden = true
+        self.movieDetailView.isHidden = true
         let payload = TCSocketPayload()
         payload.cmdType = 2012
-        payload.cmdContent = JSON(NSNumber(longLong: self.movieDetailView.movie!.movieId))
+        payload.cmdContent = JSON(NSNumber(value: self.movieDetailView.movie!.movieId as Int64))
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func onClose() {
-        self.movieDetailView.hidden = true
+        self.movieDetailView.isHidden = true
     }
     
     // MARK: FiltManagerDelegate
@@ -287,19 +298,19 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.loadData()
     }
     
-    func onSelectArea(index: Int) {
+    func onSelectArea(_ index: Int) {
         self.area = self.areas[index]
         self.clearData()
         self.loadData()
     }
     
-    func onSelectType(index: Int) {
+    func onSelectType(_ index: Int) {
         self.type = self.types[index]
         self.clearData()
         self.loadData()
     }
     
-    func onSelectYear(index: Int) {
+    func onSelectYear(_ index: Int) {
         self.year = self.years[index]
         self.clearData()
         self.loadData()

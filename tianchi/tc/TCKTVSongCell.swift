@@ -9,8 +9,8 @@
 import UIKit
 
 protocol TCKTVSongCellDelegate {
-    func onFirstAction(cell: UICollectionViewCell)
-    func onSecondAction(cell:UICollectionViewCell)
+    func onFirstAction(_ cell: UICollectionViewCell)
+    func onSecondAction(_ cell:UICollectionViewCell)
 }
 
 class TCKTVSongCell: UICollectionViewCell {
@@ -20,11 +20,11 @@ class TCKTVSongCell: UICollectionViewCell {
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var singerNameLabel: UILabel!
     
-    @IBAction func firstAction(sender: AnyObject) {
+    @IBAction func firstAction(_ sender: AnyObject) {
         self.delegate?.onFirstAction(self)
     }
     
-    @IBAction func secondAction(sender: AnyObject) {
+    @IBAction func secondAction(_ sender: AnyObject) {
         self.delegate?.onSecondAction(self)
     }
 }

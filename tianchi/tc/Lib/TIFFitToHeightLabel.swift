@@ -29,7 +29,7 @@ import UIKit
     }
     
     // Returns an UIFont that fits the new label's height.
-    private func fontToFitHeight() -> UIFont {
+    fileprivate func fontToFitHeight() -> UIFont {
         
         var minFontSize: CGFloat = self.minFontSize
         var maxFontSize: CGFloat = self.maxFontSize
@@ -39,20 +39,20 @@ import UIKit
         while (minFontSize <= maxFontSize) {
             fontSizeAverage = minFontSize + (maxFontSize - minFontSize) / 2
             
-            if let labelText: NSString = text {
+            if let labelText: NSString = text as NSString? {
                 let labelHeight = frame.size.height
                 
-                let testStringHeight = labelText.sizeWithAttributes(
-                    [NSFontAttributeName: font.fontWithSize(fontSizeAverage)]
+                let testStringHeight = labelText.size(
+                    attributes: [NSFontAttributeName: font.withSize(fontSizeAverage)]
                     ).height
                 
                 textAndLabelHeightDiff = labelHeight - testStringHeight
                 
                 if (fontSizeAverage == minFontSize || fontSizeAverage == maxFontSize) {
                     if (textAndLabelHeightDiff < 0) {
-                        return font.fontWithSize(fontSizeAverage - 1)
+                        return font.withSize(fontSizeAverage - 1)
                     }
-                    return font.fontWithSize(fontSizeAverage)
+                    return font.withSize(fontSizeAverage)
                 }
                 
                 if (textAndLabelHeightDiff < 0) {
@@ -62,10 +62,10 @@ import UIKit
                     minFontSize = fontSizeAverage + 1
                     
                 } else {
-                    return font.fontWithSize(fontSizeAverage)
+                    return font.withSize(fontSizeAverage)
                 }
             }
         }
-        return font.fontWithSize(fontSizeAverage)
+        return font.withSize(fontSizeAverage)
     }
 }

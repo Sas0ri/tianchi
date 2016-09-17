@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate,TCKTVSongCellDelegate {
     
@@ -38,38 +58,38 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         
         var fontSize:CGFloat = 14.0
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 10.0
         }
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: .selected)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: UIControlState())
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), for: UIControlState(), barMetrics: .default)
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), for: .selected, barMetrics: .default)
         self.segmentedControl.selectedSegmentIndex = 0
-        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
+        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), for: .search, state: UIControlState())
         if let subViews = self.searchBar.subviews.last?.subviews {
             for v in  subViews {
-                if v.isKindOfClass(UITextField) {
+                if v.isKind(of: UITextField.self) {
                     let tf = v as! UITextField
-                    tf.backgroundColor = UIColor.clearColor()
+                    tf.backgroundColor = UIColor.clear
                 }
             }
         }
         
         self.loadData()
         if self.download || self.cloud {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadLoadedNotification, object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadUpdatedNotification, object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadRemovedNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadLoadedNotification), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadUpdatedNotification), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadRemovedNotification), object: nil)
         }
         if self.ordered {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVOrderedUpdatedNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVOrderedUpdatedNotification), object: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if self.ordered {
@@ -83,7 +103,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func segChanged(sender: AnyObject) {
+    @IBAction func segChanged(_ sender: AnyObject) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
@@ -91,11 +111,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         self.loadData()
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     // MARK: - UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
@@ -248,7 +268,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    func hasOrdered(songNum:Int) -> Bool {
+    func hasOrdered(_ songNum:Int) -> Bool {
         for order in self.ordereds {
             if songNum == order.songNum {
                 return true
@@ -257,7 +277,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         return false
     }
     
-    @IBAction func prePage(sender: AnyObject) {
+    @IBAction func prePage(_ sender: AnyObject) {
         if self.page == 1 {
             return
         }
@@ -271,7 +291,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         self.loadData()
     }
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextPage(_ sender: AnyObject) {
         if Int(self.totalPage) < self.page + 1 {
             return
         }
@@ -286,11 +306,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
@@ -322,9 +342,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            self.page = indexPath.row + 1
+            self.page = (indexPath as NSIndexPath).row + 1
             if self.cloud {
                 if self.clouds[self.page] == nil || self.clouds[self.page]?.count == 0 {
                     self.loadData()
@@ -343,23 +363,23 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
         self.updatePage(shouldSelect: false)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
-            cell.collectionView.tag = indexPath.row
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = (indexPath as NSIndexPath).row
             cell.collectionView.reloadData()
             return cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSongCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "song", for: indexPath) as! TCKTVSongCell
         let page = collectionView.tag + 1
         if self.cloud {
             let clouds = self.clouds[page]
-            let cloud = clouds![indexPath.row]
+            let cloud = clouds![(indexPath as NSIndexPath).row]
             cell.singerNameLabel.text = cloud.singer
             cell.songNameLabel.text = cloud.songName
             let statusLabel = cell.viewWithTag(1) as! UILabel
@@ -380,7 +400,7 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         } else if self.download {
             let limit = self.getLimit()
-            let index = (self.page - 1) * limit + indexPath.row
+            let index = (self.page - 1) * limit + (indexPath as NSIndexPath).row
             let download = TCKTVContext.sharedContext().downloads[index]
             cell.singerNameLabel.text = download.singer
             cell.songNameLabel.text = download.songName
@@ -389,62 +409,62 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             statusLabel.text = downloading?.songNum == download.songNum ? "下载中" : "等待下载"
         } else if self.ordered {
             let limit = self.getLimit()
-            let index = (self.page - 1) * limit + indexPath.row
+            let index = (self.page - 1) * limit + (indexPath as NSIndexPath).row
             let ordered = self.ordereds[index]
             cell.singerNameLabel.text = ordered.singer
             cell.songNameLabel.text = ordered.songName
             let btn1 = cell.contentView.viewWithTag(1)
             let btn2 = cell.contentView.viewWithTag(2)
             let label = cell.contentView.viewWithTag(3)
-            btn1?.hidden = index == 0
-            btn2?.hidden = btn1!.hidden
-            label?.hidden = !btn1!.hidden
+            btn1?.isHidden = index == 0
+            btn2?.isHidden = btn1!.isHidden
+            label?.isHidden = !btn1!.isHidden
         } else {
             let songs = self.songs[page]
-            let song = songs![indexPath.row]
+            let song = songs![(indexPath as NSIndexPath).row]
             cell.singerNameLabel.text = song.singer
             cell.songNameLabel.text = song.songName
-            cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
-            cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.redColor() : UIColor.whiteColor()
+            cell.songNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.red : UIColor.white
+            cell.singerNameLabel.textColor = TCKTVContext.sharedContext().orderedSongsViewController!.hasOrdered(song.songNum) ? UIColor.red : UIColor.white
         }
         cell.delegate = self
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(256, 102)
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return CGSize(width: 256, height: 102)
         }
-        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+        return CGSize(width: 256/1024*self.view.bounds.width, height: collectionView.bounds.size.height/2 - 10)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionView {
             return 0
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
             return 30
         }
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionView {
             return
         }
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
+        let cell = collectionView.cellForItem(at: indexPath) as! TCKTVSongCell
         let collectionView = cell.superview as! UICollectionView
         let page = collectionView.tag + 1
         let payload = TCSocketPayload()
         if self.cloud {
             let clouds = self.clouds[page]
-            let cloud = clouds![indexPath.row]
+            let cloud = clouds![(indexPath as NSIndexPath).row]
             payload.cmdType = 1005
-            payload.cmdContent = JSON(NSNumber(integer:cloud.songNum))
+            payload.cmdContent = JSON(NSNumber(value: cloud.songNum as Int))
             
             let download = TCKTVDownload()
             download.songNum = cloud.songNum
@@ -459,13 +479,13 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             
         } else {
             let songs = self.songs[page]
-            let song = songs![indexPath.row]
+            let song = songs![(indexPath as NSIndexPath).row]
             payload.cmdType = 1003
-            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
+            payload.cmdContent = JSON(NSNumber(value: song.songNum as Int))
             
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
-            cell.songNameLabel.textColor = UIColor.redColor()
-            cell.singerNameLabel.textColor = UIColor.redColor()
+            let cell = collectionView.cellForItem(at: indexPath) as! TCKTVSongCell
+            cell.songNameLabel.textColor = UIColor.red
+            cell.singerNameLabel.textColor = UIColor.red
         }
         
         if self.searchBar.text?.characters.count > 0 {
@@ -480,28 +500,28 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     // MARK: - Cell delegate
-    func onFirstAction(cell: UICollectionViewCell) {
+    func onFirstAction(_ cell: UICollectionViewCell) {
         let collectionView = cell.superview as! UICollectionView
         let page = collectionView.tag + 1
         let payload = TCSocketPayload()
-        let indexPath = collectionView.indexPathForCell(cell)
+        let indexPath = collectionView.indexPath(for: cell)
         let limit = self.getLimit()
-        let index = (self.page - 1) * limit + indexPath!.row
+        let index = (self.page - 1) * limit + (indexPath! as NSIndexPath).row
         
         if self.language != nil {
-            let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs") as! TCKTVSongsViewController
+            let songsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_songs") as! TCKTVSongsViewController
             let collectionView = cell.superview as! UICollectionView
-            let indexPath = collectionView.indexPathForCell(cell)
+            let indexPath = collectionView.indexPath(for: cell)
             let page = collectionView.tag + 1
             let songs = self.songs[page]
-            let song = songs![indexPath!.row]
+            let song = songs![(indexPath! as NSIndexPath).row]
             songsVC.singer = song.singer
             self.navigationController?.pushViewController(songsVC, animated: false)
         } else if self.ordered {
             let ordered = self.ordereds[index]
             payload.cmdType = 1002
-            payload.cmdContent = JSON(NSNumber(integer:ordered.songNum))
-            self.ordereds.removeAtIndex(index)
+            payload.cmdContent = JSON(NSNumber(value: ordered.songNum as Int))
+            self.ordereds.remove(at: index)
             self.collectionView.reloadData()
             let totalPage = self.ordereds.count%limit == 0 ? self.ordereds.count/limit : self.ordereds.count/limit + 1
             if self.page > totalPage {
@@ -512,9 +532,9 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if self.download {
             let download = TCKTVContext.sharedContext().downloads[index]
             payload.cmdType = 1008
-            payload.cmdContent = JSON(NSNumber(integer:download.songNum))
+            payload.cmdContent = JSON(NSNumber(value: download.songNum as Int))
             
-            TCKTVContext.sharedContext().downloads.removeAtIndex(index)
+            TCKTVContext.sharedContext().downloads.remove(at: index)
             self.collectionView.reloadData()
             
             let totalPage = TCKTVContext.sharedContext().downloads.count%limit == 0 ? TCKTVContext.sharedContext().downloads.count/limit : TCKTVContext.sharedContext().downloads.count/limit + 1
@@ -527,11 +547,11 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             let songs = self.songs[page]
             let song = songs![index]
             payload.cmdType = 1004
-            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
+            payload.cmdContent = JSON(NSNumber(value: song.songNum as Int))
             
             let c = cell as! TCKTVSongCell
-            c.songNameLabel.textColor = UIColor.redColor()
-            c.singerNameLabel.textColor = UIColor.redColor()
+            c.songNameLabel.textColor = UIColor.red
+            c.singerNameLabel.textColor = UIColor.red
         }
         if payload.cmdType == 0 {
             return
@@ -539,55 +559,55 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    func onSecondAction(cell: UICollectionViewCell) {
+    func onSecondAction(_ cell: UICollectionViewCell) {
         let collectionView = cell.superview as! UICollectionView
         let page = collectionView.tag + 1
         
         let payload = TCSocketPayload()
-        let indexPath = collectionView.indexPathForCell(cell)
+        let indexPath = collectionView.indexPath(for: cell)
         let limit = self.getLimit()
-        let index = (self.page - 1) * limit + indexPath!.row
+        let index = (self.page - 1) * limit + (indexPath! as NSIndexPath).row
         
         if self.cloud {
             
         } else if self.download {
         } else if self.ordered {
-            let ordered = self.ordereds.removeAtIndex(index)
-            self.ordereds.insert(ordered, atIndex: 1)
+            let ordered = self.ordereds.remove(at: index)
+            self.ordereds.insert(ordered, at: 1)
             self.collectionView.reloadData()
             payload.cmdType = 1001
-            payload.cmdContent = JSON(NSNumber(integer:ordered.songNum))
+            payload.cmdContent = JSON(NSNumber(value: ordered.songNum as Int))
         } else {
             let songs = self.songs[page]
-            let song = songs![indexPath!.row]
+            let song = songs![(indexPath! as NSIndexPath).row]
             payload.cmdType = 1004
-            payload.cmdContent = JSON(NSNumber(integer:song.songNum))
+            payload.cmdContent = JSON(NSNumber(value: song.songNum as Int))
             
             let c = cell as! TCKTVSongCell
-            c.songNameLabel.textColor = UIColor.redColor()
-            c.singerNameLabel.textColor = UIColor.redColor()
+            c.songNameLabel.textColor = UIColor.red
+            c.singerNameLabel.textColor = UIColor.red
         }
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    func reloadData(sender:NSNotification) {
+    func reloadData(_ sender:Notification) {
         self.loadData()
         self.collectionView.reloadData()
     }
     
     func getLimit() -> Int {
         var limit = 9
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             limit = 6
         }
         return limit
     }
     
-    func updatePage(shouldSelect shouldSelect:Bool)  {
+    func updatePage(shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
-        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
-            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
+        let indexPath = IndexPath(item: self.page - 1, section: 0)
+        if shouldSelect && self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
@@ -599,16 +619,16 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
     
     deinit {
         if self.download {
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            NotificationCenter.default.removeObserver(self)
         }
     }
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController.isKindOfClass(TCKTVCloudSearchViewController) {
-            let vc = segue.destinationViewController as! TCKTVCloudSearchViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination.isKind(of: TCKTVCloudSearchViewController.self) {
+            let vc = segue.destination as! TCKTVCloudSearchViewController
             vc.singer = self.singer
             vc.language = self.language
             vc.category = self.category

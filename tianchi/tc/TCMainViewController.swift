@@ -20,46 +20,46 @@ class TCMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func ktvAction(sender: AnyObject) {
+    @IBAction func ktvAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2205
         TCContext.sharedContext().socketManager.sendPayload(payload)
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv")
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    @IBAction func acAction(sender: AnyObject) {
-        let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewControllerWithIdentifier("AC")
+    @IBAction func acAction(_ sender: AnyObject) {
+        let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewController(withIdentifier: "AC")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    @IBAction func soundAction(sender: AnyObject) {
-        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewControllerWithIdentifier("sound_control")
+    @IBAction func soundAction(_ sender: AnyObject) {
+        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func appsAction(sender: AnyObject) {
+    @IBAction func appsAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2207
         TCContext.sharedContext().socketManager.sendPayload(payload)
-        let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewControllerWithIdentifier("Apps")
+        let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "Apps")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func cinemaAction(sender: AnyObject) {
+    @IBAction func cinemaAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2206
         TCContext.sharedContext().socketManager.sendPayload(payload)
-        let vc = UIStoryboard(name: "Cinema", bundle: nil).instantiateViewControllerWithIdentifier("cinema_main")
+        let vc = UIStoryboard(name: "Cinema", bundle: nil).instantiateViewController(withIdentifier: "cinema_main")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func turnOffAction(sender: AnyObject) {
+    @IBAction func turnOffAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2210
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }

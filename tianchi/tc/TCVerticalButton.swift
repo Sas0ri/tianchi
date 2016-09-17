@@ -25,11 +25,11 @@ class TCVerticalButton: UIButton {
             if let titleLabel = self.titleLabel {
                 var newFrame = titleLabel.frame;
                 newFrame.origin.x = 0;
-                newFrame.origin.y = CGRectGetMaxY(imageView.frame) + 5;
+                newFrame.origin.y = imageView.frame.maxY + 5;
                 newFrame.size.width = self.frame.size.width;
                 
                 self.titleLabel?.frame = newFrame;
-                self.titleLabel?.textAlignment = .Center;
+                self.titleLabel?.textAlignment = .center;
             }
         }
 

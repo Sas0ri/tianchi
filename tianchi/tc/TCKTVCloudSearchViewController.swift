@@ -7,6 +7,17 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate,TCKTVSongCellDelegate {
     
@@ -35,34 +46,34 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         super.viewDidLoad()
         
         var fontSize:CGFloat = 14.0
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 10.0
         }
         self.segmentedControl.clipsToBounds = true
         self.segmentedControl.layer.cornerRadius = 4
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Selected)
-        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(fontSize)], forState: .Normal)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), forState: .Normal, barMetrics: .Default)
-        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), forState: .Selected, barMetrics: .Default)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: .selected)
+        self.segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], for: UIControlState())
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"171717"), cornerRadius: 0), for: UIControlState(), barMetrics: .default)
+        self.segmentedControl.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"fb8808"), cornerRadius: 0), for: .selected, barMetrics: .default)
         self.segmentedControl.selectedSegmentIndex = words
-        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), forSearchBarIcon: .Search, state: .Normal)
+        self.searchBar.setImage(UIImage(named: "ktv_search_icon"), for: .search, state: UIControlState())
         self.searchBar.text = self.searchText
         if let subViews = self.searchBar.subviews.last?.subviews {
             for v in  subViews {
-                if v.isKindOfClass(UITextField) {
+                if v.isKind(of: UITextField.self) {
                     let tf = v as! UITextField
-                    tf.backgroundColor = UIColor.clearColor()
+                    tf.backgroundColor = UIColor.clear
                 }
             }
         }
         self.loadData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadLoadedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadUpdatedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: TCKTVDownloadRemovedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadLoadedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadUpdatedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TCKTVSongsViewController.reloadData(_:)), name: NSNotification.Name(rawValue: TCKTVDownloadRemovedNotification), object: nil)
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -71,18 +82,18 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func segChanged(sender: AnyObject) {
+    @IBAction func segChanged(_ sender: AnyObject) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
         self.loadData()
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     // MARK: - UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.page = 1
         self.totalPage = "0"
         self.updatePage(shouldSelect: false)
@@ -91,7 +102,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     
     func loadData() {
         var limit = 9
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
+        if UI_USER_INTERFACE_IDIOM() == .phone {
             limit = 6
         }
         
@@ -123,7 +134,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         
     }
     
-    @IBAction func prePage(sender: AnyObject) {
+    @IBAction func prePage(_ sender: AnyObject) {
         if self.page == 1 {
             return
         }
@@ -132,7 +143,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         self.loadData()
     }
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextPage(_ sender: AnyObject) {
         if Int(self.totalPage) < self.page + 1 {
             return
         }
@@ -142,11 +153,11 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             return Int(self.totalPage)!
         }
@@ -157,10 +168,10 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
-            if self.collectionView.dragging {
-                self.page = indexPath.row + 1
+            if self.collectionView.isDragging {
+                self.page = (indexPath as NSIndexPath).row + 1
             }
             if self.clouds[self.page] == nil || self.clouds[self.page]?.count == 0 {
                 self.loadData()
@@ -168,23 +179,23 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
         self.updatePage(shouldSelect: false)
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
-            cell.collectionView.tag = indexPath.row
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = (indexPath as NSIndexPath).row
             cell.collectionView.reloadData()
             return cell
         }
         let page = collectionView.tag + 1
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("song", forIndexPath: indexPath) as! TCKTVSongCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "song", for: indexPath) as! TCKTVSongCell
         let clouds = self.clouds[page]
-        let cloud = clouds![indexPath.row]
+        let cloud = clouds![(indexPath as NSIndexPath).row]
         cell.singerNameLabel.text = cloud.singer
         cell.songNameLabel.text = cloud.songName
         let statusLabel = cell.viewWithTag(1) as! UILabel
@@ -209,34 +220,34 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(256, 102)
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return CGSize(width: 256, height: 102)
         }
-        return CGSizeMake(256/1024*self.view.bounds.width, collectionView.bounds.size.height/2 - 10)
+        return CGSize(width: 256/1024*self.view.bounds.width, height: collectionView.bounds.size.height/2 - 10)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionView {
             return 0
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
             return 30
         }
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         let payload = TCSocketPayload()
         
         let clouds = self.clouds[page]
-        let cloud = clouds![indexPath.row]
+        let cloud = clouds![(indexPath as NSIndexPath).row]
         payload.cmdType = 1005
-        payload.cmdContent = JSON(NSNumber(integer:cloud.songNum))
+        payload.cmdContent = JSON(NSNumber(value: cloud.songNum as Int))
         TCKTVContext.sharedContext().socketManager.sendPayload(payload)
         
         let download = TCKTVDownload()
@@ -244,33 +255,33 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         download.songName = cloud.songName
         download.singer = cloud.singer
         TCKTVContext.sharedContext().downloads.append(download)
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! TCKTVSongCell
+        let cell = collectionView.cellForItem(at: indexPath) as! TCKTVSongCell
         let statusLabel = cell.viewWithTag(1) as! UILabel
         statusLabel.text = TCKTVContext.sharedContext().downloads.count == 1 ? "下载中" : "等待下载"
     }
     
-    func updatePage(shouldSelect shouldSelect:Bool)  {
+    func updatePage(shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
-        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
-            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
+        let indexPath = IndexPath(item: self.page - 1, section: 0)
+        if shouldSelect && self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
     // MARK: - Cell delegate
-    func onFirstAction(cell: UICollectionViewCell) {
+    func onFirstAction(_ cell: UICollectionViewCell) {
         
     }
     
-    func onSecondAction(cell: UICollectionViewCell) {
+    func onSecondAction(_ cell: UICollectionViewCell) {
         
     }
     
-    func reloadData(sender:NSNotification) {
+    func reloadData(_ sender:Notification) {
         self.collectionView.reloadData()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }

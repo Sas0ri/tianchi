@@ -13,7 +13,7 @@ class TCMovie: NSObject {
     var info:String!
     var movieId:Int64!
     
-    func config(json:JSON) {
+    func config(_ json:JSON) {
         self.title = json["title"].stringValue
         self.info = json["info"].stringValue
         self.movieId = json["id"].int64Value

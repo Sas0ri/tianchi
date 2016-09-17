@@ -17,9 +17,9 @@ extension AFURLSessionManager {
         }
     }
     
-    func cancelTasks(inArray taskArray:[NSURLSessionTask], withPath path:String) {
+    func cancelTasks(inArray taskArray:[URLSessionTask], withPath path:String) {
         for dataTask in taskArray {
-            if let _ = dataTask.currentRequest?.URL?.absoluteString.rangeOfString(path) {
+            if let _ = dataTask.currentRequest?.url?.absoluteString.range(of: path) {
                 dataTask.cancel()
             }
         }

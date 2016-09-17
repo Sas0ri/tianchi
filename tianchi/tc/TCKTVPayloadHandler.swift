@@ -21,9 +21,9 @@ class TCKTVPayloadHandler: NSObject {
         return _sharedHandler
     }
     
-    func handlePayload(payload:TCSocketPayload) {
+    func handlePayload(_ payload:TCSocketPayload) {
         if payload.cmdType > 1000 && payload.cmdType < 1005 || payload.cmdType == 1102 {
-            NSNotificationCenter.defaultCenter().postNotificationName(TCKTVOrderedUpdatedNotification, object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: TCKTVOrderedUpdatedNotification), object: self)
         }
         if payload.cmdType > 1005 && payload.cmdType < 1009 && payload.cmdContent != nil {
             var index:Int?
@@ -35,8 +35,8 @@ class TCKTVPayloadHandler: NSObject {
                 }
             }
             if index != nil {
-                TCKTVContext.sharedContext().downloads.removeAtIndex(index!)
-                NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadRemovedNotification, object: self)
+                TCKTVContext.sharedContext().downloads.remove(at: index!)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: TCKTVDownloadRemovedNotification), object: self)
             }
         }
         if payload.cmdType == 1005 {
@@ -53,9 +53,9 @@ class TCKTVPayloadHandler: NSObject {
             }
             if index != nil {
                 let download = TCKTVContext.sharedContext().downloads[index!]
-                TCKTVContext.sharedContext().downloads.removeAtIndex(index!)
-                TCKTVContext.sharedContext().downloads.insert(download, atIndex: 0)
-                NSNotificationCenter.defaultCenter().postNotificationName(TCKTVDownloadUpdatedNotification, object: self)
+                TCKTVContext.sharedContext().downloads.remove(at: index!)
+                TCKTVContext.sharedContext().downloads.insert(download, at: 0)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: TCKTVDownloadUpdatedNotification), object: self)
             } else {
                 TCKTVContext.sharedContext().getDownload()
             }

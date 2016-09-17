@@ -17,7 +17,7 @@ class TCKTVSong: NSObject {
     /** Not-null value. */
     var singer:String = ""
 
-    func config(json:JSON) {
+    func config(_ json:JSON) {
         self.songId = json["songId"].int64Value
         self.songNum = json["songNum"].intValue
         self.songName = json["songName"].stringValue

@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 typealias navToNextBlock = ()->()
 
@@ -26,7 +46,7 @@ class TCKTVMainBoardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         if self.didNavBack != nil {
@@ -34,47 +54,47 @@ class TCKTVMainBoardViewController: UIViewController {
         }
     }
 
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if self.didNavToNext != nil && self.navigationController?.viewControllers.count > 1 {
             self.didNavToNext!()
         }
     }
     
-    @IBAction func songNameAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_song_name")
+    @IBAction func songNameAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_song_name")
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func singerAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_singer")
+    @IBAction func singerAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_singer")
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func languageAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_language")
+    @IBAction func languageAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_language")
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func categoryAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_category")
+    @IBAction func categoryAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_category")
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func songlistAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_ranking_songs") as! TCKTVSongsViewController
+    @IBAction func songlistAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_ranking_songs") as! TCKTVSongsViewController
         songNameVC.ranking = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func cloudAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs_from_cloud") as! TCKTVSongsViewController
+    @IBAction func cloudAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_songs_from_cloud") as! TCKTVSongsViewController
         songNameVC.cloud = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }
     
-    @IBAction func downloadAction(sender: AnyObject) {
-        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ktv_songs_from_download") as! TCKTVSongsViewController
+    @IBAction func downloadAction(_ sender: AnyObject) {
+        let songNameVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv_songs_from_download") as! TCKTVSongsViewController
         songNameVC.download = true
         self.navigationController?.pushViewController(songNameVC, animated: false)
     }

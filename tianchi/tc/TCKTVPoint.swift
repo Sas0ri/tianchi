@@ -16,7 +16,7 @@ class TCKTVPoint: NSObject {
     /** Not-null value. */
     var singer:String = ""
     
-    func config(json:JSON) {
+    func config(_ json:JSON) {
         self.pointId = json["pointId"].intValue
         self.songNum = json["songNum"].intValue
         self.songName = json["songName"].stringValue

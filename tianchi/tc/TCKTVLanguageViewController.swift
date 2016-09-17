@@ -9,12 +9,12 @@
 import UIKit
 
 enum TCKTVLanguage:Int {
-    case Mandarin = 2
-    case Korean = 3
-    case Japanese = 4
-    case Taiwanese = 5
-    case English = 6
-    case Cantonese = 7
+    case mandarin = 2
+    case korean = 3
+    case japanese = 4
+    case taiwanese = 5
+    case english = 6
+    case cantonese = 7
 }
 
 class TCKTVLanguageViewController: UIViewController, UICollectionViewDelegateFlowLayout {
@@ -30,23 +30,23 @@ class TCKTVLanguageViewController: UIViewController, UICollectionViewDelegateFlo
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: false)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            return CGSizeMake(216, 208)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return CGSize(width: 216, height: 208)
         }
-        return CGSizeMake((collectionView.bounds.size.height - 10)/2, (collectionView.bounds.size.height - 10)/2)
+        return CGSize(width: (collectionView.bounds.size.height - 10)/2, height: (collectionView.bounds.size.height - 10)/2)
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let button = sender as! UIButton
-        let vc = segue.destinationViewController as! TCKTVSongsViewController
+        let vc = segue.destination as! TCKTVSongsViewController
         vc.language = TCKTVLanguage(rawValue: button.tag)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

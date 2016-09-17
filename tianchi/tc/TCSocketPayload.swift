@@ -12,15 +12,15 @@ class TCSocketPayload: NSObject {
     var cmdType:Int! = 0
     var cmdContent:JSON?
     
-    convenience init(data:NSData) {
+    convenience init(data:Data) {
         self.init()
         let json = JSON(data: data)
         self.cmdType = json["cmd_type"].intValue
         self.cmdContent = json["cmd_cotent"]
     }
     
-    func dataValue() -> NSData? {
-        var json:JSON = ["cmd_type": NSNumber(integer: self.cmdType)]
+    func dataValue() -> Data? {
+        var json:JSON = ["cmd_type": NSNumber(value: self.cmdType as Int)]
         if self.cmdContent != nil {
             json["cmd_cotent"] = self.cmdContent!
         }

@@ -13,7 +13,7 @@ class TCKTVSinger: NSObject {
     /** Not-null value. */
     var singerName:String = ""
 
-    func config(json:JSON) {
+    func config(_ json:JSON) {
         self.singerId = json["singerId"].int64Value
         self.singerName = json["singerName"].stringValue
     }

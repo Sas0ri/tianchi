@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TCKTVSongClient: NSObject {
     
@@ -25,7 +45,7 @@ class TCKTVSongClient: NSObject {
     var client:MCJSONClient? = {
         var mc:MCJSONClient?
         if let url = TCContext.sharedContext().serverAddress {
-            mc = MCJSONClient(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            mc = MCJSONClient(baseURL: URL(string: String(format: "http://%@:8080/", url)))
         }
         return mc
     }()
@@ -33,23 +53,23 @@ class TCKTVSongClient: NSObject {
     var pageClient:AFHTTPSessionManager? = {
         var c:AFHTTPSessionManager?
         if let url = TCContext.sharedContext().serverAddress {
-            c = AFHTTPSessionManager(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            c = AFHTTPSessionManager(baseURL: URL(string: String(format: "http://%@:8080/", url)))
             c?.responseSerializer = AFHTTPResponseSerializer()
         }
         return c
     }()
     
-    func getSongsByName(keyword:String?, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
+    func getSongsByName(_ keyword:String?, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ songs:[TCKTVSong]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
         if words > 0 {
-            params["words"] = NSNumber(integer: words)
+            params["words"] = NSNumber(value: words as Int)
         }
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
@@ -57,16 +77,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(songs: songs,totalPage: totalPage, flag: true)
+                    complete(songs,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(songs: songs, totalPage: totalPage, flag: false)
+                        complete(songs, totalPage, false)
                     }
             })
         }
@@ -78,29 +98,29 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(songs: songs, totalPage: totalPage, flag: true)
+                complete(songs, totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(songs: songs, totalPage: totalPage, flag: false)
+                    complete(songs, totalPage, false)
                 }
         })
     }
     
-    func getSongsByCategory(keyword:String?, words:Int, type:String, page:Int, limit:Int, getTotalPage:Bool, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
+    func getSongsByCategory(_ keyword:String?, words:Int, type:String, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ songs:[TCKTVSong]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
         if words > 0 {
-            params["words"] = NSNumber(integer: words)
+            params["words"] = NSNumber(value: words as Int)
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["type"] = type
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["type"] = type as AnyObject?
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
@@ -108,16 +128,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(songs: songs,totalPage: totalPage, flag: true)
+                    complete(songs,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(songs: songs, totalPage: totalPage, flag: false)
+                        complete(songs, totalPage, false)
                     }
             })
         }
@@ -129,29 +149,29 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(songs: songs, totalPage: totalPage, flag: true)
+                complete(songs, totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(songs: songs, totalPage: totalPage, flag: false)
+                    complete(songs, totalPage, false)
                 }
         })
     }
     
-    func getSongsBySinger(keyword:String?, singer:String, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
+    func getSongsBySinger(_ keyword:String?, singer:String, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ songs:[TCKTVSong]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
         if words > 0 {
-            params["words"] = NSNumber(integer: words)
+            params["words"] = NSNumber(value: words as Int)
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["singer"] = singer
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["singer"] = singer as AnyObject?
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
@@ -159,16 +179,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(songs: songs,totalPage: totalPage, flag: true)
+                    complete(songs,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(songs: songs, totalPage: totalPage, flag: false)
+                        complete(songs, totalPage, false)
                     }
             })
         }
@@ -180,29 +200,29 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(songs: songs, totalPage: totalPage, flag: true)
+                complete(songs, totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(songs: songs, totalPage: totalPage, flag: false)
+                    complete(songs, totalPage, false)
                 }
         })
     }
     
-    func getSongsByLanguage(keyword:String?, words:Int, language:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
+    func getSongsByLanguage(_ keyword:String?, words:Int, language:Int, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ songs:[TCKTVSong]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
         if words > 0 {
-            params["words"] = NSNumber(integer:words)
+            params["words"] = NSNumber(value: words as Int)
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["language"] = NSNumber(integer: language)
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["language"] = NSNumber(value: language as Int)
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
@@ -210,16 +230,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(songs: songs,totalPage: totalPage, flag: true)
+                    complete(songs,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(songs: songs, totalPage: totalPage, flag: false)
+                        complete(songs, totalPage, false)
                     }
             })
         }
@@ -231,25 +251,25 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(songs: songs, totalPage: totalPage, flag: true)
+                complete(songs, totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(songs: songs, totalPage: totalPage, flag: false)
+                    complete(songs, totalPage, false)
                 }
         })
     }
     
-    func getRankingSongs(keyword:String?, page:Int, limit:Int, getTotalPage:Bool, complete: (songs:[TCKTVSong]?, totalPage:String, flag:Bool)->()) {
+    func getRankingSongs(_ keyword:String?, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ songs:[TCKTVSong]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.rankingPath)
         var count = 1
@@ -257,16 +277,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.rankingPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.rankingPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(songs: songs,totalPage: totalPage, flag: true)
+                    complete(songs,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(songs: songs, totalPage: totalPage, flag: false)
+                        complete(songs, totalPage, false)
                     }
             })
         }
@@ -278,28 +298,28 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(songs: songs, totalPage: totalPage, flag: true)
+                complete(songs, totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(songs: songs, totalPage: totalPage, flag: false)
+                    complete(songs, totalPage, false)
                 }
         })
     }
     
-    func getCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
+    func getCloudSongs(_ keyword:String?, words:Int, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ clouds:[TCKTVCloud]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
         if words > 0 {
-            params["words"] = NSNumber(integer: words)
+            params["words"] = NSNumber(value: words as Int)
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.cloudPath)
         var count = 1
@@ -307,16 +327,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(clouds: clouds,totalPage: totalPage, flag: true)
+                    complete(clouds,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(clouds: clouds,totalPage: totalPage, flag: false)
+                        complete(clouds,totalPage, false)
                     }
             })
         }
@@ -328,20 +348,20 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(clouds: clouds,totalPage: totalPage, flag: true)
+                complete(clouds,totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(clouds: clouds,totalPage: totalPage, flag: false)
+                    complete(clouds,totalPage, false)
                 }
         })
     }
     
-    func getDownloadSongs(complete: (downloads:[TCKTVDownload]?, flag:Bool)->()) {
+    func getDownloadSongs(_ complete: @escaping (_ downloads:[TCKTVDownload]?, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
         self.client?.MCGet(self.downloadPath, parameters: params, success: { (json) in
             var downloads = [TCKTVDownload]()
             for jsonDownload in json.arrayValue {
@@ -349,15 +369,15 @@ class TCKTVSongClient: NSObject {
                 download.config(jsonDownload)
                 downloads.append(download)
             }
-            complete(downloads: downloads, flag: true)
+            complete(downloads, true)
             }, failure: { (error) in
-                complete(downloads: nil, flag: false)
+                complete(nil, false)
         })
     }
     
-    func getOrderedSongs(complete: (ordereds:[TCKTVPoint]?, flag:Bool)->()) {
+    func getOrderedSongs(_ complete: @escaping (_ ordereds:[TCKTVPoint]?, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
         self.client?.MCGet(self.orderedPath, parameters: params, success: { (json) in
             var ordereds = [TCKTVPoint]()
             for jsonOrdered in json.arrayValue {
@@ -365,33 +385,33 @@ class TCKTVSongClient: NSObject {
                 ordered.config(jsonOrdered)
                 ordereds.append(ordered)
             }
-            complete(ordereds: ordereds, flag: true)
+            complete(ordereds, true)
             }, failure: { (error) in
-                complete(ordereds: nil, flag: false)
+                complete(nil, false)
         })
     }
     
     //    http://192.168.31.219:8080/TianChiServer/GetCloundList?path=mnt/sata/SOFMIT_DBBSM.db&words=？&language=？&py=？&singerName=？&sortType=？&pageSize=9
-    func searchCloudSongs(keyword:String?, words:Int, page:Int, limit:Int, language:Int?, singer:String?, type:String?, getTotalPage:Bool, complete: (clouds:[TCKTVCloud]?, totalPage:String, flag:Bool)->()) {
+    func searchCloudSongs(_ keyword:String?, words:Int, page:Int, limit:Int, language:Int?, singer:String?, type:String?, getTotalPage:Bool, complete: @escaping (_ clouds:[TCKTVCloud]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
         if words > 0 {
-            params["words"] = NSNumber(integer: words)
+            params["words"] = NSNumber(value: words as Int)
         }
         if language > 0 {
-            params["language"] = NSNumber(integer: language!)
+            params["language"] = NSNumber(value: language! as Int)
         }
         if singer?.characters.count > 0 {
-            params["singerName"] = singer
+            params["singerName"] = singer as AnyObject?
         }
         if type?.characters.count > 0 {
-            params["sortType"] = type
+            params["sortType"] = type as AnyObject?
         }
-        params["path"] = "mnt/sata/SOFMIT_DBBSM.db"
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["path"] = "mnt/sata/SOFMIT_DBBSM.db" as AnyObject?
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.cloudPath)
         var count = 1
@@ -399,16 +419,16 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
-                    complete(clouds: clouds,totalPage: totalPage, flag: true)
+                    complete(clouds,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(clouds: clouds,totalPage: totalPage, flag: false)
+                        complete(clouds,totalPage, false)
                     }
             })
         }
@@ -420,13 +440,13 @@ class TCKTVSongClient: NSObject {
             }
             count = count - 1
             if count == 0 {
-                complete(clouds: clouds,totalPage: totalPage, flag: true)
+                complete(clouds,totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(clouds: clouds,totalPage: totalPage, flag: false)
+                    complete(clouds,totalPage, false)
                 }
         })
     }

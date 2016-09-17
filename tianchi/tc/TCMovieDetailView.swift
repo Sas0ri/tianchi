@@ -23,11 +23,11 @@ class TCMovieDetailView: UIView {
     
     weak var delegate:TCMovieDetailViewDelegate?
     
-    @IBAction func playAction(sender: AnyObject) {
+    @IBAction func playAction(_ sender: AnyObject) {
         self.delegate?.onPlay()
     }
     
-    @IBAction func closeAction(sender: AnyObject) {
+    @IBAction func closeAction(_ sender: AnyObject) {
         self.delegate?.onClose()
     }
 }

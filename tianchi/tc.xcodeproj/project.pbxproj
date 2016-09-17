@@ -794,6 +794,7 @@
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = F66JYDX4C4;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -1092,6 +1093,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1113,6 +1115,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

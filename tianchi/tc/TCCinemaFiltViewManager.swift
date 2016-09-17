@@ -10,9 +10,9 @@ import UIKit
 
 protocol TCCinemaFiltViewManagerDelegate:NSObjectProtocol {
     func onClearFilter()
-    func onSelectType(index:Int)
-    func onSelectArea(index:Int)
-    func onSelectYear(index:Int)
+    func onSelectType(_ index:Int)
+    func onSelectArea(_ index:Int)
+    func onSelectYear(_ index:Int)
 }
 
 class TCCinemaFiltViewManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -26,53 +26,53 @@ class TCCinemaFiltViewManager: NSObject, UICollectionViewDelegate, UICollectionV
     let areas = ["全部", "香港", "台湾", "美国", "英国", "大陆", "法国", "印度", "日本", "韩国"]
     let years = ["全部", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "更早"]
     
-    @IBAction func clearAction(sender: AnyObject) {
-        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        self.typeView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
-        self.areaView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
-        self.yearView.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+    @IBAction func clearAction(_ sender: AnyObject) {
+        let indexPath = IndexPath(item: 0, section: 0)
+        self.typeView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.areaView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.yearView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
         self.delegate?.onClearFilter()
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.yearView {
             return 9
         }
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let label = cell.contentView.viewWithTag(1) as? UILabel
         if collectionView == self.typeView {
-            label?.text = self.types[indexPath.row]
+            label?.text = self.types[(indexPath as NSIndexPath).row]
         } else if collectionView == self.areaView {
-            label?.text = self.areas[indexPath.row]
+            label?.text = self.areas[(indexPath as NSIndexPath).row]
         } else if collectionView == self.yearView {
-            label?.text = self.years[indexPath.row]
+            label?.text = self.years[(indexPath as NSIndexPath).row]
         }
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(collectionView.bounds.size.width/2, collectionView.bounds.size.height/5)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width/2, height: collectionView.bounds.size.height/5)
     }
     
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.typeView {
-            self.delegate?.onSelectType(indexPath.item)
+            self.delegate?.onSelectType((indexPath as NSIndexPath).item)
         } else if collectionView == self.areaView {
-            self.delegate?.onSelectArea(indexPath.item)
+            self.delegate?.onSelectArea((indexPath as NSIndexPath).item)
         } else if collectionView == self.yearView {
-            self.delegate?.onSelectYear(indexPath.item)
+            self.delegate?.onSelectYear((indexPath as NSIndexPath).item)
         }
     }
 }

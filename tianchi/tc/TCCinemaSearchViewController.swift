@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, TCMovieDetailViewDelegate {
 
@@ -32,20 +52,20 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.movieDetailView.delegate = self
 
         self.searchField.inputView = UIView()
-        self.deleteButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), forState: .Normal)
-        self.doneButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), forState: .Normal)
-        self.movieDetailView.hidden = true
+        self.deleteButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), for: UIControlState())
+        self.doneButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), for: UIControlState())
+        self.movieDetailView.isHidden = true
         self.loadData()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.searchField.becomeFirstResponder()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.searchField.font = UIFont.systemFontOfSize(self.searchField.bounds.size.height - 1)
+        self.searchField.font = UIFont.systemFont(ofSize: self.searchField.bounds.size.height - 1)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +73,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func prePage(sender: AnyObject) {
+    @IBAction func prePage(_ sender: AnyObject) {
         if self.page == 1 {
             return
         }
@@ -62,7 +82,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.loadData()
     }
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextPage(_ sender: AnyObject) {
         if Int(self.totalPage) < self.page + 1 {
             return
         }
@@ -98,11 +118,11 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     // MARK: - CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.keyboardView {
             return self.keys.count
         }
@@ -116,49 +136,49 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == self.keyboardView {
             return
         }
         if collectionView == self.collectionView {
-            self.page = indexPath.item + 1
+            self.page = (indexPath as NSIndexPath).item + 1
             if self.movies[self.page] == nil {
                 self.loadData()
             }
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        self.page =  self.collectionView.indexPathsForVisibleItems().first!.row + 1
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
         self.updatePage(shouldSelect: false)
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.keyboardView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("key", forIndexPath: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "key", for: indexPath)
             let label = cell.contentView.viewWithTag(1) as? UILabel
-            label?.text = self.keys[indexPath.row]
+            label?.text = self.keys[(indexPath as NSIndexPath).row]
             return cell
         }
         if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("container", forIndexPath: indexPath) as! TCKTVContainerCell
-            cell.collectionView.tag = indexPath.row
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell
+            cell.collectionView.tag = (indexPath as NSIndexPath).row
             cell.collectionView.reloadData()
             return cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("movie", forIndexPath: indexPath) as! TCKTVSingerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movie", for: indexPath) as! TCKTVSingerCell
         let page = collectionView.tag + 1
         let movies = self.movies[page]
-        let movie = movies![indexPath.row]
+        let movie = movies![(indexPath as NSIndexPath).row]
         cell.singerNameLabel.text = movie.title
-        cell.singerImageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))
+        cell.singerImageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.keyboardView {
-            self.searchField.text = self.searchField.text! + self.keys[indexPath.row]
+            self.searchField.text = self.searchField.text! + self.keys[(indexPath as NSIndexPath).row]
             self.alignSearchField()
             return
         }
@@ -167,38 +187,38 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         }
         let page = collectionView.tag + 1
         let movies = self.movies[page]
-        let movie = movies![indexPath.row]
-        self.movieDetailView.hidden = false
+        let movie = movies![(indexPath as NSIndexPath).row]
+        self.movieDetailView.isHidden = false
         self.movieDetailView.movie = movie
         self.movieDetailView.titleLabel.text = movie.title
         self.movieDetailView.infoLabel.text = movie.info
-        self.movieDetailView.imageView.sd_setImageWithURL(self.client.movieIconURL(movie.movieId))        
+        self.movieDetailView.imageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))        
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.keyboardView {
             var sep:CGFloat = 32
-            if UI_USER_INTERFACE_IDIOM() == .Pad {
+            if UI_USER_INTERFACE_IDIOM() == .pad {
                 sep = 80
             }
             let height = (collectionView.bounds.size.height - sep)/9
-            return CGSizeMake((collectionView.bounds.size.width - 20)/4, height)
+            return CGSize(width: (collectionView.bounds.size.width - 20)/4, height: height)
         }
         if collectionView == self.collectionView {
             return collectionView.bounds.size
         }
         
-        if UI_USER_INTERFACE_IDIOM() == .Phone {
-            return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.height - 10)/2))
+        if UI_USER_INTERFACE_IDIOM() == .phone {
+            return CGSize(width: floor((collectionView.bounds.size.width - 30)/4), height: floor((collectionView.bounds.size.height - 10)/2))
         }
-        return CGSizeMake(floor((collectionView.bounds.size.width - 30)/4), floor((collectionView.bounds.size.width - 30)/4))
+        return CGSize(width: floor((collectionView.bounds.size.width - 30)/4), height: floor((collectionView.bounds.size.width - 30)/4))
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionView {
             return 0
         }
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
             if collectionView == self.keyboardView {
                 return 10
             }
@@ -210,15 +230,15 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func updatePage(shouldSelect shouldSelect:Bool)  {
+    func updatePage(shouldSelect:Bool)  {
         self.pageLabel.text = "\(self.page == 1 && Int(self.totalPage) == 0 ? 0 : self.page)" + "/" + self.totalPage
-        let indexPath = NSIndexPath(forItem: self.page - 1, inSection: 0)
-        if shouldSelect && self.collectionView.numberOfItemsInSection(0) > 0 {
-            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
+        let indexPath = IndexPath(item: self.page - 1, section: 0)
+        if shouldSelect && self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition(), animated: false)
         }
     }
     
@@ -228,47 +248,47 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.collectionView.reloadData()
     }
 
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
-    @IBAction func deleteAction(sender: AnyObject) {
+    @IBAction func deleteAction(_ sender: AnyObject) {
         if self.searchField.text?.characters.count > 0 {
-            let index = self.searchField.text?.endIndex.advancedBy(-1)
-            self.searchField.text = self.searchField.text?.substringToIndex(index!)
+            let index = self.searchField.text?.characters.index((self.searchField.text?.endIndex)!, offsetBy: -1)
+            self.searchField.text = self.searchField.text?.substring(to: index!)
             self.alignSearchField()
         }
     }
     
-    @IBAction func doneAction(sender: AnyObject) {
+    @IBAction func doneAction(_ sender: AnyObject) {
         self.loadData()
     }
     
-    @IBAction func closeAction(sender: AnyObject) {
-        self.movieDetailView.hidden = true
+    @IBAction func closeAction(_ sender: AnyObject) {
+        self.movieDetailView.isHidden = true
     }
     
-    @IBAction func backAction(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(false)
+    @IBAction func backAction(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: false)
     }
     
     func alignSearchField() {
         let text = self.searchField.text! as NSString
-        let size = text.sizeWithAttributes([NSFontAttributeName: self.searchField.font!])
-        self.searchField.textAlignment = size.width > self.searchField.bounds.size.width ? .Right : .Left
+        let size = text.size(attributes: [NSFontAttributeName: self.searchField.font!])
+        self.searchField.textAlignment = size.width > self.searchField.bounds.size.width ? .right : .left
     }
     
     // MARK: DetailViewDelegate
     func onPlay() {
-        self.movieDetailView.hidden = true
+        self.movieDetailView.isHidden = true
         let payload = TCSocketPayload()
         payload.cmdType = 2012
-        payload.cmdContent = JSON(NSNumber(longLong:self.movieDetailView.movie!.movieId))
+        payload.cmdContent = JSON(NSNumber(value: self.movieDetailView.movie!.movieId as Int64))
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     func onClose() {
-        self.movieDetailView.hidden = true
+        self.movieDetailView.isHidden = true
     }
         
     /*

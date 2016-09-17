@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TCCinemaClient: NSObject {
     let path = "TianChiServer/GetMovieList"
@@ -15,7 +35,7 @@ class TCCinemaClient: NSObject {
     var client:MCJSONClient? = {
         var c:MCJSONClient?
         if let url = TCContext.sharedContext().serverAddress {
-            c = MCJSONClient(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            c = MCJSONClient(baseURL: URL(string: String(format: "http://%@:8080/", url)))
         }
         return c
     }()
@@ -23,34 +43,34 @@ class TCCinemaClient: NSObject {
     var pageClient:AFHTTPSessionManager? = {
         var c:AFHTTPSessionManager?
         if let url = TCContext.sharedContext().serverAddress {
-            c = AFHTTPSessionManager(baseURL: NSURL(string: String(format: "http://%@:8080/", url)))
+            c = AFHTTPSessionManager(baseURL: URL(string: String(format: "http://%@:8080/", url)))
             c?.responseSerializer = AFHTTPResponseSerializer()
         }
         return c
     }()
     
-    func movieIconURL(movieId:Int64) -> NSURL {
-        return NSURL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata1/CACHELIBRARY/%lld.jpg",TCContext.sharedContext().serverAddress!, movieId))!
+    func movieIconURL(_ movieId:Int64) -> URL {
+        return URL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata1/CACHELIBRARY/%lld.jpg",TCContext.sharedContext().serverAddress!, movieId))!
     }
     
-    func getMovies(keyword:String?, type:String, area:String, year:String , page:Int, limit:Int, getTotalPage:Bool, complete: (movies:[TCMovie]?, totalPage:String, flag:Bool)->()) {
+    func getMovies(_ keyword:String?, type:String, area:String, year:String , page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ movies:[TCMovie]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword?.characters.count > 0 {
-            params["py"] = keyword!.uppercaseString
+            params["py"] = keyword!.uppercased() as AnyObject?
         }
-        params["path"] = "mnt/sata1/media.db"
+        params["path"] = "mnt/sata1/media.db" as AnyObject?
         if type  != "全部" {
-            params["type"] = type
+            params["type"] = type as AnyObject?
         }
         if area  != "全部" {
-            params["area"] = area
+            params["area"] = area as AnyObject?
         }
         if year  != "全部" {
-            params["year"] = year
+            params["year"] = year as AnyObject?
         }
         
-        params["page"] = NSNumber(integer: page)
-        params["pageSize"] = NSNumber(integer: limit)
+        params["page"] = NSNumber(value: page as Int)
+        params["pageSize"] = NSNumber(value: limit as Int)
         
         self.client?.cancelAllHTTPOperations(withPath: self.path)
         var count = 1
@@ -58,16 +78,16 @@ class TCCinemaClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.GET(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
-                totalPage = String(data: resp as! NSData, encoding: NSUTF8StringEncoding)!
+            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+                totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 count = count - 1
                 if count == 0 {
-                    complete(movies: movies,totalPage: totalPage, flag: true)
+                    complete(movies,totalPage, true)
                 }
                 }, failure: { (dataTask, error) in
                     count = count - 1
                     if count == 0 {
-                        complete(movies: movies,totalPage: totalPage, flag: false)
+                        complete(movies,totalPage, false)
                     }
             })
         }
@@ -80,13 +100,13 @@ class TCCinemaClient: NSObject {
             
             count = count - 1
             if count == 0 {
-                complete(movies: movies,totalPage: totalPage, flag: true)
+                complete(movies,totalPage, true)
             }
             
             }, failure: { (error) in
                 count = count - 1
                 if count == 0 {
-                    complete(movies: movies,totalPage: totalPage, flag: false)
+                    complete(movies,totalPage, false)
                 }
         })
         

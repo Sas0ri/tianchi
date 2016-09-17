@@ -16,13 +16,13 @@ class TCKTVMainButton: UIButton {
         
         // Center image
         if let imageView = self.imageView {
-            if UI_USER_INTERFACE_IDIOM() == .Phone {
-                self.titleLabel!.font = UIFont.systemFontOfSize(8)
+            if UI_USER_INTERFACE_IDIOM() == .phone {
+                self.titleLabel!.font = UIFont.systemFont(ofSize: 8)
                 if let image = imageView.image {
                     var frame = imageView.frame
                     frame.size.width = image.size.width/1.8
                     frame.size.height = image.size.height/1.8
-                    if UIScreen.mainScreen().scale == 2 {
+                    if UIScreen.main.scale == 2 {
                         frame.size.width = frame.size.width/1.5
                         frame.size.height = frame.size.height/1.5
                     }
@@ -41,11 +41,11 @@ class TCKTVMainButton: UIButton {
                 
                 var newFrame = titleLabel.frame;
                 newFrame.origin.x = 0;
-                newFrame.origin.y = CGRectGetMaxY(self.bounds) - self.titleLabel!.frame.size.height;
+                newFrame.origin.y = self.bounds.maxY - self.titleLabel!.frame.size.height;
                 newFrame.size.width = self.frame.size.width;
                 
                 self.titleLabel?.frame = newFrame;
-                self.titleLabel?.textAlignment = .Center;
+                self.titleLabel?.textAlignment = .center;
             }
         }
         
