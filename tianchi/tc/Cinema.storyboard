@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="At2-vQ-o91"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="C0a-cW-Zmk">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="KD7-D8-BeA"/>
@@ -40,18 +40,30 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUp-hg-6Dy">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RUp-hg-6Dy" secondAttribute="height" multiplier="1:1" id="KYh-5f-M9P"/>
+                                                </constraints>
+                                                <state key="normal" image="ktv_nav_back"/>
+                                                <connections>
+                                                    <action selector="backAction:" destination="Pcx-ex-1jL" eventType="touchUpInside" id="kk0-i7-g4C"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="RUp-hg-6Dy" secondAttribute="trailing" constant="8" id="379-Fy-WYd"/>
                                             <constraint firstAttribute="trailing" secondItem="Xm7-gN-ccw" secondAttribute="trailing" id="76A-Wi-nWE"/>
                                             <constraint firstItem="Xm7-gN-ccw" firstAttribute="leading" secondItem="pKb-QV-jMb" secondAttribute="leading" id="Dem-XO-IsA"/>
                                             <constraint firstAttribute="bottom" secondItem="vX7-Ii-yzL" secondAttribute="bottom" id="EQk-be-R8y"/>
                                             <constraint firstAttribute="trailing" secondItem="vX7-Ii-yzL" secondAttribute="trailing" id="MLL-W6-8P6"/>
+                                            <constraint firstItem="RUp-hg-6Dy" firstAttribute="centerY" secondItem="Xm7-gN-ccw" secondAttribute="centerY" id="XQn-5k-RVO"/>
                                             <constraint firstItem="vX7-Ii-yzL" firstAttribute="top" secondItem="pKb-QV-jMb" secondAttribute="top" id="dLY-gw-OZ5"/>
                                             <constraint firstItem="Xm7-gN-ccw" firstAttribute="top" secondItem="pKb-QV-jMb" secondAttribute="top" constant="20" id="nWj-gJ-bQx"/>
                                             <constraint firstItem="vX7-Ii-yzL" firstAttribute="leading" secondItem="pKb-QV-jMb" secondAttribute="leading" id="vTf-Ma-nJe"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="vjD-ib-HV3"/>
                                             <constraint firstAttribute="bottom" secondItem="Xm7-gN-ccw" secondAttribute="bottom" id="xGW-1r-HUp"/>
+                                            <constraint firstItem="RUp-hg-6Dy" firstAttribute="height" secondItem="pKb-QV-jMb" secondAttribute="height" multiplier="44:64" id="z6L-XD-P0W"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSh-oD-jvY">
@@ -83,22 +95,40 @@
                                                             <constraint firstAttribute="height" constant="1" id="EPs-6a-EkR"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="筛选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTc-vp-Kja" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76d-vo-J0b">
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rM-sN-DJc">
+                                                                <connections>
+                                                                    <action selector="filtAction:" destination="Pcx-ex-1jL" eventType="touchUpInside" id="pSc-yk-O5g"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="筛选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTc-vp-Kja" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                                                        <real key="value" value="28"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="jMB-jE-ogM"/>
+                                                            <constraint firstItem="FTc-vp-Kja" firstAttribute="top" secondItem="76d-vo-J0b" secondAttribute="top" id="Avu-Ub-7Bm"/>
+                                                            <constraint firstItem="8rM-sN-DJc" firstAttribute="top" secondItem="76d-vo-J0b" secondAttribute="top" id="Fld-65-HIg"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8rM-sN-DJc" secondAttribute="bottom" id="Flo-6u-cp9"/>
+                                                            <constraint firstItem="FTc-vp-Kja" firstAttribute="leading" secondItem="76d-vo-J0b" secondAttribute="leading" id="Ndc-DF-hhe"/>
+                                                            <constraint firstAttribute="trailing" secondItem="8rM-sN-DJc" secondAttribute="trailing" id="VEQ-rP-5GI"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="VaO-Nf-hhP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="FTc-vp-Kja" secondAttribute="bottom" id="gIK-qn-FZn"/>
+                                                            <constraint firstItem="8rM-sN-DJc" firstAttribute="leading" secondItem="76d-vo-J0b" secondAttribute="leading" id="hlc-Ow-hXd"/>
+                                                            <constraint firstAttribute="trailing" secondItem="FTc-vp-Kja" secondAttribute="trailing" id="nzW-yk-JtZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
-                                                                <real key="value" value="28"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6p7-pB-sM4">
                                                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -110,10 +140,10 @@
                                                         <color key="separatorColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie" id="Hjb-KT-pee">
-                                                                <rect key="frame" x="0.0" y="28" width="192" height="44"/>
+                                                                <rect key="frame" x="0.0" y="28" width="256" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hjb-KT-pee" id="SR5-Mf-2vW">
-                                                                    <frame key="frameInset" width="192" height="43.5"/>
+                                                                    <frame key="frameInset" width="256" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-iB-ABG" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
@@ -149,8 +179,8 @@
                                                     </tableView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="FTc-vp-Kja" firstAttribute="height" secondItem="B2O-c9-HY1" secondAttribute="height" multiplier="58:410" priority="999" id="5bL-fE-DRA"/>
-                                                    <constraint firstItem="vse-Ox-S82" firstAttribute="height" secondItem="FTc-vp-Kja" secondAttribute="height" multiplier="72:58" priority="999" id="edl-lU-Wd5"/>
+                                                    <constraint firstItem="76d-vo-J0b" firstAttribute="height" secondItem="vse-Ox-S82" secondAttribute="height" multiplier="58:72" id="tpl-PK-EDv"/>
+                                                    <constraint firstItem="76d-vo-J0b" firstAttribute="height" secondItem="B2O-c9-HY1" secondAttribute="height" multiplier="58:410" priority="999" id="zVx-H8-Ygw"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-TH-Gcp">
@@ -168,7 +198,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tru-ph-XHe" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="83.5" width="832" height="408"/>
+                                                                <rect key="frame" x="0.0" y="7" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
@@ -190,7 +220,7 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eah-0H-44m"/>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eah-0H-44m"/>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-rK-xlB">
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -416,10 +446,10 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-p6-G2c" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <state key="normal" title="返回" backgroundImage="movie_back"/>
+                                                        <state key="normal" title="重播" backgroundImage="movie_back"/>
                                                         <state key="highlighted" backgroundImage="movie_back_on"/>
                                                         <connections>
-                                                            <action selector="backAction:" destination="Pcx-ex-1jL" eventType="touchUpInside" id="WrY-Vm-VOb"/>
+                                                            <action selector="replayAction:" destination="I6Q-hB-tQ2" eventType="touchUpInside" id="6r7-QK-aSy"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1039,7 +1069,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wJ6-vU-Rzd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gjc-eI-Au7">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-ac-gVG"/>
@@ -1062,10 +1092,22 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXu-H3-Z5Z">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KXu-H3-Z5Z" secondAttribute="height" multiplier="1:1" id="U3h-Mw-Jdk"/>
+                                                </constraints>
+                                                <state key="normal" image="ktv_nav_back"/>
+                                                <connections>
+                                                    <action selector="backAction:" destination="KhB-Af-ahG" eventType="touchUpInside" id="Rrh-I2-kDm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="FgS-07-ElN" secondAttribute="trailing" id="7fo-s5-Jlv"/>
+                                            <constraint firstItem="KXu-H3-Z5Z" firstAttribute="centerY" secondItem="xLh-FX-ARX" secondAttribute="centerY" id="8zU-wd-pbh"/>
+                                            <constraint firstAttribute="trailing" secondItem="KXu-H3-Z5Z" secondAttribute="trailing" constant="8" id="Jd2-l6-9jL"/>
+                                            <constraint firstItem="KXu-H3-Z5Z" firstAttribute="height" secondItem="5k3-pP-yDo" secondAttribute="height" multiplier="44:64" id="SaT-dD-qMi"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="VHA-Bb-LtQ"/>
                                             <constraint firstItem="xLh-FX-ARX" firstAttribute="leading" secondItem="5k3-pP-yDo" secondAttribute="leading" id="WX8-W0-TEl"/>
                                             <constraint firstAttribute="bottom" secondItem="FgS-07-ElN" secondAttribute="bottom" id="bF4-Iz-Zj0"/>
@@ -1258,7 +1300,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="container" id="tkV-69-KlD" customClass="TCKTVContainerCell" customModule="tc" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="74.5" width="832" height="408"/>
+                                                                <rect key="frame" x="0.0" y="1" width="832" height="408"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="832" height="408"/>
@@ -1280,7 +1322,7 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7FD-hk-xmq"/>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7FD-hk-xmq"/>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yHa-qc-QJb">
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1506,10 +1548,10 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUR-sA-u6O" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                                        <state key="normal" title="返回" image="ktv_song_bottom_song_list"/>
+                                                        <state key="normal" title="重播" image="ktv_song_bottom_song_list"/>
                                                         <state key="highlighted" backgroundImage="ktv_song_bottom_button_h"/>
                                                         <connections>
-                                                            <action selector="backAction:" destination="KhB-Af-ahG" eventType="touchUpInside" id="8qV-AR-nVF"/>
+                                                            <action selector="replayAction:" destination="nz1-Hp-HLz" eventType="touchUpInside" id="B1B-7q-JlV"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1734,6 +1776,7 @@
         <image name="cinema_window_bg" width="1423" height="801"/>
         <image name="ktv_bottom_bg" width="1027" height="84"/>
         <image name="ktv_bottom_sep" width="1" height="72"/>
+        <image name="ktv_nav_back" width="39" height="38"/>
         <image name="ktv_navbar" width="867" height="45"/>
         <image name="ktv_searchbar" width="251" height="48"/>
         <image name="ktv_song_bottom_button_h" width="113" height="84"/>
@@ -1769,7 +1812,7 @@
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

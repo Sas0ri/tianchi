@@ -52,6 +52,11 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.movieDetailView.delegate = self
 
         self.searchField.inputView = UIView()
+        if #available(iOS 9.0, *) {
+            let item = self.searchField.inputAssistantItem
+            item.leadingBarButtonGroups = []
+            item.trailingBarButtonGroups = []
+        }
         self.deleteButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), for: UIControlState())
         self.doneButton.setBackgroundImage(UIImage(color: UIColor(fromHexCode:"4f4f4f"), cornerRadius:4), for: UIControlState())
         self.movieDetailView.isHidden = true

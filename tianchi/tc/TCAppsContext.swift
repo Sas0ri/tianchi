@@ -45,6 +45,8 @@ class TCAppsContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     func didConnect() {
         UIApplication.shared.keyWindow?.rootViewController?.view.hideHud()
+        TCAppsViewController.currentAppsViewController?.loadData()
+
     }
     
     func didReceivePayload(_ payload: TCSocketPayload) {

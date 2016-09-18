@@ -95,7 +95,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         let page = self.page
         let nextPage = self.page + 1
         let getTotalPage = Int(self.totalPage) == 0
-
+        
         self.client.getMovies(nil, type: self.type, area: self.area, year: self.year, page: page, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
             if flag {
                 self.movies[page] = movies!
@@ -162,7 +162,6 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         let movie = movies![(indexPath as NSIndexPath).row]
         cell.singerNameLabel.text = movie.title
         cell.singerImageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))
-               
         return cell
     }
     
@@ -239,11 +238,6 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.filtView.isHidden = false
-        self.filtViewManager.typeView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
-        self.filtViewManager.areaView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
-        self.filtViewManager.yearView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
-
         self.type = self.types[(indexPath as NSIndexPath).row];
         self.loadData()
     }
@@ -268,6 +262,14 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.collectionView.reloadData()
     }
 
+    @IBAction func filtAction(_ sender: AnyObject) {
+        let indexPath = self.tableView.indexPathForSelectedRow
+        self.filtView.isHidden = false
+        self.filtViewManager.typeView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.filtViewManager.areaView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
+        self.filtViewManager.yearView.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition())
+    }
+    
     @IBAction func hideFiltViewAction(_ sender: AnyObject) {
         self.filtView.isHidden = true
     }
@@ -305,6 +307,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     func onSelectType(_ index: Int) {
+        self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .none)
         self.type = self.types[index]
         self.clearData()
         self.loadData()

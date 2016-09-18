@@ -58,6 +58,12 @@ class TCCinemaPanel: UIView {
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     
+    @IBAction func replayAction(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2011
+        TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

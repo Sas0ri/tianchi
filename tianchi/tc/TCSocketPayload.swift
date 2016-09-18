@@ -9,7 +9,7 @@
 import UIKit
 
 class TCSocketPayload: NSObject {
-    var cmdType:Int! = 0
+    var cmdType:Int = 0
     var cmdContent:JSON?
     
     convenience init(data:Data) {
