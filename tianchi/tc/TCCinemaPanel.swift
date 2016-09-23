@@ -60,7 +60,7 @@ class TCCinemaPanel: UIView {
     
     @IBAction func replayAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = 2011
+        payload.cmdType = 2013
         TCCinemaContext.sharedContext().socketManager.sendPayload(payload)
     }
     

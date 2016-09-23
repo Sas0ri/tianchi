@@ -795,6 +795,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = F66JYDX4C4;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1082,16 +1083,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F66JYDX4C4;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.a.x1140;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
+				PROVISIONING_PROFILE = "b0cfecb7-ab81-44fb-a1cd-026d807d3526";
+				PROVISIONING_PROFILE_SPECIFIER = tt_t;
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1104,16 +1106,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dechao Teng (655SU6QQ4X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F66JYDX4C4;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.a.x1140;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02b6f87e-6af7-4896-9c32-c08f7c940e54";
+				PROVISIONING_PROFILE = "b0cfecb7-ab81-44fb-a1cd-026d807d3526";
+				PROVISIONING_PROFILE_SPECIFIER = tt_t;
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
