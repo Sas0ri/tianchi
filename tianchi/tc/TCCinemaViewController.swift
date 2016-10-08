@@ -50,7 +50,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.area = self.areas.first!
         self.year = self.years.first!
         
-        self.movieDetailView.isHidden = true
+//        self.movieDetailView.isHidden = true
         self.movieDetailView.delegate = self
         self.filtViewManager.delegate = self
         self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
@@ -238,6 +238,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.clearData()
         self.type = self.types[(indexPath as NSIndexPath).row];
         self.loadData()
     }
@@ -275,7 +276,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+       _ = self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: DetailViewDelegate
