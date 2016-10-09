@@ -28,7 +28,7 @@ class TCSoundControlViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+       _ = self.navigationController?.popViewController(animated: true)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {

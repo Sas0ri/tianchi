@@ -65,7 +65,7 @@ class TCKTVMainViewController: UIViewController {
         if self.mainVC.viewControllers.count > 1 {
             self.mainVC.popViewController(animated: false)
         } else {
-            self.navigationController?.popViewController(animated: true)
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 

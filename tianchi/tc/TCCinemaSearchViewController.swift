@@ -249,6 +249,8 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     
     func clearData() {
         self.totalPage = "0"
+        self.page = 1
+        self.updatePage(shouldSelect: false)
         self.movies.removeAll()
         self.collectionView.reloadData()
     }
@@ -274,7 +276,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: false)
+        _ = self.navigationController?.popViewController(animated: false)
     }
     
     func alignSearchField() {

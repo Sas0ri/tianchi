@@ -50,7 +50,7 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.area = self.areas.first!
         self.year = self.years.first!
         
-//        self.movieDetailView.isHidden = true
+        self.movieDetailView.isHidden = true
         self.movieDetailView.delegate = self
         self.filtViewManager.delegate = self
         self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
@@ -259,6 +259,8 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
     
     func clearData() {
         self.totalPage = "0"
+        self.page = 1
+        self.updatePage(shouldSelect: false)
         self.movies.removeAll()
         self.collectionView.reloadData()
     }

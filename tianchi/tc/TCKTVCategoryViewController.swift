@@ -24,7 +24,7 @@ class TCKTVCategoryViewController: UIViewController, UICollectionViewDataSource,
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: false)
+        _ = self.navigationController?.popViewController(animated: false)
     }
     
     // MARK: - CollectionView

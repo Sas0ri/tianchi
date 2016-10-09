@@ -45,7 +45,7 @@ class MCJSONClient: AFHTTPSessionManager {
     }
     
     func MCPost(_ path: String!, parameters: [AnyHashable: Any]!, success: ((JSON) -> Void)!, failure: ((NSError?) -> Void)!) {
-        self.post(path, parameters: parameters, success: { (dataTask, response) -> Void in
+        self.post(path, parameters: parameters, progress: nil, success: { (dataTask, response) -> Void in
             if let json = response {
                 success(JSON(json))
             } else {
@@ -71,7 +71,7 @@ class MCJSONClient: AFHTTPSessionManager {
     }
     
     func MCGet(_ path: String!, parameters: [AnyHashable: Any]!, success: ((JSON) -> Void)!, failure: ((NSError?) -> Void)!) {
-        self.get(path, parameters: parameters, success: { (dataTask, response) -> Void in
+        self.get(path, parameters: parameters, progress: nil, success: { (dataTask, response) -> Void in
             if let json = response {
                 success(JSON(json))
             } else {

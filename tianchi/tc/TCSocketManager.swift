@@ -135,8 +135,8 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
         DDLogInfo("didWriteData: ")
     }
     
-    func socketDidDisconnect(_ sock: GCDAsyncSocket!, withError err: NSError!) {
-        DDLogInfo("socket didDisconnect error: " + err.description)
+    func socketDidDisconnect(_ sock: GCDAsyncSocket!, withError err: Error!) {
+        DDLogInfo("socket didDisconnect error: " + err.localizedDescription)
         self.delegate?.didDisconnect()
     }
 }

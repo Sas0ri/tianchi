@@ -78,7 +78,7 @@ class TCCinemaClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 count = count - 1
                 if count == 0 {
@@ -91,7 +91,7 @@ class TCCinemaClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.path, parameters: params, success: { (json) in
             for jsonMovie in json.arrayValue {
                 let movie = TCMovie()
                 movie.config(jsonMovie)

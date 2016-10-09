@@ -89,7 +89,7 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Panel

@@ -90,7 +90,7 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

@@ -77,7 +77,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -90,7 +90,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.path, parameters: params, success: { (json) in
             for jsonSong in json.arrayValue {
                 let song = TCKTVSong()
                 song.config(jsonSong)
@@ -128,7 +128,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -141,7 +141,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.path, parameters: params, success: { (json) in
             for jsonSong in json.arrayValue {
                 let song = TCKTVSong()
                 song.config(jsonSong)
@@ -179,7 +179,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -192,7 +192,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.path, parameters: params, success: { (json) in
             for jsonSong in json.arrayValue {
                 let song = TCKTVSong()
                 song.config(jsonSong)
@@ -230,7 +230,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.pagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -243,7 +243,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.path, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.path, parameters: params, success: { (json) in
             for jsonSong in json.arrayValue {
                 let song = TCKTVSong()
                 song.config(jsonSong)
@@ -277,7 +277,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.rankingPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.rankingPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -290,7 +290,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.rankingPath, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.rankingPath, parameters: params, success: { (json) in
             for jsonSong in json.arrayValue {
                 let song = TCKTVSong()
                 song.config(jsonSong)
@@ -327,7 +327,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -340,7 +340,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
             for jsonCloud in json.arrayValue {
                 let cloud = TCKTVCloud()
                 cloud.config(jsonCloud)
@@ -391,7 +391,6 @@ class TCKTVSongClient: NSObject {
         })
     }
     
-    //    http://192.168.31.219:8080/TianChiServer/GetCloundList?path=mnt/sata/SOFMIT_DBBSM.db&words=？&language=？&py=？&singerName=？&sortType=？&pageSize=9
     func searchCloudSongs(_ keyword:String?, words:Int, page:Int, limit:Int, language:Int?, singer:String?, type:String?, getTotalPage:Bool, complete: @escaping (_ clouds:[TCKTVCloud]?, _ totalPage:String, _ flag:Bool)->()) {
         var params = [String: AnyObject]()
         if keyword != nil {
@@ -419,7 +418,7 @@ class TCKTVSongClient: NSObject {
         var totalPage = ""
         if getTotalPage {
             count = count + 1
-            self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
+            _ = self.pageClient?.get(self.cloudPagePath, parameters: params, progress: nil, success: { (dataTask, resp) in
                 count = count - 1
                 totalPage = String(data: resp as! Data, encoding: String.Encoding.utf8)!
                 if count == 0 {
@@ -432,7 +431,7 @@ class TCKTVSongClient: NSObject {
                     }
             })
         }
-        self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
+        _ = self.client?.MCGet(self.cloudPath, parameters: params, success: { (json) in
             for jsonCloud in json.arrayValue {
                 let cloud = TCKTVCloud()
                 cloud.config(jsonCloud)

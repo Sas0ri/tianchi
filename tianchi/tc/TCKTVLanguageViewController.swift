@@ -31,7 +31,7 @@ class TCKTVLanguageViewController: UIViewController, UICollectionViewDelegateFlo
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: false)
+        _ = self.navigationController?.popViewController(animated: false)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
