@@ -93,6 +93,10 @@
 		5CE93E9F1D0FF2F500A536AC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */; };
 		5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */; };
 		5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */; };
+		5CF961DA1DB6152300E2003C /* ProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961D91DB6152300E2003C /* ProjectorView.xib */; };
+		5CF961DC1DB61B0300E2003C /* KTVSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */; };
+		5CF961DE1DB6251000E2003C /* KTVSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961DD1DB6251000E2003C /* KTVSettingView.swift */; };
+		5CF961E11DB62EF200E2003C /* TCPluginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */; };
 		5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE61D78083400520B3B /* Apps.storyboard */; };
 		5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE81D780D3000520B3B /* Apps.xcassets */; };
 		5CFEFCEB1D7816BB00520B3B /* TCAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */; };
@@ -214,6 +218,10 @@
 		5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVSingerViewController.swift; sourceTree = "<group>"; };
+		5CF961D91DB6152300E2003C /* ProjectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectorView.xib; sourceTree = "<group>"; };
+		5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTVSettingView.xib; sourceTree = "<group>"; };
+		5CF961DD1DB6251000E2003C /* KTVSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVSettingView.swift; sourceTree = "<group>"; };
+		5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPluginViewController.swift; sourceTree = "<group>"; };
 		5CFEFCE61D78083400520B3B /* Apps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Apps.storyboard; sourceTree = "<group>"; };
 		5CFEFCE81D780D3000520B3B /* Apps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Apps.xcassets; sourceTree = "<group>"; };
 		5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCAppsViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +304,9 @@
 			children = (
 				5C5816131D2251B600A0F513 /* MainBoardButton */,
 				5C5816101D22469E00A0F513 /* MainButton */,
+				5CF961D91DB6152300E2003C /* ProjectorView.xib */,
+				5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */,
+				5CF961DD1DB6251000E2003C /* KTVSettingView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -594,6 +605,7 @@
 		5CE93E371D0E83EA00A536AC /* tc */ = {
 			isa = PBXGroup;
 			children = (
+				5CF961DF1DB62EE000E2003C /* Plugin */,
 				5CA77E2D1D7D3A670013F0C3 /* Cinema */,
 				5CFEFCE51D78082800520B3B /* Apps */,
 				5C88DC351D76C53C00E4803A /* SoundControl */,
@@ -729,6 +741,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5CF961DF1DB62EE000E2003C /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
 		5CFEFCE51D78082800520B3B /* Apps */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,12 +844,14 @@
 			files = (
 				5CE93E991D0FF2F500A536AC /* Lato-Bold.ttf in Resources */,
 				5C88DC2A1D76A60000E4803A /* AC.storyboard in Resources */,
+				5CF961DA1DB6152300E2003C /* ProjectorView.xib in Resources */,
 				5CE93E481D0E8CBF00A536AC /* Images.xcassets in Resources */,
 				5CE93E9C1D0FF2F500A536AC /* Lato-HairlineItalic.ttf in Resources */,
 				5CE93E9E1D0FF2F500A536AC /* Lato-Light.ttf in Resources */,
 				5CE93E441D0E83EA00A536AC /* Main.storyboard in Resources */,
 				5CE93E9D1D0FF2F500A536AC /* Lato-Italic.ttf in Resources */,
 				5CE93E9A1D0FF2F500A536AC /* Lato-BoldItalic.ttf in Resources */,
+				5CF961DC1DB61B0300E2003C /* KTVSettingView.xib in Resources */,
 				5CE93E981D0FF2F500A536AC /* Lato-BlackItalic.ttf in Resources */,
 				5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */,
 				5CE93E9B1D0FF2F500A536AC /* Lato-Hairline.ttf in Resources */,
@@ -910,6 +932,7 @@
 				5C43B4E41D810A7B00BDB6D4 /* TCMovieDetailView.swift in Sources */,
 				5CE93E911D0FF2F500A536AC /* UIProgressView+FlatUI.m in Sources */,
 				5CE93E8D1D0FF2F500A536AC /* UIFont+FlatUI.m in Sources */,
+				5CF961E11DB62EF200E2003C /* TCPluginViewController.swift in Sources */,
 				5CAA02271D17D16F00FE6DBD /* TCKTVSongCell.swift in Sources */,
 				5CE93E871D0FF2F500A536AC /* FUICellBackgroundView.m in Sources */,
 				5CE93E461D0E83EA00A536AC /* TCMainViewController.swift in Sources */,
@@ -923,6 +946,7 @@
 				5C43B4DA1D80FF3D00BDB6D4 /* TCAppsContext.swift in Sources */,
 				5C43B4DC1D80FFF500BDB6D4 /* TCCinemaContext.swift in Sources */,
 				5C50E0AD1D13917F0002AEF1 /* TCVerticalButton.swift in Sources */,
+				5CF961DE1DB6251000E2003C /* KTVSettingView.swift in Sources */,
 				5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */,
 				5CE93E961D0FF2F500A536AC /* UIToolbar+FlatUI.m in Sources */,
 				5C88DC321D76B4D000E4803A /* UIHelper.m in Sources */,

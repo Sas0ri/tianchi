@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="325"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="projector_bg" translatesAutoresizingMaskIntoConstraints="NO" id="X93-3k-1kX"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gYo-Qc-qJp">
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tLe-LJ-e1j">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9a-87-i4g">
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUO-q5-cQj">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="yUO-q5-cQj" secondAttribute="height" multiplier="1:1" id="wV5-T9-2kS"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="projector_switch"/>
+                                            <state key="highlighted" backgroundImage="projector_switch_on"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="yUO-q5-cQj" secondAttribute="trailing" constant="4" id="9hZ-Kt-IpF"/>
+                                        <constraint firstAttribute="bottom" secondItem="yUO-q5-cQj" secondAttribute="bottom" constant="4" id="EHK-2c-cOg"/>
+                                        <constraint firstItem="yUO-q5-cQj" firstAttribute="top" secondItem="l9a-87-i4g" secondAttribute="top" constant="4" id="EzH-ZK-3Uf"/>
+                                        <constraint firstItem="yUO-q5-cQj" firstAttribute="leading" secondItem="l9a-87-i4g" secondAttribute="leading" constant="4" id="lge-9n-YIb"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开/关机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RG-yH-4M0" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="8RG-yH-4M0" firstAttribute="height" secondItem="yUO-q5-cQj" secondAttribute="height" multiplier="1:5" id="AdI-Vy-DJa"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IsH-Jx-rW2">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSI-NJ-dqo">
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-6w-0TX">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Eyh-6w-0TX" secondAttribute="height" multiplier="1:1" id="G6r-vi-k2f"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="projector_show_switch"/>
+                                            <state key="highlighted" backgroundImage="projector_show_switch_on"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Eyh-6w-0TX" secondAttribute="bottom" constant="4" id="8WS-Mj-Kar"/>
+                                        <constraint firstItem="Eyh-6w-0TX" firstAttribute="top" secondItem="TSI-NJ-dqo" secondAttribute="top" constant="4" id="EaW-aA-eP7"/>
+                                        <constraint firstItem="Eyh-6w-0TX" firstAttribute="leading" secondItem="TSI-NJ-dqo" secondAttribute="leading" constant="4" id="hEn-q4-l86"/>
+                                        <constraint firstAttribute="trailing" secondItem="Eyh-6w-0TX" secondAttribute="trailing" constant="4" id="wv8-pf-Kb5"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3D切换" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y52-6t-mPR" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="y52-6t-mPR" firstAttribute="height" secondItem="Eyh-6w-0TX" secondAttribute="height" multiplier="1:5" id="g1c-HI-5fM"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UiE-PS-qLX">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elU-IS-Wh7">
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-jc-VHL">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="B2e-jc-VHL" secondAttribute="height" multiplier="1:1" id="rmz-2P-SGh"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="projector_back"/>
+                                            <state key="highlighted" backgroundImage="projector_back_on"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="B2e-jc-VHL" secondAttribute="bottom" constant="4" id="1hb-K0-ld6"/>
+                                        <constraint firstItem="B2e-jc-VHL" firstAttribute="top" secondItem="elU-IS-Wh7" secondAttribute="top" constant="4" id="9HX-bU-qpe"/>
+                                        <constraint firstItem="B2e-jc-VHL" firstAttribute="leading" secondItem="elU-IS-Wh7" secondAttribute="leading" constant="4" id="a3c-Sl-VDU"/>
+                                        <constraint firstAttribute="trailing" secondItem="B2e-jc-VHL" secondAttribute="trailing" constant="4" id="rC9-5Z-wLY"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="返回" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJl-Bm-g5P" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="xJl-Bm-g5P" firstAttribute="height" secondItem="B2e-jc-VHL" secondAttribute="height" multiplier="1:5" id="bXA-eM-Lkd"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="X93-3k-1kX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3kR-RM-XZX"/>
+                <constraint firstAttribute="bottom" secondItem="X93-3k-1kX" secondAttribute="bottom" id="6YJ-go-NzE"/>
+                <constraint firstAttribute="trailing" secondItem="X93-3k-1kX" secondAttribute="trailing" id="7ea-ge-Acm"/>
+                <constraint firstItem="gYo-Qc-qJp" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="260:650" id="BA9-HL-hhz"/>
+                <constraint firstItem="gYo-Qc-qJp" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="920:1200" id="GTL-Gk-lFw"/>
+                <constraint firstItem="gYo-Qc-qJp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Jgb-8K-zF9"/>
+                <constraint firstItem="X93-3k-1kX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XDc-6S-oqn"/>
+                <constraint firstItem="gYo-Qc-qJp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qYj-jc-zEv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34" y="55"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="projector_back" width="126" height="126"/>
+        <image name="projector_back_on" width="126" height="126"/>
+        <image name="projector_bg" width="1199" height="652"/>
+        <image name="projector_show_switch" width="126" height="126"/>
+        <image name="projector_show_switch_on" width="126" height="126"/>
+        <image name="projector_switch" width="126" height="126"/>
+        <image name="projector_switch_on" width="126" height="126"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

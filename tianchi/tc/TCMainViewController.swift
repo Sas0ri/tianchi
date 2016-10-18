@@ -10,8 +10,15 @@ import UIKit
 
 class TCMainViewController: UIViewController {
 
+    var projectorView:KTVSettingView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.projectorView = UINib(nibName: "KTVSettingView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! KTVSettingView
+        self.projectorView.frame = CGRect(x: 0, y: 0, width: 600/1024*self.view.bounds.size.width, height: 325/768*self.view.bounds.size.height)
+        self.projectorView.center = self.view.center
+        self.view.addSubview(self.projectorView)
+        self.projectorView.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -45,6 +52,11 @@ class TCMainViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func pluginAction(_ sender: AnyObject) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "plugin_mode")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func cinemaAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2206
@@ -62,6 +74,10 @@ class TCMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func showProjectorView() {
+        
     }
 }
 
