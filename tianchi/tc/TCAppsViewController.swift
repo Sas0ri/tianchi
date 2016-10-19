@@ -31,7 +31,9 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.backButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         self.voiceUpButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         self.voiceDownButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        TCAppsContext.sharedContext().connect()
+        if tcVersion == .v800s {
+            TCAppsContext.sharedContext().connect()
+        }
         TCAppsViewController.currentAppsViewController = self
         self.loadData()
     }
@@ -39,7 +41,11 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
     func loadData() {
         let payload = TCSocketPayload()
         payload.cmdType = 2112
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
 
     func handleData(_ data:String) {
@@ -79,7 +85,11 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let payload = TCSocketPayload()
         payload.cmdType = 2104
         payload.cmdContent = JSON(app as AnyObject)
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+                if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
 
@@ -96,65 +106,107 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBAction func mutaAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2103
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func upAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2105
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func leftAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2107
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func downAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2106
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func rightAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2108
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func okAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2109
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func menuAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2110
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func returnAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2111
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func volumnUpAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2114
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     @IBAction func volumnDownAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2115
-        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        if tcVersion == .full {
+            TCContext.sharedContext().socketManager.sendPayload(payload)
+        } else {
+            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        }
     }
     
     deinit {
-        TCAppsContext.sharedContext().disconnect()
+        if tcVersion == .v800s {
+            TCAppsContext.sharedContext().disconnect()
+        }
     }
     /*
     // MARK: - Navigation

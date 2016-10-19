@@ -26,6 +26,14 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         }
     }
     
+    var ktvServerAddress:String? {
+        didSet {
+            if let sa = ktvServerAddress {
+                UserDefaults.standard.set(sa, forKey: "KSA")
+            }
+        }
+    }
+    
     var socketManager = TCSocketManager()
     var verifyAlertView: UIAlertView?
 
@@ -41,7 +49,14 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         UISearchBarAppearance.setupSearchBar()
         self.socketManager.delegate = self
         self.socketManager.heartbeatCmd = 2202
+        if tcVersion == .full {
+            self.socketManager.startHeartbeatCmd = 2201
+        }
         self.serverAddress = UserDefaults.standard.object(forKey: "SA") as? String
+        if tcVersion == .full {
+            self.ktvServerAddress = UserDefaults.standard.object(forKey: "KSA") as? String
+        }
+
         if self.serverAddress != nil {
             self.socketManager.address = self.serverAddress
             self.socketManager.port = TCContext.port

@@ -19,7 +19,7 @@ class TCCinemaContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     var serverAddress:String? {
         get {
-            return TCContext.sharedContext().serverAddress
+            return tcVersion == .full ? TCContext.sharedContext().ktvServerAddress : TCContext.sharedContext().serverAddress
         }
     }
     

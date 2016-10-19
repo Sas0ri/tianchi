@@ -15,9 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         // Override point for customization after application launch.
         DDLog.add(DDTTYLogger.sharedInstance()) // TTY = Xcode console
         _ = TCContext.sharedContext()
+        
+        var vc:UIViewController?
+        if tcVersion == .v800s {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "v800")
+        } else if tcVersion == .full {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "full")
+        }
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
         return true
     }
 
