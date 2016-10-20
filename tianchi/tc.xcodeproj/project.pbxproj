@@ -93,13 +93,16 @@
 		5CE93E9F1D0FF2F500A536AC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */; };
 		5CE93EA01D0FF2F500A536AC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */; };
 		5CE93EA41D11330100A536AC /* TCKTVSingerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */; };
-		5CF961DA1DB6152300E2003C /* ProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961D91DB6152300E2003C /* ProjectorView.xib */; };
+		5CF5C77A1DB8A778007FE3E7 /* KTVProjectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF5C7791DB8A778007FE3E7 /* KTVProjectorView.swift */; };
+		5CF961DA1DB6152300E2003C /* KTVProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961D91DB6152300E2003C /* KTVProjectorView.xib */; };
 		5CF961DC1DB61B0300E2003C /* KTVSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */; };
 		5CF961DE1DB6251000E2003C /* KTVSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961DD1DB6251000E2003C /* KTVSettingView.swift */; };
 		5CF961E11DB62EF200E2003C /* TCPluginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */; };
 		5CF961E31DB74D0500E2003C /* Plugin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961E21DB74D0500E2003C /* Plugin.storyboard */; };
 		5CF961E51DB7505800E2003C /* Plugin.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961E41DB7505800E2003C /* Plugin.xcassets */; };
 		5CF961E71DB758B400E2003C /* VersionDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E61DB758B400E2003C /* VersionDefine.swift */; };
+		5CF961E91DB893E700E2003C /* TCFullAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E81DB893E700E2003C /* TCFullAppsViewController.swift */; };
+		5CF961EB1DB894E100E2003C /* TCTVPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961EA1DB894E100E2003C /* TCTVPanelView.swift */; };
 		5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE61D78083400520B3B /* Apps.storyboard */; };
 		5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE81D780D3000520B3B /* Apps.xcassets */; };
 		5CFEFCEB1D7816BB00520B3B /* TCAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */; };
@@ -221,13 +224,16 @@
 		5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVSingerViewController.swift; sourceTree = "<group>"; };
-		5CF961D91DB6152300E2003C /* ProjectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectorView.xib; sourceTree = "<group>"; };
+		5CF5C7791DB8A778007FE3E7 /* KTVProjectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVProjectorView.swift; sourceTree = "<group>"; };
+		5CF961D91DB6152300E2003C /* KTVProjectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTVProjectorView.xib; sourceTree = "<group>"; };
 		5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTVSettingView.xib; sourceTree = "<group>"; };
 		5CF961DD1DB6251000E2003C /* KTVSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTVSettingView.swift; sourceTree = "<group>"; };
 		5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPluginViewController.swift; sourceTree = "<group>"; };
 		5CF961E21DB74D0500E2003C /* Plugin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Plugin.storyboard; sourceTree = "<group>"; };
 		5CF961E41DB7505800E2003C /* Plugin.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Plugin.xcassets; sourceTree = "<group>"; };
 		5CF961E61DB758B400E2003C /* VersionDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDefine.swift; sourceTree = "<group>"; };
+		5CF961E81DB893E700E2003C /* TCFullAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCFullAppsViewController.swift; sourceTree = "<group>"; };
+		5CF961EA1DB894E100E2003C /* TCTVPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCTVPanelView.swift; sourceTree = "<group>"; };
 		5CFEFCE61D78083400520B3B /* Apps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Apps.storyboard; sourceTree = "<group>"; };
 		5CFEFCE81D780D3000520B3B /* Apps.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Apps.xcassets; sourceTree = "<group>"; };
 		5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCAppsViewController.swift; sourceTree = "<group>"; };
@@ -310,9 +316,11 @@
 			children = (
 				5C5816131D2251B600A0F513 /* MainBoardButton */,
 				5C5816101D22469E00A0F513 /* MainButton */,
-				5CF961D91DB6152300E2003C /* ProjectorView.xib */,
+				5CF961D91DB6152300E2003C /* KTVProjectorView.xib */,
 				5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */,
 				5CF961DD1DB6251000E2003C /* KTVSettingView.swift */,
+				5CF961EA1DB894E100E2003C /* TCTVPanelView.swift */,
+				5CF5C7791DB8A778007FE3E7 /* KTVProjectorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -765,6 +773,7 @@
 				5CFEFCE81D780D3000520B3B /* Apps.xcassets */,
 				5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */,
 				5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */,
+				5CF961E81DB893E700E2003C /* TCFullAppsViewController.swift */,
 			);
 			name = Apps;
 			sourceTree = "<group>";
@@ -853,7 +862,7 @@
 			files = (
 				5CE93E991D0FF2F500A536AC /* Lato-Bold.ttf in Resources */,
 				5C88DC2A1D76A60000E4803A /* AC.storyboard in Resources */,
-				5CF961DA1DB6152300E2003C /* ProjectorView.xib in Resources */,
+				5CF961DA1DB6152300E2003C /* KTVProjectorView.xib in Resources */,
 				5CE93E481D0E8CBF00A536AC /* Images.xcassets in Resources */,
 				5CE93E9C1D0FF2F500A536AC /* Lato-HairlineItalic.ttf in Resources */,
 				5CE93E9E1D0FF2F500A536AC /* Lato-Light.ttf in Resources */,
@@ -980,10 +989,12 @@
 				5C88DC3B1D76D3EB00E4803A /* TCSoundControlViewController.swift in Sources */,
 				5C5816151D2251C800A0F513 /* TCKTVMainButton.swift in Sources */,
 				5CE93E4D1D0FDEA900A536AC /* TCKTVMainBoardViewController.swift in Sources */,
+				5CF961E91DB893E700E2003C /* TCFullAppsViewController.swift in Sources */,
 				5CAA02161D17CCE500FE6DBD /* SwiftyJSON.swift in Sources */,
 				5C4F21241D61C7C3009CD476 /* UISearchBarAppearance.m in Sources */,
 				5CAA02221D17D03100FE6DBD /* CocoaLumberjackSwift.swift in Sources */,
 				5C88DC2E1D76AFF200E4803A /* TCACViewController.swift in Sources */,
+				5CF961EB1DB894E100E2003C /* TCTVPanelView.swift in Sources */,
 				5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */,
 				5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */,
 				5CAA02411D191DCA00FE6DBD /* TCKTVSingerClient.swift in Sources */,
@@ -1004,6 +1015,7 @@
 				5CE93E4B1D0E9CA400A536AC /* TCKTVMainViewController.swift in Sources */,
 				5CAA02311D19150500FE6DBD /* TCKTVSong.swift in Sources */,
 				5C50E0A81D11467C0002AEF1 /* TCKTVCategoryViewController.swift in Sources */,
+				5CF5C77A1DB8A778007FE3E7 /* KTVProjectorView.swift in Sources */,
 				5CE93E411D0E83EA00A536AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

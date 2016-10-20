@@ -124,6 +124,7 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
             self.delegate?.didHandShake()
         } else if payload.cmdType == self.heartbeatCmd {
             self.startTimeoutTimer()
+            self.delegate?.didReceivePayload(payload)
         } else {
             self.delegate?.didReceivePayload(payload)
         }

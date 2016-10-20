@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Yff-UL-maF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6T2-Ar-Vrr">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="5G9-Cq-AcR"/>
@@ -118,11 +118,11 @@
                         <viewControllerLayoutGuide type="bottom" id="eFf-Ro-0Hj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OcS-g3-RCh">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="tdY-Me-32o"/>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPk-3y-skb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPk-3y-skb" customClass="TCTVPanelView" customModule="tc" customModuleProvider="target">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plugin_control_bg" translatesAutoresizingMaskIntoConstraints="NO" id="rVt-JA-PLK"/>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqC-wK-M2F">
@@ -132,30 +132,45 @@
                                                     <constraint firstAttribute="width" secondItem="cQy-hb-Frm" secondAttribute="height" multiplier="1:2" id="k88-D6-4bG"/>
                                                 </constraints>
                                                 <state key="normal" image="apps_button_right"/>
+                                                <connections>
+                                                    <action selector="rightActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="pXr-qA-bpZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ON7-qW-LCb">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ON7-qW-LCb" secondAttribute="height" multiplier="1:2" id="w4s-Bf-8NB"/>
                                                 </constraints>
                                                 <state key="normal" image="apps_button_left"/>
+                                                <connections>
+                                                    <action selector="leftActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="d2c-vq-JSH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-7M-VOr">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="v8s-7M-VOr" secondAttribute="height" multiplier="1:1" id="mgn-D5-GzV"/>
                                                 </constraints>
                                                 <state key="normal" image="apps_button_ok"/>
+                                                <connections>
+                                                    <action selector="doneActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="Aq8-er-4Tp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpV-Fn-OPG">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="GpV-Fn-OPG" secondAttribute="height" multiplier="2:1" id="3mn-gy-MFz"/>
                                                 </constraints>
                                                 <state key="normal" image="apps_button_up"/>
+                                                <connections>
+                                                    <action selector="upActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="4ZG-I1-8jF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-On-jd2">
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="QDW-On-jd2" secondAttribute="height" multiplier="2:1" id="GSi-de-cNO"/>
                                                 </constraints>
                                                 <state key="normal" image="apps_button_down"/>
+                                                <connections>
+                                                    <action selector="downActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="nMF-rm-hW2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,6 +202,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="进/出仓" backgroundImage="apps_button_bg"/>
+                                        <connections>
+                                            <action selector="inOutActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="JmG-IK-wWo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k77-C2-Bxv">
                                         <constraints>
@@ -194,6 +212,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" backgroundImage="plugin_power_off"/>
+                                        <connections>
+                                            <action selector="powerActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="3jK-U8-YJN"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHO-Gp-k2q" userLabel="Margin left">
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,14 +236,23 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="音量+" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="volumnUpActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="RSZ-To-VOD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQC-yM-0h7">
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="音量-" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="volumnDownActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="cXD-ip-MjV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMc-ws-s2M">
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="快进" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="forwardActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="Cpn-b6-ocs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -238,14 +268,23 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="快退" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="backwardActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="3nq-o4-X4b"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ary-6m-4Vn">
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="停止" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="stopActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="ayQ-Aa-KSW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S2-pw-K7N">
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="返回" backgroundImage="apps_button_bg"/>
+                                                <connections>
+                                                    <action selector="backActionWithSender:" destination="yPk-3y-skb" eventType="touchUpInside" id="Kud-QG-tbu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -288,6 +327,21 @@
                                     <constraint firstItem="SfX-Fh-W18" firstAttribute="leading" secondItem="YyT-yg-6Gf" secondAttribute="leading" id="xl9-e9-dKg"/>
                                     <constraint firstItem="YyT-yg-6Gf" firstAttribute="height" secondItem="nqC-wK-M2F" secondAttribute="height" multiplier="11:36" id="zRL-Lj-I5q"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="backButton" destination="8S2-pw-K7N" id="2fq-5f-k7g"/>
+                                    <outlet property="backwardButton" destination="gpn-FM-YQt" id="tch-Se-dge"/>
+                                    <outlet property="doneButton" destination="v8s-7M-VOr" id="RC5-Vj-uLj"/>
+                                    <outlet property="downButton" destination="QDW-On-jd2" id="V7u-Ut-hot"/>
+                                    <outlet property="forwardButton" destination="cMc-ws-s2M" id="9Ma-UH-swE"/>
+                                    <outlet property="leftButton" destination="ON7-qW-LCb" id="GqO-QF-qb4"/>
+                                    <outlet property="outButton" destination="YyT-yg-6Gf" id="4kD-6G-Jhy"/>
+                                    <outlet property="powerButton" destination="k77-C2-Bxv" id="8yd-Hg-vDl"/>
+                                    <outlet property="rightButton" destination="cQy-hb-Frm" id="6Xd-Ry-7ak"/>
+                                    <outlet property="stopButton" destination="ary-6m-4Vn" id="oyr-lc-ujS"/>
+                                    <outlet property="upButton" destination="GpV-Fn-OPG" id="KuK-3m-oYH"/>
+                                    <outlet property="volumnDownButton" destination="dQC-yM-0h7" id="FKE-Vw-Jz6"/>
+                                    <outlet property="volumnUpButton" destination="kTB-02-Gme" id="SLt-pg-lzp"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-sa-L3B">
                                 <subviews>

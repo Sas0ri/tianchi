@@ -13,7 +13,7 @@ class TCACViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var fontSize:CGFloat = 130
+        var fontSize:CGFloat = 100
         if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 50
         }
@@ -36,6 +36,87 @@ class TCACViewController: UIViewController {
     @IBAction func backAction(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func tempUp(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2217
+        let temper = Int(self.temperatureLabel.text!)! + 1
+        if temper > 31 {
+            return
+        }
+        self.temperatureLabel.text = String(temper)
+        payload.cmdContent = JSON(self.temperatureLabel.text!)
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func tempDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2217
+        let temper = Int(self.temperatureLabel.text!)! - 1
+        if temper < 16 {
+            return
+        }
+        self.temperatureLabel.text = String(temper)
+        payload.cmdContent = JSON(self.temperatureLabel.text!)
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func coldMode(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2216
+        payload.cmdContent = JSON("制冷")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func warmMode(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2216
+        payload.cmdContent = JSON("制热")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func dehumidifier(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2216
+        payload.cmdContent = JSON("抽湿")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func blow(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2216
+        payload.cmdContent = JSON("送风")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func auto(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2218
+        payload.cmdContent = JSON("自动")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func lowWind(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2218
+        payload.cmdContent = JSON("低风")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func normalWind(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2218
+        payload.cmdContent = JSON("中风")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func highWind(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2218
+        payload.cmdContent = JSON("高风")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
     /*
     // MARK: - Navigation
 

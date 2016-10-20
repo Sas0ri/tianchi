@@ -35,6 +35,82 @@ class TCSoundControlViewController: UIViewController {
         return .lightContent
     }
 
+    @IBAction func cinemaVolumnUp(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPM" + ",音量+")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func cinemaVolumnDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPM" + ",音量-")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvVolumnUp(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",音量+")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvVolumnDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",音量-")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvReverbUp(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",混响+")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvReverbDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",混响-")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvPhoneUp(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",话筒+")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvPhoneDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",话筒-")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvKeyUpDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",升调")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvKeyNormal(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",平调")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
+    
+    @IBAction func ktvKeyDown(_ sender: AnyObject) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS" + ",降调")
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+    }
     /*
     // MARK: - Navigation
 

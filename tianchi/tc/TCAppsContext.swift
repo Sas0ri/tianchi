@@ -12,6 +12,8 @@ let _appsContext = TCAppsContext()
 
 class TCAppsContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
+    static let CanLoadAppsNotification = "CanLoadAppsNotification"
+    static let DidLoadAppsNotification = "DidLoadAppsNotification"
     
     class func sharedContext() -> TCAppsContext {
         return _appsContext
@@ -45,13 +47,12 @@ class TCAppsContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     func didConnect() {
         UIApplication.shared.keyWindow?.rootViewController?.view.hideHud()
-        TCAppsViewController.currentAppsViewController?.loadData()
-
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TCAppsContext.CanLoadAppsNotification), object: self)
     }
     
     func didReceivePayload(_ payload: TCSocketPayload) {
         if payload.cmdType == 2112 {
-            TCAppsViewController.currentAppsViewController?.handleData(payload.cmdContent!.stringValue)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: TCAppsContext.DidLoadAppsNotification), object: payload.cmdContent!.stringValue)
         }
     }
     

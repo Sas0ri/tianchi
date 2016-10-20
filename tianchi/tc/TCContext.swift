@@ -8,6 +8,8 @@
 
 import UIKit
 
+let LightStatusChangedNotification = "LightStatusChangedNotification"
+
 let _sharedContext:TCContext = TCContext()
 
 class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
@@ -66,12 +68,26 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         }
     }
     
+    func disconnect() {
+        NSObject.cancelPreviousPerformRequests(withTarget: self.socketManager)
+        self.socketManager.disConnect()
+        UIApplication.shared.keyWindow?.rootViewController?.view.hideHud()
+    }
+    
     func didConnect() {
-        
+        if tcVersion == .full {
+             NotificationCenter.default.post(name: NSNotification.Name(rawValue: TCAppsContext.CanLoadAppsNotification), object: self)
+        }
     }
     
     func didReceivePayload(_ payload: TCSocketPayload) {
-
+        if payload.cmdType == 2112 {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: TCAppsContext.DidLoadAppsNotification), object: payload.cmdContent!.stringValue)
+        }
+        
+        if tcVersion == .full && payload.cmdType == 2202 && payload.cmdContent?.string != nil {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: LightStatusChangedNotification), object: (payload.cmdContent?.string)!)
+        }
     }
     
     func connectFailed() {

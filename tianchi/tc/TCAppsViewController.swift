@@ -17,11 +17,13 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var voiceDownButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    weak static var currentAppsViewController:TCAppsViewController?
     var apps:[String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(TCAppsViewController.loadData), name: NSNotification.Name(TCAppsContext.CanLoadAppsNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TCAppsViewController.handleData(_:)), name: NSNotification.Name(TCAppsContext.DidLoadAppsNotification), object: nil)
+
         var fontSize:CGFloat = 14
         if UI_USER_INTERFACE_IDIOM() == .phone {
             fontSize = 8
@@ -31,24 +33,19 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
         self.backButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         self.voiceUpButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         self.voiceDownButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        if tcVersion == .v800s {
-            TCAppsContext.sharedContext().connect()
-        }
-        TCAppsViewController.currentAppsViewController = self
+        TCAppsContext.sharedContext().connect()
+        
         self.loadData()
     }
     
     func loadData() {
         let payload = TCSocketPayload()
         payload.cmdType = 2112
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
 
-    func handleData(_ data:String) {
+    func handleData(_ sender:Notification) {
+        let data = sender.object as! String
         self.apps = data.components(separatedBy: ",")
         self.apps = self.apps.filter({ (app) -> Bool in
             return app.characters.count > 0
@@ -85,12 +82,10 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let payload = TCSocketPayload()
         payload.cmdType = 2104
         payload.cmdContent = JSON(app as AnyObject)
-                if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
+        
     }
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -106,108 +101,68 @@ class TCAppsViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBAction func mutaAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2103
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func upAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2105
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func leftAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2107
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func downAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2106
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func rightAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2108
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func okAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2109
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func menuAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2110
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func returnAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2111
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnUpAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2114
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func volumnDownAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2115
-        if tcVersion == .full {
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-        } else {
-            TCAppsContext.sharedContext().socketManager.sendPayload(payload)
-        }
+        TCAppsContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     deinit {
-        if tcVersion == .v800s {
-            TCAppsContext.sharedContext().disconnect()
-        }
+        NotificationCenter.default.removeObserver(self)
+        TCAppsContext.sharedContext().disconnect()
     }
+    
     /*
     // MARK: - Navigation
 

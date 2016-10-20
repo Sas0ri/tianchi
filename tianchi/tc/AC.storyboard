@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="ZVP-xP-vqU">
             <objects>
                 <navigationController id="NAZ-vy-ho4" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PP5-EB-Lae">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PP5-EB-Lae">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -35,57 +35,53 @@
                         <viewControllerLayoutGuide type="bottom" id="5aH-iV-p9c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sei-M3-fuQ">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="sGw-o3-bMo">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="sGw-o3-bMo"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTd-kd-OMU">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="380"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-Nd-uXg">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="380"/>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-Nd-uXg"/>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="SH0-eG-9Ec">
-                                        <rect key="frame" x="20" y="15" width="984" height="350"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="dzM-YB-n09">
-                                        <rect key="frame" x="437" y="140" width="150" height="100"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="dzM-YB-n09">
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="130"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="Bvg-bv-kdU">
-                                        <rect key="frame" x="595" y="140" width="61" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-gF-YUb" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                        <rect key="frame" x="437" y="88" width="150" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="VqP-8K-Xuu"/>
                                         </constraints>
                                         <state key="normal" image="up"/>
                                         <state key="highlighted" image="up_h"/>
+                                        <connections>
+                                            <action selector="tempUp:" destination="ShH-LI-xjU" eventType="touchUpInside" id="KaR-UD-GGf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr4-NM-cZa" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
-                                        <rect key="frame" x="437" y="240" width="150" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2FV-8u-k3b"/>
                                         </constraints>
                                         <state key="normal" image="down"/>
                                         <state key="highlighted" image="down_h"/>
+                                        <connections>
+                                            <action selector="tempDown:" destination="ShH-LI-xjU" eventType="touchUpInside" id="KnK-IU-9yO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="height" secondItem="uTd-kd-OMU" secondAttribute="height" multiplier="100:380" id="1Go-WL-Hhc"/>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="centerY" secondItem="uTd-kd-OMU" secondAttribute="centerY" id="43Q-Yd-OuN"/>
@@ -112,30 +108,28 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Sx-V0-sfQ">
-                                <rect key="frame" x="30" y="464" width="964" height="284"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Aq-C5-Ac9">
-                                        <rect key="frame" x="0.0" y="0.0" width="964" height="138"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyf-Y9-psd">
-                                                <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-eY-n5y" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="cold" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="cold_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="coldMode:" destination="ShH-LI-xjU" eventType="touchUpInside" id="n34-fF-dgb"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="制冷" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8x3-Uo-Z7l">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="POt-OI-3xm"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="g0d-eY-n5y" secondAttribute="bottom" id="2Pq-jx-cig"/>
                                                     <constraint firstAttribute="bottom" secondItem="8x3-Uo-Z7l" secondAttribute="bottom" constant="8" id="IAq-Dr-UpT"/>
@@ -147,24 +141,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-U9-PLP">
-                                                <rect key="frame" x="243" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqd-Tk-xRY" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="warm" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="warm_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="warmMode:" destination="ShH-LI-xjU" eventType="touchUpInside" id="dcc-42-P5Q"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="制热" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-I8-sXb">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Gra-bF-IkG"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Vqd-Tk-xRY" secondAttribute="trailing" id="Tgj-lF-DI7"/>
                                                     <constraint firstItem="Vqd-Tk-xRY" firstAttribute="leading" secondItem="WLx-U9-PLP" secondAttribute="leading" id="Wjt-HW-7LT"/>
@@ -176,24 +170,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-Vs-FhX">
-                                                <rect key="frame" x="486" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-hc-vol" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="wet" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wet_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="dehumidifier:" destination="ShH-LI-xjU" eventType="touchUpInside" id="oVv-vm-Ald"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抽湿" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DcR-LE-Xzb">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="IU1-DM-oQF"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="DcR-LE-Xzb" firstAttribute="width" secondItem="q6X-Vs-FhX" secondAttribute="width" multiplier="40:233" id="4Lr-si-eDY"/>
                                                     <constraint firstAttribute="trailing" secondItem="dSY-hc-vol" secondAttribute="trailing" id="9fz-o4-qT4"/>
@@ -205,24 +199,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRt-DP-OeE">
-                                                <rect key="frame" x="729" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBy-bw-4R9" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="wind" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="blow:" destination="ShH-LI-xjU" eventType="touchUpInside" id="dEZ-rs-OyR"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RCM-CE-hSb">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Kqt-eF-669"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="TBy-bw-4R9" firstAttribute="top" secondItem="rRt-DP-OeE" secondAttribute="top" id="5Vk-ea-cN0"/>
                                                     <constraint firstAttribute="trailing" secondItem="TBy-bw-4R9" secondAttribute="trailing" id="5WI-pM-eQx"/>
@@ -241,27 +235,26 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Si-fc-h2G">
-                                        <rect key="frame" x="0.0" y="146" width="964" height="138"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ma3-oI-uRt">
-                                                <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fC-24-CJN" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="auto" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="auto_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="auto:" destination="ShH-LI-xjU" eventType="touchUpInside" id="yzg-M0-vdx"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QRx-0S-LcP">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="mJc-JC-tVT"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="QRx-0S-LcP" secondAttribute="trailing" constant="8" id="KPO-Nz-hQU"/>
                                                     <constraint firstItem="2fC-24-CJN" firstAttribute="leading" secondItem="Ma3-oI-uRt" secondAttribute="leading" id="b3h-Yn-e8p"/>
@@ -273,24 +266,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfN-fM-Y0k">
-                                                <rect key="frame" x="243" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biq-LO-jdz" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="wind_low" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_low_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="lowWind:" destination="ShH-LI-xjU" eventType="touchUpInside" id="2C3-6V-tUx"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="低风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="INH-gU-uhz">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="6E7-HY-9R3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="INH-gU-uhz" secondAttribute="bottom" constant="8" id="C9a-eD-FsT"/>
                                                     <constraint firstItem="biq-LO-jdz" firstAttribute="top" secondItem="hfN-fM-Y0k" secondAttribute="top" id="G2h-P6-gFT"/>
@@ -302,24 +295,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-IJ-eoo">
-                                                <rect key="frame" x="486" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWm-B7-9Nz" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="wind_mid" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_mid_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="normalWind:" destination="ShH-LI-xjU" eventType="touchUpInside" id="gTA-IF-v3Y"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LYZ-oy-Q6J">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Djz-ap-qhb"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="dWm-B7-9Nz" firstAttribute="leading" secondItem="M7w-IJ-eoo" secondAttribute="leading" id="31F-AJ-XBJ"/>
                                                     <constraint firstItem="LYZ-oy-Q6J" firstAttribute="width" secondItem="M7w-IJ-eoo" secondAttribute="width" multiplier="40:233" id="54a-F6-vQ1"/>
@@ -331,24 +324,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbm-1r-Nk8">
-                                                <rect key="frame" x="729" y="0.0" width="235" height="138"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cax-mR-7yB" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="138"/>
                                                         <state key="normal" image="wind_high" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_high_h" backgroundImage="main_button_highlighted"/>
+                                                        <connections>
+                                                            <action selector="highWind:" destination="ShH-LI-xjU" eventType="touchUpInside" id="ZcQ-le-41W"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ovk-jO-EJm">
-                                                        <rect key="frame" x="187" y="109" width="40" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="JOf-TB-qlE"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="cax-mR-7yB" firstAttribute="leading" secondItem="Fbm-1r-Nk8" secondAttribute="leading" id="9nJ-xb-bJc"/>
                                                     <constraint firstItem="cax-mR-7yB" firstAttribute="top" secondItem="Fbm-1r-Nk8" secondAttribute="top" id="GJy-I3-QQj"/>
@@ -376,7 +369,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6Sx-V0-sfQ" secondAttribute="bottom" constant="20" id="7fX-EV-U2i"/>
                             <constraint firstItem="sGw-o3-bMo" firstAttribute="leading" secondItem="Sei-M3-fuQ" secondAttribute="leading" id="DBg-xU-hUh"/>
@@ -395,7 +388,7 @@
                     <navigationItem key="navigationItem" title="空调控制" id="rWW-o5-4M3">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="1yS-rv-5AX">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Vi-hH-8wG">
-                                <rect key="frame" x="963" y="2" width="41" height="40"/>
+                                <rect key="frame" x="707" y="2" width="41" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ktv_nav_back"/>
                                 <connections>
@@ -404,7 +397,6 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="temperatureLabel" destination="dzM-YB-n09" id="NCj-Lm-i1G"/>
                     </connections>
@@ -441,4 +433,9 @@
         <image name="wind_mid" width="130" height="122"/>
         <image name="wind_mid_h" width="130" height="122"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>
