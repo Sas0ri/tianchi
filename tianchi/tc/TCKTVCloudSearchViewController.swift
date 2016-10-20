@@ -111,24 +111,26 @@ class TCKTVCloudSearchViewController: UIViewController, UICollectionViewDelegate
         let getTotalPage = Int(self.totalPage) == 0
         
         self.client.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category, getTotalPage: getTotalPage) {
+           [weak self]
             (clouds, totalPage, flag) in
             if flag {
-                self.clouds[page] = clouds!
-                self.collectionView.reloadData()
+                self?.clouds[page] = clouds!
+                self?.collectionView.reloadData()
                 if getTotalPage {
-                    self.totalPage = totalPage
-                    self.updatePage(shouldSelect: false)
+                    self?.totalPage = totalPage
+                    self?.updatePage(shouldSelect: false)
                 }
             } else {
-                self.view.showTextAndHide("加载失败")
+                self?.view.showTextAndHide("加载失败")
             }
         }
         //预加载
         self.nextPageClient.searchCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, language: self.language?.rawValue, singer: self.singer, type: self.category, getTotalPage: false) {
+            [weak self]
             (clouds, totalPage, flag) in
             
             if flag {
-                self.clouds[nextPage] = clouds!
+                self?.clouds[nextPage] = clouds!
             }
         }
         

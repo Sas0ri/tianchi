@@ -130,60 +130,68 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         let getTotalPage = Int(self.totalPage) == 0
         
         if self.singer != nil {
-            self.client.getSongsBySinger(self.searchBar.text, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
+            self.client.getSongsBySinger(self.searchBar.text, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[page] = songs!
-                    self.collectionView.reloadData()
+                    self?.songs[page] = songs!
+                    self?.collectionView.reloadData()
                     if getTotalPage {
-                        self.totalPage = totalPage
-                        self.updatePage(shouldSelect: false)
+                        self?.totalPage = totalPage
+                        self?.updatePage(shouldSelect: false)
                     }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
         
         if self.language != nil {
-            self.client.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
+            self.client.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[page] = songs!
-                    self.collectionView.reloadData()
+                    self?.songs[page] = songs!
+                    self?.collectionView.reloadData()
                     if getTotalPage {
-                        self.totalPage = totalPage
-                        self.updatePage(shouldSelect: false)
+                        self?.totalPage = totalPage
+                        self?.updatePage(shouldSelect: false)
                     }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
         
         if self.category != nil {
-            self.client.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
+            self.client.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: self.page, limit:limit, getTotalPage: getTotalPage, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[page] = songs!
-                    self.collectionView.reloadData()
+                    self?.songs[page] = songs!
+                    self?.collectionView.reloadData()
                     if getTotalPage {
-                        self.totalPage = totalPage
-                        self.updatePage(shouldSelect: false)
+                        self?.totalPage = totalPage
+                        self?.updatePage(shouldSelect: false)
                     }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
         if self.ranking {
-            self.client.getRankingSongs(self.searchBar.text, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (songs, totalPage, flag) in
+            self.client.getRankingSongs(self.searchBar.text, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[page] = songs!
-                    self.collectionView.reloadData()
+                    self?.songs[page] = songs!
+                    self?.collectionView.reloadData()
                     if getTotalPage {
-                        self.totalPage = totalPage
-                        self.updatePage(shouldSelect: false)
+                        self?.totalPage = totalPage
+                        self?.updatePage(shouldSelect: false)
                     }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
@@ -196,31 +204,37 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
             self.collectionView.reloadData()
         }
         if self.cloud {
-            self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: { (clouds, totalPage, flag) in
+            self.client.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage, complete: {
+                [weak self]
+                (clouds, totalPage, flag) in
                 if flag {
-                    self.clouds[page] = clouds!
-                    self.collectionView.reloadData()
+                    self?.clouds[page] = clouds!
+                    self?.collectionView.reloadData()
                     if getTotalPage {
-                        self.totalPage = totalPage
-                        self.updatePage(shouldSelect: false)
+                        self?.totalPage = totalPage
+                        self?.updatePage(shouldSelect: false)
                     }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
         if self.ordered {
-            self.client.getOrderedSongs({ (ordereds, flag) in
+            self.client.getOrderedSongs({
+                [weak self]
+                (ordereds, flag) in
                 if flag {
-                    self.ordereds = ordereds!
-                    self.collectionView.reloadData()
-                    self.totalPage = "\(self.ordereds.count%limit == 0 ? self.ordereds.count/limit : self.ordereds.count/limit + 1)"
-                    if self.page > Int(self.totalPage) {
-                        self.page = Int(self.totalPage)!
+                    if let weakSelf = self {
+                        weakSelf.ordereds = ordereds!
+                        weakSelf.collectionView.reloadData()
+                        weakSelf.totalPage = "\(weakSelf.ordereds.count%limit == 0 ? weakSelf.ordereds.count/limit : weakSelf.ordereds.count/limit + 1)"
+                        if weakSelf.page > Int(weakSelf.totalPage) {
+                            weakSelf.page = Int(weakSelf.totalPage)!
                     }
-                    self.updatePage(shouldSelect: true)
+                        weakSelf.updatePage(shouldSelect: true)
+                    }
                 } else {
-                    self.view.showTextAndHide("加载失败")
+                    self?.view.showTextAndHide("加载失败")
                 }
             })
         }
@@ -229,40 +243,50 @@ class TCKTVSongsViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         //预加载
         if self.singer != nil {
-            self.nextPageClient.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsBySinger(nil, singer: self.singer!, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[nextPage] = songs!
+                    self?.songs[nextPage] = songs!
                 }
             })
         }
         
         if self.language != nil {
-            self.nextPageClient.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: nextPage, limit:limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsByLanguage(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, language: self.language!.rawValue, page: nextPage, limit:limit, getTotalPage: false, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[nextPage] = songs!
+                    self?.songs[nextPage] = songs!
                 }
             })
         }
         
         if self.category != nil {
-            self.nextPageClient.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: nextPage, limit:limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getSongsByCategory(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, type: self.category!, page: nextPage, limit:limit, getTotalPage: false, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[nextPage] = songs!
+                    self?.songs[nextPage] = songs!
                 }
             })
         }
         if self.ranking {
-            self.nextPageClient.getRankingSongs(nil, page: nextPage, limit: limit, getTotalPage: false, complete: { (songs, totalPage, flag) in
+            self.nextPageClient.getRankingSongs(nil, page: nextPage, limit: limit, getTotalPage: false, complete: {
+                [weak self]
+                (songs, totalPage, flag) in
                 if flag {
-                    self.songs[nextPage] = songs!
+                    self?.songs[nextPage] = songs!
                 }
             })
         }
         
         if self.cloud {
-            self.nextPageClient.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: { (clouds, totalPage, flag) in
+            self.nextPageClient.getCloudSongs(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false, complete: {
+                [weak self]
+                (clouds, totalPage, flag) in
                 if flag {
-                    self.clouds[nextPage] = clouds!
+                    self?.clouds[nextPage] = clouds!
                 }
             })
         }

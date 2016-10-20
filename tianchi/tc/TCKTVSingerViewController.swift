@@ -86,22 +86,26 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
         let page = self.page
         let nextPage = self.page + 1
         let getTotalPage = Int(self.totalPage) == 0
-        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage) { (singers, totalPage, flag) in
+        self.client.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: self.page, limit: limit, getTotalPage: getTotalPage) {
+            [weak self]
+            (singers, totalPage, flag) in
             if flag {
-                self.singers[page] = singers!
-                self.collectionView.reloadData()
+                self?.singers[page] = singers!
+                self?.collectionView.reloadData()
                 if getTotalPage {
-                    self.totalPage = totalPage
-                    self.updatePage(shouldSelect: false)
+                    self?.totalPage = totalPage
+                    self?.updatePage(shouldSelect: false)
                 }
             } else {
-                self.view.showTextAndHide("加载失败")
+                self?.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.nextPageClient.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false) { (singers, totalPage, flag) in
+        self.nextPageClient.getSingers(self.searchBar.text, type: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit: limit, getTotalPage: false) {
+            [weak self]
+            (singers, totalPage, flag) in
             if flag {
-                self.singers[nextPage] = singers!
+                self?.singers[nextPage] = singers!
             }
         }
     }

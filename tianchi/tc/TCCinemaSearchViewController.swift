@@ -102,22 +102,26 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         let nextPage = self.page + 1
         let getTotalPage = Int(self.totalPage) == 0
         
-        self.client.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: page, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
+        self.client.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: page, limit: limit, getTotalPage: getTotalPage) {
+            [weak self]
+            (movies, totalPage, flag) in
             if flag {
-                self.movies[page] = movies!
-                self.collectionView.reloadData()
+                self?.movies[page] = movies!
+                self?.collectionView.reloadData()
                 if getTotalPage {
-                    self.totalPage = totalPage
-                    self.updatePage(shouldSelect: false)
+                    self?.totalPage = totalPage
+                    self?.updatePage(shouldSelect: false)
                 }
             } else {
-                self.view.showTextAndHide("加载失败")
+                self?.view.showTextAndHide("加载失败")
             }
         }
         
-        self.nextPageClient.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: nextPage, limit: limit, getTotalPage: getTotalPage) { (movies, totalPage, flag) in
+        self.nextPageClient.getMovies(self.searchField.text, type: "全部", area: "全部", year: "全部", page: nextPage, limit: limit, getTotalPage: getTotalPage) {
+            [weak self]
+            (movies, totalPage, flag) in
             if flag {
-                self.movies[nextPage] = movies!
+                self?.movies[nextPage] = movies!
             }
         }
     }

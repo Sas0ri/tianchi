@@ -110,22 +110,26 @@ class TCKTVSongNameViewController: UIViewController, UICollectionViewDelegate, U
         let nextPage = self.page + 1
         let getTotalPage = Int(self.totalPage) == 0
         
-        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit, getTotalPage: getTotalPage) { (songs, totalPage, flag) in
+        self.client.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: self.page, limit:limit, getTotalPage: getTotalPage) {
+            [weak self]
+            (songs, totalPage, flag) in
             if flag {
-                self.songs[page] = songs!
-                self.collectionView.reloadData()
+                self?.songs[page] = songs!
+                self?.collectionView.reloadData()
                 if getTotalPage {
-                    self.totalPage = totalPage
-                    self.updatePage(shouldSelect: false)
+                    self?.totalPage = totalPage
+                    self?.updatePage(shouldSelect: false)
                 }
             } else {
-                self.view.showTextAndHide("加载失败")
+                self?.view.showTextAndHide("加载失败")
             }
         }
         //预加载
-        self.nextPageClient.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit, getTotalPage: false) { (songs, totalPage, flag) in
+        self.nextPageClient.getSongsByName(self.searchBar.text, words: self.segmentedControl.selectedSegmentIndex, page: nextPage, limit:limit, getTotalPage: false) {
+            [weak self]
+            (songs, totalPage, flag) in
             if flag {
-                self.songs[nextPage] = songs!
+                self?.songs[nextPage] = songs!
             }
         }
     }
