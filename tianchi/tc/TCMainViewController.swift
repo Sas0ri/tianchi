@@ -28,7 +28,8 @@ class TCMainViewController: UIViewController {
         self.settingView = UINib(nibName: "KTVSettingView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! KTVSettingView
         self.settingView.frame = CGRect(x: 0, y: 0, width: 600/1024*self.view.bounds.size.width, height: 325/768*self.view.bounds.size.height)
         self.settingView.center = self.view.center
-        UIApplication.shared.keyWindow?.addSubview(self.settingView)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.addSubview(self.settingView)
         self.settingView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(TCMainViewController.lightStatusChange(sender:)), name: Notification.Name(rawValue:LightStatusChangedNotification), object: nil)
