@@ -11,8 +11,7 @@ import UIKit
 let _ktvContext = TCKTVContext()
 
 class TCKTVContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
-    
-    
+        
     class func sharedContext() -> TCKTVContext {
         return _ktvContext
     }

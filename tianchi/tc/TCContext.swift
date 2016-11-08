@@ -14,6 +14,9 @@ let _sharedContext:TCContext = TCContext()
 
 class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
+    static let TCShowAddressInputViewNotification = "TCShowAddressInputViewNotification"
+
+    
     static let port:UInt16 = 9594
     
     class func sharedContext() -> TCContext {
@@ -24,6 +27,7 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         didSet {
             if let sa = serverAddress {
                 UserDefaults.standard.set(sa, forKey: "SA")
+                self.socketManager.address = sa
             }
         }
     }
@@ -59,9 +63,10 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
             self.ktvServerAddress = UserDefaults.standard.object(forKey: "KSA") as? String
         }
 
+        self.socketManager.port = TCContext.port
+
         if self.serverAddress != nil {
             self.socketManager.address = self.serverAddress
-            self.socketManager.port = TCContext.port
             self.socketManager.connect()
         } else {
             self.showInputAddress()
@@ -112,10 +117,14 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     }
     
     func showInputAddress() {
-        let alertView = UIAlertView(title: nil, message: "输入服务器地址", delegate: self, cancelButtonTitle: "确定")
-        alertView.alertViewStyle = .plainTextInput
-        alertView.tag = AlertTag.address.rawValue
-        alertView.show()
+        if tcVersion == .v800s {
+            let alertView = UIAlertView(title: nil, message: "输入服务器地址", delegate: self, cancelButtonTitle: "确定")
+            alertView.alertViewStyle = .plainTextInput
+            alertView.tag = AlertTag.address.rawValue
+            alertView.show()
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:TCContext.TCShowAddressInputViewNotification), object: self)
+        }
     }
     
     func showVerify() {

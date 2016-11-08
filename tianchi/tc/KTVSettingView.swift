@@ -28,10 +28,14 @@ class KTVSettingView: UIView {
     
     @IBAction func doneAction(_ sender: AnyObject) {
         self.isHidden = true
-        TCContext.sharedContext().disconnect()
-        TCContext.sharedContext().serverAddress = self.centerIPField.text
-        TCContext.sharedContext().ktvServerAddress = self.ktvIPField.text
-        TCContext.sharedContext().socketManager.connect()
+        if self.centerIPField.text!.characters.count > 0 {
+            TCContext.sharedContext().disconnect()
+            TCContext.sharedContext().serverAddress = self.centerIPField.text
+            TCContext.sharedContext().socketManager.connect()
+        }
+        if self.ktvIPField.text!.characters.count > 0 {
+            TCContext.sharedContext().ktvServerAddress = self.ktvIPField.text
+        }
     }
     
     @IBAction func cancelAciton(_ sender: AnyObject) {
