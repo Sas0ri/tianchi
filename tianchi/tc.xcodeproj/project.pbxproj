@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0A5FAA1D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
+		5C2C775E1DD16E22004EAE5B /* V800s.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C775D1DD16E22004EAE5B /* V800s.xcassets */; };
 		5C3BC8741D6BDA9700801FA6 /* AFNetworking+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */; };
 		5C43B4D81D8009BD00BDB6D4 /* TCKTVContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D71D8009BD00BDB6D4 /* TCKTVContext.swift */; };
 		5C43B4DA1D80FF3D00BDB6D4 /* TCAppsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */; };
@@ -56,7 +57,7 @@
 		5CAA02611D1A700200FE6DBD /* TCKTVPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */; };
 		5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */; };
 		5CE93E411D0E83EA00A536AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E381D0E83EA00A536AC /* AppDelegate.swift */; };
-		5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E391D0E83EA00A536AC /* Assets.xcassets */; };
+		5CE93E421D0E83EA00A536AC /* Full.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E391D0E83EA00A536AC /* Full.xcassets */; };
 		5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3A1D0E83EA00A536AC /* LaunchScreen.storyboard */; };
 		5CE93E441D0E83EA00A536AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3C1D0E83EA00A536AC /* Main.storyboard */; };
 		5CE93E461D0E83EA00A536AC /* TCMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E401D0E83EA00A536AC /* TCMainViewController.swift */; };
@@ -113,6 +114,7 @@
 		2D7B028307B1690D757E12D5 /* libPods-tc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tc.release.xcconfig"; path = "Pods/Target Support Files/Pods-tc/Pods-tc.release.xcconfig"; sourceTree = "<group>"; };
 		5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVCloudSearchViewController.swift; sourceTree = "<group>"; };
+		5C2C775D1DD16E22004EAE5B /* V800s.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = V800s.xcassets; sourceTree = "<group>"; };
 		5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFNetworking+Cancel.swift"; sourceTree = "<group>"; };
 		5C43B4D71D8009BD00BDB6D4 /* TCKTVContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVContext.swift; sourceTree = "<group>"; };
 		5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCAppsContext.swift; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 		5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVContainerCell.swift; sourceTree = "<group>"; };
 		5CE93E211D0E838400A536AC /* tc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE93E381D0E83EA00A536AC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5CE93E391D0E83EA00A536AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CE93E391D0E83EA00A536AC /* Full.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Full.xcassets; sourceTree = "<group>"; };
 		5CE93E3B1D0E83EA00A536AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CE93E3D1D0E83EA00A536AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CE93E3E1D0E83EA00A536AC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -630,7 +632,7 @@
 				5CE93E511D0FF2F500A536AC /* Lib */,
 				5CE93E491D0E9C8B00A536AC /* KTV */,
 				5CE93E381D0E83EA00A536AC /* AppDelegate.swift */,
-				5CE93E391D0E83EA00A536AC /* Assets.xcassets */,
+				5CE93E391D0E83EA00A536AC /* Full.xcassets */,
 				5CE93E3A1D0E83EA00A536AC /* LaunchScreen.storyboard */,
 				5CE93E3C1D0E83EA00A536AC /* Main.storyboard */,
 				5CE93E3E1D0E83EA00A536AC /* Info.plist */,
@@ -638,6 +640,7 @@
 				5CE93E401D0E83EA00A536AC /* TCMainViewController.swift */,
 				5CE93E471D0E8CBF00A536AC /* Images.xcassets */,
 				5CF961E61DB758B400E2003C /* VersionDefine.swift */,
+				5C2C775D1DD16E22004EAE5B /* V800s.xcassets */,
 			);
 			path = tc;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 			files = (
 				5CE93E991D0FF2F500A536AC /* Lato-Bold.ttf in Resources */,
 				5C88DC2A1D76A60000E4803A /* AC.storyboard in Resources */,
+				5C2C775E1DD16E22004EAE5B /* V800s.xcassets in Resources */,
 				5CF961DA1DB6152300E2003C /* KTVProjectorView.xib in Resources */,
 				5CE93E481D0E8CBF00A536AC /* Images.xcassets in Resources */,
 				5CE93E9C1D0FF2F500A536AC /* Lato-HairlineItalic.ttf in Resources */,
@@ -873,7 +877,7 @@
 				5CE93E981D0FF2F500A536AC /* Lato-BlackItalic.ttf in Resources */,
 				5CFEFCE91D780D3000520B3B /* Apps.xcassets in Resources */,
 				5CE93E9B1D0FF2F500A536AC /* Lato-Hairline.ttf in Resources */,
-				5CE93E421D0E83EA00A536AC /* Assets.xcassets in Resources */,
+				5CE93E421D0E83EA00A536AC /* Full.xcassets in Resources */,
 				5C88DC391D76C87100E4803A /* SoundControl.xcassets in Resources */,
 				5C88DC341D76B68800E4803A /* AC.xcassets in Resources */,
 				5CFEFCE71D78083400520B3B /* Apps.storyboard in Resources */,
@@ -1135,8 +1139,8 @@
 			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F66JYDX4C4;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
@@ -1158,8 +1162,8 @@
 			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F66JYDX4C4;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";

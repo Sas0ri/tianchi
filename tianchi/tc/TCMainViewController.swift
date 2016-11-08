@@ -33,7 +33,7 @@ class TCMainViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(TCMainViewController.lightStatusChange(sender:)), name: Notification.Name(rawValue:LightStatusChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TCMainViewController.settingAction(_:)), name: Notification.Name(rawValue:TCContext.TCShowAddressInputViewNotification), object: nil)
-        if TCContext.sharedContext().socketManager.socket!.isDisconnected {
+        if TCContext.sharedContext().socketManager.socket!.isDisconnected && tcVersion == .full {
             self.settingAction(self)
         }
     }
