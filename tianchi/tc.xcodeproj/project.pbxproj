@@ -834,9 +834,9 @@
 				TargetAttributes = {
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = F66JYDX4C4;
+						DevelopmentTeam = 655SU6QQ4X;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1141,16 +1141,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F66JYDX4C4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 655SU6QQ4X;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.x1341;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ef36b7f7-408a-4d0c-a7cb-5dc36ce38eeb";
+				PROVISIONING_PROFILE_SPECIFIER = 341;
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1164,16 +1164,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F66JYDX4C4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 655SU6QQ4X;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.tck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.upin158.x1341;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ef36b7f7-408a-4d0c-a7cb-5dc36ce38eeb";
+				PROVISIONING_PROFILE_SPECIFIER = 341;
 				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
