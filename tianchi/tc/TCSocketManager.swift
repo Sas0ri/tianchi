@@ -34,6 +34,7 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
     }
     
     func connect() {
+        DDLogError("Connect to: " + self.address! + ", port: " + "\(self.port!)")
         if (self.socket?.isConnected)! {
             self.disConnect()
             self.socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
@@ -43,7 +44,7 @@ class TCSocketManager: NSObject, GCDAsyncSocketDelegate {
             self.socket?.delegateQueue = DispatchQueue.main
             try self.socket?.connect(toHost: self.address, onPort: self.port!, withTimeout: 2)
         } catch let error as NSError {
-            DDLogError(error.description)
+            DDLogError("connect error: " + error.description)
             self.delegate?.connectFailed()
         }
         return

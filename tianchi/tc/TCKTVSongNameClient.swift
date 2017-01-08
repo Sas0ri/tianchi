@@ -44,7 +44,7 @@ class TCKTVSongClient: NSObject {
     
     var client:MCJSONClient? = {
         var mc:MCJSONClient?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCKTVContext.sharedContext().serverAddress {
             mc = MCJSONClient(baseURL: URL(string: String(format: "http://%@:8080/", url)))
         }
         return mc
@@ -52,7 +52,7 @@ class TCKTVSongClient: NSObject {
     
     var pageClient:AFHTTPSessionManager? = {
         var c:AFHTTPSessionManager?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCKTVContext.sharedContext().serverAddress {
             c = AFHTTPSessionManager(baseURL: URL(string: String(format: "http://%@:8080/", url)))
             c?.responseSerializer = AFHTTPResponseSerializer()
         }

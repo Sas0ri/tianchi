@@ -34,7 +34,7 @@ class TCKTVSingerClient: NSObject {
     
     var client:MCJSONClient? = {
         var c:MCJSONClient?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCKTVContext.sharedContext().serverAddress {
             c = MCJSONClient(baseURL: URL(string: String(format: "http://%@:8080/", url)))
         }
         return c
@@ -42,7 +42,7 @@ class TCKTVSingerClient: NSObject {
     
     var pageClient:AFHTTPSessionManager? = {
         var c:AFHTTPSessionManager?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCKTVContext.sharedContext().serverAddress {
             c = AFHTTPSessionManager(baseURL: URL(string: String(format: "http://%@:8080/", url)))
             c?.responseSerializer = AFHTTPResponseSerializer()
         }
@@ -50,7 +50,7 @@ class TCKTVSingerClient: NSObject {
     }()
     
     func singerIconURL(_ singerId:Int64) -> URL {
-        return URL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lld.jpg",TCContext.sharedContext().serverAddress!, singerId))!
+        return URL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata/singers/%lld.jpg",TCKTVContext.sharedContext().serverAddress!, singerId))!
     }
     
     func getSingers(_ keyword:String?, type:Int, page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ singers:[TCKTVSinger]?, _ totalPage:String, _ flag:Bool)->()) {

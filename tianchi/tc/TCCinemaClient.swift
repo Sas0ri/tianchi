@@ -34,7 +34,7 @@ class TCCinemaClient: NSObject {
     
     var client:MCJSONClient? = {
         var c:MCJSONClient?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCCinemaContext.sharedContext().serverAddress {
             c = MCJSONClient(baseURL: URL(string: String(format: "http://%@:8080/", url)))
         }
         return c
@@ -42,7 +42,7 @@ class TCCinemaClient: NSObject {
     
     var pageClient:AFHTTPSessionManager? = {
         var c:AFHTTPSessionManager?
-        if let url = TCContext.sharedContext().serverAddress {
+        if let url = TCCinemaContext.sharedContext().serverAddress {
             c = AFHTTPSessionManager(baseURL: URL(string: String(format: "http://%@:8080/", url)))
             c?.responseSerializer = AFHTTPResponseSerializer()
         }
@@ -50,7 +50,7 @@ class TCCinemaClient: NSObject {
     }()
     
     func movieIconURL(_ movieId:Int64) -> URL {
-        return URL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata1/CACHELIBRARY/%lld.jpg",TCContext.sharedContext().serverAddress!, movieId))!
+        return URL(string: String(format: "http://%@:8080/TianChiServer/GetImg?path=mnt/sata1/CACHELIBRARY/%lld.jpg",TCCinemaContext.sharedContext().serverAddress!, movieId))!
     }
     
     func getMovies(_ keyword:String?, type:String, area:String, year:String , page:Int, limit:Int, getTotalPage:Bool, complete: @escaping (_ movies:[TCMovie]?, _ totalPage:String, _ flag:Bool)->()) {

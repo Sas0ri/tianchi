@@ -46,7 +46,7 @@ class TCKTVContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
         self.socketManager.delegate = self
 
         self.socketManager.port = self.port
-        self.connect()
+//        self.connect()
     }
     
     func didConnect() {
