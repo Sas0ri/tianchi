@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,6 +196,45 @@
                         <constraint firstItem="l0s-uJ-XR7" firstAttribute="centerY" secondItem="OzW-i5-GnU" secondAttribute="centerY" id="hAs-uz-aeP"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pM-dp-jyE">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否连接V800S一体机" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBJ-WC-tvh" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                            <rect key="frame" x="416" y="11" width="174" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSa-MB-9XZ">
+                            <rect key="frame" x="379" y="4.5" width="37" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="mSa-MB-9XZ" secondAttribute="height" multiplier="1:1" id="xH0-Yf-OKS"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="icon_box-empty"/>
+                            <state key="selected" backgroundImage="icon_box-checked"/>
+                            <connections>
+                                <action selector="userV800SAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="UVd-FV-mQ0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="xBJ-WC-tvh" firstAttribute="centerY" secondItem="7pM-dp-jyE" secondAttribute="centerY" id="CEe-AD-OHX"/>
+                        <constraint firstItem="mSa-MB-9XZ" firstAttribute="height" secondItem="7pM-dp-jyE" secondAttribute="height" multiplier="4:5" id="OtZ-38-fKS"/>
+                        <constraint firstItem="mSa-MB-9XZ" firstAttribute="centerY" secondItem="7pM-dp-jyE" secondAttribute="centerY" id="cbX-Xf-7TH"/>
+                        <constraint firstAttribute="trailing" secondItem="xBJ-WC-tvh" secondAttribute="trailing" constant="10" id="dxe-9N-4oa"/>
+                        <constraint firstItem="xBJ-WC-tvh" firstAttribute="height" secondItem="7pM-dp-jyE" secondAttribute="height" multiplier="1:2" id="iJK-6c-PKV"/>
+                        <constraint firstItem="xBJ-WC-tvh" firstAttribute="leading" secondItem="mSa-MB-9XZ" secondAttribute="trailing" id="p1z-XE-b5I"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -209,9 +249,13 @@
                 <constraint firstItem="l0s-uJ-XR7" firstAttribute="height" secondItem="TSX-Gv-t8g" secondAttribute="height" multiplier="1:4" id="V5c-DO-69y"/>
                 <constraint firstAttribute="bottom" secondItem="OzW-i5-GnU" secondAttribute="bottom" id="Xqv-bg-DPc"/>
                 <constraint firstAttribute="bottom" secondItem="q7J-Jl-Jv5" secondAttribute="bottom" id="gQj-p5-V9v"/>
+                <constraint firstItem="7pM-dp-jyE" firstAttribute="height" secondItem="q7J-Jl-Jv5" secondAttribute="height" multiplier="46:325" id="nHL-ua-aVI"/>
+                <constraint firstItem="7pM-dp-jyE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nSN-sx-Dzk"/>
                 <constraint firstItem="q7J-Jl-Jv5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pCe-d1-FN0"/>
                 <constraint firstItem="TSX-Gv-t8g" firstAttribute="bottom" secondItem="OzW-i5-GnU" secondAttribute="top" id="pLm-88-ru1"/>
+                <constraint firstItem="7pM-dp-jyE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tcg-iV-77C"/>
                 <constraint firstItem="OzW-i5-GnU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vxM-wK-933"/>
+                <constraint firstAttribute="trailing" secondItem="7pM-dp-jyE" secondAttribute="trailing" id="xuV-4L-VDC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -219,11 +263,14 @@
                 <outlet property="centerIPField" destination="nqc-aO-MBI" id="pzZ-dJ-sOs"/>
                 <outlet property="doneButton" destination="DBB-QU-TFe" id="55s-PS-bDh"/>
                 <outlet property="ktvIPField" destination="mt5-JX-KBK" id="Myk-r5-U0O"/>
+                <outlet property="useV800SButton" destination="mSa-MB-9XZ" id="9D6-iU-jgE"/>
             </connections>
             <point key="canvasLocation" x="34" y="54.5"/>
         </view>
     </objects>
     <resources>
+        <image name="icon_box-checked" width="16" height="16"/>
+        <image name="icon_box-empty" width="16" height="16"/>
         <image name="setting_bg" width="1199" height="652"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

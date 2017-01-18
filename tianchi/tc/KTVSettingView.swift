@@ -14,6 +14,7 @@ class KTVSettingView: UIView {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var ktvIPField: UITextField!
     @IBOutlet weak var centerIPField: UITextField!
+    @IBOutlet weak var useV800SButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,8 @@ class KTVSettingView: UIView {
         self.cancelButton.layer.cornerRadius = 4
         self.cancelButton.layer.borderWidth = 1
         self.cancelButton.layer.borderColor = UIColor.white.cgColor
+        
+        self.useV800SButton.isSelected = TCContext.sharedContext().useK800S
     }
     
     @IBAction func doneAction(_ sender: AnyObject) {
@@ -36,6 +39,13 @@ class KTVSettingView: UIView {
         if self.ktvIPField.text!.characters.count > 0 {
             TCContext.sharedContext().ktvServerAddress = self.ktvIPField.text
         }
+    }
+    
+    @IBAction func userV800SAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        TCContext.sharedContext().useK800S = sender.isSelected
+        self.ktvIPField.isEnabled = sender.isSelected
+        self.ktvIPField.backgroundColor = self.ktvIPField.isEnabled ? UIColor.white : UIColor.gray
     }
     
     @IBAction func cancelAciton(_ sender: AnyObject) {

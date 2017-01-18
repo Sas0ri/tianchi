@@ -18,6 +18,8 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
 
     
     static let port:UInt16 = 9594
+
+    var useK800S:Bool = true
     
     class func sharedContext() -> TCContext {
         return _sharedContext

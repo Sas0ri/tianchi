@@ -117,6 +117,12 @@ class TCACViewController: UIViewController {
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
+    @IBAction func powerAction(_ sender: Any) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2212
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+
+    }
     /*
     // MARK: - Navigation
 

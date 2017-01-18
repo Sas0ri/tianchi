@@ -56,6 +56,7 @@
 		5CAA025E1D1A673F00FE6DBD /* TCSocketPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA025D1D1A673F00FE6DBD /* TCSocketPayload.swift */; };
 		5CAA02611D1A700200FE6DBD /* TCKTVPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */; };
 		5CC38DBD1D6300CA0072CAE3 /* TCKTVContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */; };
+		5CE131B61E2F555E00B67EDE /* TCPluginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE131B51E2F555E00B67EDE /* TCPluginMainViewController.swift */; };
 		5CE93E411D0E83EA00A536AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E381D0E83EA00A536AC /* AppDelegate.swift */; };
 		5CE93E421D0E83EA00A536AC /* Full.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E391D0E83EA00A536AC /* Full.xcassets */; };
 		5CE93E431D0E83EA00A536AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3A1D0E83EA00A536AC /* LaunchScreen.storyboard */; };
@@ -166,6 +167,7 @@
 		5CAA025D1D1A673F00FE6DBD /* TCSocketPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSocketPayload.swift; sourceTree = "<group>"; };
 		5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVPayloadHandler.swift; sourceTree = "<group>"; };
 		5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCKTVContainerCell.swift; sourceTree = "<group>"; };
+		5CE131B51E2F555E00B67EDE /* TCPluginMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPluginMainViewController.swift; sourceTree = "<group>"; };
 		5CE93E211D0E838400A536AC /* tc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE93E381D0E83EA00A536AC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CE93E391D0E83EA00A536AC /* Full.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Full.xcassets; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 				5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */,
 				5CF961E21DB74D0500E2003C /* Plugin.storyboard */,
 				5CF961E41DB7505800E2003C /* Plugin.xcassets */,
+				5CE131B51E2F555E00B67EDE /* TCPluginMainViewController.swift */,
 			);
 			name = Plugin;
 			sourceTree = "<group>";
@@ -980,6 +983,7 @@
 				5CAA023B1D19199A00FE6DBD /* UIView+MBProgressView.m in Sources */,
 				5CAA021F1D17CE1D00FE6DBD /* MCJSONClient.swift in Sources */,
 				5CE93E8F1D0FF2F500A536AC /* UINavigationBar+FlatUI.m in Sources */,
+				5CE131B61E2F555E00B67EDE /* TCPluginMainViewController.swift in Sources */,
 				5CE93E8A1D0FF2F500A536AC /* FUISwitch.m in Sources */,
 				5CAA02441D1922DB00FE6DBD /* TCKTVSingerCell.swift in Sources */,
 				5CAA02611D1A700200FE6DBD /* TCKTVPayloadHandler.swift in Sources */,

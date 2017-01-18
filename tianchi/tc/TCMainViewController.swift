@@ -77,83 +77,125 @@ class TCMainViewController: UIViewController {
     
     
     @IBAction func ktvAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到K歌模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let payload = TCSocketPayload()
-            payload.cmdType = 2205
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        if TCContext.sharedContext().useK800S {
+            let alert = UIAlertController(title: nil, message: "是否切换到K歌模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2205
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ktv")
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: nil, message: "是否切换到K歌模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2205
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                let vc = UIStoryboard(name: "Plugin", bundle: nil).instantiateViewController(withIdentifier: "plugin") as! TCPluginViewController
+                vc.mode = "0"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func cinemaAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到电影模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let payload = TCSocketPayload()
-            payload.cmdType = 2206
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            let vc = UIStoryboard(name: "Cinema", bundle: nil).instantiateViewController(withIdentifier: "cinema_main")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        if TCContext.sharedContext().useK800S {
+            let alert = UIAlertController(title: nil, message: "是否切换到电影模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2206
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                let vc = UIStoryboard(name: "Cinema", bundle: nil).instantiateViewController(withIdentifier: "cinema_main")
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: nil, message: "是否切换到电影模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2206
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                let vc = UIStoryboard(name: "Plugin", bundle: nil).instantiateViewController(withIdentifier: "plugin") as! TCPluginViewController
+                vc.mode = "1"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func appsAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let payload = TCSocketPayload()
-            payload.cmdType = 2207
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            if tcVersion == .full {
-                let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "FullApps")
+        if TCContext.sharedContext().useK800S {
+            let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2207
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                if tcVersion == .full {
+                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "FullApps")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "Apps")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+                let payload = TCSocketPayload()
+                payload.cmdType = 2207
+                TCContext.sharedContext().socketManager.sendPayload(payload)
+                let vc = UIStoryboard(name: "Plugin", bundle: nil).instantiateViewController(withIdentifier: "plugin") as! TCPluginViewController
+                vc.mode = "2"
                 self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "Apps")
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func acAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到空调模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let payload = TCSocketPayload()
-            payload.cmdType = 2208
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewController(withIdentifier: "AC")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: nil, message: "是否切换到空调模式？", preferredStyle: .alert)
+        //        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        //        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+        let payload = TCSocketPayload()
+        payload.cmdType = 2208
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewController(withIdentifier: "AC")
+        self.navigationController?.pushViewController(vc, animated: true)
+        //        }))
+        //        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func soundAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到音量控制模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let payload = TCSocketPayload()
-            payload.cmdType = 2209
-            TCContext.sharedContext().socketManager.sendPayload(payload)
-            let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: nil, message: "是否切换到音量控制模式？", preferredStyle: .alert)
+        //        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        //        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+        let payload = TCSocketPayload()
+        payload.cmdType = 2209
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control")
+        self.navigationController?.pushViewController(vc, animated: true)
+        //        }))
+        //        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func pluginAction(_ sender: AnyObject) {
-        let alert = UIAlertController(title: nil, message: "是否切换到外设模式？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-            let vc = UIStoryboard(name: "Plugin", bundle: nil).instantiateViewController(withIdentifier: "plugin_mode")
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        //        let alert = UIAlertController(title: nil, message: "是否切换到外设模式？", preferredStyle: .alert)
+        //        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        //        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+        let vc = UIStoryboard(name: "Plugin", bundle: nil).instantiateViewController(withIdentifier: "plugin_mode")
+        self.navigationController?.pushViewController(vc, animated: true)
+        //        }))
+        //        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func turnOffAction(_ sender: AnyObject) {
@@ -165,6 +207,34 @@ class TCMainViewController: UIViewController {
             TCContext.sharedContext().socketManager.sendPayload(payload)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func brightDownAction(_ sender: Any) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2224
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        
+    }
+    
+    @IBAction func brightUpAction(_ sender: Any) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2223
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        
+    }
+    
+    @IBAction func softDownAction(_ sender: Any) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2226
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        
+    }
+    
+    @IBAction func softUpAction(_ sender: Any) {
+        let payload = TCSocketPayload()
+        payload.cmdType = 2225
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        
     }
     
     @IBAction func settingAction(_ sender: AnyObject) {

@@ -9,13 +9,13 @@
 import UIKit
 
 class TCSoundControlViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -28,13 +28,13 @@ class TCSoundControlViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-       _ = self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
-
+    
     @IBAction func cinemaVolumnUp(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2213
@@ -111,14 +111,41 @@ class TCSoundControlViewController: UIViewController {
         payload.cmdContent = JSON("AMPS" + ",降调")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func levelAction(_ sender: UIButton) {
+        let desc:String = {
+            switch sender.tag {
+            case 10:
+                return "资深级"
+            case 10:
+                return "歌手级"
+            case 10:
+                return "专业级"
+            case 10:
+                return "轻松级"
+            case 10:
+                return "练习级"
+            case 10:
+                return "业余级"
+                
+            default:
+                return ""
+            }
+        }()
+        let payload = TCSocketPayload()
+        payload.cmdType = 2213
+        payload.cmdContent = JSON("AMPS," + desc)
+        TCContext.sharedContext().socketManager.sendPayload(payload)
+        
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

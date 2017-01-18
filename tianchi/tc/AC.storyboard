@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +14,7 @@
         <scene sceneID="ZVP-xP-vqU">
             <objects>
                 <navigationController id="NAZ-vy-ho4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PP5-EB-Lae">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PP5-EB-Lae">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -38,11 +41,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="sGw-o3-bMo"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="sGw-o3-bMo">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTd-kd-OMU">
+                                <rect key="frame" x="0.0" y="64" width="768" height="506.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-Nd-uXg"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-Nd-uXg">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="506.5"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="SH0-eG-9Ec">
+                                        <rect key="frame" x="20" y="15" width="728" height="476.5"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -50,17 +59,20 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="dzM-YB-n09">
+                                        <rect key="frame" x="328" y="186.5" width="112.5" height="133.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="130"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="Bvg-bv-kdU">
+                                        <rect key="frame" x="448.5" y="186.5" width="45.5" height="57.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEt-gF-YUb" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
+                                        <rect key="frame" x="328" y="134.5" width="112.5" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="VqP-8K-Xuu"/>
                                         </constraints>
@@ -71,6 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr4-NM-cZa" customClass="TCKTVMainButton" customModule="tc" customModuleProvider="target">
+                                        <rect key="frame" x="328" y="320" width="112.5" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2FV-8u-k3b"/>
                                         </constraints>
@@ -80,11 +93,34 @@
                                             <action selector="tempDown:" destination="ShH-LI-xjU" eventType="touchUpInside" id="KnK-IU-9yO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJz-Dx-56Y">
+                                        <rect key="frame" x="571" y="434" width="166" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" backgroundImage="kt_switch"/>
+                                        <connections>
+                                            <action selector="powerAction:" destination="ShH-LI-xjU" eventType="touchUpInside" id="dNv-mE-mEl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开/关机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nab-Uv-dGK" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
+                                        <rect key="frame" x="571" y="434" width="166" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minFontSize">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxFontSize">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="height" secondItem="uTd-kd-OMU" secondAttribute="height" multiplier="100:380" id="1Go-WL-Hhc"/>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="centerY" secondItem="uTd-kd-OMU" secondAttribute="centerY" id="43Q-Yd-OuN"/>
+                                    <constraint firstAttribute="trailing" secondItem="CJz-Dx-56Y" secondAttribute="trailing" constant="31" id="7z9-YI-ek2"/>
                                     <constraint firstItem="SH0-eG-9Ec" firstAttribute="top" secondItem="uTd-kd-OMU" secondAttribute="top" constant="15" id="C4v-nb-THZ"/>
                                     <constraint firstAttribute="trailing" secondItem="SH0-eG-9Ec" secondAttribute="trailing" constant="20" id="Cc8-qL-Yek"/>
                                     <constraint firstItem="v7x-Nd-uXg" firstAttribute="leading" secondItem="uTd-kd-OMU" secondAttribute="leading" id="Esp-Ek-QVM"/>
@@ -92,28 +128,39 @@
                                     <constraint firstItem="SH0-eG-9Ec" firstAttribute="leading" secondItem="uTd-kd-OMU" secondAttribute="leading" constant="20" id="JMc-kL-N8m"/>
                                     <constraint firstItem="Mr4-NM-cZa" firstAttribute="leading" secondItem="dzM-YB-n09" secondAttribute="leading" id="L4X-9s-g4s"/>
                                     <constraint firstItem="NEt-gF-YUb" firstAttribute="leading" secondItem="dzM-YB-n09" secondAttribute="leading" id="LTv-zH-b5t"/>
+                                    <constraint firstItem="nab-Uv-dGK" firstAttribute="leading" secondItem="CJz-Dx-56Y" secondAttribute="leading" id="Mma-AB-DW9"/>
                                     <constraint firstItem="Mr4-NM-cZa" firstAttribute="trailing" secondItem="dzM-YB-n09" secondAttribute="trailing" id="Oeb-MF-tMn"/>
                                     <constraint firstItem="Mr4-NM-cZa" firstAttribute="top" secondItem="dzM-YB-n09" secondAttribute="bottom" id="PjZ-Sp-tkF"/>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="width" secondItem="uTd-kd-OMU" secondAttribute="width" multiplier="150:1024" id="RVH-QC-j4R"/>
                                     <constraint firstAttribute="bottom" secondItem="v7x-Nd-uXg" secondAttribute="bottom" id="TOX-qQ-jR2"/>
+                                    <constraint firstItem="nab-Uv-dGK" firstAttribute="trailing" secondItem="CJz-Dx-56Y" secondAttribute="trailing" id="UnH-WK-SMM"/>
                                     <constraint firstItem="Bvg-bv-kdU" firstAttribute="leading" secondItem="dzM-YB-n09" secondAttribute="trailing" constant="8" id="WQz-QF-PVt"/>
                                     <constraint firstAttribute="trailing" secondItem="v7x-Nd-uXg" secondAttribute="trailing" id="YLs-nD-8e6"/>
+                                    <constraint firstItem="nab-Uv-dGK" firstAttribute="top" secondItem="CJz-Dx-56Y" secondAttribute="top" id="Z2u-7b-zva"/>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="top" secondItem="NEt-gF-YUb" secondAttribute="bottom" constant="8" id="e2b-bJ-ttr"/>
+                                    <constraint firstItem="nab-Uv-dGK" firstAttribute="bottom" secondItem="CJz-Dx-56Y" secondAttribute="bottom" id="iYD-5n-k10"/>
+                                    <constraint firstItem="CJz-Dx-56Y" firstAttribute="height" secondItem="SH0-eG-9Ec" secondAttribute="height" multiplier="45:476" id="iZ7-6o-fko"/>
                                     <constraint firstItem="Bvg-bv-kdU" firstAttribute="width" secondItem="dzM-YB-n09" secondAttribute="width" multiplier="61:150" id="jfC-vB-nxr"/>
                                     <constraint firstItem="v7x-Nd-uXg" firstAttribute="top" secondItem="uTd-kd-OMU" secondAttribute="top" id="l05-Dr-Kvz"/>
                                     <constraint firstItem="Bvg-bv-kdU" firstAttribute="top" secondItem="dzM-YB-n09" secondAttribute="top" id="nnl-mt-6g8"/>
+                                    <constraint firstAttribute="bottom" secondItem="CJz-Dx-56Y" secondAttribute="bottom" constant="27.5" id="oSW-pJ-7d7"/>
                                     <constraint firstItem="Bvg-bv-kdU" firstAttribute="height" secondItem="dzM-YB-n09" secondAttribute="height" multiplier="43:100" id="rKe-j8-GD6"/>
                                     <constraint firstItem="dzM-YB-n09" firstAttribute="centerX" secondItem="uTd-kd-OMU" secondAttribute="centerX" id="uXh-Jc-Kn0"/>
+                                    <constraint firstItem="CJz-Dx-56Y" firstAttribute="width" secondItem="SH0-eG-9Ec" secondAttribute="width" multiplier="166:728" id="vto-Vp-Lsf"/>
                                     <constraint firstAttribute="bottom" secondItem="SH0-eG-9Ec" secondAttribute="bottom" constant="15" id="w2q-TW-p70"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Sx-V0-sfQ">
+                                <rect key="frame" x="30" y="590.5" width="708" height="413.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Aq-C5-Ac9">
+                                        <rect key="frame" x="0.0" y="0.0" width="708" height="203"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyf-Y9-psd">
+                                                <rect key="frame" x="0.0" y="0.0" width="171" height="203"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0d-eY-n5y" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="203"/>
                                                         <state key="normal" image="cold" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="cold_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -121,6 +168,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="制冷" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8x3-Uo-Z7l">
+                                                        <rect key="frame" x="133.5" y="174" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="POt-OI-3xm"/>
                                                         </constraints>
@@ -141,8 +189,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-U9-PLP">
+                                                <rect key="frame" x="179" y="0.0" width="171" height="203"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqd-Tk-xRY" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="203"/>
                                                         <state key="normal" image="warm" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="warm_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -150,6 +200,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="制热" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-I8-sXb">
+                                                        <rect key="frame" x="133.5" y="174" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Gra-bF-IkG"/>
                                                         </constraints>
@@ -170,8 +221,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-Vs-FhX">
+                                                <rect key="frame" x="358" y="0.0" width="171" height="203"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-hc-vol" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="203"/>
                                                         <state key="normal" image="wet" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wet_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -179,6 +232,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抽湿" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DcR-LE-Xzb">
+                                                        <rect key="frame" x="133.5" y="174" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="IU1-DM-oQF"/>
                                                         </constraints>
@@ -199,8 +253,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRt-DP-OeE">
+                                                <rect key="frame" x="537" y="0.0" width="171" height="203"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBy-bw-4R9" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="203"/>
                                                         <state key="normal" image="wind" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -208,6 +264,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RCM-CE-hSb">
+                                                        <rect key="frame" x="133.5" y="174" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Kqt-eF-669"/>
                                                         </constraints>
@@ -235,10 +292,13 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Si-fc-h2G">
+                                        <rect key="frame" x="0.0" y="211" width="708" height="202.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ma3-oI-uRt">
+                                                <rect key="frame" x="0.0" y="0.0" width="171" height="202.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fC-24-CJN" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="202.5"/>
                                                         <state key="normal" image="auto" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="auto_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -246,6 +306,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QRx-0S-LcP">
+                                                        <rect key="frame" x="133.5" y="173.5" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="mJc-JC-tVT"/>
                                                         </constraints>
@@ -266,8 +327,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfN-fM-Y0k">
+                                                <rect key="frame" x="179" y="0.0" width="171" height="202.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biq-LO-jdz" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="202.5"/>
                                                         <state key="normal" image="wind_low" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_low_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -275,6 +338,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="低风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="INH-gU-uhz">
+                                                        <rect key="frame" x="133.5" y="173.5" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="6E7-HY-9R3"/>
                                                         </constraints>
@@ -295,8 +359,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-IJ-eoo">
+                                                <rect key="frame" x="358" y="0.0" width="171" height="202.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWm-B7-9Nz" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="202.5"/>
                                                         <state key="normal" image="wind_mid" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_mid_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -304,6 +370,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LYZ-oy-Q6J">
+                                                        <rect key="frame" x="133.5" y="173.5" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="Djz-ap-qhb"/>
                                                         </constraints>
@@ -324,8 +391,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbm-1r-Nk8">
+                                                <rect key="frame" x="537" y="0.0" width="171" height="202.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cax-mR-7yB" customClass="TCMainButton" customModule="tc" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="202.5"/>
                                                         <state key="normal" image="wind_high" backgroundImage="main_button_normal"/>
                                                         <state key="highlighted" image="wind_high_h" backgroundImage="main_button_highlighted"/>
                                                         <connections>
@@ -333,6 +402,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高风" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ovk-jO-EJm">
+                                                        <rect key="frame" x="133.5" y="173.5" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="JOf-TB-qlE"/>
                                                         </constraints>
@@ -413,6 +483,7 @@
         <image name="cold_h" width="126" height="141"/>
         <image name="down" width="62" height="36"/>
         <image name="down_h" width="102" height="76"/>
+        <image name="kt_switch" width="156" height="45"/>
         <image name="ktv_nav_back" width="39" height="38"/>
         <image name="ktv_navbar" width="867" height="45"/>
         <image name="main_bg_right_top" width="1024" height="704"/>

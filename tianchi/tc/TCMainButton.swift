@@ -19,7 +19,7 @@ class TCMainButton: UIButton {
             
             var frame = imageView.frame
             frame.size.height = 72/155*self.bounds.size.height
-            frame.size.width = frame.size.height
+            frame.size.width = frame.size.height/imageView.image!.size.height*imageView.image!.size.width
             imageView.frame = frame
             
             var center = imageView.center;
