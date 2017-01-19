@@ -9,9 +9,12 @@
 import UIKit
 
 class TCSoundControlViewController: UIViewController {
+
+    var hidesBackButton:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
@@ -117,15 +120,15 @@ class TCSoundControlViewController: UIViewController {
             switch sender.tag {
             case 10:
                 return "资深级"
-            case 10:
+            case 11:
                 return "歌手级"
-            case 10:
+            case 12:
                 return "专业级"
-            case 10:
+            case 13:
                 return "轻松级"
-            case 10:
+            case 14:
                 return "练习级"
-            case 10:
+            case 15:
                 return "业余级"
                 
             default:

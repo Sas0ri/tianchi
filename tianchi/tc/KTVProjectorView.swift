@@ -21,19 +21,22 @@ class KTVProjectorView: UIView, UIGestureRecognizerDelegate {
 
     @IBAction func powerAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = 2301
+        payload.cmdType = 2300
+        payload.cmdContent = JSON("2301")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func switchAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = 2302
+        payload.cmdType = 2300
+        payload.cmdContent = JSON("2302")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
 
     @IBAction func backAction(_ sender: AnyObject) {
         let payload = TCSocketPayload()
-        payload.cmdType = 2303
+        payload.cmdType = 2300
+        payload.cmdContent = JSON("2303")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     

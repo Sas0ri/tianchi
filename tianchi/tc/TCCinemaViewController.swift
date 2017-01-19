@@ -153,6 +153,13 @@ class TCCinemaViewController: UIViewController, UISearchBarDelegate, UITableView
         self.updatePage(shouldSelect: false)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            return 40
+        }
+        return 10
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "container", for: indexPath) as! TCKTVContainerCell

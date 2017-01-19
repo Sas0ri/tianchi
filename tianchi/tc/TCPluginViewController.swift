@@ -23,12 +23,18 @@ class TCPluginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     @IBAction func backAction(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func powerAdjustAction(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control")
+        let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control") as! TCSoundControlViewController
+        vc.hidesBackButton = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

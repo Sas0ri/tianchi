@@ -8,33 +8,33 @@
 
 import UIKit
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
 }
 
 
 class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, TCMovieDetailViewDelegate {
-
+    
     @IBOutlet weak var keyboardView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageLabel: UILabel!
     @IBOutlet weak var movieDetailView: TCMovieDetailView!
-
+    
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
@@ -43,14 +43,14 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     var client = TCCinemaClient()
     var movies:[Int: [TCMovie]] = [Int: [TCMovie]]()
     var nextPageClient = TCCinemaClient()
-
+    
     var totalPage:String = "0"
     let keys = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieDetailView.delegate = self
-
+        
         self.searchField.inputView = UIView()
         if #available(iOS 9.0, *) {
             let item = self.searchField.inputAssistantItem
@@ -62,7 +62,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.movieDetailView.isHidden = true
         self.loadData()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.searchField.becomeFirstResponder()
@@ -201,7 +201,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.movieDetailView.movie = movie
         self.movieDetailView.titleLabel.text = movie.title
         self.movieDetailView.infoLabel.text = movie.info
-        self.movieDetailView.imageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))        
+        self.movieDetailView.imageView.sd_setImage(with: self.client.movieIconURL(movie.movieId))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -225,7 +225,10 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionView {
-            return 0
+            if UI_USER_INTERFACE_IDIOM() == .pad {
+                return 40
+            }
+            return 10
         }
         if UI_USER_INTERFACE_IDIOM() == .pad {
             if collectionView == self.keyboardView {
@@ -258,7 +261,7 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
         self.movies.removeAll()
         self.collectionView.reloadData()
     }
-
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
@@ -301,15 +304,15 @@ class TCCinemaSearchViewController: UIViewController, UICollectionViewDelegate, 
     func onClose() {
         self.movieDetailView.isHidden = true
     }
-        
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

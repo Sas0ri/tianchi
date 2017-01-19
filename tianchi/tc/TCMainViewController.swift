@@ -166,9 +166,6 @@ class TCMainViewController: UIViewController {
         //        let alert = UIAlertController(title: nil, message: "是否切换到空调模式？", preferredStyle: .alert)
         //        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         //        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-        let payload = TCSocketPayload()
-        payload.cmdType = 2208
-        TCContext.sharedContext().socketManager.sendPayload(payload)
         let vc = UIStoryboard(name: "AC", bundle: nil).instantiateViewController(withIdentifier: "AC")
         self.navigationController?.pushViewController(vc, animated: true)
         //        }))

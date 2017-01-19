@@ -137,7 +137,7 @@ class TCKTVSingerViewController: UIViewController,UICollectionViewDataSource, UI
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.page =  (self.collectionView.indexPathsForVisibleItems.first! as NSIndexPath).row + 1
+        self.page =  Int(self.collectionView.contentOffset.x/self.collectionView.bounds.size.width) + 1
         self.updatePage(shouldSelect: false)
     }
     
