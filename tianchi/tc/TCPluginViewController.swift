@@ -12,6 +12,8 @@ class TCPluginViewController: UIViewController {
 
     var mode:String!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +28,28 @@ class TCPluginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.updateTitle()
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func updateTitle() {
+        switch self.mode {
+        case "0":
+            self.titleLabel.text = "K歌模式"
+        case "1":
+            self.titleLabel.text = "电影模式"
+        case "2":
+            self.titleLabel.text = "网络应用"
+        case "3":
+            self.titleLabel.text = "蓝光/DVD"
+        case "4":
+            self.titleLabel.text = "有线电视"
+        default:
+            break
+        }
     }
 
     @IBAction func powerAdjustAction(_ sender: UIButton) {

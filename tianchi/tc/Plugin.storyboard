@@ -582,6 +582,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="1yA-Io-VRI"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="dVy-av-Fc1" id="lDx-JR-Z4L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2z-yl-Mbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

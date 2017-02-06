@@ -131,23 +131,23 @@ class TCMainViewController: UIViewController {
     }
     
     @IBAction func appsAction(_ sender: AnyObject) {
-        if TCContext.sharedContext().useK800S {
-            let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-                let payload = TCSocketPayload()
-                payload.cmdType = 2207
-                TCContext.sharedContext().socketManager.sendPayload(payload)
-                if tcVersion == .full {
-                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "FullApps")
-                    self.navigationController?.pushViewController(vc, animated: true)
-                } else {
-                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "Apps")
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }))
-            self.present(alert, animated: true, completion: nil)
-        } else {
+//        if TCContext.sharedContext().useK800S {
+//            let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+//            alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
+//                let payload = TCSocketPayload()
+//                payload.cmdType = 2207
+//                TCContext.sharedContext().socketManager.sendPayload(payload)
+//                if tcVersion == .full {
+//                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "FullApps")
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                } else {
+//                    let vc = UIStoryboard(name: "Apps", bundle: nil).instantiateViewController(withIdentifier: "Apps")
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+//        } else {
             let alert = UIAlertController(title: nil, message: "是否切换到网络应用模式？", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
@@ -159,7 +159,7 @@ class TCMainViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }))
             self.present(alert, animated: true, completion: nil)
-        }
+//        }
     }
     
     @IBAction func acAction(_ sender: AnyObject) {
@@ -176,9 +176,9 @@ class TCMainViewController: UIViewController {
         //        let alert = UIAlertController(title: nil, message: "是否切换到音量控制模式？", preferredStyle: .alert)
         //        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
         //        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: { (alertAction) in
-        let payload = TCSocketPayload()
-        payload.cmdType = 2209
-        TCContext.sharedContext().socketManager.sendPayload(payload)
+//        let payload = TCSocketPayload()
+//        payload.cmdType = 2209
+//        TCContext.sharedContext().socketManager.sendPayload(payload)
         let vc = UIStoryboard(name: "SoundControl", bundle: nil).instantiateViewController(withIdentifier: "sound_control")
         self.navigationController?.pushViewController(vc, animated: true)
         //        }))
@@ -248,6 +248,10 @@ class TCMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

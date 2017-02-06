@@ -31,6 +31,11 @@ class TCACViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         UIHelper.setNavigationBar(self.navigationController?.navigationBar, translucent: true)
+        var temper = UserDefaults.standard.string(forKey: "temper")
+        if temper == nil || temper!.isEmpty || Int(temper!) == nil {
+            temper = "16"
+        }
+        self.temperatureLabel.text = temper
     }
 
     @IBAction func backAction(_ sender: AnyObject) {
@@ -45,6 +50,7 @@ class TCACViewController: UIViewController {
             return
         }
         self.temperatureLabel.text = String(temper)
+        self.save(temper: self.temperatureLabel.text!)
         payload.cmdContent = JSON(self.temperatureLabel.text!)
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -57,6 +63,7 @@ class TCACViewController: UIViewController {
             return
         }
         self.temperatureLabel.text = String(temper)
+        self.save(temper: self.temperatureLabel.text!)
         payload.cmdContent = JSON(self.temperatureLabel.text!)
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
@@ -64,28 +71,28 @@ class TCACViewController: UIViewController {
     @IBAction func coldMode(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2216
-        payload.cmdContent = JSON("制冷")
+        payload.cmdContent = JSON("2")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func warmMode(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2216
-        payload.cmdContent = JSON("制热")
+        payload.cmdContent = JSON("1")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func dehumidifier(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2216
-        payload.cmdContent = JSON("抽湿")
+        payload.cmdContent = JSON("3")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
     @IBAction func blow(_ sender: AnyObject) {
         let payload = TCSocketPayload()
         payload.cmdType = 2216
-        payload.cmdContent = JSON("送风")
+        payload.cmdContent = JSON("4")
         TCContext.sharedContext().socketManager.sendPayload(payload)
     }
     
@@ -122,6 +129,11 @@ class TCACViewController: UIViewController {
         payload.cmdType = 2212
         TCContext.sharedContext().socketManager.sendPayload(payload)
 
+    }
+    
+    func save(temper: String) {
+        UserDefaults.standard.set(temper, forKey: "temper")
+        UserDefaults.standard.synchronize()
     }
     /*
     // MARK: - Navigation

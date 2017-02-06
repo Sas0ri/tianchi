@@ -15,7 +15,7 @@
         <scene sceneID="wxZ-9C-pEB">
             <objects>
                 <navigationController id="60Q-pt-KRN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Bh-to-oC2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5Bh-to-oC2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -42,6 +42,47 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_bg_right_top" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-0w-GEY">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rS-mY-ytO">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="MQh-p0-bzb">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGF-oD-FOj">
+                                        <rect key="frame" x="971" y="2" width="41" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FGF-oD-FOj" secondAttribute="height" multiplier="39:38" id="7U4-3D-xR9"/>
+                                        </constraints>
+                                        <state key="normal" image="ktv_nav_back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="zwl-ki-YQT" eventType="touchUpInside" id="7aS-T8-G7X"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音量控制" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="P1h-xn-3eG">
+                                        <rect key="frame" x="460.5" y="0.0" width="103" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="P1h-xn-3eG" secondAttribute="height" multiplier="7:3" id="Zfr-Ny-QYj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="P1h-xn-3eG" firstAttribute="centerX" secondItem="0rS-mY-ytO" secondAttribute="centerX" id="20B-5b-raw"/>
+                                    <constraint firstItem="MQh-p0-bzb" firstAttribute="leading" secondItem="0rS-mY-ytO" secondAttribute="leading" id="2vx-yE-mdL"/>
+                                    <constraint firstAttribute="trailing" secondItem="FGF-oD-FOj" secondAttribute="trailing" constant="12" id="HJH-O5-0YP"/>
+                                    <constraint firstAttribute="trailing" secondItem="MQh-p0-bzb" secondAttribute="trailing" id="PKJ-NJ-RwA"/>
+                                    <constraint firstAttribute="bottom" secondItem="FGF-oD-FOj" secondAttribute="bottom" constant="2" id="jG6-z0-5c3"/>
+                                    <constraint firstItem="MQh-p0-bzb" firstAttribute="top" secondItem="0rS-mY-ytO" secondAttribute="top" id="oNb-kq-Uvl"/>
+                                    <constraint firstItem="FGF-oD-FOj" firstAttribute="centerY" secondItem="0rS-mY-ytO" secondAttribute="centerY" id="roz-v6-SFF"/>
+                                    <constraint firstItem="P1h-xn-3eG" firstAttribute="top" secondItem="0rS-mY-ytO" secondAttribute="top" id="tTr-QC-gsy"/>
+                                    <constraint firstItem="FGF-oD-FOj" firstAttribute="top" secondItem="0rS-mY-ytO" secondAttribute="top" constant="2" id="vSi-qO-eTm"/>
+                                    <constraint firstAttribute="bottom" secondItem="P1h-xn-3eG" secondAttribute="bottom" id="xAc-VW-OH4"/>
+                                    <constraint firstAttribute="bottom" secondItem="MQh-p0-bzb" secondAttribute="bottom" id="xna-SS-5S8"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-Kr-4QT">
                                 <rect key="frame" x="82" y="134" width="860" height="500"/>
                                 <subviews>
@@ -273,22 +314,22 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-t8-Xbx">
-                                                        <rect key="frame" x="10" y="61" width="406" height="114"/>
+                                                        <rect key="frame" x="10" y="61" width="406" height="112.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="control_bg" translatesAutoresizingMaskIntoConstraints="NO" id="eQ3-Kl-ip8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="406" height="114"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="406" height="112.5"/>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="De9-kY-GAc">
-                                                                <rect key="frame" x="55" y="17" width="296" height="80"/>
+                                                                <rect key="frame" x="55" y="17" width="296" height="78.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WQJ-fS-GNX">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="26.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="26"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2a-VG-Q7S">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-F2-zJk">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -297,10 +338,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="WTv-Cc-s5u">
-                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="资深级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SF0-6n-uEY" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -328,10 +369,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOd-UO-33x">
-                                                                                <rect key="frame" x="105.5" y="0.0" width="85" height="26.5"/>
+                                                                                <rect key="frame" x="105.5" y="0.0" width="85" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybR-mb-FQ6">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -340,10 +381,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="IsX-Jo-Ydp">
-                                                                                        <rect key="frame" x="16.5" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="16.5" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="歌手级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZRw-8R-yfl" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -371,10 +412,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4BC-sA-kkq">
-                                                                                <rect key="frame" x="210.5" y="0.0" width="85.5" height="26.5"/>
+                                                                                <rect key="frame" x="210.5" y="0.0" width="85.5" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgz-kE-UEI">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -383,10 +424,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="N9Z-DN-jcu">
-                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="专业级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3bg-6p-OGH" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -420,17 +461,17 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsQ-wW-0Yb">
-                                                                        <rect key="frame" x="0.0" y="26.5" width="240" height="27"/>
+                                                                        <rect key="frame" x="0.0" y="26" width="240" height="26.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wro-ma-anS">
-                                                                        <rect key="frame" x="0.0" y="53.5" width="296" height="26.5"/>
+                                                                        <rect key="frame" x="0.0" y="52.5" width="296" height="26"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JC-cg-ohE">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qO-Jb-vdn">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -439,10 +480,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-Q2-gtG">
-                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="轻松级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="194-Z9-4e2" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -470,10 +511,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAY-0Y-YXN">
-                                                                                <rect key="frame" x="105.5" y="0.0" width="85" height="26.5"/>
+                                                                                <rect key="frame" x="105.5" y="0.0" width="85" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPq-02-Yra">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -482,10 +523,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fHB-UT-FYr">
-                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="16.5" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="练习级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jEX-PO-R9t" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -513,10 +554,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUZ-cX-6oO">
-                                                                                <rect key="frame" x="210.5" y="0.0" width="85.5" height="26.5"/>
+                                                                                <rect key="frame" x="210.5" y="0.0" width="85.5" height="26"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0G-n6-ipV">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26.5"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="26"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <state key="normal" backgroundImage="ktv_song_button"/>
                                                                                         <state key="highlighted" backgroundImage="ktv_song_button_h"/>
@@ -525,10 +566,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vcA-Q7-wMJ">
-                                                                                        <rect key="frame" x="17" y="0.0" width="52" height="26.5"/>
+                                                                                        <rect key="frame" x="17.5" y="0.0" width="52" height="26"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="业余级" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F32-n1-4OM" customClass="TIFFitToHeightLabel" customModule="tc" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="26"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -1357,11 +1398,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0rS-mY-ytO" firstAttribute="leading" secondItem="0PS-Jm-F1m" secondAttribute="leading" id="4EJ-js-5Vo"/>
                             <constraint firstItem="FTh-Kr-4QT" firstAttribute="height" secondItem="0PS-Jm-F1m" secondAttribute="height" multiplier="500:768" id="6jf-sm-3UX"/>
+                            <constraint firstAttribute="trailing" secondItem="0rS-mY-ytO" secondAttribute="trailing" id="6wD-da-mLz"/>
                             <constraint firstItem="VxF-0w-GEY" firstAttribute="top" secondItem="0PS-Jm-F1m" secondAttribute="top" id="9dZ-u2-2GB"/>
                             <constraint firstAttribute="bottom" secondItem="VxF-0w-GEY" secondAttribute="bottom" id="Yx1-kV-84Z"/>
                             <constraint firstItem="VxF-0w-GEY" firstAttribute="leading" secondItem="0PS-Jm-F1m" secondAttribute="leading" id="eK8-hY-1Ql"/>
                             <constraint firstItem="FTh-Kr-4QT" firstAttribute="centerY" secondItem="0PS-Jm-F1m" secondAttribute="centerY" id="f5y-yn-jC3"/>
+                            <constraint firstItem="0rS-mY-ytO" firstAttribute="height" secondItem="0PS-Jm-F1m" secondAttribute="height" multiplier="44:768" id="gkq-wr-aJt"/>
+                            <constraint firstItem="0rS-mY-ytO" firstAttribute="top" secondItem="0PS-Jm-F1m" secondAttribute="top" constant="20" id="ixS-rS-u6g"/>
                             <constraint firstItem="FTh-Kr-4QT" firstAttribute="width" secondItem="0PS-Jm-F1m" secondAttribute="width" multiplier="860:1024" id="kvj-TE-GqE"/>
                             <constraint firstItem="FTh-Kr-4QT" firstAttribute="centerX" secondItem="0PS-Jm-F1m" secondAttribute="centerX" id="t5Q-w8-5c1"/>
                             <constraint firstAttribute="trailing" secondItem="VxF-0w-GEY" secondAttribute="trailing" id="tj6-S0-KIO"/>
@@ -1379,11 +1424,11 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHf-vx-afi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="669"/>
+            <point key="canvasLocation" x="553" y="550"/>
         </scene>
     </scenes>
     <resources>

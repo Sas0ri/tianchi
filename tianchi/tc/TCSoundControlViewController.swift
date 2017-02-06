@@ -14,15 +14,11 @@ class TCSoundControlViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        UIHelper.setNavigationBar(self.navigationController?.navigationBar, translucent: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,10 +28,6 @@ class TCSoundControlViewController: UIViewController {
     
     @IBAction func backAction(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
-    }
-    
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
     }
     
     @IBAction func cinemaVolumnUp(_ sender: AnyObject) {
