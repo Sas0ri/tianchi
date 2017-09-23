@@ -27,6 +27,9 @@ class KTVSettingView: UIView {
         self.cancelButton.layer.borderColor = UIColor.white.cgColor
         
         self.useV800SButton.isSelected = TCContext.sharedContext().useK800S
+        self.ktvIPField.isEnabled = TCContext.sharedContext().useK800S
+        self.ktvIPField.backgroundColor = self.ktvIPField.isEnabled ? UIColor.white : UIColor.gray
+
     }
     
     @IBAction func doneAction(_ sender: AnyObject) {

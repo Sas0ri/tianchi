@@ -837,7 +837,7 @@
 				TargetAttributes = {
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZH9V59FT7J;
+						DevelopmentTeam = 6M3WA93J27;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -1143,10 +1143,10 @@
 			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZH9V59FT7J;
+				DEVELOPMENT_TEAM = 6M3WA93J27;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1166,10 +1166,10 @@
 			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZH9V59FT7J;
+				DEVELOPMENT_TEAM = 6M3WA93J27;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

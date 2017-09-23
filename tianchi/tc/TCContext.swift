@@ -19,7 +19,17 @@ class TCContext: NSObject, TCSocketManagerDelegate, UIAlertViewDelegate {
     
     static let port:UInt16 = 9594
 
-    var useK800S:Bool = true
+    static let useK800SKey = "useK800SKey"
+    
+    var useK800S:Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: TCContext.useK800SKey)
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: TCContext.useK800SKey)
+        }
+    }
     
     class func sharedContext() -> TCContext {
         return _sharedContext
