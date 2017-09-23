@@ -13,4 +13,8 @@ enum TCVersion:Int {
     case full = 2
 }
 
+#if v800s
+let tcVersion:TCVersion = .v800s
+#else
 let tcVersion:TCVersion = .full
+#endif

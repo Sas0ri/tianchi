@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2615,7 +2615,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ktv_navbar" translatesAutoresizingMaskIntoConstraints="NO" id="9UV-2G-w9m">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F7C0DFE6-E331-4208-BC13-3EC3EFE33DA3" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:VR7-aN-6zY:image" translatesAutoresizingMaskIntoConstraints="NO" id="VR7-aN-6zY">
                                         <rect key="frame" x="12" y="12" width="19" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="19" id="ACh-U9-dDp"/>
@@ -2839,7 +2839,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="上一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="5ECF3E8D-3CE4-4C61-9B7A-B6E1C1252422"/>
+                                                        <state key="highlighted" backgroundImage="button:wcj-P9-96a:backgroundImage"/>
                                                         <connections>
                                                             <action selector="prePage:" destination="bj2-XT-wru" eventType="touchUpInside" id="ZLl-85-Esh"/>
                                                         </connections>
@@ -2860,7 +2860,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="下一页" backgroundImage="ktv_song_button"/>
-                                                        <state key="highlighted" backgroundImage="5ECF3E8D-3CE4-4C61-9B7A-B6E1C1252422"/>
+                                                        <state key="highlighted" backgroundImage="button:wcj-P9-96a:backgroundImage"/>
                                                         <connections>
                                                             <action selector="nextPage:" destination="bj2-XT-wru" eventType="touchUpInside" id="fvR-Ar-3U4"/>
                                                         </connections>
@@ -5077,7 +5077,7 @@
                                     <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-kn-Tvs">
                                         <rect key="frame" x="0.0" y="90" width="832" height="0.0"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="diD-aj-PyR">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="diD-aj-PyR">
                                                 <rect key="frame" x="0.0" y="-13" width="450" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="1ih-H4-CAd"/>
@@ -6044,7 +6044,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5ECF3E8D-3CE4-4C61-9B7A-B6E1C1252422" width="93" height="28">
+        <image name="button:wcj-P9-96a:backgroundImage" width="93" height="28">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6269,7 +6269,22 @@ MngygDKDMogylzKbMqIyqjK3MrwyvjLAMsUyzTLQMtUy3TLgMvIy9TL6AAAAAAAAAgEAAAAAAAAAQQAA
 AAAAAAAAAAAAAAAAMvw
 </mutableData>
         </image>
-        <image name="F7C0DFE6-E331-4208-BC13-3EC3EFE33DA3" width="19" height="20">
+        <image name="dimmer_add" width="121" height="77"/>
+        <image name="dimmer_add_on" width="121" height="77"/>
+        <image name="dimmer_red" width="121" height="77"/>
+        <image name="dimmer_red_on" width="121" height="77"/>
+        <image name="find_song" width="187" height="54"/>
+        <image name="find_song_on" width="187" height="54"/>
+        <image name="fk_applicaiton_mode" width="442" height="596"/>
+        <image name="fk_applicaiton_mode_on" width="271" height="750"/>
+        <image name="fk_movie_mode" width="442" height="596"/>
+        <image name="fk_movie_mode_on" width="442" height="596"/>
+        <image name="fk_song_mode" width="442" height="596"/>
+        <image name="fk_song_mode_on" width="442" height="596"/>
+        <image name="fk_system_close" width="75" height="73"/>
+        <image name="fk_system_close_on" width="75" height="73"/>
+        <image name="icon" width="182" height="153"/>
+        <image name="imageView:VR7-aN-6zY:image" width="19" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6345,21 +6360,6 @@ AKcAqQCrAK0AsgC1ALcAuQC7AL0AwgDZANsA3Q9vD3QPfw+ID5sPnw+qD7MPuA/AD8MPyA/XD9sP4g/q
 D/cP/A/+EAAQBRANEBAQFRAdECAQMhA1EDoAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAQPA
 </mutableData>
         </image>
-        <image name="dimmer_add" width="121" height="77"/>
-        <image name="dimmer_add_on" width="121" height="77"/>
-        <image name="dimmer_red" width="121" height="77"/>
-        <image name="dimmer_red_on" width="121" height="77"/>
-        <image name="find_song" width="187" height="54"/>
-        <image name="find_song_on" width="187" height="54"/>
-        <image name="fk_applicaiton_mode" width="442" height="596"/>
-        <image name="fk_applicaiton_mode_on" width="271" height="750"/>
-        <image name="fk_movie_mode" width="442" height="596"/>
-        <image name="fk_movie_mode_on" width="442" height="596"/>
-        <image name="fk_song_mode" width="442" height="596"/>
-        <image name="fk_song_mode_on" width="442" height="596"/>
-        <image name="fk_system_close" width="75" height="73"/>
-        <image name="fk_system_close_on" width="75" height="73"/>
-        <image name="icon" width="182" height="153"/>
         <image name="ktv_bg_category" width="226" height="169"/>
         <image name="ktv_bg_category_h" width="226" height="169"/>
         <image name="ktv_bg_cloud" width="226" height="199"/>

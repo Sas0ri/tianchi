@@ -32,6 +32,108 @@
 		5C88DC391D76C87100E4803A /* SoundControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC381D76C87100E4803A /* SoundControl.xcassets */; };
 		5C88DC3B1D76D3EB00E4803A /* TCSoundControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */; };
 		5C88DC3D1D76EB5C00E4803A /* TIFFitToHeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */; };
+		5C9733E71F760CFE00D743B5 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E591D0FF2F500A536AC /* FUIButton.m */; };
+		5C9733E81F760CFE00D743B5 /* TCContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02171D17CD9800FE6DBD /* TCContext.swift */; };
+		5C9733E91F760CFE00D743B5 /* TCMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E01D81047A00BDB6D4 /* TCMovie.swift */; };
+		5C9733EA1F760CFE00D743B5 /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E6D1D0FF2F500A536AC /* UIPopoverController+FlatUI.m */; };
+		5C9733EB1F760CFE00D743B5 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E751D0FF2F500A536AC /* UITabBar+FlatUI.m */; };
+		5C9733EC1F760CFE00D743B5 /* TCMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E31D810A7B00BDB6D4 /* TCMovieDetailView.swift */; };
+		5C9733ED1F760CFE00D743B5 /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E6F1D0FF2F500A536AC /* UIProgressView+FlatUI.m */; };
+		5C9733EE1F760CFE00D743B5 /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E671D0FF2F500A536AC /* UIFont+FlatUI.m */; };
+		5C9733EF1F760CFE00D743B5 /* TCPluginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E01DB62EF200E2003C /* TCPluginViewController.swift */; };
+		5C9733F01F760CFE00D743B5 /* TCKTVSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02261D17D16F00FE6DBD /* TCKTVSongCell.swift */; };
+		5C9733F11F760CFE00D743B5 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E5B1D0FF2F500A536AC /* FUICellBackgroundView.m */; };
+		5C9733F21F760CFE00D743B5 /* TCMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E401D0E83EA00A536AC /* TCMainViewController.swift */; };
+		5C9733F31F760CFE00D743B5 /* TCAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEFCEA1D7816BB00520B3B /* TCAppsViewController.swift */; };
+		5C9733F41F760CFE00D743B5 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E651D0FF2F500A536AC /* UIColor+FlatUI.m */; };
+		5C9733F51F760CFE00D743B5 /* TCKTVSingerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93EA31D11330100A536AC /* TCKTVSingerViewController.swift */; };
+		5C9733F61F760CFE00D743B5 /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E5D1D0FF2F500A536AC /* FUIPopoverBackgroundView.m */; };
+		5C9733F71F760CFE00D743B5 /* TCKTVContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D71D8009BD00BDB6D4 /* TCKTVContext.swift */; };
+		5C9733F81F760CFE00D743B5 /* TCKTVLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A91D1148BC0002AEF1 /* TCKTVLanguageViewController.swift */; };
+		5C9733F91F760CFE00D743B5 /* TCKTVCloudSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5FA91D5EE74A000E6F3A /* TCKTVCloudSearchViewController.swift */; };
+		5C9733FA1F760CFE00D743B5 /* TCAppsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4D91D80FF3D00BDB6D4 /* TCAppsContext.swift */; };
+		5C9733FB1F760CFE00D743B5 /* TCCinemaContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4DB1D80FFF500BDB6D4 /* TCCinemaContext.swift */; };
+		5C9733FC1F760CFE00D743B5 /* TCVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0AC1D13917F0002AEF1 /* TCVerticalButton.swift */; };
+		5C9733FD1F760CFE00D743B5 /* KTVSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961DD1DB6251000E2003C /* KTVSettingView.swift */; };
+		5C9733FE1F760CFE00D743B5 /* TCKTVContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC38DBC1D6300CA0072CAE3 /* TCKTVContainerCell.swift */; };
+		5C9733FF1F760CFE00D743B5 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E791D0FF2F500A536AC /* UIToolbar+FlatUI.m */; };
+		5C9734001F760CFE00D743B5 /* UIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC311D76B4D000E4803A /* UIHelper.m */; };
+		5C9734011F760CFE00D743B5 /* TCKTVSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02231D17D09800FE6DBD /* TCKTVSongsViewController.swift */; };
+		5C9734021F760CFE00D743B5 /* TCKTVSinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA023E1D191D2F00FE6DBD /* TCKTVSinger.swift */; };
+		5C9734031F760CFE00D743B5 /* TCCinemaFiltViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C47421B1D7E978A0010CFFA /* TCCinemaFiltViewManager.swift */; };
+		5C9734041F760CFE00D743B5 /* UIView+MBProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA023A1D19199A00FE6DBD /* UIView+MBProgressView.m */; };
+		5C9734051F760CFE00D743B5 /* MCJSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA021E1D17CE1D00FE6DBD /* MCJSONClient.swift */; };
+		5C9734061F760CFE00D743B5 /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E6B1D0FF2F500A536AC /* UINavigationBar+FlatUI.m */; };
+		5C9734071F760CFE00D743B5 /* TCPluginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE131B51E2F555E00B67EDE /* TCPluginMainViewController.swift */; };
+		5C9734081F760CFE00D743B5 /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E611D0FF2F500A536AC /* FUISwitch.m */; };
+		5C9734091F760CFE00D743B5 /* TCKTVSingerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02431D1922DB00FE6DBD /* TCKTVSingerCell.swift */; };
+		5C97340A1F760CFE00D743B5 /* TCKTVPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02601D1A700200FE6DBD /* TCKTVPayloadHandler.swift */; };
+		5C97340B1F760CFE00D743B5 /* TCKTVCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA024F1D19337300FE6DBD /* TCKTVCloud.swift */; };
+		5C97340C1F760CFE00D743B5 /* TCSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02591D1A5E0600FE6DBD /* TCSocketManager.swift */; };
+		5C97340D1F760CFE00D743B5 /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E711D0FF2F500A536AC /* UISlider+FlatUI.m */; };
+		5C97340E1F760CFE00D743B5 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E771D0FF2F500A536AC /* UITableViewCell+FlatUI.m */; };
+		5C97340F1F760CFE00D743B5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02361D19198600FE6DBD /* MBProgressHUD.m */; };
+		5C9734101F760CFE00D743B5 /* TCCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */; };
+		5C9734111F760CFE00D743B5 /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E631D0FF2F500A536AC /* UIBarButtonItem+FlatUI.m */; };
+		5C9734121F760CFE00D743B5 /* TCSoundControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */; };
+		5C9734131F760CFE00D743B5 /* TCKTVMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816141D2251C800A0F513 /* TCKTVMainButton.swift */; };
+		5C9734141F760CFE00D743B5 /* TCKTVMainBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E4C1D0FDEA900A536AC /* TCKTVMainBoardViewController.swift */; };
+		5C9734151F760CFE00D743B5 /* TCFullAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E81DB893E700E2003C /* TCFullAppsViewController.swift */; };
+		5C9734161F760CFE00D743B5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02151D17CCE500FE6DBD /* SwiftyJSON.swift */; };
+		5C9734171F760CFE00D743B5 /* UISearchBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F21231D61C7C3009CD476 /* UISearchBarAppearance.m */; };
+		5C9734181F760CFE00D743B5 /* CocoaLumberjackSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02211D17D03100FE6DBD /* CocoaLumberjackSwift.swift */; };
+		5C9734191F760CFE00D743B5 /* TCACViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC2D1D76AFF200E4803A /* TCACViewController.swift */; };
+		5C97341A1F760CFE00D743B5 /* TCTVPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961EA1DB894E100E2003C /* TCTVPanelView.swift */; };
+		5C97341B1F760CFE00D743B5 /* AFNetworking+Cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BC8731D6BDA9700801FA6 /* AFNetworking+Cancel.swift */; };
+		5C97341C1F760CFE00D743B5 /* TCSocketPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA025D1D1A673F00FE6DBD /* TCSocketPayload.swift */; };
+		5C97341D1F760CFE00D743B5 /* TCKTVSingerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02401D191DCA00FE6DBD /* TCKTVSingerClient.swift */; };
+		5C97341E1F760CFE00D743B5 /* TCCinemaPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4E51D81293800BDB6D4 /* TCCinemaPanel.swift */; };
+		5C97341F1F760CFE00D743B5 /* TCCinemaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA77E3A1D7D66A30013F0C3 /* TCCinemaSearchViewController.swift */; };
+		5C9734201F760CFE00D743B5 /* TCMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5816111D2246BF00A0F513 /* TCMainButton.swift */; };
+		5C9734211F760CFE00D743B5 /* TCCinemaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C43B4DE1D81036E00BDB6D4 /* TCCinemaClient.swift */; };
+		5C9734221F760CFE00D743B5 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E5F1D0FF2F500A536AC /* FUISegmentedControl.m */; };
+		5C9734231F760CFE00D743B5 /* TCKTVSongNameClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA024B1D1929A200FE6DBD /* TCKTVSongNameClient.swift */; };
+		5C9734241F760CFE00D743B5 /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E731D0FF2F500A536AC /* UIStepper+FlatUI.m */; };
+		5C9734251F760CFE00D743B5 /* VersionDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF961E61DB758B400E2003C /* VersionDefine.swift */; };
+		5C9734261F760CFE00D743B5 /* TIFFitToHeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */; };
+		5C9734271F760CFE00D743B5 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E571D0FF2F500A536AC /* FUIAlertView.m */; };
+		5C9734281F760CFE00D743B5 /* TCKTVSongNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E4E1D0FF02200A536AC /* TCKTVSongNameViewController.swift */; };
+		5C9734291F760CFE00D743B5 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E691D0FF2F500A536AC /* UIImage+FlatUI.m */; };
+		5C97342A1F760CFE00D743B5 /* TCKTVDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02531D19342600FE6DBD /* TCKTVDownload.swift */; };
+		5C97342B1F760CFE00D743B5 /* TCKTVPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02571D19348200FE6DBD /* TCKTVPoint.swift */; };
+		5C97342C1F760CFE00D743B5 /* TCKTVMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E4A1D0E9CA400A536AC /* TCKTVMainViewController.swift */; };
+		5C97342D1F760CFE00D743B5 /* TCKTVSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA02301D19150500FE6DBD /* TCKTVSong.swift */; };
+		5C97342E1F760CFE00D743B5 /* TCKTVCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E0A71D11467C0002AEF1 /* TCKTVCategoryViewController.swift */; };
+		5C97342F1F760CFE00D743B5 /* KTVProjectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF5C7791DB8A778007FE3E7 /* KTVProjectorView.swift */; };
+		5C9734301F760CFE00D743B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE93E381D0E83EA00A536AC /* AppDelegate.swift */; };
+		5C9734321F760CFE00D743B5 /* libPods-tc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7B028307B1690D757E12D5 /* libPods-tc.a */; };
+		5C9734341F760CFE00D743B5 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E7D1D0FF2F500A536AC /* Lato-Bold.ttf */; };
+		5C9734351F760CFE00D743B5 /* AC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC291D76A60000E4803A /* AC.storyboard */; };
+		5C9734361F760CFE00D743B5 /* V800s.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C775D1DD16E22004EAE5B /* V800s.xcassets */; };
+		5C9734371F760CFE00D743B5 /* KTVProjectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961D91DB6152300E2003C /* KTVProjectorView.xib */; };
+		5C9734381F760CFE00D743B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E471D0E8CBF00A536AC /* Images.xcassets */; };
+		5C9734391F760CFE00D743B5 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E801D0FF2F500A536AC /* Lato-HairlineItalic.ttf */; };
+		5C97343A1F760CFE00D743B5 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E821D0FF2F500A536AC /* Lato-Light.ttf */; };
+		5C97343B1F760CFE00D743B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3C1D0E83EA00A536AC /* Main.storyboard */; };
+		5C97343C1F760CFE00D743B5 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E811D0FF2F500A536AC /* Lato-Italic.ttf */; };
+		5C97343D1F760CFE00D743B5 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E7E1D0FF2F500A536AC /* Lato-BoldItalic.ttf */; };
+		5C97343E1F760CFE00D743B5 /* KTVSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961DB1DB61B0300E2003C /* KTVSettingView.xib */; };
+		5C97343F1F760CFE00D743B5 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E7C1D0FF2F500A536AC /* Lato-BlackItalic.ttf */; };
+		5C9734401F760CFE00D743B5 /* Apps.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE81D780D3000520B3B /* Apps.xcassets */; };
+		5C9734411F760CFE00D743B5 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E7F1D0FF2F500A536AC /* Lato-Hairline.ttf */; };
+		5C9734421F760CFE00D743B5 /* Full.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E391D0E83EA00A536AC /* Full.xcassets */; };
+		5C9734431F760CFE00D743B5 /* SoundControl.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC381D76C87100E4803A /* SoundControl.xcassets */; };
+		5C9734441F760CFE00D743B5 /* AC.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC331D76B68800E4803A /* AC.xcassets */; };
+		5C9734451F760CFE00D743B5 /* Apps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFEFCE61D78083400520B3B /* Apps.storyboard */; };
+		5C9734461F760CFE00D743B5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E7B1D0FF2F500A536AC /* Lato-Black.ttf */; };
+		5C9734471F760CFE00D743B5 /* Plugin.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961E41DB7505800E2003C /* Plugin.xcassets */; };
+		5C9734481F760CFE00D743B5 /* Cinema.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E381D7D54850013F0C3 /* Cinema.xcassets */; };
+		5C9734491F760CFE00D743B5 /* SoundControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C88DC361D76C54C00E4803A /* SoundControl.storyboard */; };
+		5C97344A1F760CFE00D743B5 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E841D0FF2F500A536AC /* Lato-Regular.ttf */; };
+		5C97344B1F760CFE00D743B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E3A1D0E83EA00A536AC /* LaunchScreen.storyboard */; };
+		5C97344C1F760CFE00D743B5 /* Cinema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */; };
+		5C97344D1F760CFE00D743B5 /* Plugin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF961E21DB74D0500E2003C /* Plugin.storyboard */; };
+		5C97344E1F760CFE00D743B5 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE93E831D0FF2F500A536AC /* Lato-LightItalic.ttf */; };
 		5CA77E2F1D7D3AA60013F0C3 /* Cinema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */; };
 		5CA77E341D7D41490013F0C3 /* TCCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */; };
 		5CA77E391D7D54850013F0C3 /* Cinema.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA77E381D7D54850013F0C3 /* Cinema.xcassets */; };
@@ -141,6 +243,8 @@
 		5C88DC381D76C87100E4803A /* SoundControl.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoundControl.xcassets; sourceTree = "<group>"; };
 		5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSoundControlViewController.swift; sourceTree = "<group>"; };
 		5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TIFFitToHeightLabel.swift; sourceTree = "<group>"; };
+		5C9734541F760CFE00D743B5 /* tc copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tc copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9734551F760CFF00D743B5 /* tc copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tc copy-Info.plist"; path = "/Users/Sasori/Developer/iOS/tianchi/tianchi/tc copy-Info.plist"; sourceTree = "<absolute>"; };
 		5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cinema.storyboard; sourceTree = "<group>"; };
 		5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaViewController.swift; sourceTree = "<group>"; };
 		5CA77E381D7D54850013F0C3 /* Cinema.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cinema.xcassets; sourceTree = "<group>"; };
@@ -246,6 +350,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C9734311F760CFE00D743B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9734321F760CFE00D743B5 /* libPods-tc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CE93E1E1D0E838400A536AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,6 +721,7 @@
 				5CE93E221D0E838400A536AC /* Products */,
 				BA0266BBDD9824C5C6079C6A /* Frameworks */,
 				F9AA9AD25D12FB9D1C0D05BD /* Pods */,
+				5C9734551F760CFF00D743B5 /* tc copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -616,6 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				5CE93E211D0E838400A536AC /* tc.app */,
+				5C9734541F760CFE00D743B5 /* tc copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -805,6 +919,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C9733E41F760CFE00D743B5 /* tc copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tc copy" */;
+			buildPhases = (
+				5C9733E51F760CFE00D743B5 /* [CP] Check Pods Manifest.lock */,
+				5C9733E61F760CFE00D743B5 /* Sources */,
+				5C9734311F760CFE00D743B5 /* Frameworks */,
+				5C9734331F760CFE00D743B5 /* Resources */,
+				5C97344F1F760CFE00D743B5 /* [CP] Embed Pods Frameworks */,
+				5C9734501F760CFE00D743B5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tc copy";
+			productName = abc;
+			productReference = 5C9734541F760CFE00D743B5 /* tc copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		5CE93E201D0E838400A536AC /* tc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CE93E331D0E838400A536AC /* Build configuration list for PBXNativeTarget "tc" */;
@@ -835,6 +969,9 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Sasori;
 				TargetAttributes = {
+					5C9733E41F760CFE00D743B5 = {
+						DevelopmentTeam = ZH9V59FT7J;
+					};
 					5CE93E201D0E838400A536AC = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 6M3WA93J27;
@@ -857,11 +994,46 @@
 			projectRoot = "";
 			targets = (
 				5CE93E201D0E838400A536AC /* tc */,
+				5C9733E41F760CFE00D743B5 /* tc copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C9734331F760CFE00D743B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9734341F760CFE00D743B5 /* Lato-Bold.ttf in Resources */,
+				5C9734351F760CFE00D743B5 /* AC.storyboard in Resources */,
+				5C9734361F760CFE00D743B5 /* V800s.xcassets in Resources */,
+				5C9734371F760CFE00D743B5 /* KTVProjectorView.xib in Resources */,
+				5C9734381F760CFE00D743B5 /* Images.xcassets in Resources */,
+				5C9734391F760CFE00D743B5 /* Lato-HairlineItalic.ttf in Resources */,
+				5C97343A1F760CFE00D743B5 /* Lato-Light.ttf in Resources */,
+				5C97343B1F760CFE00D743B5 /* Main.storyboard in Resources */,
+				5C97343C1F760CFE00D743B5 /* Lato-Italic.ttf in Resources */,
+				5C97343D1F760CFE00D743B5 /* Lato-BoldItalic.ttf in Resources */,
+				5C97343E1F760CFE00D743B5 /* KTVSettingView.xib in Resources */,
+				5C97343F1F760CFE00D743B5 /* Lato-BlackItalic.ttf in Resources */,
+				5C9734401F760CFE00D743B5 /* Apps.xcassets in Resources */,
+				5C9734411F760CFE00D743B5 /* Lato-Hairline.ttf in Resources */,
+				5C9734421F760CFE00D743B5 /* Full.xcassets in Resources */,
+				5C9734431F760CFE00D743B5 /* SoundControl.xcassets in Resources */,
+				5C9734441F760CFE00D743B5 /* AC.xcassets in Resources */,
+				5C9734451F760CFE00D743B5 /* Apps.storyboard in Resources */,
+				5C9734461F760CFE00D743B5 /* Lato-Black.ttf in Resources */,
+				5C9734471F760CFE00D743B5 /* Plugin.xcassets in Resources */,
+				5C9734481F760CFE00D743B5 /* Cinema.xcassets in Resources */,
+				5C9734491F760CFE00D743B5 /* SoundControl.storyboard in Resources */,
+				5C97344A1F760CFE00D743B5 /* Lato-Regular.ttf in Resources */,
+				5C97344B1F760CFE00D743B5 /* LaunchScreen.storyboard in Resources */,
+				5C97344C1F760CFE00D743B5 /* Cinema.storyboard in Resources */,
+				5C97344D1F760CFE00D743B5 /* Plugin.storyboard in Resources */,
+				5C97344E1F760CFE00D743B5 /* Lato-LightItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CE93E1F1D0E838400A536AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -944,9 +1116,135 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tc/Pods-tc-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5C9733E51F760CFE00D743B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C97344F1F760CFE00D743B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tc/Pods-tc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C9734501F760CFE00D743B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tc/Pods-tc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C9733E61F760CFE00D743B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9733E71F760CFE00D743B5 /* FUIButton.m in Sources */,
+				5C9733E81F760CFE00D743B5 /* TCContext.swift in Sources */,
+				5C9733E91F760CFE00D743B5 /* TCMovie.swift in Sources */,
+				5C9733EA1F760CFE00D743B5 /* UIPopoverController+FlatUI.m in Sources */,
+				5C9733EB1F760CFE00D743B5 /* UITabBar+FlatUI.m in Sources */,
+				5C9733EC1F760CFE00D743B5 /* TCMovieDetailView.swift in Sources */,
+				5C9733ED1F760CFE00D743B5 /* UIProgressView+FlatUI.m in Sources */,
+				5C9733EE1F760CFE00D743B5 /* UIFont+FlatUI.m in Sources */,
+				5C9733EF1F760CFE00D743B5 /* TCPluginViewController.swift in Sources */,
+				5C9733F01F760CFE00D743B5 /* TCKTVSongCell.swift in Sources */,
+				5C9733F11F760CFE00D743B5 /* FUICellBackgroundView.m in Sources */,
+				5C9733F21F760CFE00D743B5 /* TCMainViewController.swift in Sources */,
+				5C9733F31F760CFE00D743B5 /* TCAppsViewController.swift in Sources */,
+				5C9733F41F760CFE00D743B5 /* UIColor+FlatUI.m in Sources */,
+				5C9733F51F760CFE00D743B5 /* TCKTVSingerViewController.swift in Sources */,
+				5C9733F61F760CFE00D743B5 /* FUIPopoverBackgroundView.m in Sources */,
+				5C9733F71F760CFE00D743B5 /* TCKTVContext.swift in Sources */,
+				5C9733F81F760CFE00D743B5 /* TCKTVLanguageViewController.swift in Sources */,
+				5C9733F91F760CFE00D743B5 /* TCKTVCloudSearchViewController.swift in Sources */,
+				5C9733FA1F760CFE00D743B5 /* TCAppsContext.swift in Sources */,
+				5C9733FB1F760CFE00D743B5 /* TCCinemaContext.swift in Sources */,
+				5C9733FC1F760CFE00D743B5 /* TCVerticalButton.swift in Sources */,
+				5C9733FD1F760CFE00D743B5 /* KTVSettingView.swift in Sources */,
+				5C9733FE1F760CFE00D743B5 /* TCKTVContainerCell.swift in Sources */,
+				5C9733FF1F760CFE00D743B5 /* UIToolbar+FlatUI.m in Sources */,
+				5C9734001F760CFE00D743B5 /* UIHelper.m in Sources */,
+				5C9734011F760CFE00D743B5 /* TCKTVSongsViewController.swift in Sources */,
+				5C9734021F760CFE00D743B5 /* TCKTVSinger.swift in Sources */,
+				5C9734031F760CFE00D743B5 /* TCCinemaFiltViewManager.swift in Sources */,
+				5C9734041F760CFE00D743B5 /* UIView+MBProgressView.m in Sources */,
+				5C9734051F760CFE00D743B5 /* MCJSONClient.swift in Sources */,
+				5C9734061F760CFE00D743B5 /* UINavigationBar+FlatUI.m in Sources */,
+				5C9734071F760CFE00D743B5 /* TCPluginMainViewController.swift in Sources */,
+				5C9734081F760CFE00D743B5 /* FUISwitch.m in Sources */,
+				5C9734091F760CFE00D743B5 /* TCKTVSingerCell.swift in Sources */,
+				5C97340A1F760CFE00D743B5 /* TCKTVPayloadHandler.swift in Sources */,
+				5C97340B1F760CFE00D743B5 /* TCKTVCloud.swift in Sources */,
+				5C97340C1F760CFE00D743B5 /* TCSocketManager.swift in Sources */,
+				5C97340D1F760CFE00D743B5 /* UISlider+FlatUI.m in Sources */,
+				5C97340E1F760CFE00D743B5 /* UITableViewCell+FlatUI.m in Sources */,
+				5C97340F1F760CFE00D743B5 /* MBProgressHUD.m in Sources */,
+				5C9734101F760CFE00D743B5 /* TCCinemaViewController.swift in Sources */,
+				5C9734111F760CFE00D743B5 /* UIBarButtonItem+FlatUI.m in Sources */,
+				5C9734121F760CFE00D743B5 /* TCSoundControlViewController.swift in Sources */,
+				5C9734131F760CFE00D743B5 /* TCKTVMainButton.swift in Sources */,
+				5C9734141F760CFE00D743B5 /* TCKTVMainBoardViewController.swift in Sources */,
+				5C9734151F760CFE00D743B5 /* TCFullAppsViewController.swift in Sources */,
+				5C9734161F760CFE00D743B5 /* SwiftyJSON.swift in Sources */,
+				5C9734171F760CFE00D743B5 /* UISearchBarAppearance.m in Sources */,
+				5C9734181F760CFE00D743B5 /* CocoaLumberjackSwift.swift in Sources */,
+				5C9734191F760CFE00D743B5 /* TCACViewController.swift in Sources */,
+				5C97341A1F760CFE00D743B5 /* TCTVPanelView.swift in Sources */,
+				5C97341B1F760CFE00D743B5 /* AFNetworking+Cancel.swift in Sources */,
+				5C97341C1F760CFE00D743B5 /* TCSocketPayload.swift in Sources */,
+				5C97341D1F760CFE00D743B5 /* TCKTVSingerClient.swift in Sources */,
+				5C97341E1F760CFE00D743B5 /* TCCinemaPanel.swift in Sources */,
+				5C97341F1F760CFE00D743B5 /* TCCinemaSearchViewController.swift in Sources */,
+				5C9734201F760CFE00D743B5 /* TCMainButton.swift in Sources */,
+				5C9734211F760CFE00D743B5 /* TCCinemaClient.swift in Sources */,
+				5C9734221F760CFE00D743B5 /* FUISegmentedControl.m in Sources */,
+				5C9734231F760CFE00D743B5 /* TCKTVSongNameClient.swift in Sources */,
+				5C9734241F760CFE00D743B5 /* UIStepper+FlatUI.m in Sources */,
+				5C9734251F760CFE00D743B5 /* VersionDefine.swift in Sources */,
+				5C9734261F760CFE00D743B5 /* TIFFitToHeightLabel.swift in Sources */,
+				5C9734271F760CFE00D743B5 /* FUIAlertView.m in Sources */,
+				5C9734281F760CFE00D743B5 /* TCKTVSongNameViewController.swift in Sources */,
+				5C9734291F760CFE00D743B5 /* UIImage+FlatUI.m in Sources */,
+				5C97342A1F760CFE00D743B5 /* TCKTVDownload.swift in Sources */,
+				5C97342B1F760CFE00D743B5 /* TCKTVPoint.swift in Sources */,
+				5C97342C1F760CFE00D743B5 /* TCKTVMainViewController.swift in Sources */,
+				5C97342D1F760CFE00D743B5 /* TCKTVSong.swift in Sources */,
+				5C97342E1F760CFE00D743B5 /* TCKTVCategoryViewController.swift in Sources */,
+				5C97342F1F760CFE00D743B5 /* KTVProjectorView.swift in Sources */,
+				5C9734301F760CFE00D743B5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CE93E1D1D0E838400A536AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1050,6 +1348,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C9734521F760CFE00D743B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZH9V59FT7J;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
+				INFOPLIST_FILE = "tc copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.ktv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C9734531F760CFE00D743B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZH9V59FT7J;
+				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
+				INFOPLIST_FILE = "tc copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.ktv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "tc/tc-bridging-header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5CE93E311D0E838400A536AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1143,14 +1487,15 @@
 			baseConfigurationReference = EBD29EA47B99A22DF2E08408 /* Pods-tc.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6M3WA93J27;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Dv800s";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.yingk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1166,14 +1511,15 @@
 			baseConfigurationReference = 54EF98188CE16DE3A76D1AD8 /* Pods-tc.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaungchImages;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon1;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage1;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6M3WA93J27;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 				INFOPLIST_FILE = "$(SRCROOT)/tc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Dv800s";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.yingk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1187,6 +1533,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tc copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C9734521F760CFE00D743B5 /* Debug */,
+				5C9734531F760CFE00D743B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CE93E1C1D0E838400A536AC /* Build configuration list for PBXProject "tc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
