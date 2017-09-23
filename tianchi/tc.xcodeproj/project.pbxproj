@@ -244,7 +244,7 @@
 		5C88DC3A1D76D3EB00E4803A /* TCSoundControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCSoundControlViewController.swift; sourceTree = "<group>"; };
 		5C88DC3C1D76EB5C00E4803A /* TIFFitToHeightLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TIFFitToHeightLabel.swift; sourceTree = "<group>"; };
 		5C9734541F760CFE00D743B5 /* tc copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tc copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9734551F760CFF00D743B5 /* tc copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tc copy-Info.plist"; path = "/Users/Sasori/Developer/iOS/tianchi/tianchi/tc copy-Info.plist"; sourceTree = "<absolute>"; };
+		5C9734551F760CFF00D743B5 /* tcktv-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tcktv-Info.plist"; path = "/Users/Sasori/Developer/iOS/tianchi/tianchi/tcktv-Info.plist"; sourceTree = "<absolute>"; };
 		5CA77E2E1D7D3AA60013F0C3 /* Cinema.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cinema.storyboard; sourceTree = "<group>"; };
 		5CA77E331D7D41490013F0C3 /* TCCinemaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCCinemaViewController.swift; sourceTree = "<group>"; };
 		5CA77E381D7D54850013F0C3 /* Cinema.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cinema.xcassets; sourceTree = "<group>"; };
@@ -721,7 +721,7 @@
 				5CE93E221D0E838400A536AC /* Products */,
 				BA0266BBDD9824C5C6079C6A /* Frameworks */,
 				F9AA9AD25D12FB9D1C0D05BD /* Pods */,
-				5C9734551F760CFF00D743B5 /* tc copy-Info.plist */,
+				5C9734551F760CFF00D743B5 /* tcktv-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -919,9 +919,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C9733E41F760CFE00D743B5 /* tc copy */ = {
+		5C9733E41F760CFE00D743B5 /* tcktv */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tc copy" */;
+			buildConfigurationList = 5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tcktv" */;
 			buildPhases = (
 				5C9733E51F760CFE00D743B5 /* [CP] Check Pods Manifest.lock */,
 				5C9733E61F760CFE00D743B5 /* Sources */,
@@ -934,7 +934,7 @@
 			);
 			dependencies = (
 			);
-			name = "tc copy";
+			name = tcktv;
 			productName = abc;
 			productReference = 5C9734541F760CFE00D743B5 /* tc copy.app */;
 			productType = "com.apple.product-type.application";
@@ -994,7 +994,7 @@
 			projectRoot = "";
 			targets = (
 				5CE93E201D0E838400A536AC /* tc */,
-				5C9733E41F760CFE00D743B5 /* tc copy */,
+				5C9733E41F760CFE00D743B5 /* tcktv */,
 			);
 		};
 /* End PBXProject section */
@@ -1358,7 +1358,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZH9V59FT7J;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
-				INFOPLIST_FILE = "tc copy-Info.plist";
+				INFOPLIST_FILE = "tcktv-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.ktv;
@@ -1381,7 +1381,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZH9V59FT7J;
 				HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
-				INFOPLIST_FILE = "tc copy-Info.plist";
+				INFOPLIST_FILE = "tcktv-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tianchi.ktv;
@@ -1533,7 +1533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tc copy" */ = {
+		5C9734511F760CFE00D743B5 /* Build configuration list for PBXNativeTarget "tcktv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C9734521F760CFE00D743B5 /* Debug */,
